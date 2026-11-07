@@ -190,7 +190,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | A longer song = an arrangement of several loops plus drum/synth sequences, its total length a whole multiple of the first loop | ✅ |
 | A song can also be as simple as one loop and nothing else | ✅ |
 | **Loops** snap to a whole multiple of the first loop's length, so everything stays in sync | ✅ |
-| **Samples** are free: triggered with or without quantization ❓ (default to confirm) | ✅ |
+| **Samples** are free recordings, triggered with or without quantization. **Default: FREE**; quantize options in SONG page options. | ✅ |
 | **Bars per loop** and **beats per bar** are SONG page options, allowing custom time signatures (default 4 bars × 4 beats = 16) | ✅ |
 | 💡 The arrangement (which loop plays when) is recorded like any sequence: Sequence mode on the SONG page, playing the TRIG pads in time | 💡 ❓ |
 | 💡 A song saves everything: loops, sequences, arrangement, TRIG assignments, page options and effect settings | 💡 ❓ |
