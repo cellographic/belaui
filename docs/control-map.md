@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.21 changes:** I/O and MIDI out merged into a **SYSTEM** page (rig-wide, never saved per song, saved with hand OK/CANCEL). Pedal saves are for live song management. Song scale set on the SONG page; HARPEGGIO uses named intervals, or half steps −12…+12 when the scale is Chromatic. Arpeggio spacing synced to tempo by default (approved).
+
 **v0.20 changes:** Page 4 is now **HARPEGGIO** — harmonizer + arpeggiator: root plus up to 3 harmony notes (±1 octave), delay-based; separating the notes in time makes arpeggios.
 
 **v0.19.1:** Loop tricks are tap on / tap off.
@@ -251,7 +253,10 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 
 **v0.2 note:** in the tables below, the five settings listed under P1–P5 are now read as the **slider's target list** for that page — the first one is the default, the rest are alternates. What the P1–P5 *pads* do on each page (notes, presets, etc.) is still to be assigned page by page.
 
-### Page 1 — I/O LEVELS ✅
+### Page 1 — SYSTEM (I/O + MIDI; rig-wide, never saved per song) ✅
+SYSTEM settings are set-and-forget, saved with the hand OK/CANCEL pads (not the pedal). Holds I/O levels and MIDI out. 💡 Also a home for tuner, pedal setup, Resolume connection, screen brightness, new-song defaults. ❓ Should MIDI channel choices be saved per song instead?
+
+I/O draft:
 | Control | Does |
 |---|---|
 | P1 | Cello (piezo) input gain |
@@ -293,8 +298,9 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | Plays the **root note** (the cello) plus **up to 3 settable harmony notes**, each from **1 octave below to 1 octave above** | ✅ |
 | Sound comes from delay-speed adjustments (delay-based pitch shifting) | ✅ |
 | When the harmony notes are **separated in time**, the harmony becomes an **arpeggio** | ✅ |
-| 💡 Time separation follows the song tempo by default (e.g. 1/8 or 1/16 steps); free timing as an option | 💡 |
-| ❓ Are harmony notes set in semitones (chromatic) or in scale steps? | ❓ |
+| Time separation follows the song tempo by default (e.g. 1/8 or 1/16 steps); free timing as an option | ✅ |
+| The **song's scale** is set on the SONG page. With a named scale, harmony notes use **named intervals** (e.g. "+maj3"). With **Chromatic**, they use **half steps from −12 to +12** (0 = unison, e.g. "+4"). | ✅ |
+| ❓ Named intervals: fixed sizes (+maj3 always = +4 half steps), or scale-aware harmony that changes interval size with the note you play (needs pitch detection) — see chat | ❓ |
 | 💡 Note (my expectation, not tested): delay-based shifting gets more "warbly" toward ±1 octave; worth hearing early in the simulator stage | 💡 |
 
 Previous per-pad draft (to be redone in the P1–P8 pass): voice intervals, mix, spread, reverb send, on/off, voice on/off, scale snap.
@@ -379,8 +385,8 @@ The pedal does record / navigate / retrieve / store / create everywhere ✅. Thi
 | P1–P5 | Five mapped Resolume parameters (opacity, effect amounts) ❓ which ones? |
 ❓ How does Bela talk to Resolume: MIDI or OSC over the network? (Bela Mini has no built-in Wi-Fi.)
 
-### Page 12 — MIDI OUT (low priority) ✅
-Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends a CC, P6–P8 send notes. Defined later.
+### ~~Page 12 — MIDI OUT~~ → merged into SYSTEM (v0.21)
+Channels 1–10 for flexibility ✅. Details defined later.
 
 ---
 
