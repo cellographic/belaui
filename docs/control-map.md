@@ -73,7 +73,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | Assignable targets | 💡 TRIG1/TRIG2 from any assignable page, plus that page's own pads | 💡 ❓ |
 | Restore kick/snare to TRIG1/TRIG2 | 💡 a "reset triggers" option on the drum page | 💡 |
 | FM sequence record-arm | ❓ separate from Assign mode — which pad, and tap or hold? | ❓ |
-| OK / CANCEL | Confirm or cancel anything that destroys or overwrites (store, clear) | 💡 |
+| OK / CANCEL | Confirm or cancel anything that destroys or overwrites (store, clear) | ✅ |
 | PEDAL | Loop controls — record, navigate, retrieve, store, create — on every page | ✅ |
 | (rule) | Pad assignments are unique per page; manual triggering only on the current page | ✅ |
 | (rule) | Settings and running sequences (sample sequences, drum patterns) keep going when you change pages | ✅ |
