@@ -41,7 +41,7 @@
 | TRIG2 | Large pad, like TRIG1 — persistent trigger 2 (was SNARE) | Upper-right, above the slider | ✅ |
 | OLED | 0.96" 128×64 blue/yellow screen | Upper-right, back half of the rib | ✅ |
 | OK / CANCEL | Confirm / cancel pads | Behind the OLED | ✅ |
-| SENC | Second pressable encoder — slider target | Below T5, next to the Flex slider | ✅ |
+| SENC | Second pressable encoder — slider target | Below TRIG4, next to the Flex slider | ✅ |
 | PEDAL | External foot pedal | Floor | ✅ |
 
 Total capacitive pads: 14 (P1–P5, T1–T3, TRIG1–TRIG4, OK, CANCEL), all on one Trill Craft (30 channels available). Slider is the Trill Flex.
@@ -265,13 +265,13 @@ The pedal does record / navigate / retrieve / store / create everywhere ✅. Thi
 ❓ How does Bela talk to Resolume: MIDI or OSC over the network? (Bela Mini has no built-in Wi-Fi.)
 
 ### Page 12 — MIDI OUT (low priority) ✅
-Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends a CC, T1–T5 send notes. Defined later.
+Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends a CC, T1–T3 send notes. Defined later.
 
 ---
 
 ## 4. Open questions — summary
 
-0. ~~Slider target switching~~ — decided: second encoder (B), below T5 beside the slider.
+0. ~~Slider target switching~~ — decided: second encoder (B), below TRIG4 beside the slider.
 0b. P1–P5 pad roles, page by page (notes / presets / other).
 1. ~~Slider mode~~ — decided: relative, no jumps. Long-press SENC = back to default target.
 2. Page 1: EQ yes/no? Tuner wanted?
