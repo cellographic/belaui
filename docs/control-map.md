@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.13 changes:** Pedal reworked around songs: B1 hold behaviour depends on whether you're starting or ending a take; B3/B4 tap navigate songs, hold B3 = store, hold B4 = delete; B2 hold clears the loop without saving. Song switch timing default = end of loop, with end-of-bar / immediate as a page option. Page 10 renamed Song/Loop/Record.
+
 **v0.12 changes:** Unsaved-changes marker approved. Foot pedal = Hotone Ampero Control (4 switches): B1 record/overdub (hold = erase last layer), B2 stop (hold = erase), B3/B4 = song previous/next (cue), B1 accepts the cued song. Songs can be cued from any page.
 
 **v0.11 changes:** SENC stops at both ends; the far right also lands on PAGE OPTIONS for now (reserved for a future universal endpoint). 8 toggle slots and OK = Store approved. CANCEL keeps changes live until the song changes, but they are not saved.
@@ -125,22 +127,37 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 - Sampler: global recorder pre/post default ✅ feature
 - Momentary performance actions (delay hold, freeze capture) stay on T1–T3, not in options
 
-### Foot pedal — Hotone Ampero Control (v0.12)
+### Foot pedal — Hotone Ampero Control (v0.13)
+**Paradigm:** the **song** is the stored unit. A song holds its loop recordings, loop length, drum/synth sequences and page options (💡 and TRIG assignments + effect settings ❓). The pedal covers navigate, retrieve, store, create and delete for songs, plus record control, from any page.
+
 | Switch | Tap | Hold | Source |
 |---|---|---|---|
-| B1 | Record / overdub | Erase the previous recorded layer | ✅ |
-| B2 | Stop | Erase | ✅ (❓ erase the whole loop?) |
-| B3 | Song: previous (cue) | — | ✅ |
-| B4 | Song: next (cue) | — | ✅ |
-| B1 while a song is cued | Accept → load the cued song | — | ✅ |
+| B1 | Record / overdub (starts **on press**) | Depends on when you hold — see below | ✅ |
+| B2 | Stop | Clear all recordings in the current loop. Keeps loop length, sequences, page options. **Not saved** — reloading the song restores them unless you store. | ✅ |
+| B3 | Song: previous → enters song-selection mode | **Store** the song | ✅ |
+| B4 | Song: next → enters song-selection mode | **Delete** the selected song from storage | ✅ |
+| B1 in song-selection mode | Accept → load the cued song | — | ✅ |
+| B2 in song-selection mode | Cancel the cue | — | ✅ |
 
-**💡 Timing:** B1 starts recording **on press** (no delay). If the press turns into a hold, that just-started take is discarded and the previous layer is erased. B2 stops on press; holding escalates to erase.
-**💡 Cueing:** the cued song name shows in the OLED's yellow band until accepted. B2 while cued = cancel the cue.
-**💡 Pedal setup:** switches set to *momentary* mode so the pedal sends both press and release; Bela times the hold itself.
-**💡 Spare inputs:** the Ampero Control has 2 TRS jacks for extra footswitches or an expression pedal — room to grow.
-❓ Loop navigate / retrieve / store / create (decided earlier for the pedal) are not on the 4 switches — move them to the Rec/Loop page, or add footswitches?
-❓ Loading a song while loops are playing: switch on the next bar, or stop everything?
-❓ Connection: USB cable, or Bluetooth via an adapter (Bela Mini has no built-in Bluetooth)?
+**B1 hold — two behaviours, decided by state:**
+| You hold B1 when… | Result | Source |
+|---|---|---|
+| Starting a take (not currently recording) | Nothing new is recorded, and the previous layer is erased (step back). If this was the first recording, loop recording is cancelled. Repeat to step back further. | ✅ |
+| Ending a take (currently recording) | The take you just made is erased; earlier layers stay | ✅ |
+
+**Song switching:** default = at the end of the loop ✅. Alternatives "end of bar" and "immediate" are a Page Option on the Song/Loop/Record page ✅. 💡 If nothing is playing, the song loads immediately.
+
+**💡 Proposals:**
+- **Confirm destructive pedal holds.** Store-over-existing (hold B3) and delete (hold B4) show "Store over SONG 4?" / "Delete SONG 4?" on the OLED; **B1 = confirm, B2 = cancel** (the pedal's OK/CANCEL, matching the rule that destructive actions are confirmed).
+- **Create = store into an empty slot.** Navigate past the last song to "NEW", hold B3 → creates a new song from the current state.
+- **What hold B3 stores:** the current state into the *selected* slot. If you've cued a different song first, that's a "save as" — the confirm prompt names the target so you can't overwrite by accident.
+- **Step-back depth:** keep every layer separately so B1 can step back through all of them. 💡 Memory estimate (not measured): ~11.5 MB per 30 s stereo layer, so roughly 20+ layers fits comfortably in the Bela Mini's RAM.
+- **Saving audio during a show:** writing recordings to the SD card happens in the background so audio never glitches; the OLED shows "saving…" until done.
+- **Pedal setup:** switches in *momentary* mode (sends press + release); Bela times holds itself.
+- **Connection:** USB to start (most reliable); Bluetooth adapter optional later.
+
+❓ One loop per song, or can a song hold several loops?
+❓ Do TRIG assignments and effect settings belong to the song too?
 
 ### Displaced by T4/T5 → TRIG3/TRIG4 (v0.9) — need new homes or can be dropped
 - **Recorder pre/post** on Delay, Reverb, Harmonizer, Freeze, Filter (✅ feature) — ✅ now a Page Options toggle
@@ -287,7 +304,7 @@ Sequenced in sync with loops ✅.
 | P5 | Audio reactivity (how much the cello drives the light) |
 Stage DMX: later ✅, not in this version.
 
-### Page 10 — RECORDER / LOOPER / SAMPLER ✅
+### Page 10 — SONG / LOOP / RECORD (was Recorder/Looper/Sampler) ✅
 The pedal does record / navigate / retrieve / store / create everywhere ✅. This page holds the settings ✅ and loop tricks ✅.
 | Control | Does |
 |---|---|
@@ -327,5 +344,5 @@ Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends
 5. FM synth: bass, pad, or lead?
 6. **Samples: which pads play them, and on which page?**
 7. Resolume: MIDI or OSC? Which 5 parameters?
-8. ~~Foot pedal model~~ — Hotone Ampero Control. Still open: USB vs Bluetooth; loop navigate/retrieve/store/create; song-load timing.
+8. ~~Foot pedal~~ — mapped (v0.13). Still open: one loop or several per song; what else a song stores; confirm prompts for store/delete.
 9. Is 12 pages the right number, or should some pages merge?
