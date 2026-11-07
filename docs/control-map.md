@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.17 changes:** Standing rule: parts stay separate (loops vs sequences). Arrangement is built by playing TRIG pads in time. TRIG banks selected from the SONG page, bank number on the OLED. Pedal confirmations for store/delete approved.
+
 **v0.16 changes:** Overdubs vs secondary loops defined. Secondary loops snap to LOOP by default, BAR as an option (shorter sections like a chorus or bridge). Saving: hold B3 saves everything; OK in Page Options saves just that page.
 
 **v0.15 changes:** New design rules: (1) any "default" implies other options, normally in that function's Page Options; (2) **blinking = unconfirmed, solid = confirmed** everywhere. Song timing options are bars-per-loop and beats-per-bar (custom time signatures). Page 10 renamed **SONG**. Expression assignment flow defined. Loops snap to the first loop's length; samples trigger freely, quantization optional.
@@ -173,7 +175,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 **Song switching:** default = at the end of the loop ✅. Alternatives "end of bar" and "immediate" are a Page Option on the SONG page ✅. 💡 If nothing is playing, the song loads immediately.
 
 **💡 Proposals:**
-- **Confirm destructive pedal holds.** Store-over-existing (hold B3) and delete (hold B4) show "Store over SONG 4?" / "Delete SONG 4?" on the OLED; **B1 = confirm, B2 = cancel** (the pedal's OK/CANCEL, matching the rule that destructive actions are confirmed).
+- ✅ **Confirm destructive pedal holds.** Store-over-existing (hold B3) and delete (hold B4) show "Store over SONG 4?" / "Delete SONG 4?" on the OLED; **B1 = confirm, B2 = cancel**.
 - ~~Create = store into an empty slot~~ — replaced by double-tap B3 ✅. Where the new song goes (next free slot vs right after the current song) is a SONG page option ✅.
 - **Double-tap timing:** 💡 a single B3 tap waits ~0.3 s to make sure it isn't a double-tap before moving the cue. Navigation isn't timing-critical, so the small delay should be fine.
 - **What hold B3 stores:** the current state into the *selected* slot. If you've cued a different song first, that's a "save as" — the confirm prompt names the target so you can't overwrite by accident.
@@ -194,9 +196,12 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | **Secondary loop length** snaps to the **LOOP** (one or more full lengths of the first loop) by default. SONG page option: **BAR**, which snaps to whole bars, so a chorus or bridge can be shorter than the verse. Either way everything stays on the same beat grid. | ✅ |
 | **Samples** are free recordings, triggered with or without quantization. **Default: FREE**; quantize options in SONG page options. | ✅ |
 | **Bars per loop** and **beats per bar** are SONG page options, allowing custom time signatures (default 4 bars × 4 beats = 16) | ✅ |
-| 💡 The arrangement (which loop plays when) is recorded like any sequence: Sequence mode on the SONG page, playing the TRIG pads in time | 💡 ❓ |
+| The **arrangement** is built by playing: loops are assigned to TRIG pads, then you play the pads in time and that sequence is recorded as the song's structure | ✅ |
 | 💡 A song saves everything: loops, sequences, arrangement, TRIG assignments, page options and effect settings | 💡 ❓ |
-| ❓ With 4 TRIG pads, a song can have at most 4 loops/sequences ready at once (unless they share pads with drums). Enough? | ❓ |
+| **TRIG banks.** On the SONG page, pads select which bank TRIG1–TRIG4 play from. The current bank number shows on the OLED (💡 in the yellow status band, e.g. "BK3"). | ✅ |
+| ❓ 5 banks (P1–P5) or 8 banks (P1–P5 + T1–T3)? 8 banks would displace the SONG page loop tricks on T1–T3 (reverse, half speed, stutter). | ❓ |
+| 💡 Switching banks changes what the pads trigger **next**; anything already playing keeps playing until stopped | 💡 |
+| 💡 Bank 1 holds the drum defaults (kick, snare, hat, open hat); other banks start empty | 💡 |
 
 
 ### Displaced by T4/T5 → TRIG3/TRIG4 (v0.9) — need new homes or can be dropped
