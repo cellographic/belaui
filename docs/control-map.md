@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.19.1:** Loop tricks are tap on / tap off.
+
 **v0.19 changes:** P1–P8 on the SONG page choose the active TRIG bank. Bank 1 defaults to drums; bank 8 defaults to loop tricks on TRIG1–TRIG3 (TRIG4 reserved for another loop effect). Bank-select conflict resolved.
 
 **v0.18 changes:** Thumb pads T1–T3 renamed **P6–P8** (they work like P1–P5, so pads are now P1–P8). 8 TRIG banks = 32 trigger slots. SONG page P6–P8 default to loop tricks. Three ways to play any pad defined: live, recorded into the loop audio, or recorded as a sequence.
@@ -206,7 +208,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | 💡 A song saves everything: loops, sequences, arrangement, TRIG assignments, page options and effect settings | 💡 ❓ |
 | **TRIG banks.** On the SONG page, **P1–P8 choose the active bank** (1–8). The current bank number shows on the OLED (💡 in the yellow status band, e.g. "BK3"). | ✅ |
 | **8 banks × 4 TRIG pads = 32 trigger slots** | ✅ |
-| **Bank 8 defaults to loop tricks:** TRIG1 = reverse, TRIG2 = half speed, TRIG3 = stutter; TRIG4 reserved for another loop effect. They can be overwritten if the slots are needed. As triggers they work from any page and can be recorded as sequences. | ✅ |
+| **Bank 8 defaults to loop tricks:** TRIG1 = reverse, TRIG2 = half speed, TRIG3 = stutter; TRIG4 reserved for another loop effect. Each trick is **tap on / tap off**. They can be overwritten if the slots are needed. As triggers they work from any page and can be recorded as sequences. | ✅ |
 | 💡 Switching banks changes what the pads trigger **next**; anything already playing keeps playing until stopped | 💡 |
 | **Bank 1 defaults to drums** (kick, snare, hat, open hat). 💡 Banks 2–7 start empty. | ✅ |
 
