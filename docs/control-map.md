@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.6 changes:** Hold-to-arm is the general pattern. Holding an assigned pad clears it and arms it to receive a new assignment. The OLED shows an armed marker (• or *). Taps fire on release so a hold never triggers — ❓ except possibly playable pads (see "Tap timing").
+
 **v0.5 changes:** KICK and SNARE are renamed **TRIG1 / TRIG2 (persistent triggers)**. They play kick and snare on every page by default, and can be reassigned to a sample or a synth note that also plays on every page. All earlier page-specific KICK/SNARE ideas are removed (parked list in section 2).
 
 **v0.4.1:** Long-press SENC returns the slider to the page's default target.
@@ -59,11 +61,24 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | T1–T5 | Page-specific switches and actions (on/off, tap, latch, trigger) | 💡 |
 | TRIG1 / TRIG2 | **Persistent triggers** — work on every page. Default: TRIG1 = kick, TRIG2 = snare (drum synth). Can be reassigned to a sample or a synth note, and that assignment also works on every page. | ✅ |
 | (rule) | TRIG1/TRIG2 are the deliberate exception to "manual triggering only on the current page" | ✅ |
-| Reassigning a trigger | 💡 On the sampler or FM page: hold TRIG1 or TRIG2, play/choose the sample or note, press OK to assign. Long-press OK on the drum page (or a "reset triggers" option) restores kick/snare. ❓ | 💡 |
+| Hold-to-arm (general pattern) | Press and hold an assignable pad: its current assignment is cleared and it is **armed**, ready to receive. Then choose the sample / play the note and press OK to assign. | ✅ |
+| Armed marker | The OLED shows a dot or asterisk while any pad is armed (💡 in the yellow status band, with the pad's name) | ✅ |
+| Restore kick/snare to TRIG1/TRIG2 | 💡 a "reset triggers" option on the drum page | 💡 |
+| FM sequence record | 💡 also hold-to-arm (interpreting "hold to arm is the tendency") ❓ which pad? | 💡 |
 | OK / CANCEL | Confirm or cancel anything that destroys or overwrites (store, clear) | 💡 |
 | PEDAL | Loop controls — record, navigate, retrieve, store, create — on every page | ✅ |
 | (rule) | Pad assignments are unique per page; manual triggering only on the current page | ✅ |
 | (rule) | Settings and running sequences (sample sequences, drum patterns) keep going when you change pages | ✅ |
+
+### ❓ Tap timing — fire on press or on release
+Decided: taps fire on **release**, so a press-and-hold never triggers by accident.
+⚠️ Trade-off: on *playable* pads (TRIG1/TRIG2, drum pads, note pads) a release-trigger delays every hit by however long your finger is down (often around 0.1 s; estimate, not measured). That will feel late for drums.
+
+| | A: Release on every pad | B: Press for playable pads, release for function pads |
+|---|---|---|
+| Accidental triggers when holding | Never | Never on function pads; on playable pads the first hit sounds, then the hold arms |
+| Feel for drums/notes | Late, by the length of the tap | Immediate |
+| Consistency | One rule everywhere | Two rules, split by pad type |
 
 ### Parked ideas (removed from KICK/SNARE in v0.5 — could move to T pads if wanted)
 Delay dub throw · delay clear · reverb throw · kill reverb tail · momentary freeze · release freeze · one-shot filter sweep · FM sequence record arm / clear (❓ needs a new home) · lighting flash / blackout · Resolume next column / flash.
@@ -251,7 +266,8 @@ Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends
 1. ~~Slider mode~~ — decided: relative, no jumps. Long-press SENC = back to default target.
 2. Page 1: EQ yes/no? Tuner wanted?
 3. Harmonizer: which scales for interval snapping?
-3b. How do you reassign TRIG1/TRIG2 (proposal: hold trigger + choose + OK)? Where do FM sequence record/clear go now?
+3b. ~~Reassigning~~ — decided: hold-to-arm + OK. Still open: which pad arms FM sequence recording?
+3c. Tap timing on playable pads: release (A) or press (B)?
 4. Drums: how many pattern slots?
 5. FM synth: bass, pad, or lead?
 6. **Samples: which pads play them, and on which page?**
