@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.20 changes:** Page 4 is now **HARPEGGIO** — harmonizer + arpeggiator: root plus up to 3 harmony notes (±1 octave), delay-based; separating the notes in time makes arpeggios.
+
 **v0.19.1:** Loop tricks are tap on / tap off.
 
 **v0.19 changes:** P1–P8 on the SONG page choose the active TRIG bank. Bank 1 defaults to drums; bank 8 defaults to loop tricks on TRIG1–TRIG3 (TRIG4 reserved for another loop effect). Bank-select conflict resolved.
@@ -285,17 +287,17 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | P7 | Ducking (reverb dips while you play) on/off |
 | P8 | Hold tail (very long decay while held) |
 
-### Page 4 — HARMONIZER (delay-based) ✅
-| Control | Does |
+### Page 4 — HARPEGGIO (harmonizer + arpeggiator, delay-based) ✅
+| Rule | Source |
 |---|---|
-| P1 | Voice 1 interval |
-| P2 | Voice 2 interval |
-| P3 | Mix |
-| P4 | Detune / stereo spread |
-| P5 | Send to shared reverb |
-| P6 | Harmonizer on/off |
-| P7 | Voice 2 on/off |
-| P8 | Snap intervals to a scale on/off ❓ which scales? |
+| Plays the **root note** (the cello) plus **up to 3 settable harmony notes**, each from **1 octave below to 1 octave above** | ✅ |
+| Sound comes from delay-speed adjustments (delay-based pitch shifting) | ✅ |
+| When the harmony notes are **separated in time**, the harmony becomes an **arpeggio** | ✅ |
+| 💡 Time separation follows the song tempo by default (e.g. 1/8 or 1/16 steps); free timing as an option | 💡 |
+| ❓ Are harmony notes set in semitones (chromatic) or in scale steps? | ❓ |
+| 💡 Note (my expectation, not tested): delay-based shifting gets more "warbly" toward ±1 octave; worth hearing early in the simulator stage | 💡 |
+
+Previous per-pad draft (to be redone in the P1–P8 pass): voice intervals, mix, spread, reverb send, on/off, voice on/off, scale snap.
 
 ### Page 5 — FREEZE (grain-based) ✅
 | Control | Does |
