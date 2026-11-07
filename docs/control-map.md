@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.4.1:** Long-press SENC returns the slider to the page's default target.
+
 **v0.4 changes:** T4 moves up next to SNARE, T5 directly under T4, SENC below that beside the Flex slider. SENC works like the page encoder: turn previews, press locks in. Slider is relative — no jumps.
 
 **v0.3 changes:** Option B chosen — a second pressable encoder (SENC) switches the slider's target, and the OLED shows the selection as you turn.
@@ -50,7 +52,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | SENC turn | Preview the slider's next/previous target for this page. The OLED shows the target name and current value, so you can confirm visually if notch counting fails. The slider keeps controlling the old target until you press. | ✅ |
 | SENC press | Lock in the previewed target | ✅ |
 | CANCEL during SENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
-| Back to default target | 💡 The default is always first in the list, so turning all the way back reaches it. ❓ Want a faster shortcut (e.g. long-press SENC)? | 💡 |
+| SENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
 | T1–T5 | Page-specific switches and actions (on/off, tap, latch, trigger) | 💡 |
 | KICK / SNARE | Page-specific big "performance" hits (momentary throws, triggers) | 💡 |
@@ -256,7 +258,7 @@ Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends
 
 0. ~~Slider target switching~~ — decided: second encoder (B), below T5 beside the slider.
 0b. P1–P5 pad roles, page by page (notes / presets / other).
-1. ~~Slider mode~~ — decided: relative, no jumps. New: shortcut back to the default slider target (long-press SENC?)
+1. ~~Slider mode~~ — decided: relative, no jumps. Long-press SENC = back to default target.
 2. Page 1: EQ yes/no? Tuner wanted?
 3. Harmonizer: which scales for interval snapping? KICK/SNARE ideas?
 4. Drums: how many pattern slots?
