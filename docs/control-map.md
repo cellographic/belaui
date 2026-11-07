@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.23 changes:** Page order set: 1 SONG · 2 DRUM · 3 FM · 4 DELAY · 5 REVERB · 6 HARPEGGIO · 7 FREEZE · 8 FILTER · 9 LIGHTING · 10 RESOLUME · 11 MIDI · 12 SYSTEM. MIDI device/port setup confirmed in SYSTEM. Freeze/Filter merge under discussion.
+
 **v0.22 changes:** Foot buttons renamed **FS1–FS4**. A separate song-specific **MIDI** page returns (page 12) for controlling external devices; SYSTEM keeps rig-wide settings.
 
 **v0.21 changes:** I/O and MIDI out merged into a **SYSTEM** page (rig-wide, never saved per song, saved with hand OK/CANCEL). Pedal saves are for live song management. Song scale set on the SONG page; HARPEGGIO uses named intervals, or half steps −12…+12 when the scale is Chromatic. Arpeggio spacing synced to tempo by default (approved).
@@ -255,83 +257,19 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 
 **v0.2 note:** in the tables below, the five settings listed under P1–P5 are now read as the **slider's target list** for that page — the first one is the default, the rest are alternates. What the P1–P5 *pads* do on each page (notes, presets, etc.) is still to be assigned page by page.
 
-### Page 1 — SYSTEM (I/O + MIDI; rig-wide, never saved per song) ✅
-SYSTEM settings are set-and-forget, saved with the hand OK/CANCEL pads (not the pedal). Holds I/O levels and all rig-wide settings (💡 incl. MIDI device/port setup). 💡 Also a home for tuner, pedal setup, Resolume connection, screen brightness, new-song defaults. Song-specific MIDI lives on the MIDI page (page 12).
-
-I/O draft:
+### Page 1 — SONG (loops, recording, samples; was Recorder/Looper/Sampler) ✅
+The pedal does record / navigate / retrieve / store / create everywhere ✅. This page holds the settings ✅ and loop tricks ✅.
 | Control | Does |
 |---|---|
-| P1 | Cello (piezo) input gain |
-| P2 | Voice / second input gain ✅ second input exists |
-| P3 | Main output level |
-| P4 | EQ low ❓ (EQ was "maybe") |
-| P5 | EQ high ❓ |
-| P6 | Mute cello input |
-| P7 | Mute voice input |
-| P8 | EQ on/off ❓ |
+| P1 | Loop level |
+| P2 | Overdub decay (how fast old layers fade) |
+| P3 | Playback speed |
+| P4 | Sample start / trim |
+| P5 | Crossfade time |
+| P1–P8 | Choose the active TRIG bank 1–8 (loop tricks moved to bank 8's TRIG pads) |
+❓ **Big one:** which pads play back samples, and on which page? Your rule says manual triggering happens only on the current page. Should this page turn its pads into sample pads, or should samples live on their own page?
 
-### Page 2 — DELAY ✅
-| Control | Does |
-|---|---|
-| P1 | Time |
-| P2 | Feedback |
-| P3 | Mix |
-| P4 | Tone (darkens repeats) |
-| P5 | Send to shared reverb ✅ everything routes through one reverb |
-| P6 | Delay on/off |
-| P7 | Tap time |
-| P8 | Sync time to the loop clock on/off |
-
-### Page 3 — REVERB (shared) ✅
-| Control | Does |
-|---|---|
-| P1 | Size / decay |
-| P2 | Damping (brightness) |
-| P3 | Return level |
-| P4 | Pre-delay |
-| P5 | Direct cello send into reverb |
-| P6 | Reverb on/off |
-| P7 | Ducking (reverb dips while you play) on/off |
-| P8 | Hold tail (very long decay while held) |
-
-### Page 4 — HARPEGGIO (harmonizer + arpeggiator, delay-based) ✅
-| Rule | Source |
-|---|---|
-| Plays the **root note** (the cello) plus **up to 3 settable harmony notes**, each from **1 octave below to 1 octave above** | ✅ |
-| Sound comes from delay-speed adjustments (delay-based pitch shifting) | ✅ |
-| When the harmony notes are **separated in time**, the harmony becomes an **arpeggio** | ✅ |
-| Time separation follows the song tempo by default (e.g. 1/8 or 1/16 steps); free timing as an option | ✅ |
-| The **song's scale** is set on the SONG page. With a named scale, harmony notes use **named intervals** (e.g. "+maj3"). With **Chromatic**, they use **half steps from −12 to +12** (0 = unison, e.g. "+4"). | ✅ |
-| ❓ Named intervals: fixed sizes (+maj3 always = +4 half steps), or scale-aware harmony that changes interval size with the note you play (needs pitch detection) — see chat | ❓ |
-| 💡 Note (my expectation, not tested): delay-based shifting gets more "warbly" toward ±1 octave; worth hearing early in the simulator stage | 💡 |
-
-Previous per-pad draft (to be redone in the P1–P8 pass): voice intervals, mix, spread, reverb send, on/off, voice on/off, scale snap.
-
-### Page 5 — FREEZE (grain-based) ✅
-| Control | Does |
-|---|---|
-| P1 | Grain size |
-| P2 | Density |
-| P3 | Spread (position jitter) |
-| P4 | Pitch |
-| P5 | Freeze level |
-| P6 | Capture freeze (latch) |
-| P7 | Add a layer on top of the current freeze |
-| P8 | Clear freeze (asks OK/CANCEL) |
-
-### Page 6 — FILTER ✅
-| Control | Does |
-|---|---|
-| P1 | Cutoff |
-| P2 | Resonance |
-| P3 | Envelope follower amount ✅ |
-| P4 | Envelope follower speed (attack/release) |
-| P5 | Sweep rate ✅ filter sweep |
-| P6 | Filter on/off |
-| P7 | Filter type: low-pass → band-pass → high-pass (cycles) |
-| P8 | Envelope follower on/off ✅ |
-
-### Page 7 — DRUM SYNTH ✅
+### Page 2 — DRUM SYNTH ✅
 Patterns are tapped in on pads ✅ and keep running on other pages ✅, synced to loops ✅.
 | Control | Does |
 |---|---|
@@ -345,7 +283,7 @@ Patterns are tapped in on pads ✅ and keep running on other pages ✅, synced t
 | P5 | Drum level |
 | OK | Store pattern to a slot ❓ how many slots? |
 
-### Page 8 — FM SYNTH ✅
+### Page 3 — FM SYNTH ✅
 Sequenced in sync with loops ✅.
 | Control | Does |
 |---|---|
@@ -356,6 +294,67 @@ Sequenced in sync with loops ✅.
 | P4 | Root note / scale |
 | P5 | Level |
 ❓ Is the FM synth mainly a bass voice, a pad, or a lead? That changes which 5 settings matter most.
+
+### Page 4 — DELAY ✅
+| Control | Does |
+|---|---|
+| P1 | Time |
+| P2 | Feedback |
+| P3 | Mix |
+| P4 | Tone (darkens repeats) |
+| P5 | Send to shared reverb ✅ everything routes through one reverb |
+| P6 | Delay on/off |
+| P7 | Tap time |
+| P8 | Sync time to the loop clock on/off |
+
+### Page 5 — REVERB (shared) ✅
+| Control | Does |
+|---|---|
+| P1 | Size / decay |
+| P2 | Damping (brightness) |
+| P3 | Return level |
+| P4 | Pre-delay |
+| P5 | Direct cello send into reverb |
+| P6 | Reverb on/off |
+| P7 | Ducking (reverb dips while you play) on/off |
+| P8 | Hold tail (very long decay while held) |
+
+### Page 6 — HARPEGGIO (harmonizer + arpeggiator, delay-based) ✅
+| Rule | Source |
+|---|---|
+| Plays the **root note** (the cello) plus **up to 3 settable harmony notes**, each from **1 octave below to 1 octave above** | ✅ |
+| Sound comes from delay-speed adjustments (delay-based pitch shifting) | ✅ |
+| When the harmony notes are **separated in time**, the harmony becomes an **arpeggio** | ✅ |
+| Time separation follows the song tempo by default (e.g. 1/8 or 1/16 steps); free timing as an option | ✅ |
+| The **song's scale** is set on the SONG page. With a named scale, harmony notes use **named intervals** (e.g. "+maj3"). With **Chromatic**, they use **half steps from −12 to +12** (0 = unison, e.g. "+4"). | ✅ |
+| ❓ Named intervals: fixed sizes (+maj3 always = +4 half steps), or scale-aware harmony that changes interval size with the note you play (needs pitch detection) — see chat | ❓ |
+| 💡 Note (my expectation, not tested): delay-based shifting gets more "warbly" toward ±1 octave; worth hearing early in the simulator stage | 💡 |
+
+Previous per-pad draft (to be redone in the P1–P8 pass): voice intervals, mix, spread, reverb send, on/off, voice on/off, scale snap.
+
+### Page 7 — FREEZE (grain-based) ✅
+| Control | Does |
+|---|---|
+| P1 | Grain size |
+| P2 | Density |
+| P3 | Spread (position jitter) |
+| P4 | Pitch |
+| P5 | Freeze level |
+| P6 | Capture freeze (latch) |
+| P7 | Add a layer on top of the current freeze |
+| P8 | Clear freeze (asks OK/CANCEL) |
+
+### Page 8 — FILTER ✅
+| Control | Does |
+|---|---|
+| P1 | Cutoff |
+| P2 | Resonance |
+| P3 | Envelope follower amount ✅ |
+| P4 | Envelope follower speed (attack/release) |
+| P5 | Sweep rate ✅ filter sweep |
+| P6 | Filter on/off |
+| P7 | Filter type: low-pass → band-pass → high-pass (cycles) |
+| P8 | Envelope follower on/off ✅ |
 
 ### Page 9 — LIGHTING (internal cello LEDs) ✅
 | Control | Does |
@@ -368,28 +367,31 @@ Sequenced in sync with loops ✅.
 | P5 | Audio reactivity (how much the cello drives the light) |
 Stage DMX: later ✅, not in this version.
 
-### Page 10 — SONG (loops, recording, samples; was Recorder/Looper/Sampler) ✅
-The pedal does record / navigate / retrieve / store / create everywhere ✅. This page holds the settings ✅ and loop tricks ✅.
-| Control | Does |
-|---|---|
-| P1 | Loop level |
-| P2 | Overdub decay (how fast old layers fade) |
-| P3 | Playback speed |
-| P4 | Sample start / trim |
-| P5 | Crossfade time |
-| P1–P8 | Choose the active TRIG bank 1–8 (loop tricks moved to bank 8's TRIG pads) |
-❓ **Big one:** which pads play back samples, and on which page? Your rule says manual triggering happens only on the current page. Should this page turn its pads into sample pads, or should samples live on their own page?
-
-### Page 11 — RESOLUME ✅
+### Page 10 — RESOLUME ✅
 | Control | Does |
 |---|---|
 | P6–P8 | Trigger clips 1–3 in the current column (clips 4–5 displaced) |
 | P1–P5 | Five mapped Resolume parameters (opacity, effect amounts) ❓ which ones? |
 ❓ How does Bela talk to Resolume: MIDI or OSC over the network? (Bela Mini has no built-in Wi-Fi.)
 
-### Page 12 — MIDI (song-specific) ✅
+### Page 11 — MIDI (song-specific) ✅
 A dedicated page for controlling **external devices** thoroughly and intentionally. Settings are saved **per song**. Used most often for controlling external gear. Channels 1–10 ✅.
-💡 Split: MIDI *device and port setup* stays in SYSTEM (rig-wide); *what this song sends and on which channels* lives here. Per-pad details in the P1–P8 pass.
+✅ Split: MIDI *device and port setup* stays in SYSTEM (rig-wide); *what this song sends and on which channels* lives here. Per-pad details in the P1–P8 pass.
+
+### Page 12 — SYSTEM (I/O + MIDI; rig-wide, never saved per song) ✅
+SYSTEM settings are set-and-forget, saved with the hand OK/CANCEL pads (not the pedal). Holds I/O levels and all rig-wide settings (incl. MIDI device/port setup ✅). 💡 Also a home for tuner, pedal setup, Resolume connection, screen brightness, new-song defaults. Song-specific MIDI lives on the MIDI page (page 12).
+
+I/O draft:
+| Control | Does |
+|---|---|
+| P1 | Cello (piezo) input gain |
+| P2 | Voice / second input gain ✅ second input exists |
+| P3 | Main output level |
+| P4 | EQ low ❓ (EQ was "maybe") |
+| P5 | EQ high ❓ |
+| P6 | Mute cello input |
+| P7 | Mute voice input |
+| P8 | EQ on/off ❓ |
 
 ---
 
