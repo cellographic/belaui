@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.8 changes:** Assign mode details approved. Record-arm for drum patterns and FM sequences goes on right thumb pads T1–T3.
+
 **v0.7 changes:** Assignment moves to **Assign mode**, entered by holding OK (replaces hold-a-pad). Because pads no longer need hold detection, playable pads fire on press (no delay); OK/CANCEL fire on release. The word "arm" is now reserved for record-arming.
 
 **v0.6 changes:** Hold-to-arm is the general pattern. Holding an assigned pad clears it and arms it to receive a new assignment. The OLED shows an armed marker (• or *). Taps fire on release so a hold never triggers — ❓ except possibly playable pads (see "Tap timing").
@@ -64,15 +66,18 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | TRIG1 / TRIG2 | **Persistent triggers** — work on every page. Default: TRIG1 = kick, TRIG2 = snare (drum synth). Can be reassigned to a sample or a synth note, and that assignment also works on every page. | ✅ |
 | (rule) | TRIG1/TRIG2 are the deliberate exception to "manual triggering only on the current page" | ✅ |
 | **Assign mode** step 1 | On an assignable page, **hold OK** → OLED shows **?** (waiting for a target pad) | ✅ |
-| Assign mode step 2 | Touch the pad to assign → **?** becomes **>** (waiting for a source). The touch does **not** play the pad. | ✅ (💡 silent touch) |
+| Assign mode step 2 | Touch the pad to assign → **?** becomes **>** (waiting for a source). The touch does **not** play the pad. | ✅ |
 | Assign mode step 3 | The next sample / drum / sequence / synth note selected on this page is assigned to that pad. OLED briefly shows the result, e.g. "TRIG1 = Sample 3". | ✅ |
-| Old assignment | 💡 Kept until the new one lands, so backing out loses nothing | 💡 |
-| Backing out | 💡 CANCEL at ? or > exits Assign mode with no change; changing page also exits | 💡 |
-| Clearing a pad to empty | 💡 At >, hold CANCEL = clear that pad | 💡 |
-| Non-assignable pages | 💡 Holding OK shows "no assign here" | 💡 |
-| Assignable targets | 💡 TRIG1/TRIG2 from any assignable page, plus that page's own pads | 💡 ❓ |
+| Old assignment | Kept until the new one lands, so backing out loses nothing | |
+| Backing out | CANCEL at ? or > exits Assign mode with no change; changing page also exits | |
+| Clearing a pad to empty | At >, hold CANCEL = clear that pad | |
+| Non-assignable pages | Holding OK shows "no assign here" | |
+| Assignable targets | TRIG1/TRIG2 from any assignable page, plus that page's own pads | ✅ |
 | Restore kick/snare to TRIG1/TRIG2 | 💡 a "reset triggers" option on the drum page | 💡 |
-| FM sequence record-arm | ❓ separate from Assign mode — which pad, and tap or hold? | ❓ |
+| Record-arm (drum patterns, FM sequences) | Right thumb pads **T1–T3** | ✅ |
+| Record-arm details | 💡 T1 = arm / record (tap toggles), T2 = stop recording and keep, T3 = clear (asks OK/CANCEL). Tap, not hold. ❓ | 💡 |
+| Knock-on change | 💡 Drum page: hats/perc move from T1–T3 to P1–P3. FM page: notes move from T1–T5 to P1–P5 (fits "P1–P5 are note values on some pages"). | 💡 |
+| (also) | "Only a deliberate action counts as choosing a source" (pad hit, note played, or encoder press on a list) | ✅ |
 | OK / CANCEL | Confirm or cancel anything that destroys or overwrites (store, clear) | ✅ |
 | PEDAL | Loop controls — record, navigate, retrieve, store, create — on every page | ✅ |
 | (rule) | Pad assignments are unique per page; manual triggering only on the current page | ✅ |
