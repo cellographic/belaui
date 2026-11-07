@@ -1,4 +1,6 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.3)
+# Cellographic Bela UI — Control Map (DRAFT v0.4)
+
+**v0.4 changes:** T4 moves up next to SNARE, T5 directly under T4, SENC below that beside the Flex slider. SENC works like the page encoder: turn previews, press locks in. Slider is relative — no jumps.
 
 **v0.3 changes:** Option B chosen — a second pressable encoder (SENC) switches the slider's target, and the OLED shows the selection as you turn.
 
@@ -22,11 +24,12 @@
 | ENC | Pressable notched endless encoder | Left rib, toward the cello's face | ✅ |
 | T1–T3 | Thumb pads | Right corner piece, front to back along the corner block | ✅ |
 | SLIDER | Trill Flex slider | Upper-right, near the face, from above T1–T3 to about mid upper bout | ✅ |
-| T4–T5 | Thumb pads (percussion size) | Beside the slider, toward the chest | ✅ |
+| T4 | Thumb pad (percussion size) | Right next to SNARE | ✅ |
+| T5 | Thumb pad (percussion size) | Directly under T4 | ✅ |
 | SNARE | Large pad, like KICK | Upper-right, above the slider | ✅ |
 | OLED | 0.96" 128×64 blue/yellow screen | Upper-right, back half of the rib | ✅ |
 | OK / CANCEL | Confirm / cancel pads | Behind the OLED | ✅ |
-| SENC | Second pressable encoder — slider target | Right rib, placement TBD (near the slider's upper end suggested) | ✅ |
+| SENC | Second pressable encoder — slider target | Below T5, next to the Flex slider | ✅ |
 | PEDAL | External foot pedal | Floor | ✅ |
 
 Total capacitive pads: 14 (P1–P5, KICK, T1–T5, SNARE, OK, CANCEL), all on one Trill Craft (30 channels available). Slider is the Trill Flex.
@@ -44,8 +47,10 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CANCEL during preview | Abandon the preview, stay on the current page | ✅ |
 | **P1–P5** | **Page-specific.** Note values on some pages, preset selection on others — no universal rule. | ✅ |
 | **SLIDER** | **Has a default target on every page**, plus a list of alternate targets per page. | ✅ |
-| SENC turn | Step through the slider's targets for this page. The OLED shows the target name and current value as you turn, so you can confirm visually if notch counting fails. | ✅ |
-| SENC press | Return the slider to this page's default target | ✅ |
+| SENC turn | Preview the slider's next/previous target for this page. The OLED shows the target name and current value, so you can confirm visually if notch counting fails. The slider keeps controlling the old target until you press. | ✅ |
+| SENC press | Lock in the previewed target | ✅ |
+| CANCEL during SENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
+| Back to default target | 💡 The default is always first in the list, so turning all the way back reaches it. ❓ Want a faster shortcut (e.g. long-press SENC)? | 💡 |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
 | T1–T5 | Page-specific switches and actions (on/off, tap, latch, trigger) | 💡 |
 | KICK / SNARE | Page-specific big "performance" hits (momentary throws, triggers) | 💡 |
@@ -62,9 +67,9 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | Conflict | OK/CANCEL also answer "are you sure?" prompts — a stray tap could confirm a clear/store | None — OK/CANCEL stay reserved for confirmations |
 | Eyes-free | Need to count taps or glance at OLED | Notched detents can be counted by feel |
 
-### 💡 Slider behaviour: relative, not absolute
+### ✅ Slider behaviour: relative, not absolute
 Because one slider controls many settings, an absolute slider would make values **jump** when you touch it. Proposal: the slider works **relative to the current value**. Touch anywhere and slide up or down to nudge the value from where it already is, like a scroll wheel. No jumps, ever.
-❓ Alternative: absolute mode with "pickup" (the value doesn't move until your finger crosses the current value). Relative is simpler to play; tell me if you'd rather have absolute.
+✅ Decided: every touch starts from the value's last setting.
 
 ### 💡 OLED layout
 The Elegoo screen has a yellow top band and a blue lower area.
@@ -249,9 +254,9 @@ Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends
 
 ## 4. Open questions — summary
 
-0. ~~Slider target switching~~ — decided: second encoder (B). Remaining: exact SENC placement on the right rib.
+0. ~~Slider target switching~~ — decided: second encoder (B), below T5 beside the slider.
 0b. P1–P5 pad roles, page by page (notes / presets / other).
-1. Slider: relative (proposed) or absolute with pickup?
+1. ~~Slider mode~~ — decided: relative, no jumps. New: shortcut back to the default slider target (long-press SENC?)
 2. Page 1: EQ yes/no? Tuner wanted?
 3. Harmonizer: which scales for interval snapping? KICK/SNARE ideas?
 4. Drums: how many pattern slots?
