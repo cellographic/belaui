@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.14 changes:** Double-tap B3 creates a new song. Song structure defined: the first loop sets the tempo (16 beats of 4/4); sequences run for one or more loop lengths; multiple loops per song, stored to TRIG pads; a song can arrange several loops. SENC far right = EXPRESSION OPTIONS (expression pedal, default master volume).
+
 **v0.13 changes:** Pedal reworked around songs: B1 hold behaviour depends on whether you're starting or ending a take; B3/B4 tap navigate songs, hold B3 = store, hold B4 = delete; B2 hold clears the loop without saving. Song switch timing default = end of loop, with end-of-bar / immediate as a page option. Page 10 renamed Song/Loop/Record.
 
 **v0.12 changes:** Unsaved-changes marker approved. Foot pedal = Hotone Ampero Control (4 switches): B1 record/overdub (hold = erase last layer), B2 stop (hold = erase), B3/B4 = song previous/next (cue), B1 accepts the cued song. Songs can be cued from any page.
@@ -109,7 +111,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 ### ✅ Page Options mode (v0.10)
 | Step | What happens | Source |
 |---|---|---|
-| Reach it | Turn SENC all the way left, past the slider targets, to **PAGE OPTIONS**. For now the far right end also lands on PAGE OPTIONS (reserved for a second universal endpoint later). | ✅ |
+| Reach it | Turn SENC all the way left, past the slider targets, to **PAGE OPTIONS** | ✅ |
 | Enter | Press SENC | ✅ |
 | Use | Pads toggle this page's preferences (behaviour switches, not performance). The OLED shows each toggle's on/off state. | ✅ |
 | Store | OK saves this page's options **to the song**, so the song loads behaving as you set it | ✅ |
@@ -127,6 +129,17 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 - Sampler: global recorder pre/post default ✅ feature
 - Momentary performance actions (delay hold, freeze capture) stay on T1–T3, not in options
 
+### ✅ Expression Options mode (v0.14) — SENC far right
+| Step | What happens | Source |
+|---|---|---|
+| Reach it | Turn SENC all the way right, past the slider targets, to **EXPRESSION OPTIONS** | ✅ |
+| Enter / store / leave | Same as Page Options: press SENC to enter, OK stores to the song, CANCEL escapes | 💡 |
+| Default target | Expression pedal = **master output volume** | ✅ |
+| Other targets | Chosen here — anything the slider can control (the same "variable output" list) | ✅ |
+| 💡 Scope | Expression assignment is global (works on every page) and saved with the song, so master volume never depends on which page you're on | 💡 ❓ |
+| Hardware | An expression pedal plugged into one of the Ampero Control's 2 TRS jacks (max 10 kΩ pot); it reaches the Bela as MIDI | 💡 |
+| 💡 Second jack | Room for a second expression pedal or extra footswitches later | 💡 |
+
 ### Foot pedal — Hotone Ampero Control (v0.13)
 **Paradigm:** the **song** is the stored unit. A song holds its loop recordings, loop length, drum/synth sequences and page options (💡 and TRIG assignments + effect settings ❓). The pedal covers navigate, retrieve, store, create and delete for songs, plus record control, from any page.
 
@@ -134,7 +147,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 |---|---|---|---|
 | B1 | Record / overdub (starts **on press**) | Depends on when you hold — see below | ✅ |
 | B2 | Stop | Clear all recordings in the current loop. Keeps loop length, sequences, page options. **Not saved** — reloading the song restores them unless you store. | ✅ |
-| B3 | Song: previous → enters song-selection mode | **Store** the song | ✅ |
+| B3 | Song: previous → enters song-selection mode. **Double-tap = create a new song** | **Store** the song | ✅ |
 | B4 | Song: next → enters song-selection mode | **Delete** the selected song from storage | ✅ |
 | B1 in song-selection mode | Accept → load the cued song | — | ✅ |
 | B2 in song-selection mode | Cancel the cue | — | ✅ |
@@ -149,15 +162,29 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 
 **💡 Proposals:**
 - **Confirm destructive pedal holds.** Store-over-existing (hold B3) and delete (hold B4) show "Store over SONG 4?" / "Delete SONG 4?" on the OLED; **B1 = confirm, B2 = cancel** (the pedal's OK/CANCEL, matching the rule that destructive actions are confirmed).
-- **Create = store into an empty slot.** Navigate past the last song to "NEW", hold B3 → creates a new song from the current state.
+- ~~Create = store into an empty slot~~ — replaced by double-tap B3 ✅. Where the new song goes (next free slot vs right after the current song) is a Song/Loop/Record page option ✅.
+- **Double-tap timing:** 💡 a single B3 tap waits ~0.3 s to make sure it isn't a double-tap before moving the cue. Navigation isn't timing-critical, so the small delay should be fine.
 - **What hold B3 stores:** the current state into the *selected* slot. If you've cued a different song first, that's a "save as" — the confirm prompt names the target so you can't overwrite by accident.
 - **Step-back depth:** keep every layer separately so B1 can step back through all of them. 💡 Memory estimate (not measured): ~11.5 MB per 30 s stereo layer, so roughly 20+ layers fits comfortably in the Bela Mini's RAM.
 - **Saving audio during a show:** writing recordings to the SD card happens in the background so audio never glitches; the OLED shows "saving…" until done.
 - **Pedal setup:** switches in *momentary* mode (sends press + release); Bela times holds itself.
 - **Connection:** USB to start (most reliable); Bluetooth adapter optional later.
 
-❓ One loop per song, or can a song hold several loops?
-❓ Do TRIG assignments and effect settings belong to the song too?
+### ✅ Song structure (v0.14)
+| Rule | Source |
+|---|---|
+| A new song is defined by its **first loop** | ✅ |
+| The first loop's length = **16 beats of 4/4** (default) → that sets the song's tempo, which drives all sequences | ✅ |
+| Drum/synth sequences can last one loop length or several, for longer form | ✅ |
+| A song can hold **several loops**. The first loop and later loops can each be stored to a TRIG pad. | ✅ |
+| A longer song = an arrangement of several loops plus drum/synth sequences, its total length a whole multiple of the first loop | ✅ |
+| A song can also be as simple as one loop and nothing else | ✅ |
+| 💡 Later loops snap to a whole multiple of the first loop's length, so everything stays in sync | 💡 |
+| 💡 Beats-per-loop (8 / 16 / 32) and time signature as Song/Loop/Record page options, for when 16 beats gives an awkward tempo. Example: 8 s loop → 120 BPM, but 4 s → 240 BPM and 32 s → 30 BPM (my arithmetic) | 💡 |
+| 💡 The arrangement (which loop plays when) is recorded like any sequence: Sequence mode on the Song/Loop/Record page, playing the TRIG pads in time | 💡 ❓ |
+| 💡 A song saves everything: loops, sequences, arrangement, TRIG assignments, page options and effect settings | 💡 ❓ |
+| ❓ With 4 TRIG pads, a song can have at most 4 loops/sequences ready at once (unless they share pads with drums). Enough? | ❓ |
+
 
 ### Displaced by T4/T5 → TRIG3/TRIG4 (v0.9) — need new homes or can be dropped
 - **Recorder pre/post** on Delay, Reverb, Harmonizer, Freeze, Filter (✅ feature) — ✅ now a Page Options toggle
@@ -344,5 +371,5 @@ Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends
 5. FM synth: bass, pad, or lead?
 6. **Samples: which pads play them, and on which page?**
 7. Resolume: MIDI or OSC? Which 5 parameters?
-8. ~~Foot pedal~~ — mapped (v0.13). Still open: one loop or several per song; what else a song stores; confirm prompts for store/delete.
+8. ~~Foot pedal~~ — mapped. ~~Loops per song~~ — several. Still open: does a song save everything (TRIGs, effect settings)? Is 4 TRIG pads enough? Confirm prompts for store/delete. Expression pedal global or per page?
 9. Is 12 pages the right number, or should some pages merge?
