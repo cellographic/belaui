@@ -1,4 +1,6 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.2)
+# Cellographic Bela UI — Control Map (DRAFT v0.3)
+
+**v0.3 changes:** Option B chosen — a second pressable encoder (SENC) switches the slider's target, and the OLED shows the selection as you turn.
 
 **v0.2 changes:** CANCEL-during-preview approved. P1–P5 are no longer a universal "pick a setting" rule — they are page-specific (notes on some pages, presets on others). The slider now has a default target on every page plus alternate targets; how you switch targets is an open choice (OK/CANCEL vs a second encoder).
 
@@ -24,6 +26,7 @@
 | SNARE | Large pad, like KICK | Upper-right, above the slider | ✅ |
 | OLED | 0.96" 128×64 blue/yellow screen | Upper-right, back half of the rib | ✅ |
 | OK / CANCEL | Confirm / cancel pads | Behind the OLED | ✅ |
+| SENC | Second pressable encoder — slider target | Right rib, placement TBD (near the slider's upper end suggested) | ✅ |
 | PEDAL | External foot pedal | Floor | ✅ |
 
 Total capacitive pads: 14 (P1–P5, KICK, T1–T5, SNARE, OK, CANCEL), all on one Trill Craft (30 channels available). Slider is the Trill Flex.
@@ -41,7 +44,9 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CANCEL during preview | Abandon the preview, stay on the current page | ✅ |
 | **P1–P5** | **Page-specific.** Note values on some pages, preset selection on others — no universal rule. | ✅ |
 | **SLIDER** | **Has a default target on every page**, plus a list of alternate targets per page. | ✅ |
-| Slider target switching | ❓ Either OK/CANCEL step through the alternates, or a dedicated second pressable encoder ("slider encoder") does it. See below. | ❓ |
+| SENC turn | Step through the slider's targets for this page. The OLED shows the target name and current value as you turn, so you can confirm visually if notch counting fails. | ✅ |
+| SENC press | Return the slider to this page's default target | ✅ |
+| OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
 | T1–T5 | Page-specific switches and actions (on/off, tap, latch, trigger) | 💡 |
 | KICK / SNARE | Page-specific big "performance" hits (momentary throws, triggers) | 💡 |
 | OK / CANCEL | Confirm or cancel anything that destroys or overwrites (store, clear) | 💡 |
@@ -49,7 +54,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | (rule) | Pad assignments are unique per page; manual triggering only on the current page | ✅ |
 | (rule) | Settings and running sequences (sample sequences, drum patterns) keep going when you change pages | ✅ |
 
-### ❓ How the slider switches targets
+### ✅ How the slider switches targets — Option B chosen
 | | A: OK / CANCEL step through targets | B: Second pressable encoder for the slider |
 |---|---|---|
 | Hardware | Nothing new | One more encoder + mount on the right rib (3 more digital pins) |
@@ -244,7 +249,7 @@ Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends
 
 ## 4. Open questions — summary
 
-0. Slider target switching: OK/CANCEL (A) or a second encoder (B)?
+0. ~~Slider target switching~~ — decided: second encoder (B). Remaining: exact SENC placement on the right rib.
 0b. P1–P5 pad roles, page by page (notes / presets / other).
 1. Slider: relative (proposed) or absolute with pickup?
 2. Page 1: EQ yes/no? Tuner wanted?
