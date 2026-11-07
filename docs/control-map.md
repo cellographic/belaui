@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.22 changes:** Foot buttons renamed **FS1–FS4**. A separate song-specific **MIDI** page returns (page 12) for controlling external devices; SYSTEM keeps rig-wide settings.
+
 **v0.21 changes:** I/O and MIDI out merged into a **SYSTEM** page (rig-wide, never saved per song, saved with hand OK/CANCEL). Pedal saves are for live song management. Song scale set on the SONG page; HARPEGGIO uses named intervals, or half steps −12…+12 when the scale is Chromatic. Arpeggio spacing synced to tempo by default (approved).
 
 **v0.20 changes:** Page 4 is now **HARPEGGIO** — harmonizer + arpeggiator: root plus up to 3 harmony notes (±1 octave), delay-based; separating the notes in time makes arpeggios.
@@ -136,7 +138,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | Reach it | Turn SENC all the way left, past the slider targets, to **PAGE OPTIONS** | ✅ |
 | Enter | Press SENC | ✅ |
 | Use | Pads toggle this page's preferences (behaviour switches, not performance). The OLED shows each toggle's on/off state. | ✅ |
-| Store | OK saves **just this page's** options to the song (a quick save). Holding B3 on the pedal saves **everything**, including any unsaved page changes. | ✅ |
+| Store | OK saves **just this page's** options to the song (a quick save). Holding FS3 on the pedal saves **everything**, including any unsaved page changes. | ✅ |
 | Leave | CANCEL escapes Page Options mode | ✅ |
 | Encoder ends | SENC stops at both ends (no wrap-around), so the ends are reliable landings | ✅ |
 | Which pads toggle | P1–P8 = 8 toggle slots per page. TRIG1–TRIG4 stay live so you can keep playing. | ✅ |
@@ -171,15 +173,15 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 
 | Switch | Tap | Hold | Source |
 |---|---|---|---|
-| B1 | Record / overdub (starts **on press**) | Depends on when you hold — see below | ✅ |
-| B2 | Stop | Clear all recordings in the current loop. Keeps loop length, sequences, page options. **Not saved** — reloading the song restores them unless you store. | ✅ |
-| B3 | Song: previous → enters song-selection mode. **Double-tap = create a new song** | **Store** the song | ✅ |
-| B4 | Song: next → enters song-selection mode | **Delete** the selected song from storage | ✅ |
-| B1 in song-selection mode | Accept → load the cued song | — | ✅ |
-| B2 in song-selection mode | Cancel the cue | — | ✅ |
+| FS1 | Record / overdub (starts **on press**) | Depends on when you hold — see below | ✅ |
+| FS2 | Stop | Clear all recordings in the current loop. Keeps loop length, sequences, page options. **Not saved** — reloading the song restores them unless you store. | ✅ |
+| FS3 | Song: previous → enters song-selection mode. **Double-tap = create a new song** | **Store** the song | ✅ |
+| FS4 | Song: next → enters song-selection mode | **Delete** the selected song from storage | ✅ |
+| FS1 in song-selection mode | Accept → load the cued song | — | ✅ |
+| FS2 in song-selection mode | Cancel the cue | — | ✅ |
 
-**B1 hold — two behaviours, decided by state:**
-| You hold B1 when… | Result | Source |
+**FS1 hold — two behaviours, decided by state:**
+| You hold FS1 when… | Result | Source |
 |---|---|---|
 | Starting a take (not currently recording) | Nothing new is recorded, and the previous layer is erased (step back). If this was the first recording, loop recording is cancelled. Repeat to step back further. | ✅ |
 | Ending a take (currently recording) | The take you just made is erased; earlier layers stay | ✅ |
@@ -187,11 +189,11 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 **Song switching:** default = at the end of the loop ✅. Alternatives "end of bar" and "immediate" are a Page Option on the SONG page ✅. 💡 If nothing is playing, the song loads immediately.
 
 **💡 Proposals:**
-- ✅ **Confirm destructive pedal holds.** Store-over-existing (hold B3) and delete (hold B4) show "Store over SONG 4?" / "Delete SONG 4?" on the OLED; **B1 = confirm, B2 = cancel**.
-- ~~Create = store into an empty slot~~ — replaced by double-tap B3 ✅. Where the new song goes (next free slot vs right after the current song) is a SONG page option ✅.
-- **Double-tap timing:** 💡 a single B3 tap waits ~0.3 s to make sure it isn't a double-tap before moving the cue. Navigation isn't timing-critical, so the small delay should be fine.
-- **What hold B3 stores:** the current state into the *selected* slot. If you've cued a different song first, that's a "save as" — the confirm prompt names the target so you can't overwrite by accident.
-- **Step-back depth:** keep every layer separately so B1 can step back through all of them. 💡 Memory estimate (not measured): ~11.5 MB per 30 s stereo layer, so roughly 20+ layers fits comfortably in the Bela Mini's RAM.
+- ✅ **Confirm destructive pedal holds.** Store-over-existing (hold FS3) and delete (hold FS4) show "Store over SONG 4?" / "Delete SONG 4?" on the OLED; **FS1 = confirm, FS2 = cancel**.
+- ~~Create = store into an empty slot~~ — replaced by double-tap FS3 ✅. Where the new song goes (next free slot vs right after the current song) is a SONG page option ✅.
+- **Double-tap timing:** 💡 a single FS3 tap waits ~0.3 s to make sure it isn't a double-tap before moving the cue. Navigation isn't timing-critical, so the small delay should be fine.
+- **What hold FS3 stores:** the current state into the *selected* slot. If you've cued a different song first, that's a "save as" — the confirm prompt names the target so you can't overwrite by accident.
+- **Step-back depth:** keep every layer separately so FS1 can step back through all of them. 💡 Memory estimate (not measured): ~11.5 MB per 30 s stereo layer, so roughly 20+ layers fits comfortably in the Bela Mini's RAM.
 - **Saving audio during a show:** writing recordings to the SD card happens in the background so audio never glitches; the OLED shows "saving…" until done.
 - **Pedal setup:** switches in *momentary* mode (sends press + release); Bela times holds itself.
 - **Connection:** USB to start (most reliable); Bluetooth adapter optional later.
@@ -254,7 +256,7 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 **v0.2 note:** in the tables below, the five settings listed under P1–P5 are now read as the **slider's target list** for that page — the first one is the default, the rest are alternates. What the P1–P5 *pads* do on each page (notes, presets, etc.) is still to be assigned page by page.
 
 ### Page 1 — SYSTEM (I/O + MIDI; rig-wide, never saved per song) ✅
-SYSTEM settings are set-and-forget, saved with the hand OK/CANCEL pads (not the pedal). Holds I/O levels and MIDI out. 💡 Also a home for tuner, pedal setup, Resolume connection, screen brightness, new-song defaults. ❓ Should MIDI channel choices be saved per song instead?
+SYSTEM settings are set-and-forget, saved with the hand OK/CANCEL pads (not the pedal). Holds I/O levels and all rig-wide settings (💡 incl. MIDI device/port setup). 💡 Also a home for tuner, pedal setup, Resolume connection, screen brightness, new-song defaults. Song-specific MIDI lives on the MIDI page (page 12).
 
 I/O draft:
 | Control | Does |
@@ -385,8 +387,9 @@ The pedal does record / navigate / retrieve / store / create everywhere ✅. Thi
 | P1–P5 | Five mapped Resolume parameters (opacity, effect amounts) ❓ which ones? |
 ❓ How does Bela talk to Resolume: MIDI or OSC over the network? (Bela Mini has no built-in Wi-Fi.)
 
-### ~~Page 12 — MIDI OUT~~ → merged into SYSTEM (v0.21)
-Channels 1–10 for flexibility ✅. Details defined later.
+### Page 12 — MIDI (song-specific) ✅
+A dedicated page for controlling **external devices** thoroughly and intentionally. Settings are saved **per song**. Used most often for controlling external gear. Channels 1–10 ✅.
+💡 Split: MIDI *device and port setup* stays in SYSTEM (rig-wide); *what this song sends and on which channels* lives here. Per-pad details in the P1–P8 pass.
 
 ---
 
