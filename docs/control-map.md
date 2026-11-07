@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.15 changes:** New design rules: (1) any "default" implies other options, normally in that function's Page Options; (2) **blinking = unconfirmed, solid = confirmed** everywhere. Song timing options are bars-per-loop and beats-per-bar (custom time signatures). Page 10 renamed **SONG**. Expression assignment flow defined. Loops snap to the first loop's length; samples trigger freely, quantization optional.
+
 **v0.14 changes:** Double-tap B3 creates a new song. Song structure defined: the first loop sets the tempo (16 beats of 4/4); sequences run for one or more loop lengths; multiple loops per song, stored to TRIG pads; a song can arrange several loops. SENC far right = EXPRESSION OPTIONS (expression pedal, default master volume).
 
 **v0.13 changes:** Pedal reworked around songs: B1 hold behaviour depends on whether you're starting or ending a take; B3/B4 tap navigate songs, hold B3 = store, hold B4 = delete; B2 hold clears the loop without saving. Song switch timing default = end of loop, with end-of-bar / immediate as a page option. Page 10 renamed Song/Loop/Record.
@@ -59,6 +61,10 @@ Total capacitive pads: 14 (P1–P5, T1–T3, TRIG1–TRIG4, OK, CANCEL), all on 
 ---
 
 ## 2. The grammar (the same on every page)
+
+### ✅ Design rules
+1. **Defaults imply options.** Whenever a rule names a default, other choices exist, normally set in that function's Page Options.
+2. **Blinking = unconfirmed, solid = confirmed.** In any preview or pending choice (page encoder, slider encoder, song cue, Assign mode, expression assignment, confirm prompts) the option name on the OLED **blinks** until confirmed, then goes **solid**. Turning back to the current option shows it blinking too, until you confirm or cancel.
 
 Having one consistent "grammar" means your hands learn the instrument once, and every page just changes *what* the controls point at.
 
@@ -132,8 +138,12 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 ### ✅ Expression Options mode (v0.14) — SENC far right
 | Step | What happens | Source |
 |---|---|---|
-| Reach it | Turn SENC all the way right, past the slider targets, to **EXPRESSION OPTIONS** | ✅ |
-| Enter / store / leave | Same as Page Options: press SENC to enter, OK stores to the song, CANCEL escapes | 💡 |
+| Reach it | Turn SENC all the way right until **EXPRESSION** blinks | ✅ |
+| Enter | Press SENC → the arming marker appears on the OLED | ✅ |
+| Choose | Turn SENC left; each notch blinks the next control the pedal could take over | ✅ |
+| Assign | Press SENC → that control is assigned to the expression pedal and goes solid | ✅ |
+| Leave without changing | 💡 CANCEL | 💡 |
+| Save to the song | 💡 Same as Page Options: unsaved marker until OK stores it | 💡 |
 | Default target | Expression pedal = **master output volume** | ✅ |
 | Other targets | Chosen here — anything the slider can control (the same "variable output" list) | ✅ |
 | 💡 Scope | Expression assignment is global (works on every page) and saved with the song, so master volume never depends on which page you're on | 💡 ❓ |
@@ -158,11 +168,11 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | Starting a take (not currently recording) | Nothing new is recorded, and the previous layer is erased (step back). If this was the first recording, loop recording is cancelled. Repeat to step back further. | ✅ |
 | Ending a take (currently recording) | The take you just made is erased; earlier layers stay | ✅ |
 
-**Song switching:** default = at the end of the loop ✅. Alternatives "end of bar" and "immediate" are a Page Option on the Song/Loop/Record page ✅. 💡 If nothing is playing, the song loads immediately.
+**Song switching:** default = at the end of the loop ✅. Alternatives "end of bar" and "immediate" are a Page Option on the SONG page ✅. 💡 If nothing is playing, the song loads immediately.
 
 **💡 Proposals:**
 - **Confirm destructive pedal holds.** Store-over-existing (hold B3) and delete (hold B4) show "Store over SONG 4?" / "Delete SONG 4?" on the OLED; **B1 = confirm, B2 = cancel** (the pedal's OK/CANCEL, matching the rule that destructive actions are confirmed).
-- ~~Create = store into an empty slot~~ — replaced by double-tap B3 ✅. Where the new song goes (next free slot vs right after the current song) is a Song/Loop/Record page option ✅.
+- ~~Create = store into an empty slot~~ — replaced by double-tap B3 ✅. Where the new song goes (next free slot vs right after the current song) is a SONG page option ✅.
 - **Double-tap timing:** 💡 a single B3 tap waits ~0.3 s to make sure it isn't a double-tap before moving the cue. Navigation isn't timing-critical, so the small delay should be fine.
 - **What hold B3 stores:** the current state into the *selected* slot. If you've cued a different song first, that's a "save as" — the confirm prompt names the target so you can't overwrite by accident.
 - **Step-back depth:** keep every layer separately so B1 can step back through all of them. 💡 Memory estimate (not measured): ~11.5 MB per 30 s stereo layer, so roughly 20+ layers fits comfortably in the Bela Mini's RAM.
@@ -179,9 +189,10 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | A song can hold **several loops**. The first loop and later loops can each be stored to a TRIG pad. | ✅ |
 | A longer song = an arrangement of several loops plus drum/synth sequences, its total length a whole multiple of the first loop | ✅ |
 | A song can also be as simple as one loop and nothing else | ✅ |
-| 💡 Later loops snap to a whole multiple of the first loop's length, so everything stays in sync | 💡 |
-| 💡 Beats-per-loop (8 / 16 / 32) and time signature as Song/Loop/Record page options, for when 16 beats gives an awkward tempo. Example: 8 s loop → 120 BPM, but 4 s → 240 BPM and 32 s → 30 BPM (my arithmetic) | 💡 |
-| 💡 The arrangement (which loop plays when) is recorded like any sequence: Sequence mode on the Song/Loop/Record page, playing the TRIG pads in time | 💡 ❓ |
+| **Loops** snap to a whole multiple of the first loop's length, so everything stays in sync | ✅ |
+| **Samples** are free: triggered with or without quantization ❓ (default to confirm) | ✅ |
+| **Bars per loop** and **beats per bar** are SONG page options, allowing custom time signatures (default 4 bars × 4 beats = 16) | ✅ |
+| 💡 The arrangement (which loop plays when) is recorded like any sequence: Sequence mode on the SONG page, playing the TRIG pads in time | 💡 ❓ |
 | 💡 A song saves everything: loops, sequences, arrangement, TRIG assignments, page options and effect settings | 💡 ❓ |
 | ❓ With 4 TRIG pads, a song can have at most 4 loops/sequences ready at once (unless they share pads with drums). Enough? | ❓ |
 
@@ -331,7 +342,7 @@ Sequenced in sync with loops ✅.
 | P5 | Audio reactivity (how much the cello drives the light) |
 Stage DMX: later ✅, not in this version.
 
-### Page 10 — SONG / LOOP / RECORD (was Recorder/Looper/Sampler) ✅
+### Page 10 — SONG (loops, recording, samples; was Recorder/Looper/Sampler) ✅
 The pedal does record / navigate / retrieve / store / create everywhere ✅. This page holds the settings ✅ and loop tricks ✅.
 | Control | Does |
 |---|---|
