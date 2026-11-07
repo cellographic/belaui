@@ -1,4 +1,6 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.1)
+# Cellographic Bela UI — Control Map (DRAFT v0.2)
+
+**v0.2 changes:** CANCEL-during-preview approved. P1–P5 are no longer a universal "pick a setting" rule — they are page-specific (notes on some pages, presets on others). The slider now has a default target on every page plus alternate targets; how you switch targets is an open choice (OK/CANCEL vs a second encoder).
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -36,15 +38,24 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 |---|---|---|
 | ENC turn | Preview another page on the OLED (sound doesn't change yet) | ✅ |
 | ENC press | Lock in the previewed page | ✅ |
-| CANCEL during preview | Abandon the preview, stay on the current page | 💡 |
-| **P1–P5** | **Pick which of 5 settings the slider controls.** The OLED shows the name and value. | 💡 |
-| **SLIDER** | **Change the picked setting.** | 💡 |
+| CANCEL during preview | Abandon the preview, stay on the current page | ✅ |
+| **P1–P5** | **Page-specific.** Note values on some pages, preset selection on others — no universal rule. | ✅ |
+| **SLIDER** | **Has a default target on every page**, plus a list of alternate targets per page. | ✅ |
+| Slider target switching | ❓ Either OK/CANCEL step through the alternates, or a dedicated second pressable encoder ("slider encoder") does it. See below. | ❓ |
 | T1–T5 | Page-specific switches and actions (on/off, tap, latch, trigger) | 💡 |
 | KICK / SNARE | Page-specific big "performance" hits (momentary throws, triggers) | 💡 |
 | OK / CANCEL | Confirm or cancel anything that destroys or overwrites (store, clear) | 💡 |
 | PEDAL | Loop controls — record, navigate, retrieve, store, create — on every page | ✅ |
 | (rule) | Pad assignments are unique per page; manual triggering only on the current page | ✅ |
 | (rule) | Settings and running sequences (sample sequences, drum patterns) keep going when you change pages | ✅ |
+
+### ❓ How the slider switches targets
+| | A: OK / CANCEL step through targets | B: Second pressable encoder for the slider |
+|---|---|---|
+| Hardware | Nothing new | One more encoder + mount on the right rib (3 more digital pins) |
+| How it plays | OK = next target, CANCEL = previous | Turn = choose target, press = back to page default |
+| Conflict | OK/CANCEL also answer "are you sure?" prompts — a stray tap could confirm a clear/store | None — OK/CANCEL stay reserved for confirmations |
+| Eyes-free | Need to count taps or glance at OLED | Notched detents can be counted by feel |
 
 ### 💡 Slider behaviour: relative, not absolute
 Because one slider controls many settings, an absolute slider would make values **jump** when you touch it. Proposal: the slider works **relative to the current value**. Touch anywhere and slide up or down to nudge the value from where it already is, like a scroll wheel. No jumps, ever.
@@ -60,6 +71,8 @@ The Elegoo screen has a yellow top band and a blue lower area.
 ## 3. The pages
 
 Order follows Scott's priority list. ✅ marks the page itself and any decided feature; per-control assignments are 💡 unless marked.
+
+**v0.2 note:** in the tables below, the five settings listed under P1–P5 are now read as the **slider's target list** for that page — the first one is the default, the rest are alternates. What the P1–P5 *pads* do on each page (notes, presets, etc.) is still to be assigned page by page.
 
 ### Page 1 — I/O LEVELS ✅
 | Control | Does |
@@ -231,6 +244,8 @@ Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends
 
 ## 4. Open questions — summary
 
+0. Slider target switching: OK/CANCEL (A) or a second encoder (B)?
+0b. P1–P5 pad roles, page by page (notes / presets / other).
 1. Slider: relative (proposed) or absolute with pickup?
 2. Page 1: EQ yes/no? Tuner wanted?
 3. Harmonizer: which scales for interval snapping? KICK/SNARE ideas?
