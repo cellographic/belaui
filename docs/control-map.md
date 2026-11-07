@@ -1,8 +1,10 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.5 changes:** KICK and SNARE are renamed **TRIG1 / TRIG2 (persistent triggers)**. They play kick and snare on every page by default, and can be reassigned to a sample or a synth note that also plays on every page. All earlier page-specific KICK/SNARE ideas are removed (parked list in section 2).
+
 **v0.4.1:** Long-press SENC returns the slider to the page's default target.
 
-**v0.4 changes:** T4 moves up next to SNARE, T5 directly under T4, SENC below that beside the Flex slider. SENC works like the page encoder: turn previews, press locks in. Slider is relative — no jumps.
+**v0.4 changes:** T4 moves up next to SNARE (now TRIG2), T5 directly under T4, SENC below that beside the Flex slider. SENC works like the page encoder: turn previews, press locks in. Slider is relative — no jumps.
 
 **v0.3 changes:** Option B chosen — a second pressable encoder (SENC) switches the slider's target, and the OLED shows the selection as you turn.
 
@@ -22,19 +24,19 @@
 | ID | Control | Where | Source |
 |---|---|---|---|
 | P1–P5 | Picker pads | Left rib, running back toward the rear panel | ✅ |
-| KICK | Large pad (2.5" × 1.75") | Left rib, in front of pickers 2–4 | ✅ |
+| TRIG1 | Large pad (2.5" × 1.75") — persistent trigger 1 (was KICK) | Left rib, in front of pickers 2–4 | ✅ |
 | ENC | Pressable notched endless encoder | Left rib, toward the cello's face | ✅ |
 | T1–T3 | Thumb pads | Right corner piece, front to back along the corner block | ✅ |
 | SLIDER | Trill Flex slider | Upper-right, near the face, from above T1–T3 to about mid upper bout | ✅ |
-| T4 | Thumb pad (percussion size) | Right next to SNARE | ✅ |
+| T4 | Thumb pad (percussion size) | Right next to TRIG2 | ✅ |
 | T5 | Thumb pad (percussion size) | Directly under T4 | ✅ |
-| SNARE | Large pad, like KICK | Upper-right, above the slider | ✅ |
+| TRIG2 | Large pad, like TRIG1 — persistent trigger 2 (was SNARE) | Upper-right, above the slider | ✅ |
 | OLED | 0.96" 128×64 blue/yellow screen | Upper-right, back half of the rib | ✅ |
 | OK / CANCEL | Confirm / cancel pads | Behind the OLED | ✅ |
 | SENC | Second pressable encoder — slider target | Below T5, next to the Flex slider | ✅ |
 | PEDAL | External foot pedal | Floor | ✅ |
 
-Total capacitive pads: 14 (P1–P5, KICK, T1–T5, SNARE, OK, CANCEL), all on one Trill Craft (30 channels available). Slider is the Trill Flex.
+Total capacitive pads: 14 (P1–P5, TRIG1, T1–T5, TRIG2, OK, CANCEL), all on one Trill Craft (30 channels available). Slider is the Trill Flex.
 
 ---
 
@@ -55,11 +57,16 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | SENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
 | T1–T5 | Page-specific switches and actions (on/off, tap, latch, trigger) | 💡 |
-| KICK / SNARE | Page-specific big "performance" hits (momentary throws, triggers) | 💡 |
+| TRIG1 / TRIG2 | **Persistent triggers** — work on every page. Default: TRIG1 = kick, TRIG2 = snare (drum synth). Can be reassigned to a sample or a synth note, and that assignment also works on every page. | ✅ |
+| (rule) | TRIG1/TRIG2 are the deliberate exception to "manual triggering only on the current page" | ✅ |
+| Reassigning a trigger | 💡 On the sampler or FM page: hold TRIG1 or TRIG2, play/choose the sample or note, press OK to assign. Long-press OK on the drum page (or a "reset triggers" option) restores kick/snare. ❓ | 💡 |
 | OK / CANCEL | Confirm or cancel anything that destroys or overwrites (store, clear) | 💡 |
 | PEDAL | Loop controls — record, navigate, retrieve, store, create — on every page | ✅ |
 | (rule) | Pad assignments are unique per page; manual triggering only on the current page | ✅ |
 | (rule) | Settings and running sequences (sample sequences, drum patterns) keep going when you change pages | ✅ |
+
+### Parked ideas (removed from KICK/SNARE in v0.5 — could move to T pads if wanted)
+Delay dub throw · delay clear · reverb throw · kill reverb tail · momentary freeze · release freeze · one-shot filter sweep · FM sequence record arm / clear (❓ needs a new home) · lighting flash / blackout · Resolume next column / flash.
 
 ### ✅ How the slider switches targets — Option B chosen
 | | A: OK / CANCEL step through targets | B: Second pressable encoder for the slider |
@@ -99,7 +106,6 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | T3 | EQ on/off ❓ |
 | T4 | OLED shows input meters / output meters (toggle) |
 | T5 | Tuner on OLED ❓ (not requested — useful?) |
-| KICK / SNARE | — unassigned |
 
 ### Page 2 — DELAY ✅
 | Control | Does |
@@ -114,8 +120,6 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | T3 | Sync time to the loop clock on/off |
 | T4 | Hold (infinite repeats while held) |
 | T5 | Recorder takes this pre/post delay ✅ pre/post setting per page |
-| KICK | "Dub throw": sends cello into the delay only while held |
-| SNARE | Clear the delay repeats |
 
 ### Page 3 — REVERB (shared) ✅
 | Control | Does |
@@ -130,8 +134,6 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | T3 | Hold tail (very long decay while held) |
 | T4 | — unassigned |
 | T5 | Recorder pre/post reverb ✅ |
-| KICK | Reverb throw (momentary big send) |
-| SNARE | Kill tail |
 
 ### Page 4 — HARMONIZER (delay-based) ✅
 | Control | Does |
@@ -146,7 +148,6 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | T3 | Snap intervals to a scale on/off ❓ which scales? |
 | T4 | Octave-down voice on/off |
 | T5 | Recorder pre/post harmonizer ✅ |
-| KICK / SNARE | ❓ unassigned — ideas welcome |
 
 ### Page 5 — FREEZE (grain-based) ✅
 | Control | Does |
@@ -161,8 +162,6 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | T3 | Clear freeze (asks OK/CANCEL) |
 | T4 | Fade time in/out |
 | T5 | Recorder pre/post freeze ✅ |
-| KICK | Momentary freeze (only while held) |
-| SNARE | Release / fade out freeze |
 
 ### Page 6 — FILTER ✅
 | Control | Does |
@@ -177,15 +176,13 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | T3 | Envelope follower on/off ✅ |
 | T4 | Sweep on/off ✅ |
 | T5 | Recorder pre/post filter ✅ |
-| KICK | One-shot sweep trigger |
-| SNARE | — unassigned |
 
 ### Page 7 — DRUM SYNTH ✅
 Patterns are tapped in on pads ✅ and keep running on other pages ✅, synced to loops ✅.
 | Control | Does |
 |---|---|
-| KICK | Kick drum |
-| SNARE | Snare drum |
+| TRIG1 | Kick drum (this is TRIG1's default on every page) |
+| TRIG2 | Snare drum (this is TRIG2's default on every page) |
 | T1–T3 | Hi-hat, open hat, percussion |
 | T4 | Pattern record arm (taps get recorded into the loop-length pattern) |
 | T5 | Clear pattern (asks OK/CANCEL) |
@@ -201,8 +198,6 @@ Sequenced in sync with loops ✅.
 | Control | Does |
 |---|---|
 | T1–T5 | Play 5 notes of the chosen scale ❓ |
-| KICK | Sequence record arm |
-| SNARE | Clear sequence (asks OK/CANCEL) |
 | P1 | Ratio (timbre) |
 | P2 | Index (brightness) |
 | P3 | Envelope length |
@@ -219,8 +214,6 @@ Sequenced in sync with loops ✅.
 | P3 | Saturation |
 | P4 | Speed |
 | P5 | Audio reactivity (how much the cello drives the light) |
-| KICK | Flash / strobe while held |
-| SNARE | Blackout toggle |
 Stage DMX: later ✅, not in this version.
 
 ### Page 10 — RECORDER / LOOPER / SAMPLER ✅
@@ -237,15 +230,12 @@ The pedal does record / navigate / retrieve / store / create everywhere ✅. Thi
 | T3 | Stutter / retrigger ✅ loop trick |
 | T4 | Assign last recording to a pad (then touch the destination pad) ✅ record button records samples assigned to pads |
 | T5 | Recorder default: pre or post effects (global) ✅ default is post |
-| KICK / SNARE | ❓ Sample pads? |
 ❓ **Big one:** which pads play back samples, and on which page? Your rule says manual triggering happens only on the current page. Should this page turn its pads into sample pads, or should samples live on their own page?
 
 ### Page 11 — RESOLUME ✅
 | Control | Does |
 |---|---|
 | T1–T5 | Trigger clips 1–5 in the current column |
-| KICK | Next column |
-| SNARE | Visual flash / strobe effect |
 | P1–P5 | Five mapped Resolume parameters (opacity, effect amounts) ❓ which ones? |
 ❓ How does Bela talk to Resolume: MIDI or OSC over the network? (Bela Mini has no built-in Wi-Fi.)
 
@@ -260,7 +250,8 @@ Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends
 0b. P1–P5 pad roles, page by page (notes / presets / other).
 1. ~~Slider mode~~ — decided: relative, no jumps. Long-press SENC = back to default target.
 2. Page 1: EQ yes/no? Tuner wanted?
-3. Harmonizer: which scales for interval snapping? KICK/SNARE ideas?
+3. Harmonizer: which scales for interval snapping?
+3b. How do you reassign TRIG1/TRIG2 (proposal: hold trigger + choose + OK)? Where do FM sequence record/clear go now?
 4. Drums: how many pattern slots?
 5. FM synth: bass, pad, or lead?
 6. **Samples: which pads play them, and on which page?**
