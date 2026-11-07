@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.11 changes:** SENC stops at both ends; the far right also lands on PAGE OPTIONS for now (reserved for a future universal endpoint). 8 toggle slots and OK = Store approved. CANCEL keeps changes live until the song changes, but they are not saved.
+
 **v0.10 changes:** TRIG3 = hi-hat, TRIG4 = open hat by default. New **Page Options mode**: turning SENC all the way left reaches PAGE OPTIONS; press to enter; pads toggle page-specific preferences shown on the OLED; OK stores them to the song; CANCEL escapes. Displaced toggles (pre/post etc.) move here.
 
 **v0.9 changes:** Record-arm on T1–T3 withdrawn. Drum and FM pages get SOUND / SEQUENCE modes chosen with OK/CANCEL (tap steps, hold OK enters). Sequences are stored into persistent triggers. Thumb pads T4/T5 become **TRIG3 / TRIG4**; page-specific thumb pads are now T1–T3 only. Displaced T4/T5 functions are parked below.
@@ -103,14 +105,15 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 ### ✅ Page Options mode (v0.10)
 | Step | What happens | Source |
 |---|---|---|
-| Reach it | Turn SENC all the way left, past the slider targets, to **PAGE OPTIONS** | ✅ |
+| Reach it | Turn SENC all the way left, past the slider targets, to **PAGE OPTIONS**. For now the far right end also lands on PAGE OPTIONS (reserved for a second universal endpoint later). | ✅ |
 | Enter | Press SENC | ✅ |
 | Use | Pads toggle this page's preferences (behaviour switches, not performance). The OLED shows each toggle's on/off state. | ✅ |
-| Store | OK saves this page's options **to the song** | ✅ (💡 assumes "Store button" = OK) |
+| Store | OK saves this page's options **to the song**, so the song loads behaving as you set it | ✅ |
 | Leave | CANCEL escapes Page Options mode | ✅ |
-| Encoder ends | 💡 SENC stops at both ends (no wrap-around), so "all the way left" is a reliable landing | 💡 |
-| Which pads toggle | 💡 P1–P5 + T1–T3 = 8 toggle slots per page. TRIG1–TRIG4 stay live so you can keep playing. | 💡 |
-| Unsaved changes on CANCEL | ❓ Keep them live until the song changes, or revert to the last stored? | ❓ |
+| Encoder ends | SENC stops at both ends (no wrap-around), so the ends are reliable landings | ✅ |
+| Which pads toggle | P1–P5 + T1–T3 = 8 toggle slots per page. TRIG1–TRIG4 stay live so you can keep playing. | ✅ |
+| Unsaved changes on CANCEL | Stay active until the song changes, but are not saved — loading the song again restores its stored settings | ✅ |
+| Unsaved marker | 💡 a small mark on the OLED while a page has unsaved option changes | 💡 |
 | "Song" | ❓ New concept — how is a song chosen and loaded (pedal retrieve? a Songs page?) | ❓ |
 
 **💡 Toggle candidates per page (from displaced items):**
