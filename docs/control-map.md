@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.16 changes:** Overdubs vs secondary loops defined. Secondary loops snap to LOOP by default, BAR as an option (shorter sections like a chorus or bridge). Saving: hold B3 saves everything; OK in Page Options saves just that page.
+
 **v0.15 changes:** New design rules: (1) any "default" implies other options, normally in that function's Page Options; (2) **blinking = unconfirmed, solid = confirmed** everywhere. Song timing options are bars-per-loop and beats-per-bar (custom time signatures). Page 10 renamed **SONG**. Expression assignment flow defined. Loops snap to the first loop's length; samples trigger freely, quantization optional.
 
 **v0.14 changes:** Double-tap B3 creates a new song. Song structure defined: the first loop sets the tempo (16 beats of 4/4); sequences run for one or more loop lengths; multiple loops per song, stored to TRIG pads; a song can arrange several loops. SENC far right = EXPRESSION OPTIONS (expression pedal, default master volume).
@@ -120,7 +122,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | Reach it | Turn SENC all the way left, past the slider targets, to **PAGE OPTIONS** | ✅ |
 | Enter | Press SENC | ✅ |
 | Use | Pads toggle this page's preferences (behaviour switches, not performance). The OLED shows each toggle's on/off state. | ✅ |
-| Store | OK saves this page's options **to the song**, so the song loads behaving as you set it | ✅ |
+| Store | OK saves **just this page's** options to the song (a quick save). Holding B3 on the pedal saves **everything**, including any unsaved page changes. | ✅ |
 | Leave | CANCEL escapes Page Options mode | ✅ |
 | Encoder ends | SENC stops at both ends (no wrap-around), so the ends are reliable landings | ✅ |
 | Which pads toggle | P1–P5 + T1–T3 = 8 toggle slots per page. TRIG1–TRIG4 stay live so you can keep playing. | ✅ |
@@ -186,10 +188,10 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | A new song is defined by its **first loop** | ✅ |
 | The first loop's length = **16 beats of 4/4** (default) → that sets the song's tempo, which drives all sequences | ✅ |
 | Drum/synth sequences can last one loop length or several, for longer form | ✅ |
-| A song can hold **several loops**. The first loop and later loops can each be stored to a TRIG pad. | ✅ |
-| A longer song = an arrangement of several loops plus drum/synth sequences, its total length a whole multiple of the first loop | ✅ |
+| A song can hold **several loops**. The **first loop** sets the song's length unit. Recordings on top of a loop are **overdubs** (layers of that same loop). **Secondary loops** are separate loops; any loop can be stored to a TRIG pad. | ✅ |
+| A longer song = an arrangement of loops plus drum/synth sequences, all on the bar grid set by the first loop | ✅ |
 | A song can also be as simple as one loop and nothing else | ✅ |
-| **Loops** snap to a whole multiple of the first loop's length, so everything stays in sync | ✅ |
+| **Secondary loop length** snaps to the **LOOP** (one or more full lengths of the first loop) by default. SONG page option: **BAR**, which snaps to whole bars, so a chorus or bridge can be shorter than the verse. Either way everything stays on the same beat grid. | ✅ |
 | **Samples** are free recordings, triggered with or without quantization. **Default: FREE**; quantize options in SONG page options. | ✅ |
 | **Bars per loop** and **beats per bar** are SONG page options, allowing custom time signatures (default 4 bars × 4 beats = 16) | ✅ |
 | 💡 The arrangement (which loop plays when) is recorded like any sequence: Sequence mode on the SONG page, playing the TRIG pads in time | 💡 ❓ |
