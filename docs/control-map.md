@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.12 changes:** Unsaved-changes marker approved. Foot pedal = Hotone Ampero Control (4 switches): B1 record/overdub (hold = erase last layer), B2 stop (hold = erase), B3/B4 = song previous/next (cue), B1 accepts the cued song. Songs can be cued from any page.
+
 **v0.11 changes:** SENC stops at both ends; the far right also lands on PAGE OPTIONS for now (reserved for a future universal endpoint). 8 toggle slots and OK = Store approved. CANCEL keeps changes live until the song changes, but they are not saved.
 
 **v0.10 changes:** TRIG3 = hi-hat, TRIG4 = open hat by default. New **Page Options mode**: turning SENC all the way left reaches PAGE OPTIONS; press to enter; pads toggle page-specific preferences shown on the OLED; OK stores them to the song; CANCEL escapes. Displaced toggles (pre/post etc.) move here.
@@ -113,7 +115,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | Encoder ends | SENC stops at both ends (no wrap-around), so the ends are reliable landings | ✅ |
 | Which pads toggle | P1–P5 + T1–T3 = 8 toggle slots per page. TRIG1–TRIG4 stay live so you can keep playing. | ✅ |
 | Unsaved changes on CANCEL | Stay active until the song changes, but are not saved — loading the song again restores its stored settings | ✅ |
-| Unsaved marker | 💡 a small mark on the OLED while a page has unsaved option changes | 💡 |
+| Unsaved marker | A small mark on the OLED while a page has unsaved option changes | ✅ |
 | "Song" | ❓ New concept — how is a song chosen and loaded (pedal retrieve? a Songs page?) | ❓ |
 
 **💡 Toggle candidates per page (from displaced items):**
@@ -122,6 +124,23 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 - I/O: meter view input/output · tuner · EQ on/off
 - Sampler: global recorder pre/post default ✅ feature
 - Momentary performance actions (delay hold, freeze capture) stay on T1–T3, not in options
+
+### Foot pedal — Hotone Ampero Control (v0.12)
+| Switch | Tap | Hold | Source |
+|---|---|---|---|
+| B1 | Record / overdub | Erase the previous recorded layer | ✅ |
+| B2 | Stop | Erase | ✅ (❓ erase the whole loop?) |
+| B3 | Song: previous (cue) | — | ✅ |
+| B4 | Song: next (cue) | — | ✅ |
+| B1 while a song is cued | Accept → load the cued song | — | ✅ |
+
+**💡 Timing:** B1 starts recording **on press** (no delay). If the press turns into a hold, that just-started take is discarded and the previous layer is erased. B2 stops on press; holding escalates to erase.
+**💡 Cueing:** the cued song name shows in the OLED's yellow band until accepted. B2 while cued = cancel the cue.
+**💡 Pedal setup:** switches set to *momentary* mode so the pedal sends both press and release; Bela times the hold itself.
+**💡 Spare inputs:** the Ampero Control has 2 TRS jacks for extra footswitches or an expression pedal — room to grow.
+❓ Loop navigate / retrieve / store / create (decided earlier for the pedal) are not on the 4 switches — move them to the Rec/Loop page, or add footswitches?
+❓ Loading a song while loops are playing: switch on the next bar, or stop everything?
+❓ Connection: USB cable, or Bluetooth via an adapter (Bela Mini has no built-in Bluetooth)?
 
 ### Displaced by T4/T5 → TRIG3/TRIG4 (v0.9) — need new homes or can be dropped
 - **Recorder pre/post** on Delay, Reverb, Harmonizer, Freeze, Filter (✅ feature) — ✅ now a Page Options toggle
@@ -308,5 +327,5 @@ Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends
 5. FM synth: bass, pad, or lead?
 6. **Samples: which pads play them, and on which page?**
 7. Resolume: MIDI or OSC? Which 5 parameters?
-8. Foot pedal: what model, and how does it connect (USB MIDI, or wired to Bela's digital inputs)?
+8. ~~Foot pedal model~~ — Hotone Ampero Control. Still open: USB vs Bluetooth; loop navigate/retrieve/store/create; song-load timing.
 9. Is 12 pages the right number, or should some pages merge?
