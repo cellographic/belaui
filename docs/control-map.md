@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.10 changes:** TRIG3 = hi-hat, TRIG4 = open hat by default. New **Page Options mode**: turning SENC all the way left reaches PAGE OPTIONS; press to enter; pads toggle page-specific preferences shown on the OLED; OK stores them to the song; CANCEL escapes. Displaced toggles (pre/post etc.) move here.
+
 **v0.9 changes:** Record-arm on T1–T3 withdrawn. Drum and FM pages get SOUND / SEQUENCE modes chosen with OK/CANCEL (tap steps, hold OK enters). Sequences are stored into persistent triggers. Thumb pads T4/T5 become **TRIG3 / TRIG4**; page-specific thumb pads are now T1–T3 only. Displaced T4/T5 functions are parked below.
 
 **v0.8 changes:** Assign mode details approved (record-arm on T1–T3 later withdrawn in v0.9).
@@ -65,7 +67,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | SENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
 | T1–T3 | Page-specific switches and actions (on/off, tap, latch, trigger) | ✅ |
-| TRIG1–TRIG4 | **Persistent triggers** — work on every page. Default: TRIG1 = kick, TRIG2 = snare; TRIG3/TRIG4 defaults ❓. Each can hold a sample, a synth note, or a **stored sequence**, and works on every page. | ✅ |
+| TRIG1–TRIG4 | **Persistent triggers** — work on every page. Default: TRIG1 = kick, TRIG2 = snare, TRIG3 = hi-hat, TRIG4 = open hat. Each can hold a sample, a synth note, or a **stored sequence**, and works on every page. | ✅ |
 | (rule) | TRIG1/TRIG2 are the deliberate exception to "manual triggering only on the current page" | ✅ |
 | **Assign mode** step 1 | On an assignable page, **hold OK** → OLED shows **?** (waiting for a target pad) | ✅ |
 | Assign mode step 2 | Touch the pad to assign → **?** becomes **>** (waiting for a source). The touch does **not** play the pad. | ✅ |
@@ -98,8 +100,28 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | Feel for drums/notes | Late, by the length of the tap | Immediate |
 | Consistency | One rule everywhere | Two rules, split by pad type |
 
+### ✅ Page Options mode (v0.10)
+| Step | What happens | Source |
+|---|---|---|
+| Reach it | Turn SENC all the way left, past the slider targets, to **PAGE OPTIONS** | ✅ |
+| Enter | Press SENC | ✅ |
+| Use | Pads toggle this page's preferences (behaviour switches, not performance). The OLED shows each toggle's on/off state. | ✅ |
+| Store | OK saves this page's options **to the song** | ✅ (💡 assumes "Store button" = OK) |
+| Leave | CANCEL escapes Page Options mode | ✅ |
+| Encoder ends | 💡 SENC stops at both ends (no wrap-around), so "all the way left" is a reliable landing | 💡 |
+| Which pads toggle | 💡 P1–P5 + T1–T3 = 8 toggle slots per page. TRIG1–TRIG4 stay live so you can keep playing. | 💡 |
+| Unsaved changes on CANCEL | ❓ Keep them live until the song changes, or revert to the last stored? | ❓ |
+| "Song" | ❓ New concept — how is a song chosen and loaded (pedal retrieve? a Songs page?) | ❓ |
+
+**💡 Toggle candidates per page (from displaced items):**
+- Delay, Reverb, Harmonizer, Freeze, Filter: **Recorder pre/post** ✅ feature
+- Delay: sync to loop clock · Reverb: ducking · Harmonizer: octave-down voice, scale snap · Freeze: fade in/out · Filter: sweep on/off ✅ feature, envelope follower on/off
+- I/O: meter view input/output · tuner · EQ on/off
+- Sampler: global recorder pre/post default ✅ feature
+- Momentary performance actions (delay hold, freeze capture) stay on T1–T3, not in options
+
 ### Displaced by T4/T5 → TRIG3/TRIG4 (v0.9) — need new homes or can be dropped
-- **Recorder pre/post** on Delay, Reverb, Harmonizer, Freeze, Filter (✅ feature) — 💡 make it the last item in each page's SENC slider-target list
+- **Recorder pre/post** on Delay, Reverb, Harmonizer, Freeze, Filter (✅ feature) — ✅ now a Page Options toggle
 - Recorder global pre/post default (✅ feature, sampler page)
 - Filter sweep on/off (✅ feature)
 - Delay hold · Harmonizer octave-down · Freeze fade time · I/O meter view · Tuner
