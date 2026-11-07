@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.19 changes:** P1–P8 on the SONG page choose the active TRIG bank. Bank 1 defaults to drums; bank 8 defaults to loop tricks on TRIG1–TRIG3 (TRIG4 reserved for another loop effect). Bank-select conflict resolved.
+
 **v0.18 changes:** Thumb pads T1–T3 renamed **P6–P8** (they work like P1–P5, so pads are now P1–P8). 8 TRIG banks = 32 trigger slots. SONG page P6–P8 default to loop tricks. Three ways to play any pad defined: live, recorded into the loop audio, or recorded as a sequence.
 
 **v0.17 changes:** Standing rule: parts stay separate (loops vs sequences). Arrangement is built by playing TRIG pads in time. TRIG banks selected from the SONG page, bank number on the OLED. Pedal confirmations for store/delete approved.
@@ -202,12 +204,11 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | **Bars per loop** and **beats per bar** are SONG page options, allowing custom time signatures (default 4 bars × 4 beats = 16) | ✅ |
 | The **arrangement** is built by playing: loops are assigned to TRIG pads, then you play the pads in time and that sequence is recorded as the song's structure | ✅ |
 | 💡 A song saves everything: loops, sequences, arrangement, TRIG assignments, page options and effect settings | 💡 ❓ |
-| **TRIG banks.** On the SONG page, pads select which bank TRIG1–TRIG4 play from. The current bank number shows on the OLED (💡 in the yellow status band, e.g. "BK3"). | ✅ |
+| **TRIG banks.** On the SONG page, **P1–P8 choose the active bank** (1–8). The current bank number shows on the OLED (💡 in the yellow status band, e.g. "BK3"). | ✅ |
 | **8 banks × 4 TRIG pads = 32 trigger slots** | ✅ |
-| SONG page P6–P8 default to the loop tricks (reverse, half speed, stutter). They can be assigned to a TRIG pad so their use over time can be recorded into the song. | ✅ |
-| ❓ **Conflict:** if P1–P8 select banks on the SONG page, P6–P8 can't also be loop tricks there. How do you get to bank select? (options in chat; 💡 a BANKS entry in the SONG page's SENC list: press SENC, then P1–P8 pick the bank) | ❓ |
+| **Bank 8 defaults to loop tricks:** TRIG1 = reverse, TRIG2 = half speed, TRIG3 = stutter; TRIG4 reserved for another loop effect. They can be overwritten if the slots are needed. As triggers they work from any page and can be recorded as sequences. | ✅ |
 | 💡 Switching banks changes what the pads trigger **next**; anything already playing keeps playing until stopped | 💡 |
-| 💡 Bank 1 holds the drum defaults (kick, snare, hat, open hat); other banks start empty | 💡 |
+| **Bank 1 defaults to drums** (kick, snare, hat, open hat). 💡 Banks 2–7 start empty. | ✅ |
 
 
 ### Displaced by T4/T5 → TRIG3/TRIG4 (v0.9) — need new homes or can be dropped
@@ -364,9 +365,7 @@ The pedal does record / navigate / retrieve / store / create everywhere ✅. Thi
 | P3 | Playback speed |
 | P4 | Sample start / trim |
 | P5 | Crossfade time |
-| P6 | Reverse ✅ loop trick |
-| P7 | Half speed ✅ loop trick |
-| P8 | Stutter / retrigger ✅ loop trick |
+| P1–P8 | Choose the active TRIG bank 1–8 (loop tricks moved to bank 8's TRIG pads) |
 ❓ **Big one:** which pads play back samples, and on which page? Your rule says manual triggering happens only on the current page. Should this page turn its pads into sample pads, or should samples live on their own page?
 
 ### Page 11 — RESOLUME ✅
