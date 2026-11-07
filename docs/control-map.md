@@ -68,10 +68,10 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | **Assign mode** step 1 | On an assignable page, **hold OK** → OLED shows **?** (waiting for a target pad) | ✅ |
 | Assign mode step 2 | Touch the pad to assign → **?** becomes **>** (waiting for a source). The touch does **not** play the pad. | ✅ |
 | Assign mode step 3 | The next sample / drum / sequence / synth note selected on this page is assigned to that pad. OLED briefly shows the result, e.g. "TRIG1 = Sample 3". | ✅ |
-| Old assignment | Kept until the new one lands, so backing out loses nothing | |
-| Backing out | CANCEL at ? or > exits Assign mode with no change; changing page also exits | |
-| Clearing a pad to empty | At >, hold CANCEL = clear that pad | |
-| Non-assignable pages | Holding OK shows "no assign here" | |
+| Old assignment | Kept until the new one lands, so backing out loses nothing | ✅ |
+| Backing out | CANCEL at ? or > exits Assign mode with no change; changing page also exits | ✅ |
+| Clearing a pad to empty | At >, hold CANCEL = clear that pad | ✅ |
+| Non-assignable pages | Holding OK shows "no assign here" | ✅ |
 | Assignable targets | TRIG1/TRIG2 from any assignable page, plus that page's own pads | ✅ |
 | Restore kick/snare to TRIG1/TRIG2 | 💡 a "reset triggers" option on the drum page | 💡 |
 | Record-arm (drum patterns, FM sequences) | Right thumb pads **T1–T3** | ✅ |
@@ -282,7 +282,7 @@ Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends
 3. Harmonizer: which scales for interval snapping?
 3b. ~~Reassigning~~ — decided: hold-to-arm + OK. Still open: which pad arms FM sequence recording?
 3c. ~~Tap timing~~ — resolved: playable pads on press, OK/CANCEL on release.
-3d. Assign mode details marked 💡 (silent target touch, keep old until new, CANCEL backs out, hold CANCEL clears, which pads are targets).
+3d. ~~Assign mode details~~ — approved.
 4. Drums: how many pattern slots?
 5. FM synth: bass, pad, or lead?
 6. **Samples: which pads play them, and on which page?**
