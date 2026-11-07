@@ -69,6 +69,7 @@ Total capacitive pads: 14 (P1–P5, T1–T3, TRIG1–TRIG4, OK, CANCEL), all on 
 ### ✅ Design rules
 1. **Defaults imply options.** Whenever a rule names a default, other choices exist, normally set in that function's Page Options.
 2. **Blinking = unconfirmed, solid = confirmed.** In any preview or pending choice (page encoder, slider encoder, song cue, Assign mode, expression assignment, confirm prompts) the option name on the OLED **blinks** until confirmed, then goes **solid**. Turning back to the current option shows it blinking too, until you confirm or cancel.
+3. **Parts stay separate.** Cello loops, drum sequences and synth sequences are stored independently. Clearing the recordings keeps all sequences, and sequences are never baked into the recording, so either can be changed or removed without touching the other.
 
 Having one consistent "grammar" means your hands learn the instrument once, and every page just changes *what* the controls point at.
 
