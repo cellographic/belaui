@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.18 changes:** Thumb pads T1–T3 renamed **P6–P8** (they work like P1–P5, so pads are now P1–P8). 8 TRIG banks = 32 trigger slots. SONG page P6–P8 default to loop tricks. Three ways to play any pad defined: live, recorded into the loop audio, or recorded as a sequence.
+
 **v0.17 changes:** Standing rule: parts stay separate (loops vs sequences). Arrangement is built by playing TRIG pads in time. TRIG banks selected from the SONG page, bank number on the OLED. Pedal confirmations for store/delete approved.
 
 **v0.16 changes:** Overdubs vs secondary loops defined. Secondary loops snap to LOOP by default, BAR as an option (shorter sections like a chorus or bridge). Saving: hold B3 saves everything; OK in Page Options saves just that page.
@@ -50,8 +52,8 @@
 | P1–P5 | Picker pads | Left rib, running back toward the rear panel | ✅ |
 | TRIG1 | Large pad (2.5" × 1.75") — persistent trigger 1 (was KICK) | Left rib, in front of pickers 2–4 | ✅ |
 | ENC | Pressable notched endless encoder | Left rib, toward the cello's face | ✅ |
-| T1–T3 | Thumb pads | Right corner piece, front to back along the corner block | ✅ |
-| SLIDER | Trill Flex slider | Upper-right, near the face, from above T1–T3 to about mid upper bout | ✅ |
+| P6–P8 | Thumb pads | Right corner piece, front to back along the corner block | ✅ |
+| SLIDER | Trill Flex slider | Upper-right, near the face, from above P6–P8 to about mid upper bout | ✅ |
 | TRIG3 | Persistent trigger 3 (was thumb pad T4, percussion size) | Right next to TRIG2 | ✅ |
 | TRIG4 | Persistent trigger 4 (was thumb pad T5, percussion size) | Directly under TRIG3 | ✅ |
 | TRIG2 | Large pad, like TRIG1 — persistent trigger 2 (was SNARE) | Upper-right, above the slider | ✅ |
@@ -60,7 +62,7 @@
 | SENC | Second pressable encoder — slider target | Below TRIG4, next to the Flex slider | ✅ |
 | PEDAL | External foot pedal | Floor | ✅ |
 
-Total capacitive pads: 14 (P1–P5, T1–T3, TRIG1–TRIG4, OK, CANCEL), all on one Trill Craft (30 channels available). Slider is the Trill Flex.
+Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on one Trill Craft (30 channels available). Slider is the Trill Flex.
 
 ---
 
@@ -69,7 +71,8 @@ Total capacitive pads: 14 (P1–P5, T1–T3, TRIG1–TRIG4, OK, CANCEL), all on 
 ### ✅ Design rules
 1. **Defaults imply options.** Whenever a rule names a default, other choices exist, normally set in that function's Page Options.
 2. **Blinking = unconfirmed, solid = confirmed.** In any preview or pending choice (page encoder, slider encoder, song cue, Assign mode, expression assignment, confirm prompts) the option name on the OLED **blinks** until confirmed, then goes **solid**. Turning back to the current option shows it blinking too, until you confirm or cancel.
-3. **Parts stay separate.** Cello loops, drum sequences and synth sequences are stored independently. Clearing the recordings keeps all sequences, and sequences are never baked into the recording, so either can be changed or removed without touching the other.
+3. **Three ways to play any pad.** (a) **Live** — heard, not recorded. (b) **Into the loop** — while the loop is recording or overdubbing, the pad's sound is recorded into that audio layer. (c) **Sequence record mode** — the triggered events are recorded as a sequence, kept separate from the audio layers.
+4. **Parts stay separate.** Cello loops, drum sequences and synth sequences are stored independently. Clearing the recordings keeps all sequences, and sequences are never baked into the recording, so either can be changed or removed without touching the other.
 
 Having one consistent "grammar" means your hands learn the instrument once, and every page just changes *what* the controls point at.
 
@@ -85,7 +88,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CANCEL during SENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
 | SENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
-| T1–T3 | Page-specific switches and actions (on/off, tap, latch, trigger) | ✅ |
+| P6–P8 | Page-specific switches and actions (on/off, tap, latch, trigger) | ✅ |
 | TRIG1–TRIG4 | **Persistent triggers** — work on every page. Default: TRIG1 = kick, TRIG2 = snare, TRIG3 = hi-hat, TRIG4 = open hat. Each can hold a sample, a synth note, or a **stored sequence**, and works on every page. | ✅ |
 | (rule) | TRIG1/TRIG2 are the deliberate exception to "manual triggering only on the current page" | ✅ |
 | **Assign mode** step 1 | On an assignable page, **hold OK** → OLED shows **?** (waiting for a target pad) | ✅ |
@@ -128,7 +131,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | Store | OK saves **just this page's** options to the song (a quick save). Holding B3 on the pedal saves **everything**, including any unsaved page changes. | ✅ |
 | Leave | CANCEL escapes Page Options mode | ✅ |
 | Encoder ends | SENC stops at both ends (no wrap-around), so the ends are reliable landings | ✅ |
-| Which pads toggle | P1–P5 + T1–T3 = 8 toggle slots per page. TRIG1–TRIG4 stay live so you can keep playing. | ✅ |
+| Which pads toggle | P1–P8 = 8 toggle slots per page. TRIG1–TRIG4 stay live so you can keep playing. | ✅ |
 | Unsaved changes on CANCEL | Stay active until the song changes, but are not saved — loading the song again restores its stored settings | ✅ |
 | Unsaved marker | A small mark on the OLED while a page has unsaved option changes | ✅ |
 | "Song" | ❓ New concept — how is a song chosen and loaded (pedal retrieve? a Songs page?) | ❓ |
@@ -138,7 +141,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 - Delay: sync to loop clock · Reverb: ducking · Harmonizer: octave-down voice, scale snap · Freeze: fade in/out · Filter: sweep on/off ✅ feature, envelope follower on/off
 - I/O: meter view input/output · tuner · EQ on/off
 - Sampler: global recorder pre/post default ✅ feature
-- Momentary performance actions (delay hold, freeze capture) stay on T1–T3, not in options
+- Momentary performance actions (delay hold, freeze capture) stay on P6–P8, not in options
 
 ### ✅ Expression Options mode (v0.14) — SENC far right
 | Step | What happens | Source |
@@ -200,7 +203,9 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | The **arrangement** is built by playing: loops are assigned to TRIG pads, then you play the pads in time and that sequence is recorded as the song's structure | ✅ |
 | 💡 A song saves everything: loops, sequences, arrangement, TRIG assignments, page options and effect settings | 💡 ❓ |
 | **TRIG banks.** On the SONG page, pads select which bank TRIG1–TRIG4 play from. The current bank number shows on the OLED (💡 in the yellow status band, e.g. "BK3"). | ✅ |
-| ❓ 5 banks (P1–P5) or 8 banks (P1–P5 + T1–T3)? 8 banks would displace the SONG page loop tricks on T1–T3 (reverse, half speed, stutter). | ❓ |
+| **8 banks × 4 TRIG pads = 32 trigger slots** | ✅ |
+| SONG page P6–P8 default to the loop tricks (reverse, half speed, stutter). They can be assigned to a TRIG pad so their use over time can be recorded into the song. | ✅ |
+| ❓ **Conflict:** if P1–P8 select banks on the SONG page, P6–P8 can't also be loop tricks there. How do you get to bank select? (options in chat; 💡 a BANKS entry in the SONG page's SENC list: press SENC, then P1–P8 pick the bank) | ❓ |
 | 💡 Switching banks changes what the pads trigger **next**; anything already playing keeps playing until stopped | 💡 |
 | 💡 Bank 1 holds the drum defaults (kick, snare, hat, open hat); other banks start empty | 💡 |
 
@@ -249,9 +254,9 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | P3 | Main output level |
 | P4 | EQ low ❓ (EQ was "maybe") |
 | P5 | EQ high ❓ |
-| T1 | Mute cello input |
-| T2 | Mute voice input |
-| T3 | EQ on/off ❓ |
+| P6 | Mute cello input |
+| P7 | Mute voice input |
+| P8 | EQ on/off ❓ |
 
 ### Page 2 — DELAY ✅
 | Control | Does |
@@ -261,9 +266,9 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | P3 | Mix |
 | P4 | Tone (darkens repeats) |
 | P5 | Send to shared reverb ✅ everything routes through one reverb |
-| T1 | Delay on/off |
-| T2 | Tap time |
-| T3 | Sync time to the loop clock on/off |
+| P6 | Delay on/off |
+| P7 | Tap time |
+| P8 | Sync time to the loop clock on/off |
 
 ### Page 3 — REVERB (shared) ✅
 | Control | Does |
@@ -273,9 +278,9 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | P3 | Return level |
 | P4 | Pre-delay |
 | P5 | Direct cello send into reverb |
-| T1 | Reverb on/off |
-| T2 | Ducking (reverb dips while you play) on/off |
-| T3 | Hold tail (very long decay while held) |
+| P6 | Reverb on/off |
+| P7 | Ducking (reverb dips while you play) on/off |
+| P8 | Hold tail (very long decay while held) |
 
 ### Page 4 — HARMONIZER (delay-based) ✅
 | Control | Does |
@@ -285,9 +290,9 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | P3 | Mix |
 | P4 | Detune / stereo spread |
 | P5 | Send to shared reverb |
-| T1 | Harmonizer on/off |
-| T2 | Voice 2 on/off |
-| T3 | Snap intervals to a scale on/off ❓ which scales? |
+| P6 | Harmonizer on/off |
+| P7 | Voice 2 on/off |
+| P8 | Snap intervals to a scale on/off ❓ which scales? |
 
 ### Page 5 — FREEZE (grain-based) ✅
 | Control | Does |
@@ -297,9 +302,9 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | P3 | Spread (position jitter) |
 | P4 | Pitch |
 | P5 | Freeze level |
-| T1 | Capture freeze (latch) |
-| T2 | Add a layer on top of the current freeze |
-| T3 | Clear freeze (asks OK/CANCEL) |
+| P6 | Capture freeze (latch) |
+| P7 | Add a layer on top of the current freeze |
+| P8 | Clear freeze (asks OK/CANCEL) |
 
 ### Page 6 — FILTER ✅
 | Control | Does |
@@ -309,9 +314,9 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 | P3 | Envelope follower amount ✅ |
 | P4 | Envelope follower speed (attack/release) |
 | P5 | Sweep rate ✅ filter sweep |
-| T1 | Filter on/off |
-| T2 | Filter type: low-pass → band-pass → high-pass (cycles) |
-| T3 | Envelope follower on/off ✅ |
+| P6 | Filter on/off |
+| P7 | Filter type: low-pass → band-pass → high-pass (cycles) |
+| P8 | Envelope follower on/off ✅ |
 
 ### Page 7 — DRUM SYNTH ✅
 Patterns are tapped in on pads ✅ and keep running on other pages ✅, synced to loops ✅.
@@ -319,7 +324,7 @@ Patterns are tapped in on pads ✅ and keep running on other pages ✅, synced t
 |---|---|
 | TRIG1 | Kick drum (this is TRIG1's default on every page) |
 | TRIG2 | Snare drum (this is TRIG2's default on every page) |
-| T1–T3 | Hi-hat, open hat, percussion |
+| P6–P8 | Hi-hat, open hat, percussion |
 | P1 | Kick tune / decay |
 | P2 | Snare tone |
 | P3 | Hat decay |
@@ -331,7 +336,7 @@ Patterns are tapped in on pads ✅ and keep running on other pages ✅, synced t
 Sequenced in sync with loops ✅.
 | Control | Does |
 |---|---|
-| T1–T3 | Play notes ❓ (T4/T5 are now TRIG3/TRIG4; notes may move to P1–P5) |
+| P6–P8 | Play notes ❓ (T4/T5 are now TRIG3/TRIG4; notes may move to P1–P5) |
 | P1 | Ratio (timbre) |
 | P2 | Index (brightness) |
 | P3 | Envelope length |
@@ -342,7 +347,7 @@ Sequenced in sync with loops ✅.
 ### Page 9 — LIGHTING (internal cello LEDs) ✅
 | Control | Does |
 |---|---|
-| T1–T3 | Lighting scenes 1–3 (scenes 4–5 displaced) |
+| P6–P8 | Lighting scenes 1–3 (scenes 4–5 displaced) |
 | P1 | Brightness |
 | P2 | Colour (hue) |
 | P3 | Saturation |
@@ -359,20 +364,20 @@ The pedal does record / navigate / retrieve / store / create everywhere ✅. Thi
 | P3 | Playback speed |
 | P4 | Sample start / trim |
 | P5 | Crossfade time |
-| T1 | Reverse ✅ loop trick |
-| T2 | Half speed ✅ loop trick |
-| T3 | Stutter / retrigger ✅ loop trick |
+| P6 | Reverse ✅ loop trick |
+| P7 | Half speed ✅ loop trick |
+| P8 | Stutter / retrigger ✅ loop trick |
 ❓ **Big one:** which pads play back samples, and on which page? Your rule says manual triggering happens only on the current page. Should this page turn its pads into sample pads, or should samples live on their own page?
 
 ### Page 11 — RESOLUME ✅
 | Control | Does |
 |---|---|
-| T1–T3 | Trigger clips 1–3 in the current column (clips 4–5 displaced) |
+| P6–P8 | Trigger clips 1–3 in the current column (clips 4–5 displaced) |
 | P1–P5 | Five mapped Resolume parameters (opacity, effect amounts) ❓ which ones? |
 ❓ How does Bela talk to Resolume: MIDI or OSC over the network? (Bela Mini has no built-in Wi-Fi.)
 
 ### Page 12 — MIDI OUT (low priority) ✅
-Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends a CC, T1–T3 send notes. Defined later.
+Channels 1–10 for flexibility ✅. Placeholder: P1 picks channel, slider sends a CC, P6–P8 send notes. Defined later.
 
 ---
 
