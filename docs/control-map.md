@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.25 changes:** CTRL redefined as a latched global edit mode: P1–P8 pick a setting on the current page, the slider sets it, across any page, then save to song.
+
 **v0.24 changes:** Page encoder **wraps** (SYSTEM one click left of SONG). Freeze + Filter merged into **FLTR/FRZ** (page 7) with selectable sources; freeze hold on a second footswitch. New global slider-encoder options **CTRL** (edit any setting) and **FLTR** (filter sweep from any page). 11 pages: 1 SONG · 2 DRUM · 3 FM · 4 DELAY · 5 REVERB · 6 HARPEGGIO · 7 FLTR/FRZ · 8 LIGHTING · 9 RESOLUME · 10 MIDI · 11 SYSTEM.
 
 **v0.23 changes:** Page order set: 1 SONG · 2 DRUM · 3 FM · 4 DELAY · 5 REVERB · 6 HARPEGGIO · 7 FREEZE · 8 FILTER · 9 LIGHTING · 10 RESOLUME · 11 MIDI · 12 SYSTEM. MIDI device/port setup confirmed in SYSTEM. Freeze/Filter merge under discussion.
@@ -104,7 +106,8 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CANCEL during SENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
 | **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
 | **Global slider-encoder options** (on every page, alongside that page's own targets): **CTRL** and **FLTR** | ✅ |
-| **CTRL** | A global "quantity picker" for any numeric setting. Once the slider is set to CTRL it **stays in CTRL on every page**, ignoring each page's default slider target, until you change it back with the slider encoder. The expression pedal can also be set to CTRL. ❓ How a setting is chosen while in CTRL (message was cut off) | ✅ ❓ |
+| **CTRL** (global edit mode) | Choosing CTRL on the slider encoder **latches**: it stays on across every page and **ignores page slider defaults** until you choose something else on the slider encoder. On any page, **P1–P8 pick which setting to edit**, the slider sets its value (relative, no jumps), then move to any other page and keep editing. Save everything to the song before leaving CTRL. The expression pedal can also be assigned to CTRL. | ✅ |
+| CTRL details | 💡 OLED shows page · setting name · value, plus the unsaved marker. 💡 Pages with more than 8 settings: tap OK/CANCEL to step through sets of 8 (set number shown). 💡 On/off settings: a second tap on the same P pad flips it. 💡 TRIG1–TRIG4 stay playable; P1–P8 lose their normal job while in CTRL (incl. bank select on SONG). ❓ Saving: OK saves all CTRL edits to the song (like holding FS3)? Unsaved edits stay live until the song changes (same as Page Options). | 💡 ❓ |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
 | SENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
