@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.24 changes:** Page encoder **wraps** (SYSTEM one click left of SONG). Freeze + Filter merged into **FLTR/FRZ** (page 7) with selectable sources; freeze hold on a second footswitch. New global slider-encoder options **CTRL** (edit any setting) and **FLTR** (filter sweep from any page). 11 pages: 1 SONG · 2 DRUM · 3 FM · 4 DELAY · 5 REVERB · 6 HARPEGGIO · 7 FLTR/FRZ · 8 LIGHTING · 9 RESOLUME · 10 MIDI · 11 SYSTEM.
+
 **v0.23 changes:** Page order set: 1 SONG · 2 DRUM · 3 FM · 4 DELAY · 5 REVERB · 6 HARPEGGIO · 7 FREEZE · 8 FILTER · 9 LIGHTING · 10 RESOLUME · 11 MIDI · 12 SYSTEM. MIDI device/port setup confirmed in SYSTEM. Freeze/Filter merge under discussion.
 
 **v0.22 changes:** Foot buttons renamed **FS1–FS4**. A separate song-specific **MIDI** page returns (page 12) for controlling external devices; SYSTEM keeps rig-wide settings.
@@ -98,6 +100,10 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | SENC turn | Preview the slider's next/previous target for this page. The OLED shows the target name and current value, so you can confirm visually if notch counting fails. The slider keeps controlling the old target until you press. | ✅ |
 | SENC press | Lock in the previewed target | ✅ |
 | CANCEL during SENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
+| **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
+| **Global slider-encoder options** (on every page, alongside that page's own targets): **CTRL** and **FLTR** | ✅ |
+| **CTRL** | The slider (or the expression pedal, if set to CTRL) adjusts **whichever setting you've chosen to edit** on the current page, so editing never disturbs the slider's performance targets. ❓ How is the setting chosen — see chat | ✅ ❓ |
+| **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
 | SENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
 | P6–P8 | Page-specific switches and actions (on/off, tap, latch, trigger) | ✅ |
@@ -332,7 +338,20 @@ Sequenced in sync with loops ✅.
 
 Previous per-pad draft (to be redone in the P1–P8 pass): voice intervals, mix, spread, reverb send, on/off, voice on/off, scale snap.
 
-### Page 7 — FREEZE (grain-based) ✅
+### Page 7 — FLTR/FRZ (filter + grain freeze) ✅
+| Rule | Source |
+|---|---|
+| Freeze and Filter share one page | ✅ |
+| **Sources are selectable for each effect** — e.g. cello only, mic only, loops/synths, the whole mix except drums, or the master output | ✅ |
+| **Freeze hold** on an extra footswitch in the Ampero Control's second TRS jack (one jack = expression, one = freeze) | ✅ |
+| Filter modes: auto-wah (envelope follower) or sweeps (low-pass, high-pass, band-pass, notch, others) — set up here | ✅ |
+| **FLTR** is a global slider-encoder option, so filter sweeps can be played from any page | ✅ |
+| ❓ One filter and one freeze, each with a chosen source mix — or should, say, a cello filter and a master filter run at the same time? (two copies = more processor) | ❓ |
+| 💡 Extra options from chat to choose from: freeze grain size, density, spread, pitch/octave, drift, width, tone, latch vs hold, fade in/out, stack vs replace, decay, auto-freeze on new note; filter LFO sweep synced to tempo, step filter, formant/vowel, comb, drive, envelope sensitivity/attack/release, sweep range | 💡 |
+
+Earlier per-pad drafts (to be redone in the P1–P8 pass):
+
+**Freeze draft:**
 | Control | Does |
 |---|---|
 | P1 | Grain size |
@@ -344,7 +363,7 @@ Previous per-pad draft (to be redone in the P1–P8 pass): voice intervals, mix,
 | P7 | Add a layer on top of the current freeze |
 | P8 | Clear freeze (asks OK/CANCEL) |
 
-### Page 8 — FILTER ✅
+**Filter draft:**
 | Control | Does |
 |---|---|
 | P1 | Cutoff |
@@ -356,7 +375,7 @@ Previous per-pad draft (to be redone in the P1–P8 pass): voice intervals, mix,
 | P7 | Filter type: low-pass → band-pass → high-pass (cycles) |
 | P8 | Envelope follower on/off ✅ |
 
-### Page 9 — LIGHTING (internal cello LEDs) ✅
+### Page 8 — LIGHTING (internal cello LEDs) ✅
 | Control | Does |
 |---|---|
 | P6–P8 | Lighting scenes 1–3 (scenes 4–5 displaced) |
@@ -367,18 +386,18 @@ Previous per-pad draft (to be redone in the P1–P8 pass): voice intervals, mix,
 | P5 | Audio reactivity (how much the cello drives the light) |
 Stage DMX: later ✅, not in this version.
 
-### Page 10 — RESOLUME ✅
+### Page 9 — RESOLUME ✅
 | Control | Does |
 |---|---|
 | P6–P8 | Trigger clips 1–3 in the current column (clips 4–5 displaced) |
 | P1–P5 | Five mapped Resolume parameters (opacity, effect amounts) ❓ which ones? |
 ❓ How does Bela talk to Resolume: MIDI or OSC over the network? (Bela Mini has no built-in Wi-Fi.)
 
-### Page 11 — MIDI (song-specific) ✅
+### Page 10 — MIDI (song-specific) ✅
 A dedicated page for controlling **external devices** thoroughly and intentionally. Settings are saved **per song**. Used most often for controlling external gear. Channels 1–10 ✅.
 ✅ Split: MIDI *device and port setup* stays in SYSTEM (rig-wide); *what this song sends and on which channels* lives here. Per-pad details in the P1–P8 pass.
 
-### Page 12 — SYSTEM (I/O + MIDI; rig-wide, never saved per song) ✅
+### Page 11 — SYSTEM (I/O + MIDI; rig-wide, never saved per song) ✅
 SYSTEM settings are set-and-forget, saved with the hand OK/CANCEL pads (not the pedal). Holds I/O levels and all rig-wide settings (incl. MIDI device/port setup ✅). 💡 Also a home for tuner, pedal setup, Resolume connection, screen brightness, new-song defaults. Song-specific MIDI lives on the MIDI page (page 12).
 
 I/O draft:
