@@ -1,5 +1,7 @@
 # Cellographic Bela UI — Control Map (DRAFT v0.4)
 
+**v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
+
 **v0.24 changes:** Page encoder **wraps** (SYSTEM one click left of SONG). Freeze + Filter merged into **FLTR/FRZ** (page 7) with selectable sources; freeze hold on a second footswitch. New global slider-encoder options **CTRL** (edit any setting) and **FLTR** (filter sweep from any page). 11 pages: 1 SONG · 2 DRUM · 3 FM · 4 DELAY · 5 REVERB · 6 HARPEGGIO · 7 FLTR/FRZ · 8 LIGHTING · 9 RESOLUME · 10 MIDI · 11 SYSTEM.
 
 **v0.23 changes:** Page order set: 1 SONG · 2 DRUM · 3 FM · 4 DELAY · 5 REVERB · 6 HARPEGGIO · 7 FREEZE · 8 FILTER · 9 LIGHTING · 10 RESOLUME · 11 MIDI · 12 SYSTEM. MIDI device/port setup confirmed in SYSTEM. Freeze/Filter merge under discussion.
@@ -102,7 +104,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CANCEL during SENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
 | **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
 | **Global slider-encoder options** (on every page, alongside that page's own targets): **CTRL** and **FLTR** | ✅ |
-| **CTRL** | The slider (or the expression pedal, if set to CTRL) adjusts **whichever setting you've chosen to edit** on the current page, so editing never disturbs the slider's performance targets. ❓ How is the setting chosen — see chat | ✅ ❓ |
+| **CTRL** | A global "quantity picker" for any numeric setting. Once the slider is set to CTRL it **stays in CTRL on every page**, ignoring each page's default slider target, until you change it back with the slider encoder. The expression pedal can also be set to CTRL. ❓ How a setting is chosen while in CTRL (message was cut off) | ✅ ❓ |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
 | SENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
