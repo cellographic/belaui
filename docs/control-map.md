@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.29 changes:** FLTR/FRZ: one freeze; one filter by default with an optional second filter.
+
 **v0.28 changes:** SENC right end: … MIDI · FLTR · EXPRESSION · CTRL. MIDI on SENC = slider sends a MIDI control value from any page.
 
 **v0.27 changes:** Right end of SENC set: … MIDI · EXPRESSION · CTRL (CTRL at the far right for quick access).
@@ -356,7 +358,8 @@ Previous per-pad draft (to be redone in the P1–P8 pass): voice intervals, mix,
 | **Freeze hold** on an extra footswitch in the Ampero Control's second TRS jack (one jack = expression, one = freeze) | ✅ |
 | Filter modes: auto-wah (envelope follower) or sweeps (low-pass, high-pass, band-pass, notch, others) — set up here | ✅ |
 | **FLTR** is a global slider-encoder option, so filter sweeps can be played from any page | ✅ |
-| ❓ One filter and one freeze, each with a chosen source mix — or should, say, a cello filter and a master filter run at the same time? (two copies = more processor) | ❓ |
+| **One freeze.** **Filters: 1 by default; a second filter can be assigned** (Page Options), each with its own source | ✅ |
+| 💡 With two filters: FLTR on the slider encoder controls Filter 1 by default (option: Filter 2 or both); each filter processes its own source side by side (parallel) | 💡 |
 | 💡 Extra options from chat to choose from: freeze grain size, density, spread, pitch/octave, drift, width, tone, latch vs hold, fade in/out, stack vs replace, decay, auto-freeze on new note; filter LFO sweep synced to tempo, step filter, formant/vowel, comb, drive, envelope sensitivity/attack/release, sweep range | 💡 |
 
 Earlier per-pad drafts (to be redone in the P1–P8 pass):
