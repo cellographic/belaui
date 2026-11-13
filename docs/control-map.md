@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.28 changes:** SENC right end: … MIDI · FLTR · EXPRESSION · CTRL. MIDI on SENC = slider sends a MIDI control value from any page.
+
 **v0.27 changes:** Right end of SENC set: … MIDI · EXPRESSION · CTRL (CTRL at the far right for quick access).
 
 **v0.26 changes:** CTRL simplified: the slider/expression pedal ignores page changes and page defaults, and supplies values for numerical settings. P1–P8 are unaffected. (Replaces the v0.25 edit-mode version.)
@@ -107,8 +109,8 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | SENC press | Lock in the previewed target | ✅ |
 | CANCEL during SENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
 | **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
-| **Slider encoder (SENC) list, left to right:** PAGE OPTIONS · this page's slider targets (default first) · … · **MIDI** · **EXPRESSION** · **CTRL** (far right, for quick access). SENC stops at both ends. | ✅ |
-| **Global slider-encoder options** (on every page): **FLTR**, **MIDI**, **EXPRESSION**, **CTRL**. ❓ Where FLTR sits (💡 just before MIDI). ❓ What MIDI does here (💡 the slider sends a MIDI control value to the external device from any page). | ✅ ❓ |
+| **Slider encoder (SENC) list, left to right:** PAGE OPTIONS · this page's slider targets (default first) · … · **MIDI** · **FLTR** · **EXPRESSION** · **CTRL** (far right, for quick access). SENC stops at both ends. | ✅ |
+| **Global slider-encoder options** (on every page): **FLTR**, **MIDI**, **EXPRESSION**, **CTRL**. **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
 | **CTRL** | When the slider (or the expression pedal) is set to CTRL, it **ignores page changes and those pages' slider defaults**, and acts as the value control for whichever **numerical setting** you're adjusting (e.g. a non-toggle setting in Page Options). P1–P8 keep their normal jobs. Stays in CTRL until changed on the slider encoder. Saving follows the normal rules. | ✅ |
 | CTRL detail | 💡 If no numerical setting is selected, the slider does nothing and the OLED shows "CTRL" | 💡 |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
@@ -172,7 +174,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 ### ✅ Expression Options mode (v0.14) — second from the right end of SENC
 | Step | What happens | Source |
 |---|---|---|
-| Reach it | Turn SENC right until **EXPRESSION** blinks (second from the right end, just before CTRL) | ✅ |
+| Reach it | Turn SENC right until **EXPRESSION** blinks (second from the right end: … MIDI · FLTR · EXPRESSION · CTRL) | ✅ |
 | Enter | Press SENC → the arming marker appears on the OLED | ✅ |
 | Choose | Turn SENC left; each notch blinks the next control the pedal could take over | ✅ |
 | Assign | Press SENC → that control is assigned to the expression pedal and goes solid | ✅ |
