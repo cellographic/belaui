@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.30 changes:** SONG page fully drafted: bank select, LOOP/SEQUENCE modes, slider targets, 8 Page Options.
+
 **v0.29 changes:** FLTR/FRZ: one freeze; one filter by default with an optional second filter.
 
 **v0.28 changes:** SENC right end: … MIDI · FLTR · EXPRESSION · CTRL. MIDI on SENC = slider sends a MIDI control value from any page.
@@ -275,17 +277,43 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 
 **v0.2 note:** in the tables below, the five settings listed under P1–P5 are now read as the **slider's target list** for that page — the first one is the default, the rest are alternates. What the P1–P5 *pads* do on each page (notes, presets, etc.) is still to be assigned page by page.
 
-### Page 1 — SONG (loops, recording, samples; was Recorder/Looper/Sampler) ✅
-The pedal does record / navigate / retrieve / store / create everywhere ✅. This page holds the settings ✅ and loop tricks ✅.
-| Control | Does |
-|---|---|
-| P1 | Loop level |
-| P2 | Overdub decay (how fast old layers fade) |
-| P3 | Playback speed |
-| P4 | Sample start / trim |
-| P5 | Crossfade time |
-| P1–P8 | Choose the active TRIG bank 1–8 (loop tricks moved to bank 8's TRIG pads) |
-❓ **Big one:** which pads play back samples, and on which page? Your rule says manual triggering happens only on the current page. Should this page turn its pads into sample pads, or should samples live on their own page?
+### Page 1 — SONG (songs, loops, recording, samples) ✅
+The pedal handles record / stop / song navigate / store / create / delete from every page ✅. This page holds song structure, banks and song settings.
+
+**Normal use**
+| Control | Does | Source |
+|---|---|---|
+| P1–P8 | Choose the active TRIG bank 1–8 (number shown on the OLED) | ✅ |
+| TRIG1–TRIG4 | Play the active bank's slots: loops, samples, sequences, drums | ✅ |
+| Tap OK / CANCEL | Step between modes: **LOOP** / **SEQUENCE** (blinking until entered) | 💡 (same pattern as Drum/FM) |
+| Hold OK | Enter the highlighted mode | 💡 |
+| LOOP mode | Assign a loop or sample to a TRIG slot (? → > flow) | 💡 |
+| SEQUENCE mode | Record the song **arrangement** by playing TRIG pads in time | ✅ arrangement-by-playing · 💡 placement here |
+| Samples | Recorded with the record button and assigned to TRIG slots, so they play from any page via banks | 💡 (resolves the old "where do samples play" question) |
+
+**Slider targets (SENC list, default first)**
+| # | Target | Source |
+|---|---|---|
+| 1 (default) | Loop level | 💡 |
+| 2 | Overdub decay (how fast old layers fade) | 💡 |
+| 3 | Sample level | 💡 |
+| 4 | Sample start / trim | 💡 |
+| 5 | Loop crossfade time | 💡 |
+| then | MIDI · FLTR · EXPRESSION · CTRL | ✅ |
+
+**Page Options (8 slots)**
+| Pad | Option | Choices | Source |
+|---|---|---|---|
+| P1 | Song switch timing | END OF LOOP (default) · END OF BAR · IMMEDIATE | ✅ |
+| P2 | New song placement | NEXT FREE SLOT · AFTER CURRENT | ✅ (default ❓) |
+| P3 | Secondary loop snap | LOOP (default) · BAR | ✅ |
+| P4 | Sample trigger timing | FREE (default) · BEAT · BAR | ✅ FREE default · 💡 other choices |
+| P5 | Bars per loop | number (default 4) | ✅ |
+| P6 | Beats per bar | number (default 4) | ✅ |
+| P7 | Song key | C … B | ✅ (song scale) |
+| P8 | Song scale | Major · Minor · … · Chromatic | ✅ |
+| 💡 | Tapping a pad with fixed choices steps through them; numerical options (P5–P7) take their value from the slider | 💡 ❓ |
+| 💡 | Recorder pre/post **global default** moves to SYSTEM (it's a rig-wide setting), freeing a slot here | 💡 |
 
 ### Page 2 — DRUM SYNTH ✅
 Patterns are tapped in on pads ✅ and keep running on other pages ✅, synced to loops ✅.
