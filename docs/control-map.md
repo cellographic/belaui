@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.31 changes:** SONGS added to the SONG page's slider-encoder list for browsing songs by hand; press SENC again (or OK) loads, CANCEL backs out.
+
 **v0.30 changes:** SONG page fully drafted: bank select, LOOP/SEQUENCE modes, slider targets, 8 Page Options.
 
 **v0.29 changes:** FLTR/FRZ: one freeze; one filter by default with an optional second filter.
@@ -299,7 +301,16 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 | 3 | Sample level | 💡 |
 | 4 | Sample start / trim | 💡 |
 | 5 | Loop crossfade time | 💡 |
-| then | MIDI · FLTR · EXPRESSION · CTRL | ✅ |
+| then | **SONGS** · MIDI · FLTR · EXPRESSION · CTRL | ✅ SONGS (SONG page only) |
+
+**Browsing songs by hand (SONGS on the slider encoder)** ✅
+| Step | Action | OLED |
+|---|---|---|
+| 1 | Turn SENC to **SONGS**, press | SONGS armed |
+| 2 | Turn SENC to browse | Each song name **blinks** |
+| 3 | **Press SENC again** — or tap **OK** — to load | Name goes solid; switches per the song-switch timing option |
+| Back out | **CANCEL** | Current song keeps playing |
+The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue, so you can mix hand and foot. 💡 Pressing SENC right after entering just "loads" the current song — no change, so no harm. 💡 SONGS position: just before MIDI ❓
 
 **Page Options (8 slots)**
 | Pad | Option | Choices | Source |
