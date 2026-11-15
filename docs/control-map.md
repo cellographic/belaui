@@ -2,7 +2,7 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
-**v0.31 changes:** SONGS added to the SONG page's slider-encoder list for browsing songs by hand; press SENC again (or OK) loads, CANCEL backs out.
+**v0.32 changes:** Hand song browsing moves to the **page encoder** (turn to SONGS, press-and-hold to open the list, browse, press to load at loop end); removed from the slider encoder. Page Options: slider auto-acts as CTRL. TRIG slots hold any type, 32 per song. New-song placement default = after current. SONG slider targets approved.
 
 **v0.30 changes:** SONG page fully drafted: bank select, LOOP/SEQUENCE modes, slider targets, 8 Page Options.
 
@@ -286,44 +286,44 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 | Control | Does | Source |
 |---|---|---|
 | P1–P8 | Choose the active TRIG bank 1–8 (number shown on the OLED) | ✅ |
-| TRIG1–TRIG4 | Play the active bank's slots: loops, samples, sequences, drums | ✅ |
+| TRIG1–TRIG4 | Play exactly as assigned. Any slot can hold a **loop, sequence, sample, drum sound or synth sound**. 8 banks × 4 = **32 triggers per song**. | ✅ |
 | Tap OK / CANCEL | Step between modes: **LOOP** / **SEQUENCE** (blinking until entered) | 💡 (same pattern as Drum/FM) |
 | Hold OK | Enter the highlighted mode | 💡 |
 | LOOP mode | Assign a loop or sample to a TRIG slot (? → > flow) | 💡 |
 | SEQUENCE mode | Record the song **arrangement** by playing TRIG pads in time | ✅ arrangement-by-playing · 💡 placement here |
-| Samples | Recorded with the record button and assigned to TRIG slots, so they play from any page via banks | 💡 (resolves the old "where do samples play" question) |
+| Samples | Recorded with the record button and assigned to TRIG slots | ✅ |
 
 **Slider targets (SENC list, default first)**
 | # | Target | Source |
 |---|---|---|
-| 1 (default) | Loop level | 💡 |
-| 2 | Overdub decay (how fast old layers fade) | 💡 |
-| 3 | Sample level | 💡 |
-| 4 | Sample start / trim | 💡 |
-| 5 | Loop crossfade time | 💡 |
-| then | **SONGS** · MIDI · FLTR · EXPRESSION · CTRL | ✅ SONGS (SONG page only) |
+| 1 (default) | Loop level | ✅ |
+| 2 | Overdub decay (how fast old layers fade) | ✅ |
+| 3 | Sample level | ✅ |
+| 4 | Sample start / trim | ✅ |
+| 5 | Loop crossfade time | ✅ |
+| then | MIDI · FLTR · EXPRESSION · CTRL | ✅ |
 
-**Browsing songs by hand (SONGS on the slider encoder)** ✅
+**Browsing songs by hand — on the PAGE encoder (left)** ✅
 | Step | Action | OLED |
 |---|---|---|
-| 1 | Turn SENC to **SONGS**, press | SONGS armed |
-| 2 | Turn SENC to browse | Each song name **blinks** |
-| 3 | **Press SENC again** — or tap **OK** — to load | Name goes solid; switches per the song-switch timing option |
-| Back out | **CANCEL** | Current song keeps playing |
-The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue, so you can mix hand and foot. 💡 Pressing SENC right after entering just "loads" the current song — no change, so no harm. 💡 SONGS position: just before MIDI ❓
+| 1 | Turn the page encoder to **SONGS**, then **press and hold** | The song list appears, **blinking** |
+| 2 | Turn the page encoder to browse | Each song name blinks |
+| 3 | Press the page encoder again | Name stops blinking (loaded/cued); the new song begins when the current song's loop completes (per the song-switch timing option) |
+| Back out | 💡 CANCEL | Current song keeps playing |
+The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. ❓ Where SONGS sits in the page encoder's ring (see chat). ❓ What a plain (short) press on SONGS does — 💡 nothing, so only press-and-hold opens the list.
 
 **Page Options (8 slots)**
 | Pad | Option | Choices | Source |
 |---|---|---|---|
 | P1 | Song switch timing | END OF LOOP (default) · END OF BAR · IMMEDIATE | ✅ |
-| P2 | New song placement | NEXT FREE SLOT · AFTER CURRENT | ✅ (default ❓) |
+| P2 | New song placement | AFTER CURRENT (default) · NEXT FREE SLOT | ✅ |
 | P3 | Secondary loop snap | LOOP (default) · BAR | ✅ |
 | P4 | Sample trigger timing | FREE (default) · BEAT · BAR | ✅ FREE default · 💡 other choices |
 | P5 | Bars per loop | number (default 4) | ✅ |
 | P6 | Beats per bar | number (default 4) | ✅ |
 | P7 | Song key | C … B | ✅ (song scale) |
 | P8 | Song scale | Major · Minor · … · Chromatic | ✅ |
-| 💡 | Tapping a pad with fixed choices steps through them; numerical options (P5–P7) take their value from the slider | 💡 ❓ |
+| ✅ | Tapping a pad with fixed choices steps through them. **In Page Options the slider automatically acts as CTRL**, so numerical options (P5–P7) take their value from it; it returns to normal on leaving. | ✅ |
 | 💡 | Recorder pre/post **global default** moves to SYSTEM (it's a rig-wide setting), freeing a slot here | 💡 |
 
 ### Page 2 — DRUM SYNTH ✅
