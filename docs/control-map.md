@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.34 changes:** Standing rule 5: slider-encoder lists are page-specific but shared items keep the same order. Drum/FM: P1–P8 = presets, Assign mode (hold OK) kept, triggers store a copy, last-touched sound is edited.
+
 **v0.33 changes:** No separate SONGS page: on SONG, press-and-hold the page encoder opens the song list. SYSTEM stays immediately left of SONG.
 
 **v0.32 changes:** Hand song browsing moves to the **page encoder** (on the SONG page, press-and-hold to open the list, browse, press to load at loop end); removed from the slider encoder. Page Options: slider auto-acts as CTRL. TRIG slots hold any type, 32 per song. New-song placement default = after current. SONG slider targets approved.
@@ -102,6 +104,7 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
 1. **Defaults imply options.** Whenever a rule names a default, other choices exist, normally set in that function's Page Options.
 2. **Blinking = unconfirmed, solid = confirmed.** In any preview or pending choice (page encoder, slider encoder, song cue, Assign mode, expression assignment, confirm prompts) the option name on the OLED **blinks** until confirmed, then goes **solid**. Turning back to the current option shows it blinking too, until you confirm or cancel.
 3. **Three ways to play any pad.** (a) **Live** — heard, not recorded. (b) **Into the loop** — while the loop is recording or overdubbing, the pad's sound is recorded into that audio layer. (c) **Sequence record mode** — the triggered events are recorded as a sequence, kept separate from the audio layers.
+5. **Slider encoder lists are page-specific, but shared items keep the same order.** Each page offers what it needs; when controls are common across pages they appear in the same order everywhere. Fixed frame: PAGE OPTIONS at the far left; … MIDI · FLTR · EXPRESSION · CTRL at the far right.
 4. **Parts stay separate.** Cello loops, drum sequences and synth sequences are stored independently. Clearing the recordings keeps all sequences, and sequences are never baked into the recording, so either can be changed or removed without touching the other.
 
 Having one consistent "grammar" means your hands learn the instrument once, and every page just changes *what* the controls point at.
@@ -327,6 +330,16 @@ The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. There is no 
 | P8 | Song scale | Major · Minor · … · Chromatic | ✅ |
 | ✅ | Tapping a pad with fixed choices steps through them. **In Page Options the slider automatically acts as CTRL**, so numerical options (P5–P7) take their value from it; it returns to normal on leaving. | ✅ |
 | 💡 | Recorder pre/post **global default** moves to SYSTEM (it's a rig-wide setting), freeing a slot here | 💡 |
+
+### Drum & FM pages — shared sound rules (v0.34) ✅
+| Rule | Source |
+|---|---|
+| P1–P8 are **sound presets** to audition (tap to hear) | ✅ |
+| Assigning uses **Assign mode** (hold OK → touch a TRIG → tap the preset), not hold-the-trigger | ✅ |
+| Triggers store a **copy** of the sound — tuning one trigger never changes the preset or other triggers | ✅ |
+| **Last touched sound is the one edited** — a preset on P1–P8 or a TRIG pad; works tune-then-assign or assign-then-tune | ✅ |
+| 💡 Tuning uses the page's slider targets (pitch, decay, tone…), shared in the same order on Drum and FM where they overlap | 💡 |
+| ❓ More than 8 presets · saving a tuned sound as a new preset · what plays notes in FM SEQUENCE mode | ❓ |
 
 ### Page 2 — DRUM SYNTH ✅
 Patterns are tapped in on pads ✅ and keep running on other pages ✅, synced to loops ✅.
