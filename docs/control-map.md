@@ -104,8 +104,8 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
 1. **Defaults imply options.** Whenever a rule names a default, other choices exist, normally set in that function's Page Options.
 2. **Blinking = unconfirmed, solid = confirmed.** In any preview or pending choice (page encoder, slider encoder, song cue, Assign mode, expression assignment, confirm prompts) the option name on the OLED **blinks** until confirmed, then goes **solid**. Turning back to the current option shows it blinking too, until you confirm or cancel.
 3. **Three ways to play any pad.** (a) **Live** — heard, not recorded. (b) **Into the loop** — while the loop is recording or overdubbing, the pad's sound is recorded into that audio layer. (c) **Sequence record mode** — the triggered events are recorded as a sequence, kept separate from the audio layers.
-5. **Slider encoder lists are page-specific, but shared items keep the same order.** Each page offers what it needs; when controls are common across pages they appear in the same order everywhere. Fixed frame: PAGE OPTIONS at the far left; … MIDI · FLTR · EXPRESSION · CTRL at the far right.
 4. **Parts stay separate.** Cello loops, drum sequences and synth sequences are stored independently. Clearing the recordings keeps all sequences, and sequences are never baked into the recording, so either can be changed or removed without touching the other.
+5. **Slider encoder lists are page-specific, but shared items keep the same order.** Each page offers what it needs; when controls are common across pages they appear in the same order everywhere. Fixed frame: PAGE OPTIONS at the far left; … MIDI · FLTR · EXPRESSION · CTRL at the far right.
 
 Having one consistent "grammar" means your hands learn the instrument once, and every page just changes *what* the controls point at.
 
