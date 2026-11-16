@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.36 changes:** SONG page sequences the song (via CENC). Loops vs samples defined: loops are grid-locked and linear; samples are free-length and overlay.
+
 **v0.35 changes:** Slider encoder renamed **Control Encoder (CENC)**. SEQUENCE mode entered from CENC (Drum, FM, and 💡 SONG); OK/CANCEL tapping no longer switches modes. Preset library via press-and-hold page encoder; save tuned sounds as presets; SEQUENCE-mode note/drum pads defined.
 
 **v0.34 changes:** Standing rule 5: slider-encoder lists are page-specific but shared items keep the same order. Drum/FM: P1–P8 = presets, Assign mode (hold OK) kept, triggers store a copy, last-touched sound is edited.
@@ -295,7 +297,16 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 |---|---|---|
 | P1–P8 | Choose the active TRIG bank 1–8 (number shown on the OLED) | ✅ |
 | TRIG1–TRIG4 | Play exactly as assigned. Any slot can hold a **loop, sequence, sample, drum sound or synth sound**. 8 banks × 4 = **32 triggers per song**. | ✅ |
-| 💡 SEQUENCE (via CENC) | For consistency with Drum/FM: turn CENC to **SEQUENCE**, press, to record the arrangement | 💡 |
+| SEQUENCE (via CENC) | Turn CENC to **SEQUENCE**, press, to sequence the song: loops in order plus sample events | ✅ |
+
+**Loops vs samples** ✅
+| | Loop | Sample |
+|---|---|---|
+| Length | Locked to the first loop's length or derivations (LOOP / BAR snap) | Free — any length |
+| Playback | **Linear**: loops play one after another; they never layer on each other (overdubs are layers *within* a loop) | **Overlays** loops; independent of them unless sequenced |
+| In a sequence | Placed on the loop/bar grid | Placed with or without quantize (default FREE) |
+| ❓ How you record one vs the other | see chat — 💡 arm a trigger first, then record = sample; record with nothing armed = loop | |
+| ❓ Starting a **new secondary loop** vs overdubbing the current one | see chat | |
 | Assign (hold OK) | Assign a loop or sample to a TRIG slot (? → > flow) | ✅ |
 | SEQUENCE mode | Record the song **arrangement** by playing TRIG pads in time | ✅ arrangement-by-playing · 💡 placement here |
 | Samples | Recorded with the record button and assigned to TRIG slots | ✅ |
