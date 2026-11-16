@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.37 changes:** Samples move to their own **SAMPLE** page (page 4, after FM), handled like Drum/FM. SONG = song structure and loops. 12 pages: SONG · DRUM · FM · SAMPLE · DELAY · REVERB · HARPEGGIO · FLTR/FRZ · LIGHTING · RESOLUME · MIDI · SYSTEM.
+
 **v0.36 changes:** SONG page sequences the song (via CENC). Loops vs samples defined: loops are grid-locked and linear; samples are free-length and overlay.
 
 **v0.35 changes:** Slider encoder renamed **Control Encoder (CENC)**. SEQUENCE mode entered from CENC (Drum, FM, and 💡 SONG); OK/CANCEL tapping no longer switches modes. Preset library via press-and-hold page encoder; save tuned sounds as presets; SEQUENCE-mode note/drum pads defined.
@@ -289,7 +291,7 @@ Order follows Scott's priority list. ✅ marks the page itself and any decided f
 
 **v0.2 note:** in the tables below, the five settings listed under P1–P5 are now read as the **slider's target list** for that page — the first one is the default, the rest are alternates. What the P1–P5 *pads* do on each page (notes, presets, etc.) is still to be assigned page by page.
 
-### Page 1 — SONG (songs, loops, recording, samples) ✅
+### Page 1 — SONG (song structure and loops) ✅
 The pedal handles record / stop / song navigate / store / create / delete from every page ✅. This page holds song structure, banks and song settings.
 
 **Normal use**
@@ -309,16 +311,14 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 | ❓ Starting a **new secondary loop** vs overdubbing the current one | see chat | |
 | Assign (hold OK) | Assign a loop or sample to a TRIG slot (? → > flow) | ✅ |
 | SEQUENCE mode | Record the song **arrangement** by playing TRIG pads in time | ✅ arrangement-by-playing · 💡 placement here |
-| Samples | Recorded with the record button and assigned to TRIG slots | ✅ |
+| Samples | Moved to their own **SAMPLE** page (page 4) | ✅ |
 
 **Slider targets (CENC list, default first)**
 | # | Target | Source |
 |---|---|---|
 | 1 (default) | Loop level | ✅ |
 | 2 | Overdub decay (how fast old layers fade) | ✅ |
-| 3 | Sample level | ✅ |
-| 4 | Sample start / trim | ✅ |
-| 5 | Loop crossfade time | ✅ |
+| 3 | Loop crossfade time | ✅ |
 | then | MIDI · FLTR · EXPRESSION · CTRL | ✅ |
 
 **Browsing songs by hand — on the PAGE encoder (left)** ✅
@@ -336,7 +336,7 @@ The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. There is no 
 | P1 | Song switch timing | END OF LOOP (default) · END OF BAR · IMMEDIATE | ✅ |
 | P2 | New song placement | AFTER CURRENT (default) · NEXT FREE SLOT | ✅ |
 | P3 | Secondary loop snap | LOOP (default) · BAR | ✅ |
-| P4 | Sample trigger timing | FREE (default) · BEAT · BAR | ✅ FREE default · 💡 other choices |
+| P4 | 💡 free slot (sample timing moved to SAMPLE page) | — | 💡 |
 | P5 | Bars per loop | number (default 4) | ✅ |
 | P6 | Beats per bar | number (default 4) | ✅ |
 | P7 | Song key | C … B | ✅ (song scale) |
@@ -381,7 +381,19 @@ Sequenced in sync with loops ✅.
 | P5 | Level |
 ❓ Is the FM synth mainly a bass voice, a pad, or a lead? That changes which 5 settings matter most.
 
-### Page 4 — DELAY ✅
+### Page 4 — SAMPLE (sample instrument) ✅
+Samples are a **custom instrument** for recording and triggering sounds on the fly, handled like Drum and FM. Samples are free-length, **overlay loops**, and are independent unless sequenced ✅.
+| Control | Does | Source |
+|---|---|---|
+| P1–P8 | Sample slots to audition (tap to hear); last touched is edited | 💡 (same pattern as Drum/FM) |
+| Record a sample | 💡 Hold OK → touch a P slot (or a TRIG) → **>** → **FS1** starts/stops recording into it. FS1 with nothing armed records a loop as usual. OLED shows REC SMPL vs REC LOOP. | 💡 ❓ |
+| Assign to a trigger | Assign mode (hold OK → touch TRIG → tap sample) | ✅ |
+| Library | Press-and-hold the page encoder → sample banks; save to an empty slot / NEW with OK | ✅ (general rule) |
+| SEQUENCE (via CENC) | Sequence samples, quantized or free | ✅ |
+| Slider targets (💡) | Level · Pitch · Start/trim · End · Fade in/out · Reverse, in the shared order where they overlap | 💡 |
+| Page Options | **Sample trigger timing: FREE (default)** · BEAT · BAR | ✅ FREE default |
+
+### Page 5 — DELAY ✅
 | Control | Does |
 |---|---|
 | P1 | Time |
@@ -393,7 +405,7 @@ Sequenced in sync with loops ✅.
 | P7 | Tap time |
 | P8 | Sync time to the loop clock on/off |
 
-### Page 5 — REVERB (shared) ✅
+### Page 6 — REVERB (shared) ✅
 | Control | Does |
 |---|---|
 | P1 | Size / decay |
@@ -405,7 +417,7 @@ Sequenced in sync with loops ✅.
 | P7 | Ducking (reverb dips while you play) on/off |
 | P8 | Hold tail (very long decay while held) |
 
-### Page 6 — HARPEGGIO (harmonizer + arpeggiator, delay-based) ✅
+### Page 7 — HARPEGGIO (harmonizer + arpeggiator, delay-based) ✅
 | Rule | Source |
 |---|---|
 | Plays the **root note** (the cello) plus **up to 3 settable harmony notes**, each from **1 octave below to 1 octave above** | ✅ |
@@ -418,7 +430,7 @@ Sequenced in sync with loops ✅.
 
 Previous per-pad draft (to be redone in the P1–P8 pass): voice intervals, mix, spread, reverb send, on/off, voice on/off, scale snap.
 
-### Page 7 — FLTR/FRZ (filter + grain freeze) ✅
+### Page 8 — FLTR/FRZ (filter + grain freeze) ✅
 | Rule | Source |
 |---|---|
 | Freeze and Filter share one page | ✅ |
@@ -456,7 +468,7 @@ Earlier per-pad drafts (to be redone in the P1–P8 pass):
 | P7 | Filter type: low-pass → band-pass → high-pass (cycles) |
 | P8 | Envelope follower on/off ✅ |
 
-### Page 8 — LIGHTING (internal cello LEDs) ✅
+### Page 9 — LIGHTING (internal cello LEDs) ✅
 | Control | Does |
 |---|---|
 | P6–P8 | Lighting scenes 1–3 (scenes 4–5 displaced) |
@@ -467,18 +479,18 @@ Earlier per-pad drafts (to be redone in the P1–P8 pass):
 | P5 | Audio reactivity (how much the cello drives the light) |
 Stage DMX: later ✅, not in this version.
 
-### Page 9 — RESOLUME ✅
+### Page 10 — RESOLUME ✅
 | Control | Does |
 |---|---|
 | P6–P8 | Trigger clips 1–3 in the current column (clips 4–5 displaced) |
 | P1–P5 | Five mapped Resolume parameters (opacity, effect amounts) ❓ which ones? |
 ❓ How does Bela talk to Resolume: MIDI or OSC over the network? (Bela Mini has no built-in Wi-Fi.)
 
-### Page 10 — MIDI (song-specific) ✅
+### Page 11 — MIDI (song-specific) ✅
 A dedicated page for controlling **external devices** thoroughly and intentionally. Settings are saved **per song**. Used most often for controlling external gear. Channels 1–10 ✅.
 ✅ Split: MIDI *device and port setup* stays in SYSTEM (rig-wide); *what this song sends and on which channels* lives here. Per-pad details in the P1–P8 pass.
 
-### Page 11 — SYSTEM (I/O + MIDI; rig-wide, never saved per song) ✅
+### Page 12 — SYSTEM (I/O + MIDI; rig-wide, never saved per song) ✅
 SYSTEM settings are set-and-forget, saved with the hand OK/CANCEL pads (not the pedal). Holds I/O levels and all rig-wide settings (incl. MIDI device/port setup ✅). 💡 Also a home for tuner, pedal setup, Resolume connection, screen brightness, new-song defaults. Song-specific MIDI lives on the MIDI page (page 12).
 
 I/O draft:
