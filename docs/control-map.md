@@ -113,12 +113,12 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
 2. **Blinking = unconfirmed, solid = confirmed.** In any preview or pending choice (page encoder, slider encoder, song cue, Assign mode, expression assignment, confirm prompts) the option name on the OLED **blinks** until confirmed, then goes **solid**. Turning back to the current option shows it blinking too, until you confirm or cancel.
 3. **Three ways to play any pad.** (a) **Live** — heard, not recorded. (b) **Into the loop** — while the loop is recording or overdubbing, the pad's sound is recorded into that audio layer. (c) **Sequence record mode** — the triggered events are recorded as a sequence, kept separate from the audio layers.
 4. **Parts stay separate.** Cello loops, drum sequences and synth sequences are stored independently. Clearing the recordings keeps all sequences, and sequences are never baked into the recording, so either can be changed or removed without touching the other.
+5. **Control encoder lists are page-specific, but shared items keep the same order.** Each page offers what it needs; when controls are common across pages they appear in the same order everywhere. Fixed frame: PAGE OPTIONS at the far left; … MIDI · FLTR · EXPRESSION at the far right.
 6. **SEQUENCE mode records a page's control events.** Every page is a kind of control (song/loops, drums, FM, samples, FLTR/FRZ, MIDI, expression…), so SEQUENCE on any page records *that page's* control events. Sequence length:
    - **LOOP** — the sequence is the current loop's length; while SEQUENCE is on it keeps recording into that loop, and the events retrigger every time that loop plays, even after leaving SEQUENCE mode.
    - **SONG** — events record continuously from the start of the song and play back once, in time, across the whole composition (no repeating).
    - Sequence data is **not permanent until saved**.
    - ❓ default length (💡 LOOP) · ❓ repeat passes add or replace events · ❓ how to clear a page's sequence
-5. **Control encoder lists are page-specific, but shared items keep the same order.** Each page offers what it needs; when controls are common across pages they appear in the same order everywhere. Fixed frame: PAGE OPTIONS at the far left; … MIDI · FLTR · EXPRESSION at the far right.
 
 Having one consistent "grammar" means your hands learn the instrument once, and every page just changes *what* the controls point at.
 
