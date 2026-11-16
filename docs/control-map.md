@@ -2,7 +2,9 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
-**v0.32 changes:** Hand song browsing moves to the **page encoder** (turn to SONGS, press-and-hold to open the list, browse, press to load at loop end); removed from the slider encoder. Page Options: slider auto-acts as CTRL. TRIG slots hold any type, 32 per song. New-song placement default = after current. SONG slider targets approved.
+**v0.33 changes:** No separate SONGS page: on SONG, press-and-hold the page encoder opens the song list. SYSTEM stays immediately left of SONG.
+
+**v0.32 changes:** Hand song browsing moves to the **page encoder** (on the SONG page, press-and-hold to open the list, browse, press to load at loop end); removed from the slider encoder. Page Options: slider auto-acts as CTRL. TRIG slots hold any type, 32 per song. New-song placement default = after current. SONG slider targets approved.
 
 **v0.30 changes:** SONG page fully drafted: bank select, LOOP/SEQUENCE modes, slider targets, 8 Page Options.
 
@@ -306,11 +308,11 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 **Browsing songs by hand — on the PAGE encoder (left)** ✅
 | Step | Action | OLED |
 |---|---|---|
-| 1 | Turn the page encoder to **SONGS**, then **press and hold** | The song list appears, **blinking** |
+| 1 | On the **SONG** page (or while previewing it), **press and hold** the page encoder | The song list appears, **blinking** |
 | 2 | Turn the page encoder to browse | Each song name blinks |
 | 3 | Press the page encoder again | Name stops blinking (loaded/cued); the new song begins when the current song's loop completes (per the song-switch timing option) |
 | Back out | 💡 CANCEL | Current song keeps playing |
-The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. ❓ Where SONGS sits in the page encoder's ring (see chat). ❓ What a plain (short) press on SONGS does — 💡 nothing, so only press-and-hold opens the list.
+The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. There is no separate SONGS page — song browsing is part of SONG. A short press on SONG works as normal (locks in the page); press-and-hold opens the song list. Page ring unchanged: SYSTEM sits immediately left of SONG.
 
 **Page Options (8 slots)**
 | Pad | Option | Choices | Source |
