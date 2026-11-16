@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.38 changes:** CTRL scrapped. SONG P1–P8 = loop slots (first loop auto-saves to P1; hold OK arms a new loop, FS1 records it in sync). SEQUENCE redefined as recording each page's control events, LOOP or SONG length, unsaved until stored.
+
 **v0.37 changes:** Samples move to their own **SAMPLE** page (page 4, after FM), handled like Drum/FM. SONG = song structure and loops. 12 pages: SONG · DRUM · FM · SAMPLE · DELAY · REVERB · HARPEGGIO · FLTR/FRZ · LIGHTING · RESOLUME · MIDI · SYSTEM.
 
 **v0.36 changes:** SONG page sequences the song (via CENC). Loops vs samples defined: loops are grid-locked and linear; samples are free-length and overlay.
@@ -111,7 +113,12 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
 2. **Blinking = unconfirmed, solid = confirmed.** In any preview or pending choice (page encoder, slider encoder, song cue, Assign mode, expression assignment, confirm prompts) the option name on the OLED **blinks** until confirmed, then goes **solid**. Turning back to the current option shows it blinking too, until you confirm or cancel.
 3. **Three ways to play any pad.** (a) **Live** — heard, not recorded. (b) **Into the loop** — while the loop is recording or overdubbing, the pad's sound is recorded into that audio layer. (c) **Sequence record mode** — the triggered events are recorded as a sequence, kept separate from the audio layers.
 4. **Parts stay separate.** Cello loops, drum sequences and synth sequences are stored independently. Clearing the recordings keeps all sequences, and sequences are never baked into the recording, so either can be changed or removed without touching the other.
-5. **Control encoder lists are page-specific, but shared items keep the same order.** Each page offers what it needs; when controls are common across pages they appear in the same order everywhere. Fixed frame: PAGE OPTIONS at the far left; … MIDI · FLTR · EXPRESSION · CTRL at the far right.
+6. **SEQUENCE mode records a page's control events.** Every page is a kind of control (song/loops, drums, FM, samples, FLTR/FRZ, MIDI, expression…), so SEQUENCE on any page records *that page's* control events. Sequence length:
+   - **LOOP** — the sequence is the current loop's length; while SEQUENCE is on it keeps recording into that loop, and the events retrigger every time that loop plays, even after leaving SEQUENCE mode.
+   - **SONG** — events record continuously from the start of the song and play back once, in time, across the whole composition (no repeating).
+   - Sequence data is **not permanent until saved**.
+   - ❓ default length (💡 LOOP) · ❓ repeat passes add or replace events · ❓ how to clear a page's sequence
+5. **Control encoder lists are page-specific, but shared items keep the same order.** Each page offers what it needs; when controls are common across pages they appear in the same order everywhere. Fixed frame: PAGE OPTIONS at the far left; … MIDI · FLTR · EXPRESSION at the far right.
 
 Having one consistent "grammar" means your hands learn the instrument once, and every page just changes *what* the controls point at.
 
@@ -126,10 +133,9 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CENC press | Lock in the previewed target | ✅ |
 | CANCEL during CENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
 | **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
-| **Slider encoder (CENC) list, left to right:** PAGE OPTIONS · this page's slider targets (default first) · … · **MIDI** · **FLTR** · **EXPRESSION** · **CTRL** (far right, for quick access). CENC stops at both ends. | ✅ |
-| **Global slider-encoder options** (on every page): **FLTR**, **MIDI**, **EXPRESSION**, **CTRL**. **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
-| **CTRL** | When the slider (or the expression pedal) is set to CTRL, it **ignores page changes and those pages' slider defaults**, and acts as the value control for whichever **numerical setting** you're adjusting (e.g. a non-toggle setting in Page Options). P1–P8 keep their normal jobs. Stays in CTRL until changed on the slider encoder. Saving follows the normal rules. | ✅ |
-| CTRL detail | 💡 If no numerical setting is selected, the slider does nothing and the OLED shows "CTRL" | 💡 |
+| **Slider encoder (CENC) list, left to right:** PAGE OPTIONS · this page's slider targets (default first) · … · **MIDI** · **FLTR** · **EXPRESSION** (far right). CENC stops at both ends. | ✅ |
+| **Global slider-encoder options** (on every page): **MIDI**, **FLTR**, **EXPRESSION**. **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
+| ~~CTRL~~ | **Scrapped (v0.38).** Numbers are set in Page Options, where the slider automatically supplies values. | ✅ |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
 | CENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
@@ -148,7 +154,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | **Drum & FM pages: SEQUENCE mode** | Entered from the **control encoder (CENC)**: turn to **SEQUENCE**, press. Outside SEQUENCE mode the page is in its normal sound state (P1–P8 = presets). | ✅ |
 | Normal (sound) state | Audition presets on P1–P8, tune, and assign to triggers with Assign mode (hold OK) | ✅ |
 | SEQUENCE mode | Play hits/notes in time to record a sequence, then store it in a persistent trigger (TRIG1–TRIG4). **FM:** P1–P8 play 8 notes of the song scale (root to octave), with an Octave target on CENC. **Drum:** P1–P8 play 8 drum sounds from the current preset bank. | ✅ |
-| 💡 CENC position | Modes sit just inside the left end: PAGE OPTIONS · SEQUENCE · page targets … · MIDI · FLTR · EXPRESSION · CTRL | 💡 |
+| 💡 CENC position | Modes sit just inside the left end: PAGE OPTIONS · SEQUENCE · page targets … · MIDI · FLTR · EXPRESSION | 💡 |
 | CANCEL in modes | Cancels arming; hold CANCEL erases (with the usual confirm) | ✅ |
 | Prompt priority | When an "are you sure?" prompt is showing, OK/CANCEL answer it and never step modes | ✅ |
 | (also) | "Only a deliberate action counts as choosing a source" (pad hit, note played, or encoder press on a list) | ✅ |
@@ -192,7 +198,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 ### ✅ Expression Options mode (v0.14) — second from the right end of CENC
 | Step | What happens | Source |
 |---|---|---|
-| Reach it | Turn CENC right until **EXPRESSION** blinks (second from the right end: … MIDI · FLTR · EXPRESSION · CTRL) | ✅ |
+| Reach it | Turn CENC right until **EXPRESSION** blinks (the far right end: … MIDI · FLTR · EXPRESSION) | ✅ |
 | Enter | Press CENC → the arming marker appears on the OLED | ✅ |
 | Choose | Turn CENC left; each notch blinks the next control the pedal could take over | ✅ |
 | Assign | Press CENC → that control is assigned to the expression pedal and goes solid | ✅ |
@@ -297,7 +303,7 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 **Normal use**
 | Control | Does | Source |
 |---|---|---|
-| P1–P8 | Choose the active TRIG bank 1–8 (number shown on the OLED) | ✅ |
+| P1–P8 | **Loop slots 1–8.** The first loop auto-saves to P1; each new loop saves to the next slot. ❓ Bank select used to live here — needs a new home (see chat) | ✅ ❓ |
 | TRIG1–TRIG4 | Play exactly as assigned. Any slot can hold a **loop, sequence, sample, drum sound or synth sound**. 8 banks × 4 = **32 triggers per song**. | ✅ |
 | SEQUENCE (via CENC) | Turn CENC to **SEQUENCE**, press, to sequence the song: loops in order plus sample events | ✅ |
 
@@ -309,7 +315,8 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 | In a sequence | Placed on the loop/bar grid | Placed with or without quantize (default FREE) |
 | ❓ How you record one vs the other | see chat — 💡 arm a trigger first, then record = sample; record with nothing armed = loop | |
 | ❓ Starting a **new secondary loop** vs overdubbing the current one | see chat | |
-| Assign (hold OK) | Assign a loop or sample to a TRIG slot (? → > flow) | ✅ |
+| **New loop** | **Hold OK** arms a new loop → **FS1** records it, in sync with the existing loop → on completion it saves to the next free P slot | ✅ |
+| ❓ Assigning loops/sounds to TRIGs on SONG | Hold OK now arms a new loop here, so TRIG assignment on this page needs another route (see chat) | ❓ |
 | SEQUENCE mode | Record the song **arrangement** by playing TRIG pads in time | ✅ arrangement-by-playing · 💡 placement here |
 | Samples | Moved to their own **SAMPLE** page (page 4) | ✅ |
 
@@ -319,7 +326,7 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 | 1 (default) | Loop level | ✅ |
 | 2 | Overdub decay (how fast old layers fade) | ✅ |
 | 3 | Loop crossfade time | ✅ |
-| then | MIDI · FLTR · EXPRESSION · CTRL | ✅ |
+| then | MIDI · FLTR · EXPRESSION | ✅ |
 
 **Browsing songs by hand — on the PAGE encoder (left)** ✅
 | Step | Action | OLED |
@@ -341,7 +348,7 @@ The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. There is no 
 | P6 | Beats per bar | number (default 4) | ✅ |
 | P7 | Song key | C … B | ✅ (song scale) |
 | P8 | Song scale | Major · Minor · … · Chromatic | ✅ |
-| ✅ | Tapping a pad with fixed choices steps through them. **In Page Options the slider automatically acts as CTRL**, so numerical options (P5–P7) take their value from it; it returns to normal on leaving. | ✅ |
+| ✅ | Tapping a pad with fixed choices steps through them. **In Page Options the slider automatically supplies values**, so numerical options (P5–P7) take their value from it; it returns to normal on leaving. | ✅ |
 | 💡 | Recorder pre/post **global default** moves to SYSTEM (it's a rig-wide setting), freeing a slot here | 💡 |
 
 ### Drum & FM pages — shared sound rules (v0.34) ✅
