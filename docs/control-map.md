@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.39 changes:** SLDR added at the far right of CENC. Sequences: loop-aligned, a whole number of loops long, overdubbable; LOOP/SONG length choice removed. New **Composition** (one per song, recorded from the SONG page via COMPOSE). Glossary added.
+
 **v0.38 changes:** CTRL scrapped. SONG P1–P8 = loop slots (first loop auto-saves to P1; hold OK arms a new loop, FS1 records it in sync). SEQUENCE redefined as recording each page's control events, LOOP or SONG length, unsaved until stored.
 
 **v0.37 changes:** Samples move to their own **SAMPLE** page (page 4, after FM), handled like Drum/FM. SONG = song structure and loops. 12 pages: SONG · DRUM · FM · SAMPLE · DELAY · REVERB · HARPEGGIO · FLTR/FRZ · LIGHTING · RESOLUME · MIDI · SYSTEM.
@@ -114,11 +116,29 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
 3. **Three ways to play any pad.** (a) **Live** — heard, not recorded. (b) **Into the loop** — while the loop is recording or overdubbing, the pad's sound is recorded into that audio layer. (c) **Sequence record mode** — the triggered events are recorded as a sequence, kept separate from the audio layers.
 4. **Parts stay separate.** Cello loops, drum sequences and synth sequences are stored independently. Clearing the recordings keeps all sequences, and sequences are never baked into the recording, so either can be changed or removed without touching the other.
 5. **Control encoder lists are page-specific, but shared items keep the same order.** Each page offers what it needs; when controls are common across pages they appear in the same order everywhere. Fixed frame: PAGE OPTIONS at the far left; … MIDI · FLTR · EXPRESSION at the far right.
-6. **SEQUENCE mode records a page's control events.** Every page is a kind of control (song/loops, drums, FM, samples, FLTR/FRZ, MIDI, expression…), so SEQUENCE on any page records *that page's* control events. Sequence length:
-   - **LOOP** — the sequence is the current loop's length; while SEQUENCE is on it keeps recording into that loop, and the events retrigger every time that loop plays, even after leaving SEQUENCE mode.
-   - **SONG** — events record continuously from the start of the song and play back once, in time, across the whole composition (no repeating).
+6. **SEQUENCE mode records a page's control events.** Every page is a kind of control, so SEQUENCE on any page records *that page's* events. A sequence is a **section of the song** holding event triggers synced to the original loop.
+   - **Start and end align with loop boundaries.** Stop recording before a full loop and the sequence still ends at the loop's end, so repeats stay in time. Keep recording past the loop and it continues into a second loop-length segment, and so on (e.g. a sequence 4 loops long).
+   - Once the length is set, further passes **overdub** — secondary layers on top of the sequence, like audio overdubs.
+   - The LOOP/SONG length choice is **removed**; long-form recording is the **Composition** (below).
    - Sequence data is **not permanent until saved**.
-   - ❓ default length (💡 LOOP) · ❓ repeat passes add or replace events · ❓ how to clear a page's sequence
+   - ❓ When overdubbing a sequence, does same-type data overwrite (like Composition) or always add? · ❓ how to clear a page's sequence (💡 hold CANCEL in SEQUENCE mode, with confirm)
+7. **Composition = the longest form in a song.** One per song. Everything performed from the start of the song: which loops play when, which sequences run, and all other events.
+   - **Record:** on the SONG page, turn CENC to **COMPOSE** and press to arm (arm before the song starts if needed). Recording starts at the top of the song and stops when you **CANCEL** it or the **song stops**.
+   - **Playback:** you can **play live over** a composition.
+   - **Re-recording overdubs by default:** new data **adds**; data of the **same type** as before **overwrites** it. 💡 Overwrite applies only over the stretch you re-record; the rest is kept. ❓
+   - ❓ 💡 SONG Page Option: when a song loads, **play its composition** or **perform freely**.
+
+### Glossary
+| Term | Meaning |
+|---|---|
+| **Song** | The master file: settings, time signature, loops, sequences, triggers, composition |
+| **Loop** | Recorded audio. The first loop sets the song's timing; later loops are sections. Loops play one at a time. |
+| **Overdub** | A layer recorded on top of a loop — or, for sequences/compositions, a further pass of events |
+| **Sequence** | Recorded control events from one page; a whole number of loop lengths; repeats; can be overdubbed |
+| **Sample** | A free-length recording that plays over loops |
+| **Sound** | A drum or FM preset, copied onto a trigger |
+| **Trigger / Bank** | 4 triggers × 8 banks = 32 slots per song |
+| **Composition** | One per song: the long-form record of everything from the song's start |
 
 Having one consistent "grammar" means your hands learn the instrument once, and every page just changes *what* the controls point at.
 
@@ -133,9 +153,11 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CENC press | Lock in the previewed target | ✅ |
 | CANCEL during CENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
 | **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
-| **Slider encoder (CENC) list, left to right:** PAGE OPTIONS · this page's slider targets (default first) · … · **MIDI** · **FLTR** · **EXPRESSION** (far right). CENC stops at both ends. | ✅ |
+| **Slider encoder (CENC) list, left to right:** PAGE OPTIONS · this page's slider targets (default first) · … · **MIDI** · **FLTR** · **EXPRESSION** · **SLDR** (far right). CENC stops at both ends. | ✅ |
 | **Global slider-encoder options** (on every page): **MIDI**, **FLTR**, **EXPRESSION**. **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
-| ~~CTRL~~ | **Scrapped (v0.38).** Numbers are set in Page Options, where the slider automatically supplies values. | ✅ |
+| ~~CTRL~~ | Scrapped (v0.38). | ✅ |
+| **SLDR** (far right of CENC) | Manually assign a performance setting to the slider: press SLDR → armed → the **next setting touched** becomes the slider's target **on every page** until cancelled by **press-and-hold CENC** (which returns the slider to the page default). In Page Options, the slider still follows the selected option. | ✅ |
+| ❓ "Touched" | 💡 After arming, choose any page's slider target with CENC; that becomes the SLDR target | 💡 ❓ |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
 | CENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
