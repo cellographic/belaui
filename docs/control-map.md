@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.65)
+# Cellographic Bela UI — Control Map (DRAFT v0.66)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -25,6 +25,7 @@
 | OK / CANCEL | Confirm / cancel pads | Behind the OLED | ✅ |
 | CENC | Second pressable encoder — slider target | Below TRIG4, next to the Flex slider | ✅ |
 | PEDAL | External foot pedal | Floor | ✅ |
+| LEDS | Adafruit NeoPixel strip #1460 (black PCB, 30 LED/m), ~3 m inside the cello | Inside the body | ✅ |
 
 Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on one Trill Craft (30 channels available). Slider is the Trill Flex.
 
@@ -659,7 +660,15 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 | P6 | Flash / strobe colour | **WHITE** (default) · SCENE COLOUR |
 | P7 | free (💡 stage DMX later) | — |
 | P8 | free | — |
-❓ Hardware: what LEDs are in the cello (e.g. addressable strips like WS2812), and can the top and bottom be controlled separately from the middle? 💡 Earlier guess: a small microcontroller driven by the Bela may run them more reliably than the Bela directly.
+**LED hardware** ✅
+| Item | Spec | Source |
+|---|---|---|
+| Strip | **Adafruit NeoPixel Digital RGB LED Strip, black PCB, 30 LED/m, 5 m reel (Adafruit #1460)** — WS2812B or SK6812 LEDs (same protocol), removable IP65 sleeve | ✅ |
+| Length used | ~3 m (10 ft) cut from the reel; the rest is spare | ✅ |
+| Replaces | The current single-circuit interior strip (can't do zones) | ✅ |
+| Zones | Set in software along the one strip (top / bottom / all) | ✅ |
+| Power | 💡 Own 5 V supply, about 5–6 A (≈1.44 A per metre at full white per a maker spec; real colourful use is usually ⅓–½ of that). Never above 6 V. | 💡 |
+| Control | 💡 WS2812 needs precise timing, so a **small microcontroller** between the Bela and the strip (Bela sends it scene/colour commands) ❓ which board | 💡 ❓ |
 
 ### Page 10 — RESOLUME ✅
 | Control | Does |
@@ -712,6 +721,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.66:** LED strip specified: Adafruit NeoPixel #1460 (black PCB, 30 LED/m, 5 m reel), ~3 m used.
 
 **v0.65:** LIGHTING reworked around real use: before/after-show glow, top/bottom fill during projection, future percussive sequencing; zones added.
 
