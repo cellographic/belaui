@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.44 changes:** Page slider-target lists removed from the Control Encoder; each page's default and alternatives live inside **SLDR** (unset = page default; clear = back to default). The bottom of the OLED always shows the slider's target name and a level bar.
+
 **v0.43.1:** Full CENC order written in one place.
 
 **v0.43 changes:** BANK added to every page's Control Encoder (bank select from anywhere). Loops are not put on triggers; hold OK on SONG only arms a new loop.
@@ -160,19 +162,19 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CANCEL during preview | Abandon the preview, stay on the current page | ✅ |
 | **P1–P5** | **Page-specific.** Note values on some pages, preset selection on others — no universal rule. | ✅ |
 | **SLIDER** | **Has a default target on every page**, plus a list of alternate targets per page. | ✅ |
-| CENC turn | Preview the slider's next/previous target for this page. The OLED shows the target name and current value, so you can confirm visually if notch counting fails. The slider keeps controlling the old target until you press. | ✅ |
-| CENC press | Lock in the previewed target | ✅ |
+| CENC turn | Move through the Control Encoder list (PAGE OPTIONS · SEQUENCE · … · SLDR); the item under the knob **blinks** | ✅ |
+| CENC press | Enter / confirm the blinking item | ✅ |
 | CANCEL during CENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
 | **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
-| **Control encoder (CENC) list, left to right:** **PAGE OPTIONS** · **SEQUENCE** · (SONG only: **COMPOSE** 💡) · this page's slider targets (default first) · **BANK** · **MIDI** · **FLTR** · **EXPRESSION** · **SLDR**. CENC stops at both ends. Positions of SEQUENCE, COMPOSE and BANK are 💡 proposals. | ✅ / 💡 |
+| **Control encoder (CENC) list, left to right:** **PAGE OPTIONS** · **SEQUENCE** · (SONG only: **COMPOSE** 💡) · **BANK** · **MIDI** · **FLTR** · **EXPRESSION** · **SLDR**. CENC stops at both ends. There is **no separate list of slider targets**: each page's default and alternatives live inside **SLDR**. Positions of SEQUENCE, COMPOSE and BANK are 💡 proposals. | ✅ / 💡 |
 | **BANK** (on every page's CENC) | Press → turn through TRIG banks 1–8 (each **blinking**) → press to select. Switch banks from any page mid-performance. 💡 Position: start of the global group, so the right end reads … BANK · MIDI · FLTR · EXPRESSION · SLDR | ✅ (💡 position) |
 | **Global slider-encoder options** (on every page): **BANK**, **MIDI**, **FLTR**, **EXPRESSION**, **SLDR**. **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
 | ~~CTRL~~ | Scrapped (v0.38). | ✅ |
-| **SLDR** (far right of CENC) | Manually assign a performance setting to the slider so it stays on that setting across all pages (see SLDR flow). In Page Options, the slider still follows the selected option. | ✅ |
+| **SLDR** (far right of CENC) | Holds the slider's assignment. **Unset = the current page's default.** Set it (SLDR flow) to put the slider on any setting from that page's SLDR list; it then stays there **on every page** until **cleared** (press-and-hold CENC), which returns the slider to each page's default. | ✅ |
 | SLDR tap settings | For tap settings such as tap tempo, **tap the slider** in rhythm to set the new value. ❓ On Delay, does this set the delay's time only (💡), not the song tempo (which comes from the first loop)? | ✅ ❓ |
 | SLDR flow | On a page, turn CENC to **SLDR** and press → the knob browses **that page's list of settings** (e.g. Delay: mode, level, tempo, feedback, modulation, tap tempo), each **blinking** → press to select → the slider holds that setting **on every page** until cleared with **press-and-hold CENC** | ✅ |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
-| CENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
+| CENC long-press | **Clears SLDR** → the slider returns to the current page's default (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
 | P6–P8 | Page-specific switches and actions (on/off, tap, latch, trigger) | ✅ |
 | TRIG1–TRIG4 | **Persistent triggers** — work on every page. Default: TRIG1 = kick, TRIG2 = snare, TRIG3 = hi-hat, TRIG4 = open hat. Each can hold a sample, a synth note, or a **stored sequence**, and works on every page. | ✅ |
@@ -321,8 +323,8 @@ Because one slider controls many settings, an absolute slider would make values 
 
 ### 💡 OLED layout
 The Elegoo screen has a yellow top band and a blue lower area.
-- **Yellow band:** page name · loop/clock status (recording / playing / bar count)
-- **Blue area:** picked setting name + big value bar, with 5 short labels for P1–P5 along the bottom
+- **Yellow band:** page name · loop/clock status (recording / playing / bar count) · bank · markers (armed, unsaved)
+- **Bottom of the screen (always):** the slider's current target **name** and a **level bar** showing its value ✅
 
 ---
 
@@ -355,7 +357,7 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 | SEQUENCE mode | Record the song **arrangement** by playing TRIG pads in time | ✅ arrangement-by-playing · 💡 placement here |
 | Samples | Moved to their own **SAMPLE** page (page 4) | ✅ |
 
-**Slider targets (CENC list, default first)**
+**SLDR list (default first)** — the slider follows the first item unless SLDR is set to another
 | # | Target | Source |
 |---|---|---|
 | 1 (default) | Loop level | ✅ |
@@ -432,7 +434,7 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 | Assign to a trigger | Assign mode (hold OK → touch TRIG → tap sample) | ✅ |
 | Library | Press-and-hold the page encoder → sample banks; save to an empty slot / NEW with OK | ✅ (general rule) |
 | SEQUENCE (via CENC) | Sequence samples, quantized or free | ✅ |
-| Slider targets (💡) | Level · Pitch · Start/trim · End · Fade in/out · Reverse, in the shared order where they overlap | 💡 |
+| SLDR list (💡) | Level · Pitch · Start/trim · End · Fade in/out · Reverse, in the shared order where they overlap | 💡 |
 | Page Options | **Sample trigger timing: FREE (default)** · BEAT · BAR | ✅ FREE default |
 
 ### Page 5 — DELAY ✅
