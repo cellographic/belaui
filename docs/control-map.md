@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.68)
+# Cellographic Bela UI — Control Map (DRAFT v0.69)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -677,11 +677,14 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 ### Page 10 — RESOLUME ✅ — DRAFT v0.68
 Controls Resolume (7.26) on the video computer: clips, columns, effects and tempo. All 💡 unless marked.
 
-**Connection** ❓
-| | How | Notes |
+**Connection** ✅: **MIDI over Bluetooth via a CME WIDI Core**, hard-wired to the Bela's remaining **UART serial port**. The WIDI Core acts as the **wireless MIDI hub** for external devices, including the PC running Resolume.
+| Item | Detail | Source |
 |---|---|---|
-| **A: OSC over the Bela's USB cable** 💡 | The Bela's USB link to a computer acts as a network connection (it's how the Bela IDE is reached); Resolume accepts OSC | One cable; no Wi-Fi needed. 💡 My understanding — to verify on your setup |
-| B: MIDI | MIDI out (DIN or USB) → Resolume's MIDI input | Universal, but Resolume mapping is done by hand in its MIDI map |
+| WIDI Core | Small BLE MIDI breakout board (~23 × 29 × 4 mm); runs on 2–16 V; signal pins max 4.1 V, so the Bela's 3.3 V UART pins are within range | ✅ / 💡 (pin match is my reading of the spec) |
+| PC side | 💡 A **CME WIDI Bud Pro** USB dongle on the Resolume PC — CME recommends it over Windows' built-in Bluetooth; measured latency ~7 ms | 💡 |
+| Groups | 💡 Up to 5 WIDI devices in one group (e.g. PC + external synths) | 💡 |
+| ❓ to verify | The Bela's UART running at MIDI speed (31,250 baud) — my expectation is yes, to be checked when building | ❓ |
+| Resolume mapping | MIDI is mapped once inside Resolume's MIDI map | ✅ |
 
 **Normal use**
 | Control | Does |
@@ -710,7 +713,7 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
-| P2 | Connection | **OSC** (default) · MIDI |
+| P2 | free (connection is MIDI via WIDI) | — |
 | P3 | Send song tempo to Resolume (keeps video in time with loops) | **ON** (default) · OFF |
 | P4 | Loading a song selects its Resolume column / deck | **ON** (default) · OFF |
 | P5 | Clip launch timing | FREE · BEAT · **BAR** (default) |
@@ -762,6 +765,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.69:** External MIDI and Resolume connect wirelessly through a CME WIDI Core on the Bela's UART; WIDI Bud Pro suggested on the PC.
 
 **v0.68:** LIGHTING approved. RESOLUME drafted.
 
