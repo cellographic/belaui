@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.47 changes:** DRUM page drafted.
+
 **v0.46 changes:** SLDR details approved: CANCEL backs out one layer, shared filter mode, FILTER 1/2 layer when two filters are on, MIDI CC/channel layer.
 
 **v0.45 changes:** FLTR and MIDI folded into SLDR. SLDR browsing defined, with sub-layers for items that need more definition (FLTR: AutoWah, Hi/Lo/Band Pass, Notch). CENC list: PAGE OPTIONS · SEQUENCE · (COMPOSE) · BANK · EXPRESSION · SLDR.
@@ -404,23 +406,53 @@ The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. There is no 
 | Assigning uses **Assign mode** (hold OK → touch a TRIG → tap the preset), not hold-the-trigger | ✅ |
 | Triggers store a **copy** of the sound — tuning one trigger never changes the preset or other triggers | ✅ |
 | **Last touched sound is the one edited** — a preset on P1–P8 or a TRIG pad; works tune-then-assign or assign-then-tune | ✅ |
-| 💡 Tuning uses the page's slider targets (pitch, decay, tone…), shared in the same order on Drum and FM where they overlap | 💡 |
+| 💡 Tuning uses the page's **SLDR list** (pitch, decay, tone…), shared in the same order on Drum and FM where they overlap | 💡 |
 | **More presets:** press-and-hold the page encoder opens the preset library (banks of 8, blinking); press loads a bank onto P1–P8. General rule: *hold the page encoder = open this page's library*. | ✅ |
 | **Save a tuned sound as a preset:** in the preset library, browse to an empty slot or NEW and press OK; overwriting asks for confirmation | ✅ |
 
-### Page 2 — DRUM SYNTH ✅
-Patterns are tapped in on pads ✅ and keep running on other pages ✅, synced to loops ✅.
-| Control | Does |
-|---|---|
-| TRIG1 | Kick drum (this is TRIG1's default on every page) |
-| TRIG2 | Snare drum (this is TRIG2's default on every page) |
-| P6–P8 | Hi-hat, open hat, percussion |
-| P1 | Kick tune / decay |
-| P2 | Snare tone |
-| P3 | Hat decay |
-| P4 | Swing |
-| P5 | Drum level |
-| OK | Store pattern to a slot ❓ how many slots? |
+### Page 2 — DRUM (drum synth) ✅ — DRAFT v0.47
+Drum patterns keep running on other pages ✅ and stay in sync with the loops ✅. Shared Drum/FM rules above apply.
+
+**Normal use**
+| Control | Does | Source |
+|---|---|---|
+| P1–P8 | **Drum sound presets** from the current preset bank — tap to hear; the last touched is edited | ✅ |
+| 💡 Preset bank = a **kit** | Each bank of 8 is a kit, e.g. kick · snare · closed hat · open hat · clap · tom · rim · perc | 💡 |
+| TRIG1–TRIG4 | Play the active trigger bank. **Bank 1 defaults** to kick · snare · hi-hat · open hat | ✅ |
+| Hold OK | **Assign mode:** touch a TRIG → tap a preset → that TRIG gets a copy | ✅ |
+| Hold page encoder | **Preset library:** browse kits (blinking), press to load onto P1–P8; save a tuned sound to an empty slot / NEW with OK | ✅ |
+
+**SEQUENCE (via CENC)**
+| Control | Does | Source |
+|---|---|---|
+| P1–P8 | Play the 8 drum sounds as drum pads while recording | ✅ |
+| Recorded | This page's control events — hits plus any drum setting changes | ✅ |
+| Length | Loop-aligned, a whole number of loops; further passes **add** by default | ✅ |
+| Clear | Hold CANCEL in SEQUENCE mode, with confirm | ✅ |
+
+**SLDR list (default first)** — 💡 shared order with FM: Level · Pitch · Decay · Tone, then drum-specific
+| # | Setting | Source |
+|---|---|---|
+| 1 (default) | Level ❓ (or Decay / Pitch as the default?) | 💡 |
+| 2 | Pitch | 💡 |
+| 3 | Decay | 💡 |
+| 4 | Tone (dark ↔ bright) | 💡 |
+| 5 | Snap / attack (click at the start of the hit) | 💡 |
+| 6 | Noise (amount of noise, mainly snares/hats) | 💡 |
+| 7 | Drive (grit) | 💡 |
+| then | FLTR · MIDI (on every page) | ✅ |
+
+**Page Options (8 slots)** — all 💡 unless marked
+| Pad | Option | Choices |
+|---|---|---|
+| P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
+| P2 | Swing | number (default 0) |
+| P3 | Live-hit timing correction while recording | OFF · 1/8 · **1/16** (default) |
+| P4 | Velocity | **FIXED** (default) · TOUCH (harder/larger touch = louder) |
+| P5 | Choke: closed hat cuts the open hat | **ON** (default) · OFF |
+| P6 | Drum hits go into loop recordings | **OFF** (default; keeps parts separate) · ON |
+| P7 | Pad sensitivity | number |
+| P8 | Drums follow song key (tuned drums like toms) | **OFF** (default) · ON |
 
 ### Page 3 — FM SYNTH ✅
 Sequenced in sync with loops ✅.
