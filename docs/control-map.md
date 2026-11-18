@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.63)
+# Cellographic Bela UI — Control Map (DRAFT v0.64)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -569,7 +569,7 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | P8 | **Ducking** | **OFF** (default) · ON ✅ |
 💡 Expectation (not tested): delay-based shifting gets more "warbly" toward ±1 octave — worth hearing early.
 
-### Page 8 — FLTR/FRZ (filter + grain freeze) ✅ — DRAFT v0.62
+### Page 8 — FLTR/FRZ (filter + grain freeze) ✅ (approved v0.64)
 | Rule | Source |
 |---|---|
 | Freeze and Filter share one page | ✅ |
@@ -581,7 +581,7 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | 💡 With two filters: FLTR on the slider encoder controls Filter 1 by default (option: Filter 2 or both); each filter processes its own source side by side (parallel) | 💡 |
 | 💡 Extra options from chat to choose from: freeze grain size, density, spread, pitch/octave, drift, width, tone, latch vs hold, fade in/out, stack vs replace, decay, auto-freeze on new note; filter LFO sweep synced to tempo, step filter, formant/vowel, comb, drive, envelope sensitivity/attack/release, sweep range | 💡 |
 
-**Normal use** — rule 9 split between the two effects (option A ✅); assignments 💡
+**Normal use** — rule 9 split between the two effects (option A) ✅
 | Control | Does |
 |---|---|
 | P1 | **Filter on / off** ✅ |
@@ -592,7 +592,7 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | P8 | **Release** — fades the freeze out |
 | Freeze footswitch | Main way to perform freeze (hold) ✅ |
 
-**SLDR list (default first)** — 💡
+**SLDR list (default first)** — approved
 | # | Setting |
 |---|---|
 | 1 (default) | **Filter sweep** (moves the filter's cutoff — the point where it starts trimming the sound) ✅ |
@@ -607,11 +607,11 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | 10 | Grain size |
 | 11 | Density |
 | 12 | Spread |
-| 13 | Freeze pitch — 💡 set SLDR here for a "whammy bar" bend of a frozen sound |
+| 13 | Freeze pitch — set SLDR here for a "whammy bar" bend of a frozen sound |
 | 14 | Freeze fade in / out |
 | then | FLTR · MIDI ✅ |
 
-**Page Options (8 slots)** — 💡 unless marked
+**Page Options (8 slots)** — approved
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
@@ -623,16 +623,41 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | P7 | Recorder takes this pre/post | PRE · **POST** (default) ✅ |
 | P8 | **Ducking** | **OFF** (default) · ON ✅ |
 
-### Page 9 — LIGHTING (internal cello LEDs) ✅
+### Page 9 — LIGHTING (internal cello LEDs) ✅ — DRAFT v0.64
+Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
+
+**Normal use** — 💡 same layout as rule 9 (on/off · presets · tricks)
 | Control | Does |
 |---|---|
-| P6–P8 | Lighting scenes 1–3 (scenes 4–5 displaced) |
-| P1 | Brightness |
-| P2 | Colour (hue) |
-| P3 | Saturation |
-| P4 | Speed |
-| P5 | Audio reactivity (how much the cello drives the light) |
-Stage DMX: later ✅, not in this version.
+| P1 | Lights **on / off** (blackout) |
+| P2–P5 | **Scene presets**, e.g. Glow · Pulse (with the music) · Chase · Rainbow drift |
+| P6 | **Flash** while held |
+| P7 | **Strobe** while held |
+| P8 | **Colour jump** — steps to the next colour of the scene |
+
+**SLDR list (default first)** — 💡
+| # | Setting |
+|---|---|
+| 1 (default) | Brightness (the "level" of this page) |
+| 2 | Colour (hue) |
+| 3 | Saturation (white ↔ full colour) |
+| 4 | Speed |
+| 5 | Audio reactivity (how much the music drives the light) |
+| 6 | Pattern → sub-layer of patterns |
+| then | FLTR · MIDI ✅ |
+
+**Page Options (8 slots)** — 💡 unless marked
+| Pad | Option | Choices |
+|---|---|---|
+| P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
+| P2 | What the lights react to | **CELLO** (default) · DRUMS · MIX |
+| P3 | Speed follows song tempo | **SYNC** (default) · FREE |
+| P4 | Brightness limit (protects eyes, heat and power) | number (slider) |
+| P5 | Colour follows the notes you play | **OFF** (default) · ON |
+| P6 | Flash / strobe colour | **WHITE** (default) · SCENE COLOUR |
+| P7 | free (💡 stage DMX later) | — |
+| P8 | free | — |
+❓ Hardware: what LEDs are in the cello (e.g. addressable strips like WS2812)? 💡 Earlier guess: a small microcontroller driven by the Bela may run them more reliably than the Bela directly.
 
 ### Page 10 — RESOLUME ✅
 | Control | Does |
@@ -685,6 +710,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.64:** FLTR/FRZ approved. LIGHTING drafted.
 
 **v0.63:** FLTR/FRZ default slider setting = Filter sweep.
 
