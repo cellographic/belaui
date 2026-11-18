@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.73)
+# Cellographic Bela UI — Control Map (DRAFT v0.74)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -675,8 +675,8 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 | Runtime (estimate) | 💡 LED pack ~4 h at typical colourful use; Bela pack much longer. Not measured. | 💡 |
 | Control | 💡 WS2812 needs precise timing, so a **small microcontroller** between the Bela and the strip (Bela sends it scene/colour commands) ❓ which board | 💡 ❓ |
 
-### Page 10 — RESOLUME ✅ — v0.70 (pads approved)
-Controls Resolume (7.26) on the video computer: clips, columns, effects and tempo. All 💡 unless marked.
+### Page 10 — RESOLUME ✅ (approved v0.74)
+Controls Resolume (7.26) on the video computer: clips, columns, effects and tempo. Approved.
 
 **Connection** ✅: **MIDI over Bluetooth via a CME WIDI Core**, hard-wired to the Bela's remaining **UART serial port**. The WIDI Core acts as the **wireless MIDI hub** for external devices, including the PC running Resolume.
 | Item | Detail | Source |
@@ -737,9 +737,41 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 ❓ To verify in Resolume: whether the slice settings (P7) and any third-party plugins in P8 can be mapped to MIDI.
 💡 P6 "off" returns the layer to its normal blend (Alpha).
 
-### Page 11 — MIDI (song-specific) ✅
-A dedicated page for controlling **external devices** thoroughly and intentionally. Settings are saved **per song**. Used most often for controlling external gear. Channels 1–10 ✅.
-✅ Split: MIDI *device and port setup* stays in SYSTEM (rig-wide); *what this song sends and on which channels* lives here. Per-pad details in the P1–P8 pass.
+### Page 11 — MIDI (song-specific) ✅ — DRAFT v0.74
+For controlling **external devices** thoroughly and intentionally; saved **per song** ✅. Channels 1–10 ✅. Device/port setup lives in SYSTEM ✅. Sends through the **WIDI Core** wireless hub ✅. All 💡 unless marked.
+
+**Normal use**
+| Control | Does |
+|---|---|
+| P1–P8 | Depends on Pad mode (Page Option P3): **NOTES** — 8 notes of the song's key and scale on the selected channel (like FM) · **BUTTONS** — 8 assignable buttons (program change, CC on/off, start/stop…) |
+| Hold page encoder | **Device library:** saved setups per external device (name, channel, CC names) — load one into this song |
+| SEQUENCE (CENC) | Records notes and CC moves to the external device, synced to the loop — sequencing external synths ✅ (rule 6) |
+
+**SLDR list (default first)** — "level" first, then common MIDI controls
+| # | Setting |
+|---|---|
+| 1 (default) | Volume (CC 7) |
+| 2 | Mod wheel (CC 1) |
+| 3 | Filter cutoff (CC 74) |
+| 4 | Resonance (CC 71) |
+| 5 | Expression (CC 11) |
+| 6 | Pan (CC 10) |
+| 7 | Pitch bend |
+| 8 | User CC → sub-layer: pick any CC number |
+| then | FLTR · MIDI ✅ |
+
+**Page Options (8 slots)**
+| Pad | Option | Choices |
+|---|---|---|
+| P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
+| P2 | MIDI channel | 1–10 (slider; default 1) ✅ range |
+| P3 | Pad mode | **NOTES** (default) · BUTTONS |
+| P4 | Send MIDI clock (keeps external gear in time with the song) | **ON** (default) · OFF |
+| P5 | Send start / stop with the song | **ON** (default) · OFF |
+| P6 | Program change when the song loads | **OFF** (default) · number (slider) |
+| P7 | Velocity | **FIXED** (default) · TOUCH |
+| P8 | Output | **WIDI** (default) · DIN · BOTH ❓ |
+❓ Earlier plans had a **MIDI out jack** under the neck block. With the WIDI Core on the "remaining" UART, is there still a wired DIN MIDI out (needs its own UART), or is WIDI the only MIDI output now?
 
 ### Page 12 — SYSTEM (I/O + MIDI; rig-wide, never saved per song) ✅
 SYSTEM settings are set-and-forget, saved with the hand OK/CANCEL pads (not the pedal). Holds I/O levels and all rig-wide settings (incl. MIDI device/port setup ✅). 💡 Also a home for tuner, pedal setup, Resolume connection, screen brightness, new-song defaults. Song-specific MIDI lives on the MIDI page (page 12).
@@ -781,6 +813,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.74:** RESOLUME approved. MIDI drafted.
 
 **v0.73:** Resolume lists: P6 Alpha → LumaKey; P8 uses Feedback only (8 items each).
 
