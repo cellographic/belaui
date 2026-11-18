@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.54.1:** Delay tricks: P6 Hold · P7 Dub throw · P8 Tape stop.
+
 **v0.54 changes:** Standing rule 9: effect pages use P1 = on/off, P2–P5 = presets, P6–P8 = performance tricks. Delay updated to match.
 
 **v0.53 changes:** SLDR moves recorded into the current page's sequence (A). SAMPLE approved; SD-card sample library with a default set. DELAY drafted.
@@ -579,9 +581,9 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 |---|---|---|
 | P1 | Delay **on / off** | ✅ |
 | P2–P5 | **Delay presets** (💡 e.g. slapback · dotted-1/8 dub · ping-pong · long ambient) — tap to load; hold the page encoder for the full library | ✅ / 💡 |
-| P6 | 💡 **Hold** — infinite repeats while held | ✅ trick slot · 💡 |
-| P7 | 💡 **Dub throw** — sends the input into the delay only while held | ✅ trick slot · 💡 |
-| P8 | 💡 **Clear** the repeats | ✅ trick slot · 💡 |
+| P6 | **Hold** — infinite repeats while held | ✅ |
+| P7 | **Dub throw** — sends the input into the delay only while held | ✅ |
+| P8 | **Tape stop** — repeats slow down and drop in pitch | ✅ |
 | SEQUENCE (CENC) | Records presets, holds, throws and setting changes, like any page |
 
 **SLDR list (default first)** — shared effect order (Mix · main amount · Tone · Reverb send), then delay-specific; based on your list (mode, level, tempo, feedback, modulation, tap tempo)
