@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.67)
+# Cellographic Bela UI — Control Map (DRAFT v0.68)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -626,11 +626,11 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | P7 | Recorder takes this pre/post | PRE · **POST** (default) ✅ |
 | P8 | **Ducking** | **OFF** (default) · ON ✅ |
 
-### Page 9 — LIGHTING (internal cello LEDs) ✅ — DRAFT v0.64
+### Page 9 — LIGHTING (internal cello LEDs) ✅ (approved v0.68)
 Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 **How they're used** ✅: the interior LEDs light the cello from within. Full-body colour is mostly **before and after shows**, because it conflicts with the projection on the cello's surface. During a show, mostly only the **top and bottom** of the cello, where the projector can't reach. In future, possibly **dramatic, percussive, sequenced** lighting.
 
-**Normal use** — 💡 same layout as rule 9 (on/off · presets · tricks)
+**Normal use** — same layout as rule 9 (on/off · presets · tricks) ✅
 | Control | Does |
 |---|---|
 | P1 | Lights **on / off** (blackout) |
@@ -639,7 +639,7 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 | P7 | **Strobe** while held |
 | P8 | **Colour jump** — steps to the next colour of the scene |
 
-**SLDR list (default first)** — 💡
+**SLDR list (default first)** — approved
 | # | Setting |
 |---|---|
 | 1 (default) | Brightness (the "level" of this page) |
@@ -651,7 +651,7 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 | 7 | Pattern → sub-layer of patterns |
 | then | FLTR · MIDI ✅ |
 
-**Page Options (8 slots)** — 💡 unless marked
+**Page Options (8 slots)** — approved
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
@@ -674,12 +674,49 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 | Runtime (estimate) | 💡 LED pack ~4 h at typical colourful use; Bela pack much longer. Not measured. | 💡 |
 | Control | 💡 WS2812 needs precise timing, so a **small microcontroller** between the Bela and the strip (Bela sends it scene/colour commands) ❓ which board | 💡 ❓ |
 
-### Page 10 — RESOLUME ✅
+### Page 10 — RESOLUME ✅ — DRAFT v0.68
+Controls Resolume (7.26) on the video computer: clips, columns, effects and tempo. All 💡 unless marked.
+
+**Connection** ❓
+| | How | Notes |
+|---|---|---|
+| **A: OSC over the Bela's USB cable** 💡 | The Bela's USB link to a computer acts as a network connection (it's how the Bela IDE is reached); Resolume accepts OSC | One cable; no Wi-Fi needed. 💡 My understanding — to verify on your setup |
+| B: MIDI | MIDI out (DIN or USB) → Resolume's MIDI input | Universal, but Resolume mapping is done by hand in its MIDI map |
+
+**Normal use**
 | Control | Does |
 |---|---|
-| P6–P8 | Trigger clips 1–3 in the current column (clips 4–5 displaced) |
-| P1–P5 | Five mapped Resolume parameters (opacity, effect amounts) ❓ which ones? |
-❓ How does Bela talk to Resolume: MIDI or OSC over the network? (Bela Mini has no built-in Wi-Fi.)
+| P1 | **Previous column** (scene) |
+| P2 | **Next column** (scene) |
+| P3–P5 | **Trigger clips 1–3** in the selected layer |
+| P6 | **Flash** effect while held |
+| P7 | **Strobe** effect while held |
+| P8 | **Blackout** (video off / on) |
+| SEQUENCE (CENC) | Records clip changes and effect moves, timed to the loop — and the Composition can time video changes to key moments ✅ |
+
+**SLDR list (default first)**
+| # | Setting |
+|---|---|
+| 1 (default) | Master opacity (the "level" of this page) |
+| 2 | Selected layer opacity |
+| 3 | Crossfader |
+| 4 | Effect 1 amount |
+| 5 | Effect 2 amount |
+| 6 | Clip speed |
+| 7 | Layer → sub-layer: choose which Resolume layer P3–P5 and #2 control |
+| then | FLTR · MIDI ✅ |
+
+**Page Options (8 slots)**
+| Pad | Option | Choices |
+|---|---|---|
+| P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
+| P2 | Connection | **OSC** (default) · MIDI |
+| P3 | Send song tempo to Resolume (keeps video in time with loops) | **ON** (default) · OFF |
+| P4 | Loading a song selects its Resolume column / deck | **ON** (default) · OFF |
+| P5 | Clip launch timing | FREE · BEAT · **BAR** (default) |
+| P6 | Flash / strobe source | **RESOLUME EFFECT** (default) · CELLO LEDS TOO |
+| P7 | free | — |
+| P8 | free | — |
 
 ### Page 11 — MIDI (song-specific) ✅
 A dedicated page for controlling **external devices** thoroughly and intentionally. Settings are saved **per song**. Used most often for controlling external gear. Channels 1–10 ✅.
@@ -725,6 +762,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.68:** LIGHTING approved. RESOLUME drafted.
 
 **v0.67:** Power: two Voltaic V50 packs — one for the Bela and controls, one for the LED strip.
 
