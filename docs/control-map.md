@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.54 changes:** Standing rule 9: effect pages use P1 = on/off, P2–P5 = presets, P6–P8 = performance tricks. Delay updated to match.
+
 **v0.53 changes:** SLDR moves recorded into the current page's sequence (A). SAMPLE approved; SD-card sample library with a default set. DELAY drafted.
 
 **v0.52.1:** FLTR noted in SAMPLE's SLDR list; proposal that SLDR moves are recorded into the current page's sequence.
@@ -163,6 +165,7 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
    - **After you let go: TOUCH (default)** — the old recording of that setting resumes. **LATCH** (option) — your new value holds until the old recording next changes it. Set in SONG Page Options (P4).
    - **When a song loads, its composition plays straight away.** The composition is where time-critical performance data lives, keyed to the start of the song: after building loops and sequences, you organise them in the composition along with external MIDI, video and lighting changes timed to key moments.
 8. **Choosing in Page Options.** A few fixed choices → **tap the pad to step through them**. Many choices or a number (e.g. song key, bars per loop) → **set with the slider**.
+9. **Effect pages share one pad layout** (Delay, Reverb, HARPEGGIO, FLTR/FRZ): **P1 = on/off** · **P2–P5 = presets** · **P6–P8 = performance tricks**.
 
 ### Glossary
 | Term | Meaning |
@@ -571,14 +574,14 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 **Sample library on the SD card** ✅: the card carries a sample library, including at least **one full default set** that preloads into new songs. 💡 Details: the default set is chosen in SYSTEM; songs **reference** library files (trim/pitch etc. saved as settings) and only newly recorded samples are saved as new audio; library files should match Bela's audio format (my understanding: 44.1 kHz WAV — to verify); large sets load in the background.
 
 ### Page 5 — DELAY ✅ — DRAFT v0.53
-**Normal use** (all 💡)
-| Control | Does |
-|---|---|
-| P1–P4 | **Delay presets** (e.g. slapback · dotted-1/8 dub · ping-pong · long ambient) — tap to load; hold the page encoder for the full library |
-| P5 | **Hold** — infinite repeats while held |
-| P6 | **Dub throw** — sends the input into the delay only while held |
-| P7 | **Clear** the repeats |
-| P8 | Delay **on / off** |
+**Normal use** (layout per standing rule 9)
+| Control | Does | Source |
+|---|---|---|
+| P1 | Delay **on / off** | ✅ |
+| P2–P5 | **Delay presets** (💡 e.g. slapback · dotted-1/8 dub · ping-pong · long ambient) — tap to load; hold the page encoder for the full library | ✅ / 💡 |
+| P6 | 💡 **Hold** — infinite repeats while held | ✅ trick slot · 💡 |
+| P7 | 💡 **Dub throw** — sends the input into the delay only while held | ✅ trick slot · 💡 |
+| P8 | 💡 **Clear** the repeats | ✅ trick slot · 💡 |
 | SEQUENCE (CENC) | Records presets, holds, throws and setting changes, like any page |
 
 **SLDR list (default first)** — shared effect order (Mix · main amount · Tone · Reverb send), then delay-specific; based on your list (mode, level, tempo, feedback, modulation, tap tempo)
