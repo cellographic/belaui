@@ -2,6 +2,9 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.50 changes:** Standing rule 8: few choices = tap to step, many/numbers = slider. Song scales: Major, Minor, Harmonic Minor, Blues (+ Chromatic). FM notes follow the song's key and scale (no separate FM scale setting).
+💡 8 pads beyond a 7-note scale: pads continue up the scale past the octave (Blues has 6 notes, so pads 7–8 reach above the octave).
+
 **v0.49 changes:** FM page drafted: each sound played on 8 notes of the song scale; default sounds Bass1/2, Pads1/2, Lead1/2, Noise1/2.
 
 **v0.48 changes:** DRUM page approved; Level is the default SLDR setting; a tuned kit is saved with the song, or to the library for reuse.
@@ -150,6 +153,7 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
    - **Re-recording overdubs by default:** only the **specific setting you change** is replaced, at the moment you change it — e.g. changing delay feedback replaces only the recorded delay feedback, not delay on/off or anything else. Everything you don't touch plays back as before.
    - **After you let go: TOUCH (default)** — the old recording of that setting resumes. **LATCH** (option) — your new value holds until the old recording next changes it. Set in SONG Page Options (P4).
    - **When a song loads, its composition plays straight away.** The composition is where time-critical performance data lives, keyed to the start of the song: after building loops and sequences, you organise them in the composition along with external MIDI, video and lighting changes timed to key moments.
+8. **Choosing in Page Options.** A few fixed choices → **tap the pad to step through them**. Many choices or a number (e.g. song key, bars per loop) → **set with the slider**.
 
 ### Glossary
 | Term | Meaning |
@@ -398,8 +402,8 @@ The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. There is no 
 | P4 | Composition overdub | TOUCH (default) · LATCH | ✅ |
 | P5 | Bars per loop | number (default 4) | ✅ |
 | P6 | Beats per bar | number (default 4) | ✅ |
-| P7 | Song key | C … B | ✅ (song scale) |
-| P8 | Song scale | Major · Minor · … · Chromatic | ✅ |
+| P7 | Song key | C · C♯ · D … B (12 choices — set with the slider) | ✅ |
+| P8 | Song scale | **Major** · **Minor** · **Harmonic Minor** · **Blues** · Chromatic (tap to step through). 💡 Other modes (Dorian, Phrygian, Lydian, Mixolydian, Locrian) can be added later if wanted | ✅ |
 | ✅ | Tapping a pad with fixed choices steps through them. **In Page Options the slider automatically supplies values**, so numerical options (P5–P7) take their value from it; it returns to normal on leaving. | ✅ |
 | 💡 | Recorder pre/post **global default** moves to SYSTEM (it's a rig-wide setting), freeing a slot here | 💡 |
 
@@ -504,7 +508,7 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 | P2 | Voice mode | **POLY** (chords) · MONO (one note at a time, for bass/leads) |
 | P3 | Live-note timing correction while recording | OFF · 1/8 · **1/16** (default) |
 | P4 | Velocity | **FIXED** (default) · TOUCH |
-| P5 | Note layout | **SCALE** (8 scale notes, root to octave; default) · CHROMATIC (8 half steps) |
+| P5 | Notes follow | **SONG SCALE** (default — the key and scale set on the SONG page) · CHROMATIC (8 half steps). FM has no key/scale setting of its own. | ✅ / 💡 |
 | P6 | FM notes go into loop recordings | **OFF** (default) · ON |
 | P7 | Hold notes (tap on / tap off, for drones) | **OFF** (default) · ON |
 | P8 | ❓ free slot | — |
