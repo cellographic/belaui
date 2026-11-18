@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.55 changes:** Delay: Mix is the default slider setting; Time slides the delay time, Tap tempo sets it precisely; neither changes the song tempo.
+
 **v0.54.1:** Delay tricks: P6 Hold · P7 Dub throw · P8 Tape stop.
 
 **v0.54 changes:** Standing rule 9: effect pages use P1 = on/off, P2–P5 = presets, P6–P8 = performance tricks. Delay updated to match.
@@ -589,13 +591,13 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 **SLDR list (default first)** — shared effect order (Mix · main amount · Tone · Reverb send), then delay-specific; based on your list (mode, level, tempo, feedback, modulation, tap tempo)
 | # | Setting | Source |
 |---|---|---|
-| 1 (default) | Mix (level) ❓ or Feedback as the default? | 💡 |
-| 2 | Time | ✅ (your "tempo") |
+| 1 (default) | Mix (level — matches Level as the default on other pages) | ✅ |
+| 2 | Time — slide to adjust the **delay time** up or down smoothly | ✅ |
 | 3 | Tone | 💡 |
 | 4 | Reverb send | 💡 |
 | 5 | Feedback | ✅ |
 | 6 | Modulation | ✅ |
-| 7 | Tap tempo — tap the slider in rhythm; 💡 sets the **delay's** time only, not the song tempo | ✅ / ❓ |
+| 7 | Tap tempo — tap the slider in rhythm to set the **delay time** precisely (the song's tempo is not changed) | ✅ |
 | 8 | Mode → sub-layer: 💡 DIGITAL · TAPE · PING-PONG · REVERSE | ✅ |
 | then | FLTR · MIDI | ✅ |
 
