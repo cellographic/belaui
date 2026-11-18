@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.59)
+# Cellographic Bela UI — Control Map (DRAFT v0.60)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -529,18 +529,45 @@ The **one shared reverb**: every effect can send into it ✅. 💡 Processor not
 | P7 | free | — |
 | P8 | **Ducking** | **OFF** (default) · ON ✅ |
 
-### Page 7 — HARPEGGIO (harmonizer + arpeggiator, delay-based) ✅
-| Rule | Source |
-|---|---|
-| Plays the **root note** (the cello) plus **up to 3 settable harmony notes**, each from **1 octave below to 1 octave above** | ✅ |
-| Sound comes from delay-speed adjustments (delay-based pitch shifting) | ✅ |
-| When the harmony notes are **separated in time**, the harmony becomes an **arpeggio** | ✅ |
-| Time separation follows the song tempo by default (e.g. 1/8 or 1/16 steps); free timing as an option | ✅ |
-| The **song's scale** is set on the SONG page. With a named scale, harmony notes use **named intervals** (e.g. "+maj3"). With **Chromatic**, they use **half steps from −12 to +12** (0 = unison, e.g. "+4"). | ✅ |
-| ❓ Named intervals: fixed sizes (+maj3 always = +4 half steps), or scale-aware harmony that changes interval size with the note you play (needs pitch detection) — see chat | ❓ |
-| 💡 Note (my expectation, not tested): delay-based shifting gets more "warbly" toward ±1 octave; worth hearing early in the simulator stage | 💡 |
+### Page 7 — HARPEGGIO (harmonizer + arpeggiator, delay-based) ✅ — DRAFT v0.60
+Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below to 1 above ✅. Delay-based pitch shifting ✅. Separating the notes in time makes **arpeggios**, spaced to the song tempo by default ✅. Named intervals from the song scale; half steps (−12…+12) when the song scale is Chromatic ✅.
+**Intervals are fixed sizes** ✅ — each interval is a set pitch-shift amount. These can be **rational (just) ratios**, e.g. a fifth = 3:2, a major third = 5:4 ✅ (💡 delay-based shifting can hit any ratio exactly, so this costs nothing extra).
 
-Previous per-pad draft (to be redone in the P1–P8 pass): voice intervals, mix, spread, reverb send, on/off, voice on/off, scale snap.
+**Normal use** (layout per standing rule 9) — 💡 unless marked
+| Control | Does |
+|---|---|
+| P1 | Harpeggio **on / off** ✅ |
+| P2–P5 | **Presets:** Octaves (−8ve and +8ve) · Fifths (+5th and +8ve) · Major chord (+3rd and +5th) · Minor chord (+♭3rd and +5th) |
+| P6 | **Arp** on / off (tap) — spreads the harmony out in time |
+| P7 | **Octave-up throw** — adds a +8ve voice while held |
+| P8 | **Octave-down throw** — adds a −8ve voice while held |
+
+**SLDR list (default first)** — shared effect order, then harmonizer-specific (💡)
+| # | Setting |
+|---|---|
+| 1 (default) | Mix ✅ |
+| 2 | Arp spacing (0 = all at once / chord) |
+| 3 | Tone |
+| 4 | Reverb send |
+| 5 | Voice 1 interval → sub-layer of intervals |
+| 6 | Voice 2 interval → sub-layer |
+| 7 | Voice 3 interval → sub-layer |
+| 8 | Arp pattern → sub-layer: UP · DOWN · UP-DOWN · RANDOM |
+| 9 | Detune (slight thickening) |
+| then | FLTR · MIDI ✅ |
+
+**Page Options (8 slots)** — 💡 unless marked
+| Pad | Option | Choices |
+|---|---|---|
+| P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
+| P2 | Arp spacing follows song tempo | **SYNC** (default) ✅ · FREE |
+| P3 | Sync division | **1/8** (default) · 1/16 · 1/8 triplet … (slider) |
+| P4 | Tuning | **JUST** (rational ratios) · EQUAL (piano tuning) ❓ default |
+| P5 | Recorder takes this pre/post harpeggio | PRE · **POST** (default) ✅ |
+| P6 | Number of harmony voices | 1 · **2** (default) · 3 |
+| P7 | Source | **CELLO** (default) · VOICE · SAMPLES · FM · MIX |
+| P8 | **Ducking** | **OFF** (default) · ON ✅ |
+💡 Expectation (not tested): delay-based shifting gets more "warbly" toward ±1 octave — worth hearing early.
 
 ### Page 8 — FLTR/FRZ (filter + grain freeze) ✅
 | Rule | Source |
@@ -642,6 +669,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.60:** HARPEGGIO drafted; intervals are fixed sizes, optionally rational (just) ratios.
 
 **v0.58 changes:** REVERB approved: P8 Kill; presets Room · Plate · Hall · Ambient.
 
