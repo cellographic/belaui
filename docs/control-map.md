@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.70)
+# Cellographic Bela UI — Control Map (DRAFT v0.71)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -696,7 +696,7 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 | P6 | **Layer effect** — engages the layer effect chosen from a list of options ✅ (💡 chosen in Page Options P6) |
 | P7 | **Output effect A** — engages an advanced output effect ✅ (💡 chosen in Page Options P7) |
 | P8 | **Output effect B** — engages an advanced output effect ✅ (💡 chosen in Page Options P8) |
-| ❓ | Do P6–P8 work **while held** or **tap on / tap off**? |
+| P6–P8 behaviour | **Tap on / tap off** ✅ |
 | SEQUENCE (CENC) | Records clip changes and effect moves, timed to the loop — and the Composition can time video changes to key moments ✅ |
 
 **SLDR list (default first)**
@@ -719,9 +719,11 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 | P3 | Send song tempo to Resolume (keeps video in time with loops) | **ON** (default) · OFF |
 | P4 | Loading a song selects its Resolume column / deck | **ON** (default) · OFF |
 | P5 | Clip launch timing | FREE · BEAT · **BAR** (default) |
-| P6 | Which **layer effect** P6 engages | list of Resolume layer effects (slider) 💡 |
-| P7 | Which **output effect** P7 engages | list of output effects (slider) 💡 |
-| P8 | Which **output effect** P8 engages | list of output effects (slider) 💡 |
+| P6 | Which **layer effect** P6 engages | Layer FX list (slider) 💡 |
+| P7 | Which **output effect** P7 engages | Output FX list (slider) 💡 |
+| P8 | Which **output effect** P8 engages | Output FX list (slider) 💡 |
+
+**Effect lists** 💡 — because the Bela talks to Resolume over MIDI, it doesn't know Resolume's effects itself. Each list is a short set of **named slots** (up to 8), each mapped once in Resolume's MIDI map to an effect you pick. Layer FX are applied to a layer; Output FX at Composition level (the final mix). ❓ Scott to choose the slots.
 
 ### Page 11 — MIDI (song-specific) ✅
 A dedicated page for controlling **external devices** thoroughly and intentionally. Settings are saved **per song**. Used most often for controlling external gear. Channels 1–10 ✅.
@@ -767,6 +769,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.71:** Resolume P6–P8 tap on/off; effect lists are short named slots mapped in Resolume.
 
 **v0.70:** Resolume pads approved; P6 = layer effect, P7–P8 = advanced output effects (replacing flash/strobe/blackout).
 
