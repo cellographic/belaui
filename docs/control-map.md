@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.48 changes:** DRUM page approved; Level is the default SLDR setting; a tuned kit is saved with the song, or to the library for reuse.
+
 **v0.47 changes:** DRUM page drafted.
 
 **v0.46 changes:** SLDR details approved: CANCEL backs out one layer, shared filter mode, FILTER 1/2 layer when two filters are on, MIDI CC/channel layer.
@@ -410,14 +412,17 @@ The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. There is no 
 | **More presets:** press-and-hold the page encoder opens the preset library (banks of 8, blinking); press loads a bank onto P1–P8. General rule: *hold the page encoder = open this page's library*. | ✅ |
 | **Save a tuned sound as a preset:** in the preset library, browse to an empty slot or NEW and press OK; overwriting asks for confirmation | ✅ |
 
-### Page 2 — DRUM (drum synth) ✅ — DRAFT v0.47
+### Page 2 — DRUM (drum synth) ✅ (approved v0.48)
 Drum patterns keep running on other pages ✅ and stay in sync with the loops ✅. Shared Drum/FM rules above apply.
+
+**Typical workflow:** dial in sounds one at a time (Level, then the tone-shaping settings), then assign them to triggers or keep the tuned P1–P8 kit for this song.
+**Two levels of saving:** the tuned kit on P1–P8 is saved **with the song** (hold FS3); saving to the **preset library** (OK into an empty slot / NEW) makes a sound reusable in other songs.
 
 **Normal use**
 | Control | Does | Source |
 |---|---|---|
 | P1–P8 | **Drum sound presets** from the current preset bank — tap to hear; the last touched is edited | ✅ |
-| 💡 Preset bank = a **kit** | Each bank of 8 is a kit, e.g. kick · snare · closed hat · open hat · clap · tom · rim · perc | 💡 |
+| Preset bank = a **kit** | Each bank of 8 is a kit, e.g. kick · snare · closed hat · open hat · clap · tom · rim · perc | ✅ |
 | TRIG1–TRIG4 | Play the active trigger bank. **Bank 1 defaults** to kick · snare · hi-hat · open hat | ✅ |
 | Hold OK | **Assign mode:** touch a TRIG → tap a preset → that TRIG gets a copy | ✅ |
 | Hold page encoder | **Preset library:** browse kits (blinking), press to load onto P1–P8; save a tuned sound to an empty slot / NEW with OK | ✅ |
@@ -430,19 +435,19 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 | Length | Loop-aligned, a whole number of loops; further passes **add** by default | ✅ |
 | Clear | Hold CANCEL in SEQUENCE mode, with confirm | ✅ |
 
-**SLDR list (default first)** — 💡 shared order with FM: Level · Pitch · Decay · Tone, then drum-specific
+**SLDR list (default first)** — shared order with FM: Level · Pitch · Decay · Tone, then drum-specific
 | # | Setting | Source |
 |---|---|---|
-| 1 (default) | Level ❓ (or Decay / Pitch as the default?) | 💡 |
-| 2 | Pitch | 💡 |
-| 3 | Decay | 💡 |
-| 4 | Tone (dark ↔ bright) | 💡 |
-| 5 | Snap / attack (click at the start of the hit) | 💡 |
-| 6 | Noise (amount of noise, mainly snares/hats) | 💡 |
-| 7 | Drive (grit) | 💡 |
+| 1 (default) | Level | ✅ |
+| 2 | Pitch | ✅ |
+| 3 | Decay | ✅ |
+| 4 | Tone (dark ↔ bright) | ✅ |
+| 5 | Snap / attack (click at the start of the hit) | ✅ |
+| 6 | Noise (amount of noise, mainly snares/hats) | ✅ |
+| 7 | Drive (grit) | ✅ |
 | then | FLTR · MIDI (on every page) | ✅ |
 
-**Page Options (8 slots)** — all 💡 unless marked
+**Page Options (8 slots)** — approved
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
