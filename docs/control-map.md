@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.51 changes:** FM always follows the song's scale (its own chromatic option dropped); Chromatic songs use Transpose on the slider. FM Page Options shifted: P5 = notes into loops, P6 = hold notes, P7–P8 free.
+
 **v0.50 changes:** Standing rule 8: few choices = tap to step, many/numbers = slider. Song scales: Major, Minor, Harmonic Minor, Blues (+ Chromatic). FM notes follow the song's key and scale (no separate FM scale setting).
 💡 8 pads beyond a 7-note scale: pads continue up the scale past the octave (Blues has 6 notes, so pads 7–8 reach above the octave).
 
@@ -471,7 +473,8 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 **Normal use**
 | Control | Does | Source |
 |---|---|---|
-| P1–P8 | Play the current sound on **8 notes of the song's key and scale**, root to octave | ✅ |
+
+| P1–P8 | Play the current sound on **8 notes of the song's key and scale**, root to octave. FM always follows the song's scale; if the song's scale is **Chromatic**, the pads play 8 half steps up from the key and **Transpose** reaches the rest. Triggers are never taken over. | ✅ |
 | Default sounds | **Bass1 · Bass2 · Pads1 · Pads2 · Lead1 · Lead2 · Noise1 · Noise2** | ✅ |
 | Change sound | Hold the page encoder → sound library (blinking) → press to load | ✅ |
 | Save a tuned sound | In the library, an empty slot / NEW → OK. Tuned sounds are also saved with the song (hold FS3) | ✅ |
@@ -499,6 +502,7 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 | 8 | Feedback (grit) | 💡 |
 | 9 | Octave (shift the 8 notes up/down) | ✅ |
 | 10 | Glide (slide between notes, for bass/leads) | 💡 |
+| 11 | Transpose (half steps — with the song scale set to Chromatic, shifts the 8 pads to reach the other notes) | ✅ |
 | then | FLTR · MIDI | ✅ |
 
 **Page Options (8 slots)** — all 💡 unless marked
@@ -508,10 +512,10 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 | P2 | Voice mode | **POLY** (chords) · MONO (one note at a time, for bass/leads) |
 | P3 | Live-note timing correction while recording | OFF · 1/8 · **1/16** (default) |
 | P4 | Velocity | **FIXED** (default) · TOUCH |
-| P5 | Notes follow | **SONG SCALE** (default — the key and scale set on the SONG page) · CHROMATIC (8 half steps). FM has no key/scale setting of its own. | ✅ / 💡 |
-| P6 | FM notes go into loop recordings | **OFF** (default) · ON |
-| P7 | Hold notes (tap on / tap off, for drones) | **OFF** (default) · ON |
-| P8 | ❓ free slot | — |
+| P5 | FM notes go into loop recordings | **OFF** (default) · ON |
+| P6 | Hold notes (tap on / tap off, for drones) | **OFF** (default) · ON |
+| P7 | free (future needs) | — |
+| P8 | free (future needs) | — |
 
 ### Page 4 — SAMPLE (sample instrument) ✅
 Samples are a **custom instrument** for recording and triggering sounds on the fly, handled like Drum and FM. Samples are free-length, **overlay loops**, and are independent unless sequenced ✅.
