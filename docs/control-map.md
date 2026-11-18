@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.72)
+# Cellographic Bela UI — Control Map (DRAFT v0.73)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -726,17 +726,16 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 **Effect lists** 💡 — because the Bela talks to Resolume over MIDI, it doesn't know Resolume's effects itself. Each list is a short set of **named slots** (up to 8), each mapped once in Resolume's MIDI map to an effect you pick. Layer FX are applied to a layer; Output FX at Composition level (the final mix). 
 | P6 — Blend modes ✅ | P7 — Slice effects ✅ | P8 — Video effects ✅ |
 |---|---|---|
-| Alpha | Fill (repeats and scales content to fill each slice) | Screen Shake (BPM-syncable output distortion) |
-| Multiply | Fit (scales content until it touches one side) | FeedbackPro / Feedback (luma-keying and motion feedback loops) |
+| LumaKey | Fill (repeats and scales content to fill each slice) | Screen Shake (BPM-syncable output distortion) |
+| Multiply | Fit (scales content until it touches one side) | Feedback (motion feedback loops) |
 | Screen | Stretch (distorts content to fit the slice) | SlitScanner (single-slit sampling repetition) |
 | Dodge | Mask (uses slice layers as a mask) | Shifty (axis distortion with rotation and smoothing) |
 | Overlay | Flip X | Space Warper (bends space and time) |
 | Hard Light | Flip Y | VHSifyer (lo-fi look) |
 | Difference | Bypass (cuts out slices) | Reducto (lo-fi / colour reduction) |
 | Exclusion | Solo (isolates slices) | Total Visual Annihilation (glitch / scanlines) |
-❓ P8 has 9 items with FeedbackPro and Feedback counted separately — keep 9 slots or drop one?
 ❓ To verify in Resolume: whether the slice settings (P7) and any third-party plugins in P8 can be mapped to MIDI.
-💡 P6 "off" returns the layer to its normal blend (Alpha), so tapping P6 with Alpha selected changes nothing.
+💡 P6 "off" returns the layer to its normal blend (Alpha).
 
 ### Page 11 — MIDI (song-specific) ✅
 A dedicated page for controlling **external devices** thoroughly and intentionally. Settings are saved **per song**. Used most often for controlling external gear. Channels 1–10 ✅.
@@ -782,6 +781,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.73:** Resolume lists: P6 Alpha → LumaKey; P8 uses Feedback only (8 items each).
 
 **v0.72:** Resolume effect lists set: P6 blend modes, P7 slice effects, P8 video effects.
 
