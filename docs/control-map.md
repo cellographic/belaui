@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.71)
+# Cellographic Bela UI — Control Map (DRAFT v0.72)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -693,9 +693,9 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 | P1 | **Previous column** (scene) ✅ |
 | P2 | **Next column** (scene) ✅ |
 | P3–P5 | **Trigger clips 1–3** in the selected layer ✅ |
-| P6 | **Layer effect** — engages the layer effect chosen from a list of options ✅ (💡 chosen in Page Options P6) |
-| P7 | **Output effect A** — engages an advanced output effect ✅ (💡 chosen in Page Options P7) |
-| P8 | **Output effect B** — engages an advanced output effect ✅ (💡 chosen in Page Options P8) |
+| P6 | **Layer blend mode** — switches the selected layer to the chosen blend mode ✅ (chosen in Page Options P6) |
+| P7 | **Slice effect** — engages the chosen output slice setting ✅ (chosen in Page Options P7) |
+| P8 | **Video effect** — engages the chosen output video effect ✅ (chosen in Page Options P8) |
 | P6–P8 behaviour | **Tap on / tap off** ✅ |
 | SEQUENCE (CENC) | Records clip changes and effect moves, timed to the loop — and the Composition can time video changes to key moments ✅ |
 
@@ -719,11 +719,24 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 | P3 | Send song tempo to Resolume (keeps video in time with loops) | **ON** (default) · OFF |
 | P4 | Loading a song selects its Resolume column / deck | **ON** (default) · OFF |
 | P5 | Clip launch timing | FREE · BEAT · **BAR** (default) |
-| P6 | Which **layer effect** P6 engages | Layer FX list (slider) 💡 |
-| P7 | Which **output effect** P7 engages | Output FX list (slider) 💡 |
-| P8 | Which **output effect** P8 engages | Output FX list (slider) 💡 |
+| P6 | Which **blend mode** P6 engages | P6 list (slider) ✅ |
+| P7 | Which **slice effect** P7 engages | P7 list (slider) ✅ |
+| P8 | Which **video effect** P8 engages | P8 list (slider) ✅ |
 
-**Effect lists** 💡 — because the Bela talks to Resolume over MIDI, it doesn't know Resolume's effects itself. Each list is a short set of **named slots** (up to 8), each mapped once in Resolume's MIDI map to an effect you pick. Layer FX are applied to a layer; Output FX at Composition level (the final mix). ❓ Scott to choose the slots.
+**Effect lists** 💡 — because the Bela talks to Resolume over MIDI, it doesn't know Resolume's effects itself. Each list is a short set of **named slots** (up to 8), each mapped once in Resolume's MIDI map to an effect you pick. Layer FX are applied to a layer; Output FX at Composition level (the final mix). 
+| P6 — Blend modes ✅ | P7 — Slice effects ✅ | P8 — Video effects ✅ |
+|---|---|---|
+| Alpha | Fill (repeats and scales content to fill each slice) | Screen Shake (BPM-syncable output distortion) |
+| Multiply | Fit (scales content until it touches one side) | FeedbackPro / Feedback (luma-keying and motion feedback loops) |
+| Screen | Stretch (distorts content to fit the slice) | SlitScanner (single-slit sampling repetition) |
+| Dodge | Mask (uses slice layers as a mask) | Shifty (axis distortion with rotation and smoothing) |
+| Overlay | Flip X | Space Warper (bends space and time) |
+| Hard Light | Flip Y | VHSifyer (lo-fi look) |
+| Difference | Bypass (cuts out slices) | Reducto (lo-fi / colour reduction) |
+| Exclusion | Solo (isolates slices) | Total Visual Annihilation (glitch / scanlines) |
+❓ P8 has 9 items with FeedbackPro and Feedback counted separately — keep 9 slots or drop one?
+❓ To verify in Resolume: whether the slice settings (P7) and any third-party plugins in P8 can be mapped to MIDI.
+💡 P6 "off" returns the layer to its normal blend (Alpha), so tapping P6 with Alpha selected changes nothing.
 
 ### Page 11 — MIDI (song-specific) ✅
 A dedicated page for controlling **external devices** thoroughly and intentionally. Settings are saved **per song**. Used most often for controlling external gear. Channels 1–10 ✅.
@@ -769,6 +782,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.72:** Resolume effect lists set: P6 blend modes, P7 slice effects, P8 video effects.
 
 **v0.71:** Resolume P6–P8 tap on/off; effect lists are short named slots mapped in Resolume.
 
