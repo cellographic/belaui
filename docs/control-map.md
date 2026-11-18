@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.42 changes:** SLDR tap settings (tap the slider in rhythm). Loops can optionally go on triggers. Clear a sequence = hold CANCEL in SEQUENCE mode.
+
 **v0.41 changes:** Composition: TOUCH default / LATCH option (SONG P4); plays straight away when a song loads. Sequence overdubs additive by default. SLDR flow defined (browse the page's settings, press to hold, press-and-hold CENC to clear).
 
 **v0.40 changes:** Composition overwrite clarified: only the specific setting you change is replaced, at the moment you change it.
@@ -125,7 +127,7 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
    - Once the length is set, further passes **overdub** — secondary layers on top of the sequence, like audio overdubs.
    - The LOOP/SONG length choice is **removed**; long-form recording is the **Composition** (below).
    - Sequence data is **not permanent until saved**.
-   - **Sequence overdubs are additive by default** (no overwrite); overwrite can be set as an option (💡 in each page's Page Options, since sequences belong to pages). · ❓ how to clear a page's sequence (💡 hold CANCEL in SEQUENCE mode, with confirm)
+   - **Sequence overdubs are additive by default** (no overwrite); overwrite can be set as an option (💡 in each page's Page Options, since sequences belong to pages). · **Clear a page's sequence:** hold CANCEL in SEQUENCE mode, with confirm ✅
 7. **Composition = the longest form in a song.** One per song. Everything performed from the start of the song: which loops play when, which sequences run, and all other events.
    - **Record:** on the SONG page, turn CENC to **COMPOSE** and press to arm (arm before the song starts if needed). Recording starts at the top of the song and stops when you **CANCEL** it or the **song stops**.
    - **Playback:** you can **play live over** a composition.
@@ -162,6 +164,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | **Global slider-encoder options** (on every page): **MIDI**, **FLTR**, **EXPRESSION**. **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
 | ~~CTRL~~ | Scrapped (v0.38). | ✅ |
 | **SLDR** (far right of CENC) | Manually assign a performance setting to the slider so it stays on that setting across all pages (see SLDR flow). In Page Options, the slider still follows the selected option. | ✅ |
+| SLDR tap settings | For tap settings such as tap tempo, **tap the slider** in rhythm to set the new value. ❓ On Delay, does this set the delay's time only (💡), not the song tempo (which comes from the first loop)? | ✅ ❓ |
 | SLDR flow | On a page, turn CENC to **SLDR** and press → the knob browses **that page's list of settings** (e.g. Delay: mode, level, tempo, feedback, modulation, tap tempo), each **blinking** → press to select → the slider holds that setting **on every page** until cleared with **press-and-hold CENC** | ✅ |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
 | CENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
@@ -343,7 +346,8 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 | ❓ How you record one vs the other | see chat — 💡 arm a trigger first, then record = sample; record with nothing armed = loop | |
 | ❓ Starting a **new secondary loop** vs overdubbing the current one | see chat | |
 | **New loop** | **Hold OK** arms a new loop → **FS1** records it, in sync with the existing loop → on completion it saves to the next free P slot | ✅ |
-| ❓ Assigning loops/sounds to TRIGs on SONG | Hold OK now arms a new loop here, so TRIG assignment on this page needs another route (see chat) | ❓ |
+| Loops on triggers | Loops **don't need** to go on triggers, but **can** | ✅ |
+| 💡 Hold OK on SONG: next action decides | After holding OK (**?**): press **FS1** → record a new loop; **touch a TRIG** → assign the current loop to it (Assign mode) | 💡 |
 | SEQUENCE mode | Record the song **arrangement** by playing TRIG pads in time | ✅ arrangement-by-playing · 💡 placement here |
 | Samples | Moved to their own **SAMPLE** page (page 4) | ✅ |
 
