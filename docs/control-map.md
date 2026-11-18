@@ -1,127 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.4)
-
-**v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
-
-**v0.58 changes:** REVERB approved: P8 Kill; presets Room · Plate · Hall · Ambient.
-
-**v0.57 changes:** Ducking defaults OFF everywhere. REVERB drafted.
-
-**v0.56 changes:** Ducking is Page Option P8 on every effect page (rule 9). Delay approved.
-
-**v0.55 changes:** Delay: Mix is the default slider setting; Time slides the delay time, Tap tempo sets it precisely; neither changes the song tempo.
-
-**v0.54.1:** Delay tricks: P6 Hold · P7 Dub throw · P8 Tape stop.
-
-**v0.54 changes:** Standing rule 9: effect pages use P1 = on/off, P2–P5 = presets, P6–P8 = performance tricks. Delay updated to match.
-
-**v0.53 changes:** SLDR moves recorded into the current page's sequence (A). SAMPLE approved; SD-card sample library with a default set. DELAY drafted.
-
-**v0.52.1:** FLTR noted in SAMPLE's SLDR list; proposal that SLDR moves are recorded into the current page's sequence.
-
-**v0.52 changes:** FM page approved. SAMPLE page drafted.
-
-**v0.51 changes:** FM always follows the song's scale (its own chromatic option dropped); Chromatic songs use Transpose on the slider. FM Page Options shifted: P5 = notes into loops, P6 = hold notes, P7–P8 free.
-
-**v0.50 changes:** Standing rule 8: few choices = tap to step, many/numbers = slider. Song scales: Major, Minor, Harmonic Minor, Blues (+ Chromatic). FM notes follow the song's key and scale (no separate FM scale setting).
-💡 8 pads beyond a 7-note scale: pads continue up the scale past the octave (Blues has 6 notes, so pads 7–8 reach above the octave).
-
-**v0.49 changes:** FM page drafted: each sound played on 8 notes of the song scale; default sounds Bass1/2, Pads1/2, Lead1/2, Noise1/2.
-
-**v0.48 changes:** DRUM page approved; Level is the default SLDR setting; a tuned kit is saved with the song, or to the library for reuse.
-
-**v0.47 changes:** DRUM page drafted.
-
-**v0.46 changes:** SLDR details approved: CANCEL backs out one layer, shared filter mode, FILTER 1/2 layer when two filters are on, MIDI CC/channel layer.
-
-**v0.45 changes:** FLTR and MIDI folded into SLDR. SLDR browsing defined, with sub-layers for items that need more definition (FLTR: AutoWah, Hi/Lo/Band Pass, Notch). CENC list: PAGE OPTIONS · SEQUENCE · (COMPOSE) · BANK · EXPRESSION · SLDR.
-
-**v0.44 changes:** Page slider-target lists removed from the Control Encoder; each page's default and alternatives live inside **SLDR** (unset = page default; clear = back to default). The bottom of the OLED always shows the slider's target name and a level bar.
-
-**v0.43.1:** Full CENC order written in one place.
-
-**v0.43 changes:** BANK added to every page's Control Encoder (bank select from anywhere). Loops are not put on triggers; hold OK on SONG only arms a new loop.
-
-**v0.42 changes:** SLDR tap settings (tap the slider in rhythm). Loops can optionally go on triggers. Clear a sequence = hold CANCEL in SEQUENCE mode.
-
-**v0.41 changes:** Composition: TOUCH default / LATCH option (SONG P4); plays straight away when a song loads. Sequence overdubs additive by default. SLDR flow defined (browse the page's settings, press to hold, press-and-hold CENC to clear).
-
-**v0.40 changes:** Composition overwrite clarified: only the specific setting you change is replaced, at the moment you change it.
-
-**v0.39 changes:** SLDR added at the far right of CENC. Sequences: loop-aligned, a whole number of loops long, overdubbable; LOOP/SONG length choice removed. New **Composition** (one per song, recorded from the SONG page via COMPOSE). Glossary added.
-
-**v0.38 changes:** CTRL scrapped. SONG P1–P8 = loop slots (first loop auto-saves to P1; hold OK arms a new loop, FS1 records it in sync). SEQUENCE redefined as recording each page's control events, LOOP or SONG length, unsaved until stored.
-
-**v0.37 changes:** Samples move to their own **SAMPLE** page (page 4, after FM), handled like Drum/FM. SONG = song structure and loops. 12 pages: SONG · DRUM · FM · SAMPLE · DELAY · REVERB · HARPEGGIO · FLTR/FRZ · LIGHTING · RESOLUME · MIDI · SYSTEM.
-
-**v0.36 changes:** SONG page sequences the song (via CENC). Loops vs samples defined: loops are grid-locked and linear; samples are free-length and overlay.
-
-**v0.35 changes:** Slider encoder renamed **Control Encoder (CENC)**. SEQUENCE mode entered from CENC (Drum, FM, and 💡 SONG); OK/CANCEL tapping no longer switches modes. Preset library via press-and-hold page encoder; save tuned sounds as presets; SEQUENCE-mode note/drum pads defined.
-
-**v0.34 changes:** Standing rule 5: slider-encoder lists are page-specific but shared items keep the same order. Drum/FM: P1–P8 = presets, Assign mode (hold OK) kept, triggers store a copy, last-touched sound is edited.
-
-**v0.33 changes:** No separate SONGS page: on SONG, press-and-hold the page encoder opens the song list. SYSTEM stays immediately left of SONG.
-
-**v0.32 changes:** Hand song browsing moves to the **page encoder** (on the SONG page, press-and-hold to open the list, browse, press to load at loop end); removed from the slider encoder. Page Options: slider auto-acts as CTRL. TRIG slots hold any type, 32 per song. New-song placement default = after current. SONG slider targets approved.
-
-**v0.30 changes:** SONG page fully drafted: bank select, LOOP/SEQUENCE modes, slider targets, 8 Page Options.
-
-**v0.29 changes:** FLTR/FRZ: one freeze; one filter by default with an optional second filter.
-
-**v0.28 changes:** SENC right end: … MIDI · FLTR · EXPRESSION · CTRL. MIDI on SENC = slider sends a MIDI control value from any page.
-
-**v0.27 changes:** Right end of SENC set: … MIDI · EXPRESSION · CTRL (CTRL at the far right for quick access).
-
-**v0.26 changes:** CTRL simplified: the slider/expression pedal ignores page changes and page defaults, and supplies values for numerical settings. P1–P8 are unaffected. (Replaces the v0.25 edit-mode version.)
-
-**v0.24 changes:** Page encoder **wraps** (SYSTEM one click left of SONG). Freeze + Filter merged into **FLTR/FRZ** (page 7) with selectable sources; freeze hold on a second footswitch. New global slider-encoder options **CTRL** (edit any setting) and **FLTR** (filter sweep from any page). 11 pages: 1 SONG · 2 DRUM · 3 FM · 4 DELAY · 5 REVERB · 6 HARPEGGIO · 7 FLTR/FRZ · 8 LIGHTING · 9 RESOLUME · 10 MIDI · 11 SYSTEM.
-
-**v0.23 changes:** Page order set: 1 SONG · 2 DRUM · 3 FM · 4 DELAY · 5 REVERB · 6 HARPEGGIO · 7 FREEZE · 8 FILTER · 9 LIGHTING · 10 RESOLUME · 11 MIDI · 12 SYSTEM. MIDI device/port setup confirmed in SYSTEM. Freeze/Filter merge under discussion.
-
-**v0.22 changes:** Foot buttons renamed **FS1–FS4**. A separate song-specific **MIDI** page returns (page 12) for controlling external devices; SYSTEM keeps rig-wide settings.
-
-**v0.21 changes:** I/O and MIDI out merged into a **SYSTEM** page (rig-wide, never saved per song, saved with hand OK/CANCEL). Pedal saves are for live song management. Song scale set on the SONG page; HARPEGGIO uses named intervals, or half steps −12…+12 when the scale is Chromatic. Arpeggio spacing synced to tempo by default (approved).
-
-**v0.20 changes:** Page 4 is now **HARPEGGIO** — harmonizer + arpeggiator: root plus up to 3 harmony notes (±1 octave), delay-based; separating the notes in time makes arpeggios.
-
-**v0.19.1:** Loop tricks are tap on / tap off.
-
-**v0.19 changes:** P1–P8 on the SONG page choose the active TRIG bank. Bank 1 defaults to drums; bank 8 defaults to loop tricks on TRIG1–TRIG3 (TRIG4 reserved for another loop effect). Bank-select conflict resolved.
-
-**v0.18 changes:** Thumb pads T1–T3 renamed **P6–P8** (they work like P1–P5, so pads are now P1–P8). 8 TRIG banks = 32 trigger slots. SONG page P6–P8 default to loop tricks. Three ways to play any pad defined: live, recorded into the loop audio, or recorded as a sequence.
-
-**v0.17 changes:** Standing rule: parts stay separate (loops vs sequences). Arrangement is built by playing TRIG pads in time. TRIG banks selected from the SONG page, bank number on the OLED. Pedal confirmations for store/delete approved.
-
-**v0.16 changes:** Overdubs vs secondary loops defined. Secondary loops snap to LOOP by default, BAR as an option (shorter sections like a chorus or bridge). Saving: hold B3 saves everything; OK in Page Options saves just that page.
-
-**v0.15 changes:** New design rules: (1) any "default" implies other options, normally in that function's Page Options; (2) **blinking = unconfirmed, solid = confirmed** everywhere. Song timing options are bars-per-loop and beats-per-bar (custom time signatures). Page 10 renamed **SONG**. Expression assignment flow defined. Loops snap to the first loop's length; samples trigger freely, quantization optional.
-
-**v0.14 changes:** Double-tap B3 creates a new song. Song structure defined: the first loop sets the tempo (16 beats of 4/4); sequences run for one or more loop lengths; multiple loops per song, stored to TRIG pads; a song can arrange several loops. SENC far right = EXPRESSION OPTIONS (expression pedal, default master volume).
-
-**v0.13 changes:** Pedal reworked around songs: B1 hold behaviour depends on whether you're starting or ending a take; B3/B4 tap navigate songs, hold B3 = store, hold B4 = delete; B2 hold clears the loop without saving. Song switch timing default = end of loop, with end-of-bar / immediate as a page option. Page 10 renamed Song/Loop/Record.
-
-**v0.12 changes:** Unsaved-changes marker approved. Foot pedal = Hotone Ampero Control (4 switches): B1 record/overdub (hold = erase last layer), B2 stop (hold = erase), B3/B4 = song previous/next (cue), B1 accepts the cued song. Songs can be cued from any page.
-
-**v0.11 changes:** SENC stops at both ends; the far right also lands on PAGE OPTIONS for now (reserved for a future universal endpoint). 8 toggle slots and OK = Store approved. CANCEL keeps changes live until the song changes, but they are not saved.
-
-**v0.10 changes:** TRIG3 = hi-hat, TRIG4 = open hat by default. New **Page Options mode**: turning SENC all the way left reaches PAGE OPTIONS; press to enter; pads toggle page-specific preferences shown on the OLED; OK stores them to the song; CANCEL escapes. Displaced toggles (pre/post etc.) move here.
-
-**v0.9 changes:** Record-arm on T1–T3 withdrawn. Drum and FM pages get SOUND / SEQUENCE modes chosen with OK/CANCEL (tap steps, hold OK enters). Sequences are stored into persistent triggers. Thumb pads T4/T5 become **TRIG3 / TRIG4**; page-specific thumb pads are now T1–T3 only. Displaced T4/T5 functions are parked below.
-
-**v0.8 changes:** Assign mode details approved (record-arm on T1–T3 later withdrawn in v0.9).
-
-**v0.7 changes:** Assignment moves to **Assign mode**, entered by holding OK (replaces hold-a-pad). Because pads no longer need hold detection, playable pads fire on press (no delay); OK/CANCEL fire on release. The word "arm" is now reserved for record-arming.
-
-**v0.6 changes:** Hold-to-arm is the general pattern. Holding an assigned pad clears it and arms it to receive a new assignment. The OLED shows an armed marker (• or *). Taps fire on release so a hold never triggers — ❓ except possibly playable pads (see "Tap timing").
-
-**v0.5 changes:** KICK and SNARE are renamed **TRIG1 / TRIG2 (persistent triggers)**. They play kick and snare on every page by default, and can be reassigned to a sample or a synth note that also plays on every page. All earlier page-specific KICK/SNARE ideas are removed (parked list in section 2).
-
-**v0.4.1:** Long-press SENC returns the slider to the page's default target.
-
-**v0.4 changes:** T4 moves up next to SNARE (now TRIG2), T5 directly under T4, SENC below that beside the Flex slider. SENC works like the page encoder: turn previews, press locks in. Slider is relative — no jumps.
-
-**v0.3 changes:** Option B chosen — a second pressable encoder (SENC) switches the slider's target, and the OLED shows the selection as you turn.
-
-**v0.2 changes:** CANCEL-during-preview approved. P1–P5 are no longer a universal "pick a setting" rule — they are page-specific (notes on some pages, presets on others). The slider now has a default target on every page plus alternate targets; how you switch targets is an open choice (OK/CANCEL vs a second encoder).
+# Cellographic Bela UI — Control Map (DRAFT v0.59)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -338,7 +215,6 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | 💡 Switching banks changes what the pads trigger **next**; anything already playing keeps playing until stopped | 💡 |
 | **Bank 1 defaults to drums** (kick, snare, hat, open hat). 💡 Banks 2–7 start empty. | ✅ |
 
-
 ### Displaced by T4/T5 → TRIG3/TRIG4 (v0.9) — need new homes or can be dropped
 - **Recorder pre/post** on Delay, Reverb, Harmonizer, Freeze, Filter (✅ feature) — ✅ now a Page Options toggle
 - Recorder global pre/post default (✅ feature, sampler page)
@@ -372,8 +248,6 @@ The Elegoo screen has a yellow top band and a blue lower area.
 ## 3. The pages
 
 Order follows Scott's priority list. ✅ marks the page itself and any decided feature; per-control assignments are 💡 unless marked.
-
-**v0.2 note:** in the tables below, the five settings listed under P1–P5 are now read as the **slider's target list** for that page — the first one is the default, the rest are alternates. What the P1–P5 *pads* do on each page (notes, presets, etc.) is still to be assigned page by page.
 
 ### Page 1 — SONG (song structure and loops) ✅
 The pedal handles record / stop / song navigate / store / create / delete from every page ✅. This page holds song structure, banks and song settings.
@@ -761,3 +635,133 @@ I/O draft:
 7. Resolume: MIDI or OSC? Which 5 parameters?
 8. ~~Foot pedal~~ — mapped. ~~Loops per song~~ — several. Still open: does a song save everything (TRIGs, effect settings)? Is 4 TRIG pads enough? Confirm prompts for store/delete. Expression pedal global or per page?
 9. Is 12 pages the right number, or should some pages merge?
+
+---
+
+## Change history (newest first)
+History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
+
+**v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.58 changes:** REVERB approved: P8 Kill; presets Room · Plate · Hall · Ambient.
+
+**v0.57 changes:** Ducking defaults OFF everywhere. REVERB drafted.
+
+**v0.56 changes:** Ducking is Page Option P8 on every effect page (rule 9). Delay approved.
+
+**v0.55 changes:** Delay: Mix is the default slider setting; Time slides the delay time, Tap tempo sets it precisely; neither changes the song tempo.
+
+**v0.54.1:** Delay tricks: P6 Hold · P7 Dub throw · P8 Tape stop.
+
+**v0.54 changes:** Standing rule 9: effect pages use P1 = on/off, P2–P5 = presets, P6–P8 = performance tricks. Delay updated to match.
+
+**v0.53 changes:** SLDR moves recorded into the current page's sequence (A). SAMPLE approved; SD-card sample library with a default set. DELAY drafted.
+
+**v0.52.1:** FLTR noted in SAMPLE's SLDR list; proposal that SLDR moves are recorded into the current page's sequence.
+
+**v0.52 changes:** FM page approved. SAMPLE page drafted.
+
+**v0.51 changes:** FM always follows the song's scale (its own chromatic option dropped); Chromatic songs use Transpose on the slider. FM Page Options shifted: P5 = notes into loops, P6 = hold notes, P7–P8 free.
+
+**v0.50 changes:** Standing rule 8: few choices = tap to step, many/numbers = slider. Song scales: Major, Minor, Harmonic Minor, Blues (+ Chromatic). FM notes follow the song's key and scale (no separate FM scale setting).
+💡 8 pads beyond a 7-note scale: pads continue up the scale past the octave (Blues has 6 notes, so pads 7–8 reach above the octave).
+
+**v0.49 changes:** FM page drafted: each sound played on 8 notes of the song scale; default sounds Bass1/2, Pads1/2, Lead1/2, Noise1/2.
+
+**v0.48 changes:** DRUM page approved; Level is the default SLDR setting; a tuned kit is saved with the song, or to the library for reuse.
+
+**v0.47 changes:** DRUM page drafted.
+
+**v0.46 changes:** SLDR details approved: CANCEL backs out one layer, shared filter mode, FILTER 1/2 layer when two filters are on, MIDI CC/channel layer.
+
+**v0.45 changes:** FLTR and MIDI folded into SLDR. SLDR browsing defined, with sub-layers for items that need more definition (FLTR: AutoWah, Hi/Lo/Band Pass, Notch). CENC list: PAGE OPTIONS · SEQUENCE · (COMPOSE) · BANK · EXPRESSION · SLDR.
+
+**v0.44 changes:** Page slider-target lists removed from the Control Encoder; each page's default and alternatives live inside **SLDR** (unset = page default; clear = back to default). The bottom of the OLED always shows the slider's target name and a level bar.
+
+**v0.43.1:** Full CENC order written in one place.
+
+**v0.43 changes:** BANK added to every page's Control Encoder (bank select from anywhere). Loops are not put on triggers; hold OK on SONG only arms a new loop.
+
+**v0.42 changes:** SLDR tap settings (tap the slider in rhythm). Loops can optionally go on triggers. Clear a sequence = hold CANCEL in SEQUENCE mode.
+
+**v0.41 changes:** Composition: TOUCH default / LATCH option (SONG P4); plays straight away when a song loads. Sequence overdubs additive by default. SLDR flow defined (browse the page's settings, press to hold, press-and-hold CENC to clear).
+
+**v0.40 changes:** Composition overwrite clarified: only the specific setting you change is replaced, at the moment you change it.
+
+**v0.39 changes:** SLDR added at the far right of CENC. Sequences: loop-aligned, a whole number of loops long, overdubbable; LOOP/SONG length choice removed. New **Composition** (one per song, recorded from the SONG page via COMPOSE). Glossary added.
+
+**v0.38 changes:** CTRL scrapped. SONG P1–P8 = loop slots (first loop auto-saves to P1; hold OK arms a new loop, FS1 records it in sync). SEQUENCE redefined as recording each page's control events, LOOP or SONG length, unsaved until stored.
+
+**v0.37 changes:** Samples move to their own **SAMPLE** page (page 4, after FM), handled like Drum/FM. SONG = song structure and loops. 12 pages: SONG · DRUM · FM · SAMPLE · DELAY · REVERB · HARPEGGIO · FLTR/FRZ · LIGHTING · RESOLUME · MIDI · SYSTEM.
+
+**v0.36 changes:** SONG page sequences the song (via CENC). Loops vs samples defined: loops are grid-locked and linear; samples are free-length and overlay.
+
+**v0.35 changes:** Slider encoder renamed **Control Encoder (CENC)**. SEQUENCE mode entered from CENC (Drum, FM, and 💡 SONG); OK/CANCEL tapping no longer switches modes. Preset library via press-and-hold page encoder; save tuned sounds as presets; SEQUENCE-mode note/drum pads defined.
+
+**v0.34 changes:** Standing rule 5: slider-encoder lists are page-specific but shared items keep the same order. Drum/FM: P1–P8 = presets, Assign mode (hold OK) kept, triggers store a copy, last-touched sound is edited.
+
+**v0.33 changes:** No separate SONGS page: on SONG, press-and-hold the page encoder opens the song list. SYSTEM stays immediately left of SONG.
+
+**v0.32 changes:** Hand song browsing moves to the **page encoder** (on the SONG page, press-and-hold to open the list, browse, press to load at loop end); removed from the slider encoder. Page Options: slider auto-acts as CTRL. TRIG slots hold any type, 32 per song. New-song placement default = after current. SONG slider targets approved.
+
+**v0.30 changes:** SONG page fully drafted: bank select, LOOP/SEQUENCE modes, slider targets, 8 Page Options.
+
+**v0.29 changes:** FLTR/FRZ: one freeze; one filter by default with an optional second filter.
+
+**v0.28 changes:** SENC right end: … MIDI · FLTR · EXPRESSION · CTRL. MIDI on SENC = slider sends a MIDI control value from any page.
+
+**v0.27 changes:** Right end of SENC set: … MIDI · EXPRESSION · CTRL (CTRL at the far right for quick access).
+
+**v0.26 changes:** CTRL simplified: the slider/expression pedal ignores page changes and page defaults, and supplies values for numerical settings. P1–P8 are unaffected. (Replaces the v0.25 edit-mode version.)
+
+**v0.24 changes:** Page encoder **wraps** (SYSTEM one click left of SONG). Freeze + Filter merged into **FLTR/FRZ** (page 7) with selectable sources; freeze hold on a second footswitch. New global slider-encoder options **CTRL** (edit any setting) and **FLTR** (filter sweep from any page). 11 pages: 1 SONG · 2 DRUM · 3 FM · 4 DELAY · 5 REVERB · 6 HARPEGGIO · 7 FLTR/FRZ · 8 LIGHTING · 9 RESOLUME · 10 MIDI · 11 SYSTEM.
+
+**v0.23 changes:** Page order set: 1 SONG · 2 DRUM · 3 FM · 4 DELAY · 5 REVERB · 6 HARPEGGIO · 7 FREEZE · 8 FILTER · 9 LIGHTING · 10 RESOLUME · 11 MIDI · 12 SYSTEM. MIDI device/port setup confirmed in SYSTEM. Freeze/Filter merge under discussion.
+
+**v0.22 changes:** Foot buttons renamed **FS1–FS4**. A separate song-specific **MIDI** page returns (page 12) for controlling external devices; SYSTEM keeps rig-wide settings.
+
+**v0.21 changes:** I/O and MIDI out merged into a **SYSTEM** page (rig-wide, never saved per song, saved with hand OK/CANCEL). Pedal saves are for live song management. Song scale set on the SONG page; HARPEGGIO uses named intervals, or half steps −12…+12 when the scale is Chromatic. Arpeggio spacing synced to tempo by default (approved).
+
+**v0.20 changes:** Page 4 is now **HARPEGGIO** — harmonizer + arpeggiator: root plus up to 3 harmony notes (±1 octave), delay-based; separating the notes in time makes arpeggios.
+
+**v0.19.1:** Loop tricks are tap on / tap off.
+
+**v0.19 changes:** P1–P8 on the SONG page choose the active TRIG bank. Bank 1 defaults to drums; bank 8 defaults to loop tricks on TRIG1–TRIG3 (TRIG4 reserved for another loop effect). Bank-select conflict resolved.
+
+**v0.18 changes:** Thumb pads T1–T3 renamed **P6–P8** (they work like P1–P5, so pads are now P1–P8). 8 TRIG banks = 32 trigger slots. SONG page P6–P8 default to loop tricks. Three ways to play any pad defined: live, recorded into the loop audio, or recorded as a sequence.
+
+**v0.17 changes:** Standing rule: parts stay separate (loops vs sequences). Arrangement is built by playing TRIG pads in time. TRIG banks selected from the SONG page, bank number on the OLED. Pedal confirmations for store/delete approved.
+
+**v0.16 changes:** Overdubs vs secondary loops defined. Secondary loops snap to LOOP by default, BAR as an option (shorter sections like a chorus or bridge). Saving: hold B3 saves everything; OK in Page Options saves just that page.
+
+**v0.15 changes:** New design rules: (1) any "default" implies other options, normally in that function's Page Options; (2) **blinking = unconfirmed, solid = confirmed** everywhere. Song timing options are bars-per-loop and beats-per-bar (custom time signatures). Page 10 renamed **SONG**. Expression assignment flow defined. Loops snap to the first loop's length; samples trigger freely, quantization optional.
+
+**v0.14 changes:** Double-tap B3 creates a new song. Song structure defined: the first loop sets the tempo (16 beats of 4/4); sequences run for one or more loop lengths; multiple loops per song, stored to TRIG pads; a song can arrange several loops. SENC far right = EXPRESSION OPTIONS (expression pedal, default master volume).
+
+**v0.13 changes:** Pedal reworked around songs: B1 hold behaviour depends on whether you're starting or ending a take; B3/B4 tap navigate songs, hold B3 = store, hold B4 = delete; B2 hold clears the loop without saving. Song switch timing default = end of loop, with end-of-bar / immediate as a page option. Page 10 renamed Song/Loop/Record.
+
+**v0.12 changes:** Unsaved-changes marker approved. Foot pedal = Hotone Ampero Control (4 switches): B1 record/overdub (hold = erase last layer), B2 stop (hold = erase), B3/B4 = song previous/next (cue), B1 accepts the cued song. Songs can be cued from any page.
+
+**v0.11 changes:** SENC stops at both ends; the far right also lands on PAGE OPTIONS for now (reserved for a future universal endpoint). 8 toggle slots and OK = Store approved. CANCEL keeps changes live until the song changes, but they are not saved.
+
+**v0.10 changes:** TRIG3 = hi-hat, TRIG4 = open hat by default. New **Page Options mode**: turning SENC all the way left reaches PAGE OPTIONS; press to enter; pads toggle page-specific preferences shown on the OLED; OK stores them to the song; CANCEL escapes. Displaced toggles (pre/post etc.) move here.
+
+**v0.9 changes:** Record-arm on T1–T3 withdrawn. Drum and FM pages get SOUND / SEQUENCE modes chosen with OK/CANCEL (tap steps, hold OK enters). Sequences are stored into persistent triggers. Thumb pads T4/T5 become **TRIG3 / TRIG4**; page-specific thumb pads are now T1–T3 only. Displaced T4/T5 functions are parked below.
+
+**v0.8 changes:** Assign mode details approved (record-arm on T1–T3 later withdrawn in v0.9).
+
+**v0.7 changes:** Assignment moves to **Assign mode**, entered by holding OK (replaces hold-a-pad). Because pads no longer need hold detection, playable pads fire on press (no delay); OK/CANCEL fire on release. The word "arm" is now reserved for record-arming.
+
+**v0.6 changes:** Hold-to-arm is the general pattern. Holding an assigned pad clears it and arms it to receive a new assignment. The OLED shows an armed marker (• or *). Taps fire on release so a hold never triggers — ❓ except possibly playable pads (see "Tap timing").
+
+**v0.5 changes:** KICK and SNARE are renamed **TRIG1 / TRIG2 (persistent triggers)**. They play kick and snare on every page by default, and can be reassigned to a sample or a synth note that also plays on every page. All earlier page-specific KICK/SNARE ideas are removed (parked list in section 2).
+
+**v0.4.1:** Long-press SENC returns the slider to the page's default target.
+
+**v0.4 changes:** T4 moves up next to SNARE (now TRIG2), T5 directly under T4, SENC below that beside the Flex slider. SENC works like the page encoder: turn previews, press locks in. Slider is relative — no jumps.
+
+**v0.3 changes:** Option B chosen — a second pressable encoder (SENC) switches the slider's target, and the OLED shows the selection as you turn.
+
+**v0.2 changes:** CANCEL-during-preview approved. P1–P5 are no longer a universal "pick a setting" rule — they are page-specific (notes on some pages, presets on others). The slider now has a default target on every page plus alternate targets; how you switch targets is an open choice (OK/CANCEL vs a second encoder).
+
+**v0.2 note:** in the tables below, the five settings listed under P1–P5 are now read as the **slider's target list** for that page — the first one is the default, the rest are alternates. What the P1–P5 *pads* do on each page (notes, presets, etc.) is still to be assigned page by page.
