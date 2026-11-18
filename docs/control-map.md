@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.43 changes:** BANK added to every page's Control Encoder (bank select from anywhere). Loops are not put on triggers; hold OK on SONG only arms a new loop.
+
 **v0.42 changes:** SLDR tap settings (tap the slider in rhythm). Loops can optionally go on triggers. Clear a sequence = hold CANCEL in SEQUENCE mode.
 
 **v0.41 changes:** Composition: TOUCH default / LATCH option (SONG P4); plays straight away when a song loads. Sequence overdubs additive by default. SLDR flow defined (browse the page's settings, press to hold, press-and-hold CENC to clear).
@@ -161,7 +163,8 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CANCEL during CENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
 | **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
 | **Slider encoder (CENC) list, left to right:** PAGE OPTIONS · this page's slider targets (default first) · … · **MIDI** · **FLTR** · **EXPRESSION** · **SLDR** (far right). CENC stops at both ends. | ✅ |
-| **Global slider-encoder options** (on every page): **MIDI**, **FLTR**, **EXPRESSION**. **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
+| **BANK** (on every page's CENC) | Press → turn through TRIG banks 1–8 (each **blinking**) → press to select. Switch banks from any page mid-performance. 💡 Position: start of the global group, so the right end reads … BANK · MIDI · FLTR · EXPRESSION · SLDR | ✅ (💡 position) |
+| **Global slider-encoder options** (on every page): **BANK**, **MIDI**, **FLTR**, **EXPRESSION**, **SLDR**. **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
 | ~~CTRL~~ | Scrapped (v0.38). | ✅ |
 | **SLDR** (far right of CENC) | Manually assign a performance setting to the slider so it stays on that setting across all pages (see SLDR flow). In Page Options, the slider still follows the selected option. | ✅ |
 | SLDR tap settings | For tap settings such as tap tempo, **tap the slider** in rhythm to set the new value. ❓ On Delay, does this set the delay's time only (💡), not the song tempo (which comes from the first loop)? | ✅ ❓ |
@@ -333,7 +336,7 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 **Normal use**
 | Control | Does | Source |
 |---|---|---|
-| P1–P8 | **Loop slots 1–8.** The first loop auto-saves to P1; each new loop saves to the next slot. ❓ Bank select used to live here — needs a new home (see chat) | ✅ ❓ |
+| P1–P8 | **Loop slots 1–8.** The first loop auto-saves to P1; each new loop saves to the next slot. | ✅ |
 | TRIG1–TRIG4 | Play exactly as assigned. Any slot can hold a **loop, sequence, sample, drum sound or synth sound**. 8 banks × 4 = **32 triggers per song**. | ✅ |
 | SEQUENCE (via CENC) | Turn CENC to **SEQUENCE**, press, to sequence the song: loops in order plus sample events | ✅ |
 
@@ -346,8 +349,7 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 | ❓ How you record one vs the other | see chat — 💡 arm a trigger first, then record = sample; record with nothing armed = loop | |
 | ❓ Starting a **new secondary loop** vs overdubbing the current one | see chat | |
 | **New loop** | **Hold OK** arms a new loop → **FS1** records it, in sync with the existing loop → on completion it saves to the next free P slot | ✅ |
-| Loops on triggers | Loops **don't need** to go on triggers, but **can** | ✅ |
-| 💡 Hold OK on SONG: next action decides | After holding OK (**?**): press **FS1** → record a new loop; **touch a TRIG** → assign the current loop to it (Assign mode) | 💡 |
+| Loops on triggers | Not needed — loops live on SONG's P1–P8. With 32 trigger slots there's no need to put loops on triggers. Hold OK on SONG simply arms a new loop. | ✅ |
 | SEQUENCE mode | Record the song **arrangement** by playing TRIG pads in time | ✅ arrangement-by-playing · 💡 placement here |
 | Samples | Moved to their own **SAMPLE** page (page 4) | ✅ |
 
