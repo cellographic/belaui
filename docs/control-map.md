@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.43.1:** Full CENC order written in one place.
+
 **v0.43 changes:** BANK added to every page's Control Encoder (bank select from anywhere). Loops are not put on triggers; hold OK on SONG only arms a new loop.
 
 **v0.42 changes:** SLDR tap settings (tap the slider in rhythm). Loops can optionally go on triggers. Clear a sequence = hold CANCEL in SEQUENCE mode.
@@ -162,7 +164,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CENC press | Lock in the previewed target | ✅ |
 | CANCEL during CENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
 | **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
-| **Slider encoder (CENC) list, left to right:** PAGE OPTIONS · this page's slider targets (default first) · … · **MIDI** · **FLTR** · **EXPRESSION** · **SLDR** (far right). CENC stops at both ends. | ✅ |
+| **Control encoder (CENC) list, left to right:** **PAGE OPTIONS** · **SEQUENCE** · (SONG only: **COMPOSE** 💡) · this page's slider targets (default first) · **BANK** · **MIDI** · **FLTR** · **EXPRESSION** · **SLDR**. CENC stops at both ends. Positions of SEQUENCE, COMPOSE and BANK are 💡 proposals. | ✅ / 💡 |
 | **BANK** (on every page's CENC) | Press → turn through TRIG banks 1–8 (each **blinking**) → press to select. Switch banks from any page mid-performance. 💡 Position: start of the global group, so the right end reads … BANK · MIDI · FLTR · EXPRESSION · SLDR | ✅ (💡 position) |
 | **Global slider-encoder options** (on every page): **BANK**, **MIDI**, **FLTR**, **EXPRESSION**, **SLDR**. **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
 | ~~CTRL~~ | Scrapped (v0.38). | ✅ |
@@ -187,7 +189,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | **Drum & FM pages: SEQUENCE mode** | Entered from the **control encoder (CENC)**: turn to **SEQUENCE**, press. Outside SEQUENCE mode the page is in its normal sound state (P1–P8 = presets). | ✅ |
 | Normal (sound) state | Audition presets on P1–P8, tune, and assign to triggers with Assign mode (hold OK) | ✅ |
 | SEQUENCE mode | Play hits/notes in time to record a sequence, then store it in a persistent trigger (TRIG1–TRIG4). **FM:** P1–P8 play 8 notes of the song scale (root to octave), with an Octave target on CENC. **Drum:** P1–P8 play 8 drum sounds from the current preset bank. | ✅ |
-| 💡 CENC position | Modes sit just inside the left end: PAGE OPTIONS · SEQUENCE · page targets … · MIDI · FLTR · EXPRESSION | 💡 |
+| 💡 CENC position | Modes sit just inside the left end (SEQUENCE, and COMPOSE on SONG); global items sit at the right end (BANK · MIDI · FLTR · EXPRESSION · SLDR) | 💡 |
 | CANCEL in modes | Cancels arming; hold CANCEL erases (with the usual confirm) | ✅ |
 | Prompt priority | When an "are you sure?" prompt is showing, OK/CANCEL answer it and never step modes | ✅ |
 | (also) | "Only a deliberate action counts as choosing a source" (pad hit, note played, or encoder press on a list) | ✅ |
