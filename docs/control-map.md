@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.40 changes:** Composition overwrite clarified: only the specific setting you change is replaced, at the moment you change it.
+
 **v0.39 changes:** SLDR added at the far right of CENC. Sequences: loop-aligned, a whole number of loops long, overdubbable; LOOP/SONG length choice removed. New **Composition** (one per song, recorded from the SONG page via COMPOSE). Glossary added.
 
 **v0.38 changes:** CTRL scrapped. SONG P1–P8 = loop slots (first loop auto-saves to P1; hold OK arms a new loop, FS1 records it in sync). SEQUENCE redefined as recording each page's control events, LOOP or SONG length, unsaved until stored.
@@ -125,7 +127,8 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
 7. **Composition = the longest form in a song.** One per song. Everything performed from the start of the song: which loops play when, which sequences run, and all other events.
    - **Record:** on the SONG page, turn CENC to **COMPOSE** and press to arm (arm before the song starts if needed). Recording starts at the top of the song and stops when you **CANCEL** it or the **song stops**.
    - **Playback:** you can **play live over** a composition.
-   - **Re-recording overdubs by default:** new data **adds**; data of the **same type** as before **overwrites** it. 💡 Overwrite applies only over the stretch you re-record; the rest is kept. ❓
+   - **Re-recording overdubs by default:** only the **specific setting you change** is replaced, at the moment you change it — e.g. changing delay feedback replaces only the recorded delay feedback, not delay on/off or anything else. Everything you don't touch plays back as before.
+   - ❓ After you stop moving a setting, does the old recording of it resume (💡 "touch"), or does your new value hold until the old recording next changes it ("latch")?
    - ❓ 💡 SONG Page Option: when a song loads, **play its composition** or **perform freely**.
 
 ### Glossary
