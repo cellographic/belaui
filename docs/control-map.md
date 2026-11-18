@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.52 changes:** FM page approved. SAMPLE page drafted.
+
 **v0.51 changes:** FM always follows the song's scale (its own chromatic option dropped); Chromatic songs use Transpose on the slider. FM Page Options shifted: P5 = notes into loops, P6 = hold notes, P7–P8 free.
 
 **v0.50 changes:** Standing rule 8: few choices = tap to step, many/numbers = slider. Song scales: Major, Minor, Harmonic Minor, Blues (+ Chromatic). FM notes follow the song's key and scale (no separate FM scale setting).
@@ -467,7 +469,7 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 | P7 | Pad sensitivity | number |
 | P8 | Drums follow song key (tuned drums like toms) | **OFF** (default) · ON |
 
-### Page 3 — FM (FM synth) ✅ — DRAFT v0.49
+### Page 3 — FM (FM synth) ✅ (approved v0.52)
 **Each sound is played on 8 notes** (option A) ✅. FM is the exception to the shared "P1–P8 = presets" rule: here P1–P8 are always **notes**.
 
 **Normal use**
@@ -480,12 +482,12 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 | Save a tuned sound | In the library, an empty slot / NEW → OK. Tuned sounds are also saved with the song (hold FS3) | ✅ |
 | Hold OK | **Assign mode:** touch a TRIG → tap a note pad → the TRIG gets a copy of the sound **plus that note** | ✅ |
 | TRIG1–TRIG4 | Play the active trigger bank | ✅ |
-| 💡 Chords | Holding several note pads plays a chord, up to 💡 4 notes at once (my estimate for the Bela Mini's processor, not measured) | 💡 |
+| Chords | Holding several note pads plays a chord, up to 4 notes at once (my estimate for the Bela Mini's processor, not measured) | ✅ |
 
 **SEQUENCE (via CENC)**
 | Control | Does | Source |
 |---|---|---|
-| P1–P8 | Play notes while recording; 💡 **how long you hold** each note is recorded too (matters for pads) | ✅ / 💡 |
+| P1–P8 | Play notes while recording; **how long you hold** each note is recorded too (matters for pads) | ✅ |
 | Recorded | Notes plus any FM setting changes | ✅ |
 | Length / overdub / clear | Loop-aligned · adds by default · hold CANCEL to clear | ✅ |
 
@@ -493,19 +495,19 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 | # | Setting | Source |
 |---|---|---|
 | 1 (default) | Level | 💡 (matches DRUM) |
-| 2 | Pitch (fine tune) | 💡 |
-| 3 | Decay | 💡 |
-| 4 | Tone (brightness — the FM "index") | 💡 |
-| 5 | Ratio (changes the basic timbre) | 💡 |
-| 6 | Attack | 💡 |
-| 7 | Release | 💡 |
-| 8 | Feedback (grit) | 💡 |
+| 2 | Pitch (fine tune) | ✅ |
+| 3 | Decay | ✅ |
+| 4 | Tone (brightness — the FM "index") | ✅ |
+| 5 | Ratio (changes the basic timbre) | ✅ |
+| 6 | Attack | ✅ |
+| 7 | Release | ✅ |
+| 8 | Feedback (grit) | ✅ |
 | 9 | Octave (shift the 8 notes up/down) | ✅ |
-| 10 | Glide (slide between notes, for bass/leads) | 💡 |
+| 10 | Glide (slide between notes, for bass/leads) | ✅ |
 | 11 | Transpose (half steps — with the song scale set to Chromatic, shifts the 8 pads to reach the other notes) | ✅ |
 | then | FLTR · MIDI | ✅ |
 
-**Page Options (8 slots)** — all 💡 unless marked
+**Page Options (8 slots)** — approved
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
@@ -517,17 +519,50 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 | P7 | free (future needs) | — |
 | P8 | free (future needs) | — |
 
-### Page 4 — SAMPLE (sample instrument) ✅
-Samples are a **custom instrument** for recording and triggering sounds on the fly, handled like Drum and FM. Samples are free-length, **overlay loops**, and are independent unless sequenced ✅.
+### Page 4 — SAMPLE (sample instrument) ✅ — DRAFT v0.52
+Samples are a **custom instrument** for recording and triggering sounds on the fly. Free length, they **overlay loops** and are independent unless sequenced ✅. Like DRUM, each pad holds its own sound.
+
+**Normal use**
 | Control | Does | Source |
 |---|---|---|
-| P1–P8 | Sample slots to audition (tap to hear); last touched is edited | 💡 (same pattern as Drum/FM) |
-| Record a sample | 💡 Hold OK → touch a P slot (or a TRIG) → **>** → **FS1** starts/stops recording into it. FS1 with nothing armed records a loop as usual. OLED shows REC SMPL vs REC LOOP. | 💡 ❓ |
-| Assign to a trigger | Assign mode (hold OK → touch TRIG → tap sample) | ✅ |
-| Library | Press-and-hold the page encoder → sample banks; save to an empty slot / NEW with OK | ✅ (general rule) |
-| SEQUENCE (via CENC) | Sequence samples, quantized or free | ✅ |
-| SLDR list (💡) | Level · Pitch · Start/trim · End · Fade in/out · Reverse, in the shared order where they overlap | 💡 |
-| Page Options | **Sample trigger timing: FREE (default)** · BEAT · BAR | ✅ FREE default |
+| P1–P8 | **Sample slots** from the current sample bank — tap to hear; last touched is edited | ✅ |
+| Record into a slot | Hold OK → touch a **P slot** (**>**) → **FS1** starts / stops recording. OLED shows **REC SMPL**. FS1 with nothing armed still records a loop. | 💡 |
+| Assign to a trigger | Hold OK → touch a **TRIG** → tap a sample → the TRIG gets a copy | ✅ |
+| 💡 Record straight to a trigger | Hold OK → touch a **TRIG** → **FS1** instead of tapping a sample: records a new sample onto that trigger (and into the next free P slot) | 💡 |
+| Library | Hold the page encoder → sample banks; save to an empty slot / NEW with OK; samples are also saved with the song (hold FS3) | ✅ |
+
+**SEQUENCE (via CENC)**
+| Control | Does | Source |
+|---|---|---|
+| P1–P8 | Play samples while recording, quantized or free (per P3 below) | ✅ |
+| Length / overdub / clear | Loop-aligned · adds by default · hold CANCEL to clear | ✅ |
+
+**SLDR list (default first)** — shared order, then sample-specific (all 💡)
+| # | Setting |
+|---|---|
+| 1 (default) | Level |
+| 2 | Pitch |
+| 3 | Decay (fade-out) |
+| 4 | Tone |
+| 5 | Start |
+| 6 | End |
+| 7 | Fade-in |
+| 8 | Play mode → sub-layer: **ONE-SHOT** (plays through) · **HOLD** (plays while held) · **LOOP** (tap on / tap off) — set per sample |
+| 9 | Reverse → sub-layer: OFF · ON — per sample |
+| then | FLTR · MIDI |
+
+**Page Options (8 slots)** — 💡 unless marked
+| Pad | Option | Choices |
+|---|---|---|
+| P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
+| P2 | Sample trigger timing (live) | **FREE** (default) ✅ · BEAT · BAR |
+| P3 | Timing correction while recording a sequence | OFF · 1/8 · **1/16** (default) |
+| P4 | Velocity | **FIXED** (default) · TOUCH |
+| P5 | Samples go into loop recordings | **OFF** (default) · ON |
+| P6 | Re-hitting a playing sample | **RESTART** (default) · LAYER (overlap) |
+| P7 | Record source | **CELLO** (default) · VOICE · BOTH · FULL MIX |
+| P8 | Record before / after effects | PRE · **POST** (default ✅ — recorder captures post-effects by default) |
+💡 Length: my estimate is about 11.5 MB of memory per minute of mono sample (not measured); long samples are fine but are written to the SD card in the background.
 
 ### Page 5 — DELAY ✅
 | Control | Does |
