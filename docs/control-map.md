@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.61)
+# Cellographic Bela UI — Control Map (DRAFT v0.62)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -569,7 +569,7 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | P8 | **Ducking** | **OFF** (default) · ON ✅ |
 💡 Expectation (not tested): delay-based shifting gets more "warbly" toward ±1 octave — worth hearing early.
 
-### Page 8 — FLTR/FRZ (filter + grain freeze) ✅
+### Page 8 — FLTR/FRZ (filter + grain freeze) ✅ — DRAFT v0.62
 | Rule | Source |
 |---|---|
 | Freeze and Filter share one page | ✅ |
@@ -581,31 +581,47 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | 💡 With two filters: FLTR on the slider encoder controls Filter 1 by default (option: Filter 2 or both); each filter processes its own source side by side (parallel) | 💡 |
 | 💡 Extra options from chat to choose from: freeze grain size, density, spread, pitch/octave, drift, width, tone, latch vs hold, fade in/out, stack vs replace, decay, auto-freeze on new note; filter LFO sweep synced to tempo, step filter, formant/vowel, comb, drive, envelope sensitivity/attack/release, sweep range | 💡 |
 
-Earlier per-pad drafts (to be redone in the P1–P8 pass):
-
-**Freeze draft:**
+**Normal use** — rule 9 split between the two effects (option A ✅); assignments 💡
 | Control | Does |
 |---|---|
-| P1 | Grain size |
-| P2 | Density |
-| P3 | Spread (position jitter) |
-| P4 | Pitch |
-| P5 | Freeze level |
-| P6 | Capture freeze (latch) |
-| P7 | Add a layer on top of the current freeze |
-| P8 | Clear freeze (asks OK/CANCEL) |
+| P1 | **Filter on / off** ✅ |
+| P2–P3 | **Filter presets:** AutoWah · Slow low-pass sweep |
+| P4–P5 | **Freeze presets:** Smooth (large, slow grains) · Glitch (small, jittery grains) |
+| P6 | **Momentary freeze** — freezes while held |
+| P7 | **Add layer** — stacks a new freeze on top |
+| P8 | **Release** — fades the freeze out |
+| Freeze footswitch | Main way to perform freeze (hold) ✅ |
 
-**Filter draft:**
-| Control | Does |
+**SLDR list (default first)** — 💡
+| # | Setting |
 |---|---|
-| P1 | Cutoff |
-| P2 | Resonance |
-| P3 | Envelope follower amount ✅ |
-| P4 | Envelope follower speed (attack/release) |
-| P5 | Sweep rate ✅ filter sweep |
-| P6 | Filter on/off |
-| P7 | Filter type: low-pass → band-pass → high-pass (cycles) |
-| P8 | Envelope follower on/off ✅ |
+| 1 (default) | Filter mix ❓ (or Cutoff, the main live move?) |
+| 2 | Cutoff |
+| 3 | Resonance |
+| 4 | Reverb send |
+| 5 | Filter mode → sub-layer: AutoWah · Hi Pass · Lo Pass · Band Pass · Notch |
+| 6 | Envelope sensitivity (AutoWah) |
+| 7 | Envelope speed (attack / release) |
+| 8 | LFO sweep rate |
+| 9 | Freeze level |
+| 10 | Grain size |
+| 11 | Density |
+| 12 | Spread |
+| 13 | Freeze pitch |
+| 14 | Freeze fade in / out |
+| then | FLTR · MIDI ✅ |
+
+**Page Options (8 slots)** — 💡 unless marked
+| Pad | Option | Choices |
+|---|---|---|
+| P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
+| P2 | Filter source | **CELLO** (default) · VOICE · SAMPLES · DRUMS · FM · MIX ✅ (selectable) |
+| P3 | Freeze source | **CELLO** (default) · VOICE · SAMPLES · MIX ✅ (selectable) |
+| P4 | Second filter | **OFF** (default) · ON ✅ |
+| P5 | Freeze footswitch | **HOLD** (default) ✅ · LATCH (tap on / tap off) |
+| P6 | New freeze | **REPLACE** (default) · STACK |
+| P7 | Recorder takes this pre/post | PRE · **POST** (default) ✅ |
+| P8 | **Ducking** | **OFF** (default) · ON ✅ |
 
 ### Page 9 — LIGHTING (internal cello LEDs) ✅
 | Control | Does |
@@ -669,6 +685,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.62:** FLTR/FRZ drafted with pads split between filter and freeze (option A).
 
 **v0.61:** HARPEGGIO approved; tuning defaults to JUST.
 
