@@ -1,6 +1,6 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.76)
+# Cellographic Bela UI — Control Map (v0.77 — all pages defined)
 
-**Status:** first draft for Scott's review. Nothing here is final.
+**Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
 **How to read the marks**
 - ✅ **Decided** — comes from decisions Scott has already made.
@@ -773,8 +773,8 @@ For controlling **external devices** thoroughly and intentionally; saved **per s
 | P8 | free | — |
 **No wired MIDI out** ✅ — the WIDI Core is the only MIDI output (the earlier DIN MIDI out jack is dropped).
 
-### Page 12 — SYSTEM (rig-wide, never saved per song) ✅ — DRAFT v0.76
-Set-and-forget settings for the instrument itself, saved with the hand **OK / CANCEL** pads (not the pedal) ✅. Holds I/O levels and all rig-wide settings, including MIDI device setup ✅. Sits immediately left of SONG on the page encoder ✅. All 💡 unless marked.
+### Page 12 — SYSTEM (rig-wide, never saved per song) ✅ (approved v0.77)
+Set-and-forget settings for the instrument itself, saved with the hand **OK / CANCEL** pads (not the pedal) ✅. Holds I/O levels and all rig-wide settings, including MIDI device setup ✅. Sits immediately left of SONG on the page encoder ✅.
 
 **Normal use**
 | Control | Does |
@@ -825,8 +825,7 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 7. Touch velocity from pad touch size — feel test.
 
 **Still to decide**
-8. SYSTEM page draft (this version).
-9. Free Page Option slots on several pages — fill later or leave empty.
+8. Free Page Option slots on several pages — fill later or leave empty.
 
 ---
 
@@ -834,6 +833,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.77:** SYSTEM approved — all 12 pages defined.
 
 **v0.76:** SYSTEM drafted. Open-questions summary rewritten (old list was out of date).
 
