@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.62)
+# Cellographic Bela UI — Control Map (DRAFT v0.63)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -595,8 +595,8 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 **SLDR list (default first)** — 💡
 | # | Setting |
 |---|---|
-| 1 (default) | Filter mix ❓ (or Cutoff, the main live move?) |
-| 2 | Cutoff |
+| 1 (default) | **Filter sweep** (moves the filter's cutoff — the point where it starts trimming the sound) ✅ |
+| 2 | Filter mix |
 | 3 | Resonance |
 | 4 | Reverb send |
 | 5 | Filter mode → sub-layer: AutoWah · Hi Pass · Lo Pass · Band Pass · Notch |
@@ -607,7 +607,7 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | 10 | Grain size |
 | 11 | Density |
 | 12 | Spread |
-| 13 | Freeze pitch |
+| 13 | Freeze pitch — 💡 set SLDR here for a "whammy bar" bend of a frozen sound |
 | 14 | Freeze fade in / out |
 | then | FLTR · MIDI ✅ |
 
@@ -685,6 +685,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.63:** FLTR/FRZ default slider setting = Filter sweep.
 
 **v0.62:** FLTR/FRZ drafted with pads split between filter and freeze (option A).
 
