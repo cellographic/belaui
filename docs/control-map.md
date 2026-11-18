@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.69)
+# Cellographic Bela UI — Control Map (DRAFT v0.70)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -675,7 +675,7 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 | Runtime (estimate) | 💡 LED pack ~4 h at typical colourful use; Bela pack much longer. Not measured. | 💡 |
 | Control | 💡 WS2812 needs precise timing, so a **small microcontroller** between the Bela and the strip (Bela sends it scene/colour commands) ❓ which board | 💡 ❓ |
 
-### Page 10 — RESOLUME ✅ — DRAFT v0.68
+### Page 10 — RESOLUME ✅ — v0.70 (pads approved)
 Controls Resolume (7.26) on the video computer: clips, columns, effects and tempo. All 💡 unless marked.
 
 **Connection** ✅: **MIDI over Bluetooth via a CME WIDI Core**, hard-wired to the Bela's remaining **UART serial port**. The WIDI Core acts as the **wireless MIDI hub** for external devices, including the PC running Resolume.
@@ -690,12 +690,13 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 **Normal use**
 | Control | Does |
 |---|---|
-| P1 | **Previous column** (scene) |
-| P2 | **Next column** (scene) |
-| P3–P5 | **Trigger clips 1–3** in the selected layer |
-| P6 | **Flash** effect while held |
-| P7 | **Strobe** effect while held |
-| P8 | **Blackout** (video off / on) |
+| P1 | **Previous column** (scene) ✅ |
+| P2 | **Next column** (scene) ✅ |
+| P3–P5 | **Trigger clips 1–3** in the selected layer ✅ |
+| P6 | **Layer effect** — engages the layer effect chosen from a list of options ✅ (💡 chosen in Page Options P6) |
+| P7 | **Output effect A** — engages an advanced output effect ✅ (💡 chosen in Page Options P7) |
+| P8 | **Output effect B** — engages an advanced output effect ✅ (💡 chosen in Page Options P8) |
+| ❓ | Do P6–P8 work **while held** or **tap on / tap off**? |
 | SEQUENCE (CENC) | Records clip changes and effect moves, timed to the loop — and the Composition can time video changes to key moments ✅ |
 
 **SLDR list (default first)**
@@ -718,9 +719,9 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 | P3 | Send song tempo to Resolume (keeps video in time with loops) | **ON** (default) · OFF |
 | P4 | Loading a song selects its Resolume column / deck | **ON** (default) · OFF |
 | P5 | Clip launch timing | FREE · BEAT · **BAR** (default) |
-| P6 | Flash / strobe source | **RESOLUME EFFECT** (default) · CELLO LEDS TOO |
-| P7 | free | — |
-| P8 | free | — |
+| P6 | Which **layer effect** P6 engages | list of Resolume layer effects (slider) 💡 |
+| P7 | Which **output effect** P7 engages | list of output effects (slider) 💡 |
+| P8 | Which **output effect** P8 engages | list of output effects (slider) 💡 |
 
 ### Page 11 — MIDI (song-specific) ✅
 A dedicated page for controlling **external devices** thoroughly and intentionally. Settings are saved **per song**. Used most often for controlling external gear. Channels 1–10 ✅.
@@ -766,6 +767,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.70:** Resolume pads approved; P6 = layer effect, P7–P8 = advanced output effects (replacing flash/strobe/blackout).
 
 **v0.69:** External MIDI and Resolume connect wirelessly through a CME WIDI Core on the Bela's UART; WIDI Bud Pro suggested on the PC.
 
