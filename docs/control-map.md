@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.46 changes:** SLDR details approved: CANCEL backs out one layer, shared filter mode, FILTER 1/2 layer when two filters are on, MIDI CC/channel layer.
+
 **v0.45 changes:** FLTR and MIDI folded into SLDR. SLDR browsing defined, with sub-layers for items that need more definition (FLTR: AutoWah, Hi/Lo/Band Pass, Notch). CENC list: PAGE OPTIONS · SEQUENCE · (COMPOSE) · BANK · EXPRESSION · SLDR.
 
 **v0.44 changes:** Page slider-target lists removed from the Control Encoder; each page's default and alternatives live inside **SLDR** (unset = page default; clear = back to default). The bottom of the OLED always shows the slider's target name and a level bar.
@@ -176,9 +178,10 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | SLDR tap settings | For tap settings such as tap tempo, **tap the slider** in rhythm to set the new value. ❓ On Delay, does this set the delay's time only (💡), not the song tempo (which comes from the first loop)? | ✅ ❓ |
 | SLDR flow | Turn CENC to **SLDR**, press → the **current SLDR selection flashes** (if unset, the current page's **default** flashes). Turn to browse that page's SLDR list. Press: if the item has **no further options**, it activates on the slider; if it **needs more definition**, you drop into the **next layer** with its first option flashing — turn to browse, press to activate. The slider then holds it on every page until cleared (press-and-hold CENC). | ✅ |
 | **FLTR in SLDR** (every page) | Sub-layer: **AutoWah** (slider = wah range) · **Hi Pass** · **Lo Pass** · **Band Pass** · **Notch** (slider = sweep). Selecting one switches the filter to that mode and puts it on the slider. | ✅ |
-| **MIDI in SLDR** (every page) | Slider sends a MIDI control value to the external device. 💡 Sub-layer: which control (CC) / channel, from the MIDI page's setup | ✅ / 💡 |
-| 💡 Backing out of a sub-layer | CANCEL goes up one layer; CANCEL at the top layer leaves SLDR unchanged | 💡 |
-| 💡 With two filters on | FLTR sub-layer starts with FILTER 1 / FILTER 2, then the mode | 💡 |
+| **MIDI in SLDR** (every page) | Slider sends a MIDI control value to the external device. Sub-layer: which control (CC) / channel, from the MIDI page's setup | ✅ |
+| Backing out of a sub-layer | CANCEL goes up one layer (when CANCEL isn't already in use); at the top layer it leaves SLDR unchanged. To clear SLDR entirely: press-and-hold CENC. | ✅ |
+| With two filters on | When a second filter is turned on (FLTR/FRZ page), FLTR's sub-layer first offers **FILTER 1 / FILTER 2**, then that filter's modes | ✅ |
+| Filter mode is shared | Choosing a mode in SLDR sets the filter itself, so FLTR/FRZ always shows the same mode | ✅ |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
 | CENC long-press | **Clears SLDR** → the slider returns to the current page's default (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
