@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.74)
+# Cellographic Bela UI — Control Map (DRAFT v0.75)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -737,8 +737,8 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 ❓ To verify in Resolume: whether the slice settings (P7) and any third-party plugins in P8 can be mapped to MIDI.
 💡 P6 "off" returns the layer to its normal blend (Alpha).
 
-### Page 11 — MIDI (song-specific) ✅ — DRAFT v0.74
-For controlling **external devices** thoroughly and intentionally; saved **per song** ✅. Channels 1–10 ✅. Device/port setup lives in SYSTEM ✅. Sends through the **WIDI Core** wireless hub ✅. All 💡 unless marked.
+### Page 11 — MIDI (song-specific) ✅ (approved v0.75)
+For controlling **external devices** thoroughly and intentionally; saved **per song** ✅. Channels 1–10 ✅. Device/port setup lives in SYSTEM ✅. Sends through the **WIDI Core** wireless hub ✅.
 
 **Normal use**
 | Control | Does |
@@ -770,8 +770,8 @@ For controlling **external devices** thoroughly and intentionally; saved **per s
 | P5 | Send start / stop with the song | **ON** (default) · OFF |
 | P6 | Program change when the song loads | **OFF** (default) · number (slider) |
 | P7 | Velocity | **FIXED** (default) · TOUCH |
-| P8 | Output | **WIDI** (default) · DIN · BOTH ❓ |
-❓ Earlier plans had a **MIDI out jack** under the neck block. With the WIDI Core on the "remaining" UART, is there still a wired DIN MIDI out (needs its own UART), or is WIDI the only MIDI output now?
+| P8 | free | — |
+**No wired MIDI out** ✅ — the WIDI Core is the only MIDI output (the earlier DIN MIDI out jack is dropped).
 
 ### Page 12 — SYSTEM (I/O + MIDI; rig-wide, never saved per song) ✅
 SYSTEM settings are set-and-forget, saved with the hand OK/CANCEL pads (not the pedal). Holds I/O levels and all rig-wide settings (incl. MIDI device/port setup ✅). 💡 Also a home for tuner, pedal setup, Resolume connection, screen brightness, new-song defaults. Song-specific MIDI lives on the MIDI page (page 12).
@@ -813,6 +813,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.75:** MIDI approved; no wired MIDI out (WIDI only), P8 freed.
 
 **v0.74:** RESOLUME approved. MIDI drafted.
 
