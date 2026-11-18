@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.49 changes:** FM page drafted: each sound played on 8 notes of the song scale; default sounds Bass1/2, Pads1/2, Lead1/2, Noise1/2.
+
 **v0.48 changes:** DRUM page approved; Level is the default SLDR setting; a tuned kit is saved with the song, or to the library for reuse.
 
 **v0.47 changes:** DRUM page drafted.
@@ -459,17 +461,53 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 | P7 | Pad sensitivity | number |
 | P8 | Drums follow song key (tuned drums like toms) | **OFF** (default) · ON |
 
-### Page 3 — FM SYNTH ✅
-Sequenced in sync with loops ✅.
-| Control | Does |
-|---|---|
-| P6–P8 | Play notes ❓ (T4/T5 are now TRIG3/TRIG4; notes may move to P1–P5) |
-| P1 | Ratio (timbre) |
-| P2 | Index (brightness) |
-| P3 | Envelope length |
-| P4 | Root note / scale |
-| P5 | Level |
-❓ Is the FM synth mainly a bass voice, a pad, or a lead? That changes which 5 settings matter most.
+### Page 3 — FM (FM synth) ✅ — DRAFT v0.49
+**Each sound is played on 8 notes** (option A) ✅. FM is the exception to the shared "P1–P8 = presets" rule: here P1–P8 are always **notes**.
+
+**Normal use**
+| Control | Does | Source |
+|---|---|---|
+| P1–P8 | Play the current sound on **8 notes of the song's key and scale**, root to octave | ✅ |
+| Default sounds | **Bass1 · Bass2 · Pads1 · Pads2 · Lead1 · Lead2 · Noise1 · Noise2** | ✅ |
+| Change sound | Hold the page encoder → sound library (blinking) → press to load | ✅ |
+| Save a tuned sound | In the library, an empty slot / NEW → OK. Tuned sounds are also saved with the song (hold FS3) | ✅ |
+| Hold OK | **Assign mode:** touch a TRIG → tap a note pad → the TRIG gets a copy of the sound **plus that note** | ✅ |
+| TRIG1–TRIG4 | Play the active trigger bank | ✅ |
+| 💡 Chords | Holding several note pads plays a chord, up to 💡 4 notes at once (my estimate for the Bela Mini's processor, not measured) | 💡 |
+
+**SEQUENCE (via CENC)**
+| Control | Does | Source |
+|---|---|---|
+| P1–P8 | Play notes while recording; 💡 **how long you hold** each note is recorded too (matters for pads) | ✅ / 💡 |
+| Recorded | Notes plus any FM setting changes | ✅ |
+| Length / overdub / clear | Loop-aligned · adds by default · hold CANCEL to clear | ✅ |
+
+**SLDR list (default first)** — shared order with DRUM, then FM-specific
+| # | Setting | Source |
+|---|---|---|
+| 1 (default) | Level | 💡 (matches DRUM) |
+| 2 | Pitch (fine tune) | 💡 |
+| 3 | Decay | 💡 |
+| 4 | Tone (brightness — the FM "index") | 💡 |
+| 5 | Ratio (changes the basic timbre) | 💡 |
+| 6 | Attack | 💡 |
+| 7 | Release | 💡 |
+| 8 | Feedback (grit) | 💡 |
+| 9 | Octave (shift the 8 notes up/down) | ✅ |
+| 10 | Glide (slide between notes, for bass/leads) | 💡 |
+| then | FLTR · MIDI | ✅ |
+
+**Page Options (8 slots)** — all 💡 unless marked
+| Pad | Option | Choices |
+|---|---|---|
+| P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
+| P2 | Voice mode | **POLY** (chords) · MONO (one note at a time, for bass/leads) |
+| P3 | Live-note timing correction while recording | OFF · 1/8 · **1/16** (default) |
+| P4 | Velocity | **FIXED** (default) · TOUCH |
+| P5 | Note layout | **SCALE** (8 scale notes, root to octave; default) · CHROMATIC (8 half steps) |
+| P6 | FM notes go into loop recordings | **OFF** (default) · ON |
+| P7 | Hold notes (tap on / tap off, for drones) | **OFF** (default) · ON |
+| P8 | ❓ free slot | — |
 
 ### Page 4 — SAMPLE (sample instrument) ✅
 Samples are a **custom instrument** for recording and triggering sounds on the fly, handled like Drum and FM. Samples are free-length, **overlay loops**, and are independent unless sequenced ✅.
