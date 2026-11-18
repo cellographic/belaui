@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.52.1:** FLTR noted in SAMPLE's SLDR list; proposal that SLDR moves are recorded into the current page's sequence.
+
 **v0.52 changes:** FM page approved. SAMPLE page drafted.
 
 **v0.51 changes:** FM always follows the song's scale (its own chromatic option dropped); Chromatic songs use Transpose on the slider. FM Page Options shifted: P5 = notes into loops, P6 = hold notes, P7–P8 free.
@@ -150,6 +152,7 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
    - Once the length is set, further passes **overdub** — secondary layers on top of the sequence, like audio overdubs.
    - The LOOP/SONG length choice is **removed**; long-form recording is the **Composition** (below).
    - Sequence data is **not permanent until saved**.
+   - ❓ 💡 **SLDR moves are recorded too:** while SEQUENCE is on, slider moves through SLDR (e.g. FLTR) are recorded into the current page's sequence, even if the setting belongs to another page. SLDR stays held when you enter SEQUENCE (only press-and-hold CENC clears it).
    - **Sequence overdubs are additive by default** (no overwrite); overwrite can be set as an option (💡 in each page's Page Options, since sequences belong to pages). · **Clear a page's sequence:** hold CANCEL in SEQUENCE mode, with confirm ✅
 7. **Composition = the longest form in a song.** One per song. Everything performed from the start of the song: which loops play when, which sequences run, and all other events.
    - **Record:** on the SONG page, turn CENC to **COMPOSE** and press to arm (arm before the song starts if needed). Recording starts at the top of the song and stops when you **CANCEL** it or the **song stops**.
@@ -549,7 +552,7 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 | 7 | Fade-in |
 | 8 | Play mode → sub-layer: **ONE-SHOT** (plays through) · **HOLD** (plays while held) · **LOOP** (tap on / tap off) — set per sample |
 | 9 | Reverse → sub-layer: OFF · ON — per sample |
-| then | FLTR · MIDI |
+| then | **FLTR** (sweep samples live — the filter's source must include samples, set on FLTR/FRZ) · MIDI ✅ |
 
 **Page Options (8 slots)** — 💡 unless marked
 | Pad | Option | Choices |
