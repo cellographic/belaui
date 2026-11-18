@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.56 changes:** Ducking is Page Option P8 on every effect page (rule 9). Delay approved.
+
 **v0.55 changes:** Delay: Mix is the default slider setting; Time slides the delay time, Tap tempo sets it precisely; neither changes the song tempo.
 
 **v0.54.1:** Delay tricks: P6 Hold · P7 Dub throw · P8 Tape stop.
@@ -169,7 +171,7 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
    - **After you let go: TOUCH (default)** — the old recording of that setting resumes. **LATCH** (option) — your new value holds until the old recording next changes it. Set in SONG Page Options (P4).
    - **When a song loads, its composition plays straight away.** The composition is where time-critical performance data lives, keyed to the start of the song: after building loops and sequences, you organise them in the composition along with external MIDI, video and lighting changes timed to key moments.
 8. **Choosing in Page Options.** A few fixed choices → **tap the pad to step through them**. Many choices or a number (e.g. song key, bars per loop) → **set with the slider**.
-9. **Effect pages share one pad layout** (Delay, Reverb, HARPEGGIO, FLTR/FRZ): **P1 = on/off** · **P2–P5 = presets** · **P6–P8 = performance tricks**.
+9. **Effect pages share one pad layout** (Delay, Reverb, HARPEGGIO, FLTR/FRZ): **P1 = on/off** · **P2–P5 = presets** · **P6–P8 = performance tricks**. In their **Page Options, P8 = Ducking** (the effect dips while you play), always in the same place for easy finding.
 
 ### Glossary
 | Term | Meaning |
@@ -577,12 +579,12 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 💡 Length: my estimate is about 11.5 MB of memory per minute of mono sample (not measured); long samples are fine but are written to the SD card in the background.
 **Sample library on the SD card** ✅: the card carries a sample library, including at least **one full default set** that preloads into new songs. 💡 Details: the default set is chosen in SYSTEM; songs **reference** library files (trim/pitch etc. saved as settings) and only newly recorded samples are saved as new audio; library files should match Bela's audio format (my understanding: 44.1 kHz WAV — to verify); large sets load in the background.
 
-### Page 5 — DELAY ✅ — DRAFT v0.53
+### Page 5 — DELAY ✅ (approved v0.56)
 **Normal use** (layout per standing rule 9)
 | Control | Does | Source |
 |---|---|---|
 | P1 | Delay **on / off** | ✅ |
-| P2–P5 | **Delay presets** (💡 e.g. slapback · dotted-1/8 dub · ping-pong · long ambient) — tap to load; hold the page encoder for the full library | ✅ / 💡 |
+| P2–P5 | **Delay presets** (slapback · dotted-1/8 dub · ping-pong · long ambient) — tap to load; hold the page encoder for the full library | ✅ |
 | P6 | **Hold** — infinite repeats while held | ✅ |
 | P7 | **Dub throw** — sends the input into the delay only while held | ✅ |
 | P8 | **Tape stop** — repeats slow down and drop in pitch | ✅ |
@@ -593,15 +595,15 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 |---|---|---|
 | 1 (default) | Mix (level — matches Level as the default on other pages) | ✅ |
 | 2 | Time — slide to adjust the **delay time** up or down smoothly | ✅ |
-| 3 | Tone | 💡 |
-| 4 | Reverb send | 💡 |
+| 3 | Tone | ✅ |
+| 4 | Reverb send | ✅ |
 | 5 | Feedback | ✅ |
 | 6 | Modulation | ✅ |
 | 7 | Tap tempo — tap the slider in rhythm to set the **delay time** precisely (the song's tempo is not changed) | ✅ |
-| 8 | Mode → sub-layer: 💡 DIGITAL · TAPE · PING-PONG · REVERSE | ✅ |
+| 8 | Mode → sub-layer: DIGITAL · TAPE · PING-PONG · REVERSE | ✅ |
 | then | FLTR · MIDI | ✅ |
 
-**Page Options (8 slots)** — 💡 unless marked
+**Page Options (8 slots)** — approved
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
@@ -610,8 +612,8 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 | P4 | Source (what feeds the delay) | **CELLO** (default) · VOICE · SAMPLES · DRUMS · FM · MIX |
 | P5 | Recorder takes this pre/post delay | PRE · **POST** (default) ✅ (decided per page) |
 | P6 | Repeats when turned off | **SPILL OVER** (default — tails ring out) · CUT |
-| P7 | Ducking (repeats dip while you play) | **OFF** (default) · ON |
-| P8 | free | — |
+| P7 | free | — |
+| P8 | **Ducking** (repeats dip while you play) | OFF · ON ❓ default | ✅ |
 
 ### Page 6 — REVERB (shared) ✅
 | Control | Does |
