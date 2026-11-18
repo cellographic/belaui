@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.66)
+# Cellographic Bela UI — Control Map (DRAFT v0.67)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -26,6 +26,8 @@
 | CENC | Second pressable encoder — slider target | Below TRIG4, next to the Flex slider | ✅ |
 | PEDAL | External foot pedal | Floor | ✅ |
 | LEDS | Adafruit NeoPixel strip #1460 (black PCB, 30 LED/m), ~3 m inside the cello | Inside the body | ✅ |
+| POWER A | **Voltaic V50** battery (12,800 mAh / 47 Wh, always-on USB-A ports, pass-through charging, ~4.5 × 3.1 × 1 in) — powers the **Bela, controls, OLED and LED controller** | Inside the body | ✅ |
+| POWER B | **Voltaic V50** (second unit) — powers the **LED strip only**, so lighting can never brown out the Bela | Inside the body | ✅ |
 
 Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on one Trill Craft (30 channels available). Slider is the Trill Flex.
 
@@ -667,7 +669,9 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 | Length used | ~3 m (10 ft) cut from the reel; the rest is spare | ✅ |
 | Replaces | The current single-circuit interior strip (can't do zones) | ✅ |
 | Zones | Set in software along the one strip (top / bottom / all) | ✅ |
-| Power | 💡 Own 5 V supply, about 5–6 A (≈1.44 A per metre at full white per a maker spec; real colourful use is usually ⅓–½ of that). Never above 6 V. | 💡 |
+| Power | **Its own Voltaic V50** (POWER B) ✅. 💡 Strip on the V50's USB-C port (rated 5 V / 3.6 A); the **Brightness limit** (Lighting Page Option P4) defaults to keep the strip under that. Full white at 3 m could otherwise reach ~4–5 A (estimate). Never above 6 V. | ✅ / 💡 |
+| Grounds | 💡 The two packs' grounds must be joined so the LED data signal has a common reference (verify when wiring) | 💡 |
+| Runtime (estimate) | 💡 LED pack ~4 h at typical colourful use; Bela pack much longer. Not measured. | 💡 |
 | Control | 💡 WS2812 needs precise timing, so a **small microcontroller** between the Bela and the strip (Bela sends it scene/colour commands) ❓ which board | 💡 ❓ |
 
 ### Page 10 — RESOLUME ✅
@@ -721,6 +725,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.67:** Power: two Voltaic V50 packs — one for the Bela and controls, one for the LED strip.
 
 **v0.66:** LED strip specified: Adafruit NeoPixel #1460 (black PCB, 30 LED/m, 5 m reel), ~3 m used.
 
