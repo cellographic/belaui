@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.53 changes:** SLDR moves recorded into the current page's sequence (A). SAMPLE approved; SD-card sample library with a default set. DELAY drafted.
+
 **v0.52.1:** FLTR noted in SAMPLE's SLDR list; proposal that SLDR moves are recorded into the current page's sequence.
 
 **v0.52 changes:** FM page approved. SAMPLE page drafted.
@@ -152,7 +154,7 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
    - Once the length is set, further passes **overdub** — secondary layers on top of the sequence, like audio overdubs.
    - The LOOP/SONG length choice is **removed**; long-form recording is the **Composition** (below).
    - Sequence data is **not permanent until saved**.
-   - ❓ 💡 **SLDR moves are recorded too:** while SEQUENCE is on, slider moves through SLDR (e.g. FLTR) are recorded into the current page's sequence, even if the setting belongs to another page. SLDR stays held when you enter SEQUENCE (only press-and-hold CENC clears it).
+   - ✅ **SLDR moves are recorded too:** while SEQUENCE is on, slider moves through SLDR (e.g. FLTR) are recorded into the current page's sequence, even if the setting belongs to another page. SLDR stays held when you enter SEQUENCE (only press-and-hold CENC clears it).
    - **Sequence overdubs are additive by default** (no overwrite); overwrite can be set as an option (💡 in each page's Page Options, since sequences belong to pages). · **Clear a page's sequence:** hold CANCEL in SEQUENCE mode, with confirm ✅
 7. **Composition = the longest form in a song.** One per song. Everything performed from the start of the song: which loops play when, which sequences run, and all other events.
    - **Record:** on the SONG page, turn CENC to **COMPOSE** and press to arm (arm before the song starts if needed). Recording starts at the top of the song and stops when you **CANCEL** it or the **song stops**.
@@ -522,16 +524,16 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 | P7 | free (future needs) | — |
 | P8 | free (future needs) | — |
 
-### Page 4 — SAMPLE (sample instrument) ✅ — DRAFT v0.52
+### Page 4 — SAMPLE (sample instrument) ✅ (approved v0.53)
 Samples are a **custom instrument** for recording and triggering sounds on the fly. Free length, they **overlay loops** and are independent unless sequenced ✅. Like DRUM, each pad holds its own sound.
 
 **Normal use**
 | Control | Does | Source |
 |---|---|---|
 | P1–P8 | **Sample slots** from the current sample bank — tap to hear; last touched is edited | ✅ |
-| Record into a slot | Hold OK → touch a **P slot** (**>**) → **FS1** starts / stops recording. OLED shows **REC SMPL**. FS1 with nothing armed still records a loop. | 💡 |
+| Record into a slot | Hold OK → touch a **P slot** (**>**) → **FS1** starts / stops recording. OLED shows **REC SMPL**. FS1 with nothing armed still records a loop. | ✅ |
 | Assign to a trigger | Hold OK → touch a **TRIG** → tap a sample → the TRIG gets a copy | ✅ |
-| 💡 Record straight to a trigger | Hold OK → touch a **TRIG** → **FS1** instead of tapping a sample: records a new sample onto that trigger (and into the next free P slot) | 💡 |
+| Record straight to a trigger | Hold OK → touch a **TRIG** → **FS1** instead of tapping a sample: records a new sample onto that trigger (and into the next free P slot) | ✅ |
 | Library | Hold the page encoder → sample banks; save to an empty slot / NEW with OK; samples are also saved with the song (hold FS3) | ✅ |
 
 **SEQUENCE (via CENC)**
@@ -540,7 +542,7 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 | P1–P8 | Play samples while recording, quantized or free (per P3 below) | ✅ |
 | Length / overdub / clear | Loop-aligned · adds by default · hold CANCEL to clear | ✅ |
 
-**SLDR list (default first)** — shared order, then sample-specific (all 💡)
+**SLDR list (default first)** — shared order, then sample-specific
 | # | Setting |
 |---|---|
 | 1 (default) | Level |
@@ -554,7 +556,7 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 | 9 | Reverse → sub-layer: OFF · ON — per sample |
 | then | **FLTR** (sweep samples live — the filter's source must include samples, set on FLTR/FRZ) · MIDI ✅ |
 
-**Page Options (8 slots)** — 💡 unless marked
+**Page Options (8 slots)** — approved
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
@@ -566,18 +568,43 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 | P7 | Record source | **CELLO** (default) · VOICE · BOTH · FULL MIX |
 | P8 | Record before / after effects | PRE · **POST** (default ✅ — recorder captures post-effects by default) |
 💡 Length: my estimate is about 11.5 MB of memory per minute of mono sample (not measured); long samples are fine but are written to the SD card in the background.
+**Sample library on the SD card** ✅: the card carries a sample library, including at least **one full default set** that preloads into new songs. 💡 Details: the default set is chosen in SYSTEM; songs **reference** library files (trim/pitch etc. saved as settings) and only newly recorded samples are saved as new audio; library files should match Bela's audio format (my understanding: 44.1 kHz WAV — to verify); large sets load in the background.
 
-### Page 5 — DELAY ✅
+### Page 5 — DELAY ✅ — DRAFT v0.53
+**Normal use** (all 💡)
 | Control | Does |
 |---|---|
-| P1 | Time |
-| P2 | Feedback |
-| P3 | Mix |
-| P4 | Tone (darkens repeats) |
-| P5 | Send to shared reverb ✅ everything routes through one reverb |
-| P6 | Delay on/off |
-| P7 | Tap time |
-| P8 | Sync time to the loop clock on/off |
+| P1–P4 | **Delay presets** (e.g. slapback · dotted-1/8 dub · ping-pong · long ambient) — tap to load; hold the page encoder for the full library |
+| P5 | **Hold** — infinite repeats while held |
+| P6 | **Dub throw** — sends the input into the delay only while held |
+| P7 | **Clear** the repeats |
+| P8 | Delay **on / off** |
+| SEQUENCE (CENC) | Records presets, holds, throws and setting changes, like any page |
+
+**SLDR list (default first)** — shared effect order (Mix · main amount · Tone · Reverb send), then delay-specific; based on your list (mode, level, tempo, feedback, modulation, tap tempo)
+| # | Setting | Source |
+|---|---|---|
+| 1 (default) | Mix (level) ❓ or Feedback as the default? | 💡 |
+| 2 | Time | ✅ (your "tempo") |
+| 3 | Tone | 💡 |
+| 4 | Reverb send | 💡 |
+| 5 | Feedback | ✅ |
+| 6 | Modulation | ✅ |
+| 7 | Tap tempo — tap the slider in rhythm; 💡 sets the **delay's** time only, not the song tempo | ✅ / ❓ |
+| 8 | Mode → sub-layer: 💡 DIGITAL · TAPE · PING-PONG · REVERSE | ✅ |
+| then | FLTR · MIDI | ✅ |
+
+**Page Options (8 slots)** — 💡 unless marked
+| Pad | Option | Choices |
+|---|---|---|
+| P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
+| P2 | Time follows song tempo | **SYNC** (default) · FREE |
+| P3 | Sync division | 1/4 · **1/8** · dotted 1/8 · 1/8 triplet · 1/16 … (slider) |
+| P4 | Source (what feeds the delay) | **CELLO** (default) · VOICE · SAMPLES · DRUMS · FM · MIX |
+| P5 | Recorder takes this pre/post delay | PRE · **POST** (default) ✅ (decided per page) |
+| P6 | Repeats when turned off | **SPILL OVER** (default — tails ring out) · CUT |
+| P7 | Ducking (repeats dip while you play) | **OFF** (default) · ON |
+| P8 | free | — |
 
 ### Page 6 — REVERB (shared) ✅
 | Control | Does |
