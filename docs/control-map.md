@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.57 changes:** Ducking defaults OFF everywhere. REVERB drafted.
+
 **v0.56 changes:** Ducking is Page Option P8 on every effect page (rule 9). Delay approved.
 
 **v0.55 changes:** Delay: Mix is the default slider setting; Time slides the delay time, Tap tempo sets it precisely; neither changes the song tempo.
@@ -171,7 +173,7 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
    - **After you let go: TOUCH (default)** — the old recording of that setting resumes. **LATCH** (option) — your new value holds until the old recording next changes it. Set in SONG Page Options (P4).
    - **When a song loads, its composition plays straight away.** The composition is where time-critical performance data lives, keyed to the start of the song: after building loops and sequences, you organise them in the composition along with external MIDI, video and lighting changes timed to key moments.
 8. **Choosing in Page Options.** A few fixed choices → **tap the pad to step through them**. Many choices or a number (e.g. song key, bars per loop) → **set with the slider**.
-9. **Effect pages share one pad layout** (Delay, Reverb, HARPEGGIO, FLTR/FRZ): **P1 = on/off** · **P2–P5 = presets** · **P6–P8 = performance tricks**. In their **Page Options, P8 = Ducking** (the effect dips while you play), always in the same place for easy finding.
+9. **Effect pages share one pad layout** (Delay, Reverb, HARPEGGIO, FLTR/FRZ): **P1 = on/off** · **P2–P5 = presets** · **P6–P8 = performance tricks**. In their **Page Options, P8 = Ducking** (the effect dips while you play), always in the same place for easy finding, **default OFF** on all pages.
 
 ### Glossary
 | Term | Meaning |
@@ -613,19 +615,43 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 | P5 | Recorder takes this pre/post delay | PRE · **POST** (default) ✅ (decided per page) |
 | P6 | Repeats when turned off | **SPILL OVER** (default — tails ring out) · CUT |
 | P7 | free | — |
-| P8 | **Ducking** (repeats dip while you play) | OFF · ON ❓ default | ✅ |
+| P8 | **Ducking** (repeats dip while you play) | **OFF** (default) · ON | ✅ |
 
-### Page 6 — REVERB (shared) ✅
-| Control | Does |
+### Page 6 — REVERB (shared) ✅ — DRAFT v0.57
+The **one shared reverb**: every effect can send into it ✅. 💡 Processor note: reverb is the heaviest effect; it's the first candidate for an optimised (Faust/C++) version if the Bela Mini runs short.
+
+**Normal use** (layout per standing rule 9)
+| Control | Does | Source |
+|---|---|---|
+| P1 | Reverb **on / off** | ✅ |
+| P2–P5 | **Presets** — 💡 Room · Plate · Hall · Ambient (long, washy) | ✅ / 💡 |
+| P6 | 💡 **Hold** — infinite decay while held (mirrors Delay's Hold) | 💡 |
+| P7 | 💡 **Throw** — big send into the reverb while held (mirrors Dub throw) | 💡 |
+| P8 | 💡 **Kill** — cuts the tail instantly ❓ or **Swell** — reverb fades in under your note | 💡 ❓ |
+
+**SLDR list (default first)** — shared effect order, then reverb-specific (💡)
+| # | Setting |
 |---|---|
-| P1 | Size / decay |
-| P2 | Damping (brightness) |
-| P3 | Return level |
-| P4 | Pre-delay |
-| P5 | Direct cello send into reverb |
-| P6 | Reverb on/off |
-| P7 | Ducking (reverb dips while you play) on/off |
-| P8 | Hold tail (very long decay while held) |
+| 1 (default) | Mix (reverb return level) ✅ |
+| 2 | Decay (how long it rings) |
+| 3 | Tone (damping: dark ↔ bright) |
+| 4 | Pre-delay (gap before the reverb starts) |
+| 5 | Size |
+| 6 | Modulation (gentle movement in the tail) |
+| 7 | Width (mono ↔ wide stereo) |
+| then | FLTR · MIDI ✅ |
+
+**Page Options (8 slots)** — 💡 unless marked
+| Pad | Option | Choices |
+|---|---|---|
+| P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
+| P2 | Direct source (what feeds the reverb besides effect sends) | **CELLO** (default) · VOICE · SAMPLES · DRUMS · FM · MIX · NONE |
+| P3 | Tails when turned off | **RING OUT** (default) · CUT |
+| P4 | Pre-delay follows song tempo | **OFF** (default) · ON |
+| P5 | Recorder takes this pre/post reverb | PRE · **POST** (default) ✅ |
+| P6 | Low cut (keeps the low end clean) | **ON** (default) · OFF |
+| P7 | free | — |
+| P8 | **Ducking** | **OFF** (default) · ON ✅ |
 
 ### Page 7 — HARPEGGIO (harmonizer + arpeggiator, delay-based) ✅
 | Rule | Source |
