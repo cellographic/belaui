@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.41 changes:** Composition: TOUCH default / LATCH option (SONG P4); plays straight away when a song loads. Sequence overdubs additive by default. SLDR flow defined (browse the page's settings, press to hold, press-and-hold CENC to clear).
+
 **v0.40 changes:** Composition overwrite clarified: only the specific setting you change is replaced, at the moment you change it.
 
 **v0.39 changes:** SLDR added at the far right of CENC. Sequences: loop-aligned, a whole number of loops long, overdubbable; LOOP/SONG length choice removed. New **Composition** (one per song, recorded from the SONG page via COMPOSE). Glossary added.
@@ -123,13 +125,13 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
    - Once the length is set, further passes **overdub** — secondary layers on top of the sequence, like audio overdubs.
    - The LOOP/SONG length choice is **removed**; long-form recording is the **Composition** (below).
    - Sequence data is **not permanent until saved**.
-   - ❓ When overdubbing a sequence, does same-type data overwrite (like Composition) or always add? · ❓ how to clear a page's sequence (💡 hold CANCEL in SEQUENCE mode, with confirm)
+   - **Sequence overdubs are additive by default** (no overwrite); overwrite can be set as an option (💡 in each page's Page Options, since sequences belong to pages). · ❓ how to clear a page's sequence (💡 hold CANCEL in SEQUENCE mode, with confirm)
 7. **Composition = the longest form in a song.** One per song. Everything performed from the start of the song: which loops play when, which sequences run, and all other events.
    - **Record:** on the SONG page, turn CENC to **COMPOSE** and press to arm (arm before the song starts if needed). Recording starts at the top of the song and stops when you **CANCEL** it or the **song stops**.
    - **Playback:** you can **play live over** a composition.
    - **Re-recording overdubs by default:** only the **specific setting you change** is replaced, at the moment you change it — e.g. changing delay feedback replaces only the recorded delay feedback, not delay on/off or anything else. Everything you don't touch plays back as before.
-   - ❓ After you stop moving a setting, does the old recording of it resume (💡 "touch"), or does your new value hold until the old recording next changes it ("latch")?
-   - ❓ 💡 SONG Page Option: when a song loads, **play its composition** or **perform freely**.
+   - **After you let go: TOUCH (default)** — the old recording of that setting resumes. **LATCH** (option) — your new value holds until the old recording next changes it. Set in SONG Page Options (P4).
+   - **When a song loads, its composition plays straight away.** The composition is where time-critical performance data lives, keyed to the start of the song: after building loops and sequences, you organise them in the composition along with external MIDI, video and lighting changes timed to key moments.
 
 ### Glossary
 | Term | Meaning |
@@ -159,8 +161,8 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | **Slider encoder (CENC) list, left to right:** PAGE OPTIONS · this page's slider targets (default first) · … · **MIDI** · **FLTR** · **EXPRESSION** · **SLDR** (far right). CENC stops at both ends. | ✅ |
 | **Global slider-encoder options** (on every page): **MIDI**, **FLTR**, **EXPRESSION**. **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
 | ~~CTRL~~ | Scrapped (v0.38). | ✅ |
-| **SLDR** (far right of CENC) | Manually assign a performance setting to the slider: press SLDR → armed → the **next setting touched** becomes the slider's target **on every page** until cancelled by **press-and-hold CENC** (which returns the slider to the page default). In Page Options, the slider still follows the selected option. | ✅ |
-| ❓ "Touched" | 💡 After arming, choose any page's slider target with CENC; that becomes the SLDR target | 💡 ❓ |
+| **SLDR** (far right of CENC) | Manually assign a performance setting to the slider so it stays on that setting across all pages (see SLDR flow). In Page Options, the slider still follows the selected option. | ✅ |
+| SLDR flow | On a page, turn CENC to **SLDR** and press → the knob browses **that page's list of settings** (e.g. Delay: mode, level, tempo, feedback, modulation, tap tempo), each **blinking** → press to select → the slider holds that setting **on every page** until cleared with **press-and-hold CENC** | ✅ |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
 | CENC long-press | Jump straight back to this page's default slider target (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
@@ -368,7 +370,7 @@ The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. There is no 
 | P1 | Song switch timing | END OF LOOP (default) · END OF BAR · IMMEDIATE | ✅ |
 | P2 | New song placement | AFTER CURRENT (default) · NEXT FREE SLOT | ✅ |
 | P3 | Secondary loop snap | LOOP (default) · BAR | ✅ |
-| P4 | 💡 free slot (sample timing moved to SAMPLE page) | — | 💡 |
+| P4 | Composition overdub | TOUCH (default) · LATCH | ✅ |
 | P5 | Bars per loop | number (default 4) | ✅ |
 | P6 | Beats per bar | number (default 4) | ✅ |
 | P7 | Song key | C … B | ✅ (song scale) |
