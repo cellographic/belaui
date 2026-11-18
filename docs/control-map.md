@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.75)
+# Cellographic Bela UI — Control Map (DRAFT v0.76)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -773,39 +773,60 @@ For controlling **external devices** thoroughly and intentionally; saved **per s
 | P8 | free | — |
 **No wired MIDI out** ✅ — the WIDI Core is the only MIDI output (the earlier DIN MIDI out jack is dropped).
 
-### Page 12 — SYSTEM (I/O + MIDI; rig-wide, never saved per song) ✅
-SYSTEM settings are set-and-forget, saved with the hand OK/CANCEL pads (not the pedal). Holds I/O levels and all rig-wide settings (incl. MIDI device/port setup ✅). 💡 Also a home for tuner, pedal setup, Resolume connection, screen brightness, new-song defaults. Song-specific MIDI lives on the MIDI page (page 12).
+### Page 12 — SYSTEM (rig-wide, never saved per song) ✅ — DRAFT v0.76
+Set-and-forget settings for the instrument itself, saved with the hand **OK / CANCEL** pads (not the pedal) ✅. Holds I/O levels and all rig-wide settings, including MIDI device setup ✅. Sits immediately left of SONG on the page encoder ✅. All 💡 unless marked.
 
-I/O draft:
+**Normal use**
 | Control | Does |
 |---|---|
-| P1 | Cello (piezo) input gain |
-| P2 | Voice / second input gain ✅ second input exists |
-| P3 | Main output level |
-| P4 | EQ low ❓ (EQ was "maybe") |
-| P5 | EQ high ❓ |
-| P6 | Mute cello input |
-| P7 | Mute voice input |
-| P8 | EQ on/off ❓ |
+| P1 | Mute cello input |
+| P2 | Mute voice input |
+| P3 | **Tuner** on / off (shown on the OLED) |
+| P4 | Screen shows input meters on / off |
+| P5 | **Recalibrate pads** (capacitive pads can drift with temperature/humidity) |
+| P6 | **WIDI status / re-pair** |
+| P7 | **Expression pedal calibrate** (press, then sweep the pedal heel-to-toe) |
+| P8 | **Panic** — all notes off, stop all external MIDI |
+
+**SLDR list (default first)**
+| # | Setting |
+|---|---|
+| 1 (default) | Cello input gain ✅ (I/O lives here) |
+| 2 | Voice input gain ✅ |
+| 3 | Main output trim |
+| 4 | EQ low |
+| 5 | EQ high |
+| 6 | Screen brightness |
+| 7 | Pad sensitivity (all pads) |
+| 8 | Long-press time (default ~0.6 s) |
+
+**Page Options (8 slots)**
+| Pad | Option | Choices |
+|---|---|---|
+| P1 | EQ | **OFF** (default) · ON |
+| P2 | Recorder default | PRE · **POST** (default) ✅ |
+| P3 | Default sample set for new songs | list (slider) ✅ (from the SD-card library) |
+| P4 | CPU meter on screen | **OFF** (default) · ON |
+| P5 | Unsaved-changes reminder when loading another song | **ON** (default) · OFF |
+| P6 | free | — |
+| P7 | free | — |
+| P8 | free | — |
 
 ---
 
-## 4. Open questions — summary
+## 4. Open items — summary (v0.76)
+**To verify when building**
+1. Bela UART at MIDI speed (31,250 baud) for the WIDI Core.
+2. Resolume: P7 slice settings and any third-party P8 effects can be mapped to MIDI.
+3. Voltaic V50: current available on the USB-C port; joining the two packs' grounds.
+4. Which small microcontroller drives the NeoPixel strip.
+5. Sample library file format (expected 44.1 kHz WAV).
+6. Processor headroom on the Bela Mini (reverb first candidate for optimising; HARPEGGIO "warble" near ±1 octave).
+7. Touch velocity from pad touch size — feel test.
 
-0. ~~Slider target switching~~ — decided: second encoder (B), below TRIG4 beside the slider.
-0b. P1–P5 pad roles, page by page (notes / presets / other).
-1. ~~Slider mode~~ — decided: relative, no jumps. Long-press CENC = back to default target.
-2. Page 1: EQ yes/no? Tuner wanted?
-3. Harmonizer: which scales for interval snapping?
-3b. ~~Reassigning~~ — decided: hold-to-arm + OK. Still open: which pad arms FM sequence recording?
-3c. ~~Tap timing~~ — resolved: playable pads on press, OK/CANCEL on release.
-3d. ~~Assign mode details~~ — approved.
-4. Drums: how many pattern slots?
-5. FM synth: bass, pad, or lead?
-6. **Samples: which pads play them, and on which page?**
-7. Resolume: MIDI or OSC? Which 5 parameters?
-8. ~~Foot pedal~~ — mapped. ~~Loops per song~~ — several. Still open: does a song save everything (TRIGs, effect settings)? Is 4 TRIG pads enough? Confirm prompts for store/delete. Expression pedal global or per page?
-9. Is 12 pages the right number, or should some pages merge?
+**Still to decide**
+8. SYSTEM page draft (this version).
+9. Free Page Option slots on several pages — fill later or leave empty.
 
 ---
 
@@ -813,6 +834,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.76:** SYSTEM drafted. Open-questions summary rewritten (old list was out of date).
 
 **v0.75:** MIDI approved; no wired MIDI out (WIDI only), P8 freed.
 
