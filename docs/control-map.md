@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.77 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.78 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -21,7 +21,7 @@
 | TRIG3 | Persistent trigger 3 (was thumb pad T4, percussion size) | Right next to TRIG2 | ✅ |
 | TRIG4 | Persistent trigger 4 (was thumb pad T5, percussion size) | Directly under TRIG3 | ✅ |
 | TRIG2 | Large pad, like TRIG1 — persistent trigger 2 (was SNARE) | Upper-right, above the slider | ✅ |
-| OLED | 0.96" 128×64 blue/yellow screen | Upper-right, back half of the rib | ✅ |
+| OLED | **2.42" yellow OLED, 128×64**, held by its four corner holes (replaced the 0.96" Elegoo module, which was too small — per the rig map) | Upper-right, back half of the rib | ✅ |
 | OK / CANCEL | Confirm / cancel pads | Behind the OLED | ✅ |
 | CENC | Second pressable encoder — slider target | Below TRIG4, next to the Flex slider | ✅ |
 | PEDAL | External foot pedal | Floor | ✅ |
@@ -213,7 +213,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | **Bars per loop** and **beats per bar** are SONG page options, allowing custom time signatures (default 4 bars × 4 beats = 16) | ✅ |
 | The **arrangement** is built by playing: loops are assigned to TRIG pads, then you play the pads in time and that sequence is recorded as the song's structure | ✅ |
 | 💡 A song saves everything: loops, sequences, arrangement, TRIG assignments, page options and effect settings | 💡 ❓ |
-| **TRIG banks.** On the SONG page, **P1–P8 choose the active bank** (1–8). The current bank number shows on the OLED (💡 in the yellow status band, e.g. "BK3"). | ✅ |
+| **TRIG banks.** On the SONG page, **P1–P8 choose the active bank** (1–8). The current bank number shows on the OLED (💡 on the top line, e.g. "BK3"). | ✅ |
 | **8 banks × 4 TRIG pads = 32 trigger slots** | ✅ |
 | **Bank 8 defaults to loop tricks:** TRIG1 = reverse, TRIG2 = half speed, TRIG3 = stutter; TRIG4 reserved for another loop effect. Each trick is **tap on / tap off**. They can be overwritten if the slots are needed. As triggers they work from any page and can be recorded as sequences. | ✅ |
 | 💡 Switching banks changes what the pads trigger **next**; anything already playing keeps playing until stopped | 💡 |
@@ -244,7 +244,7 @@ Because one slider controls many settings, an absolute slider would make values 
 
 ### 💡 OLED layout
 The Elegoo screen has a yellow top band and a blue lower area.
-- **Yellow band:** page name · loop/clock status (recording / playing / bar count) · bank · markers (armed, unsaved)
+- **Top line:** page name · loop/clock status (recording / playing / bar count) · bank · markers (armed, unsaved)
 - **Bottom of the screen (always):** the slider's current target **name** and a **level bar** showing its value ✅
 
 ---
@@ -269,8 +269,6 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 | Length | Locked to the first loop's length or derivations (LOOP / BAR snap) | Free — any length |
 | Playback | **Linear**: loops play one after another; they never layer on each other (overdubs are layers *within* a loop) | **Overlays** loops; independent of them unless sequenced |
 | In a sequence | Placed on the loop/bar grid | Placed with or without quantize (default FREE) |
-| ❓ How you record one vs the other | see chat — 💡 arm a trigger first, then record = sample; record with nothing armed = loop | |
-| ❓ Starting a **new secondary loop** vs overdubbing the current one | see chat | |
 | **New loop** | **Hold OK** arms a new loop → **FS1** records it, in sync with the existing loop → on completion it saves to the next free P slot | ✅ |
 | Loops on triggers | Not needed — loops live on SONG's P1–P8. With 32 trigger slots there's no need to put loops on triggers. Hold OK on SONG simply arms a new loop. | ✅ |
 | SEQUENCE mode | Record the song **arrangement** by playing TRIG pads in time | ✅ arrangement-by-playing · 💡 placement here |
@@ -808,8 +806,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 | P3 | Default sample set for new songs | list (slider) ✅ (from the SD-card library) |
 | P4 | CPU meter on screen | **OFF** (default) · ON |
 | P5 | Unsaved-changes reminder when loading another song | **ON** (default) · OFF |
-| P6 | free | — |
-| P7 | free | — |
+| P6 | Safety limiter on the main output | **ON** (default) · OFF ✅ (from the rig map) |
+| P7 | Main output | MONO · STEREO ✅ (from the rig map; default ❓) |
 | P8 | free | — |
 
 ---
@@ -833,6 +831,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.78:** Reconciled with the rig map: 2.42" yellow OLED; SYSTEM gets safety limiter (on) and mono/stereo output; stale SONG questions removed.
 
 **v0.77:** SYSTEM approved — all 12 pages defined.
 
