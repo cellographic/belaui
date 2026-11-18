@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.45 changes:** FLTR and MIDI folded into SLDR. SLDR browsing defined, with sub-layers for items that need more definition (FLTR: AutoWah, Hi/Lo/Band Pass, Notch). CENC list: PAGE OPTIONS · SEQUENCE · (COMPOSE) · BANK · EXPRESSION · SLDR.
+
 **v0.44 changes:** Page slider-target lists removed from the Control Encoder; each page's default and alternatives live inside **SLDR** (unset = page default; clear = back to default). The bottom of the OLED always shows the slider's target name and a level bar.
 
 **v0.43.1:** Full CENC order written in one place.
@@ -166,13 +168,17 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CENC press | Enter / confirm the blinking item | ✅ |
 | CANCEL during CENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
 | **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
-| **Control encoder (CENC) list, left to right:** **PAGE OPTIONS** · **SEQUENCE** · (SONG only: **COMPOSE** 💡) · **BANK** · **MIDI** · **FLTR** · **EXPRESSION** · **SLDR**. CENC stops at both ends. There is **no separate list of slider targets**: each page's default and alternatives live inside **SLDR**. Positions of SEQUENCE, COMPOSE and BANK are 💡 proposals. | ✅ / 💡 |
+| **Control encoder (CENC) list, left to right:** **PAGE OPTIONS** · **SEQUENCE** · (SONG only: **COMPOSE** 💡) · **BANK** · **EXPRESSION** · **SLDR**. CENC stops at both ends. There is **no separate list of slider targets**: each page's default and alternatives live inside **SLDR**. Positions of SEQUENCE, COMPOSE and BANK are 💡 proposals. | ✅ / 💡 |
 | **BANK** (on every page's CENC) | Press → turn through TRIG banks 1–8 (each **blinking**) → press to select. Switch banks from any page mid-performance. 💡 Position: start of the global group, so the right end reads … BANK · MIDI · FLTR · EXPRESSION · SLDR | ✅ (💡 position) |
-| **Global slider-encoder options** (on every page): **BANK**, **MIDI**, **FLTR**, **EXPRESSION**, **SLDR**. **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
+| **Global slider-encoder options** (on every page): **BANK**, **EXPRESSION**, **SLDR** (FLTR and MIDI are now inside SLDR). **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
 | ~~CTRL~~ | Scrapped (v0.38). | ✅ |
 | **SLDR** (far right of CENC) | Holds the slider's assignment. **Unset = the current page's default.** Set it (SLDR flow) to put the slider on any setting from that page's SLDR list; it then stays there **on every page** until **cleared** (press-and-hold CENC), which returns the slider to each page's default. | ✅ |
 | SLDR tap settings | For tap settings such as tap tempo, **tap the slider** in rhythm to set the new value. ❓ On Delay, does this set the delay's time only (💡), not the song tempo (which comes from the first loop)? | ✅ ❓ |
-| SLDR flow | On a page, turn CENC to **SLDR** and press → the knob browses **that page's list of settings** (e.g. Delay: mode, level, tempo, feedback, modulation, tap tempo), each **blinking** → press to select → the slider holds that setting **on every page** until cleared with **press-and-hold CENC** | ✅ |
+| SLDR flow | Turn CENC to **SLDR**, press → the **current SLDR selection flashes** (if unset, the current page's **default** flashes). Turn to browse that page's SLDR list. Press: if the item has **no further options**, it activates on the slider; if it **needs more definition**, you drop into the **next layer** with its first option flashing — turn to browse, press to activate. The slider then holds it on every page until cleared (press-and-hold CENC). | ✅ |
+| **FLTR in SLDR** (every page) | Sub-layer: **AutoWah** (slider = wah range) · **Hi Pass** · **Lo Pass** · **Band Pass** · **Notch** (slider = sweep). Selecting one switches the filter to that mode and puts it on the slider. | ✅ |
+| **MIDI in SLDR** (every page) | Slider sends a MIDI control value to the external device. 💡 Sub-layer: which control (CC) / channel, from the MIDI page's setup | ✅ / 💡 |
+| 💡 Backing out of a sub-layer | CANCEL goes up one layer; CANCEL at the top layer leaves SLDR unchanged | 💡 |
+| 💡 With two filters on | FLTR sub-layer starts with FILTER 1 / FILTER 2, then the mode | 💡 |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
 | CENC long-press | **Clears SLDR** → the slider returns to the current page's default (💡 hold time about 0.6 s, tunable) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
