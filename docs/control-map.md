@@ -2,6 +2,8 @@
 
 **v0.24.1:** CTRL is sticky: once chosen it stays active across pages until changed with the slider encoder.
 
+**v0.58 changes:** REVERB approved: P8 Kill; presets Room · Plate · Hall · Ambient.
+
 **v0.57 changes:** Ducking defaults OFF everywhere. REVERB drafted.
 
 **v0.56 changes:** Ducking is Page Option P8 on every effect page (rule 9). Delay approved.
@@ -617,19 +619,19 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 | P7 | free | — |
 | P8 | **Ducking** (repeats dip while you play) | **OFF** (default) · ON | ✅ |
 
-### Page 6 — REVERB (shared) ✅ — DRAFT v0.57
+### Page 6 — REVERB (shared) ✅ (approved v0.58)
 The **one shared reverb**: every effect can send into it ✅. 💡 Processor note: reverb is the heaviest effect; it's the first candidate for an optimised (Faust/C++) version if the Bela Mini runs short.
 
 **Normal use** (layout per standing rule 9)
 | Control | Does | Source |
 |---|---|---|
 | P1 | Reverb **on / off** | ✅ |
-| P2–P5 | **Presets** — 💡 Room · Plate · Hall · Ambient (long, washy) | ✅ / 💡 |
-| P6 | 💡 **Hold** — infinite decay while held (mirrors Delay's Hold) | 💡 |
-| P7 | 💡 **Throw** — big send into the reverb while held (mirrors Dub throw) | 💡 |
-| P8 | 💡 **Kill** — cuts the tail instantly ❓ or **Swell** — reverb fades in under your note | 💡 ❓ |
+| P2–P5 | **Presets** — Room · Plate · Hall · Ambient (long, washy) | ✅ |
+| P6 | **Hold** — infinite decay while held (mirrors Delay's Hold) | ✅ |
+| P7 | **Throw** — big send into the reverb while held (mirrors Dub throw) | ✅ |
+| P8 | **Kill** — cuts the tail instantly | ✅ |
 
-**SLDR list (default first)** — shared effect order, then reverb-specific (💡)
+**SLDR list (default first)** — shared effect order, then reverb-specific
 | # | Setting |
 |---|---|
 | 1 (default) | Mix (reverb return level) ✅ |
@@ -641,7 +643,7 @@ The **one shared reverb**: every effect can send into it ✅. 💡 Processor not
 | 7 | Width (mono ↔ wide stereo) |
 | then | FLTR · MIDI ✅ |
 
-**Page Options (8 slots)** — 💡 unless marked
+**Page Options (8 slots)** — approved
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
