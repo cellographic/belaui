@@ -28,6 +28,7 @@
 | LEDS | Adafruit NeoPixel strip #1460 (black PCB, 30 LED/m), ~3 m inside the cello | Inside the body | ✅ |
 | POWER A | **Voltaic V50** battery (12,800 mAh / 47 Wh, always-on USB-A ports, pass-through charging, ~4.5 × 3.1 × 1 in) — powers the **Bela, controls, OLED and LED controller** | Inside the body | ✅ |
 | POWER B | **Voltaic V50** (second unit) — powers the **LED strip only**, so lighting can never brown out the Bela | Inside the body | ✅ |
+| WIDI | **CME WIDI Core** Bluetooth MIDI module on the Bela's UART — wireless MIDI hub to Resolume PC and external gear (💡 WIDI Bud Pro dongle on the PC) | Inside the body | ✅ |
 
 Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on one Trill Craft (30 channels available). Slider is the Trill Flex.
 
