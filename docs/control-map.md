@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.60)
+# Cellographic Bela UI — Control Map (DRAFT v0.61)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -529,11 +529,11 @@ The **one shared reverb**: every effect can send into it ✅. 💡 Processor not
 | P7 | free | — |
 | P8 | **Ducking** | **OFF** (default) · ON ✅ |
 
-### Page 7 — HARPEGGIO (harmonizer + arpeggiator, delay-based) ✅ — DRAFT v0.60
+### Page 7 — HARPEGGIO (harmonizer + arpeggiator, delay-based) ✅ (approved v0.61)
 Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below to 1 above ✅. Delay-based pitch shifting ✅. Separating the notes in time makes **arpeggios**, spaced to the song tempo by default ✅. Named intervals from the song scale; half steps (−12…+12) when the song scale is Chromatic ✅.
-**Intervals are fixed sizes** ✅ — each interval is a set pitch-shift amount. These can be **rational (just) ratios**, e.g. a fifth = 3:2, a major third = 5:4 ✅ (💡 delay-based shifting can hit any ratio exactly, so this costs nothing extra).
+**Intervals are fixed sizes** ✅ — each interval is a set pitch-shift amount. These can be **rational (just) ratios**, e.g. a fifth = 3:2, a major third = 5:4 ✅ (delay-based shifting can hit any ratio exactly, so this costs nothing extra).
 
-**Normal use** (layout per standing rule 9) — 💡 unless marked
+**Normal use** (layout per standing rule 9) — approved
 | Control | Does |
 |---|---|
 | P1 | Harpeggio **on / off** ✅ |
@@ -542,7 +542,7 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | P7 | **Octave-up throw** — adds a +8ve voice while held |
 | P8 | **Octave-down throw** — adds a −8ve voice while held |
 
-**SLDR list (default first)** — shared effect order, then harmonizer-specific (💡)
+**SLDR list (default first)** — shared effect order, then harmonizer-specific
 | # | Setting |
 |---|---|
 | 1 (default) | Mix ✅ |
@@ -556,13 +556,13 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | 9 | Detune (slight thickening) |
 | then | FLTR · MIDI ✅ |
 
-**Page Options (8 slots)** — 💡 unless marked
+**Page Options (8 slots)** — approved
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
 | P2 | Arp spacing follows song tempo | **SYNC** (default) ✅ · FREE |
 | P3 | Sync division | **1/8** (default) · 1/16 · 1/8 triplet … (slider) |
-| P4 | Tuning | **JUST** (rational ratios) · EQUAL (piano tuning) ❓ default |
+| P4 | Tuning | **JUST** (default — rational ratios) · EQUAL (piano tuning) ✅ |
 | P5 | Recorder takes this pre/post harpeggio | PRE · **POST** (default) ✅ |
 | P6 | Number of harmony voices | 1 · **2** (default) · 3 |
 | P7 | Source | **CELLO** (default) · VOICE · SAMPLES · FM · MIX |
@@ -669,6 +669,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.61:** HARPEGGIO approved; tuning defaults to JUST.
 
 **v0.60:** HARPEGGIO drafted; intervals are fixed sizes, optionally rational (just) ratios.
 
