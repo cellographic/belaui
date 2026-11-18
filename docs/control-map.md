@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (DRAFT v0.64)
+# Cellographic Bela UI — Control Map (DRAFT v0.65)
 
 **Status:** first draft for Scott's review. Nothing here is final.
 
@@ -625,12 +625,13 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 
 ### Page 9 — LIGHTING (internal cello LEDs) ✅ — DRAFT v0.64
 Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
+**How they're used** ✅: the interior LEDs light the cello from within. Full-body colour is mostly **before and after shows**, because it conflicts with the projection on the cello's surface. During a show, mostly only the **top and bottom** of the cello, where the projector can't reach. In future, possibly **dramatic, percussive, sequenced** lighting.
 
 **Normal use** — 💡 same layout as rule 9 (on/off · presets · tricks)
 | Control | Does |
 |---|---|
 | P1 | Lights **on / off** (blackout) |
-| P2–P5 | **Scene presets**, e.g. Glow · Pulse (with the music) · Chase · Rainbow drift |
+| P2–P5 | **Scene presets:** **Show glow** (whole cello, for before/after shows) · **Projection fill** (top and bottom only, dim, for during shows) · **Pulse** (reacts to the music) · **Percussive** (flashes on hits) |
 | P6 | **Flash** while held |
 | P7 | **Strobe** while held |
 | P8 | **Colour jump** — steps to the next colour of the scene |
@@ -643,21 +644,22 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 | 3 | Saturation (white ↔ full colour) |
 | 4 | Speed |
 | 5 | Audio reactivity (how much the music drives the light) |
-| 6 | Pattern → sub-layer of patterns |
+| 6 | **Zones** → sub-layer: ALL · TOP + BOTTOM · TOP · BOTTOM ❓ (depends on how the LEDs are wired) |
+| 7 | Pattern → sub-layer of patterns |
 | then | FLTR · MIDI ✅ |
 
 **Page Options (8 slots)** — 💡 unless marked
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
-| P2 | What the lights react to | **CELLO** (default) · DRUMS · MIX |
+| P2 | What the lights react to | **CELLO** (default) · DRUMS · MIX — DRUMS makes the lights hit with the drums |
 | P3 | Speed follows song tempo | **SYNC** (default) · FREE |
 | P4 | Brightness limit (protects eyes, heat and power) | number (slider) |
 | P5 | Colour follows the notes you play | **OFF** (default) · ON |
 | P6 | Flash / strobe colour | **WHITE** (default) · SCENE COLOUR |
 | P7 | free (💡 stage DMX later) | — |
 | P8 | free | — |
-❓ Hardware: what LEDs are in the cello (e.g. addressable strips like WS2812)? 💡 Earlier guess: a small microcontroller driven by the Bela may run them more reliably than the Bela directly.
+❓ Hardware: what LEDs are in the cello (e.g. addressable strips like WS2812), and can the top and bottom be controlled separately from the middle? 💡 Earlier guess: a small microcontroller driven by the Bela may run them more reliably than the Bela directly.
 
 ### Page 10 — RESOLUME ✅
 | Control | Does |
@@ -710,6 +712,8 @@ I/O draft:
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.65:** LIGHTING reworked around real use: before/after-show glow, top/bottom fill during projection, future percussive sequencing; zones added.
 
 **v0.64:** FLTR/FRZ approved. LIGHTING drafted.
 
