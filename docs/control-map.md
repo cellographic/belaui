@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.78 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.79 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -109,7 +109,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | Clearing a pad to empty | At >, hold CANCEL = clear that pad | ✅ |
 | Non-assignable pages | Holding OK shows "no assign here" | ✅ |
 | Assignable targets | TRIG1/TRIG2 from any assignable page, plus that page's own pads | ✅ |
-| Restore kick/snare to TRIG1/TRIG2 | 💡 a "reset triggers" option on the drum page | 💡 |
+| **Clear / restore a bank** | Any TRIG bank can be **cleared** (all 4 slots emptied) or **restored** (back to its defaults: bank 1 drums, bank 8 loop tricks, banks 2–7 empty) ✅. 💡 How: CENC → **BANK** → turn to the bank → press → a sub-layer **SELECT · CLEAR · RESTORE** (blinking) → press; CLEAR and RESTORE ask "Clear BK3?" / "Restore BK3?" with OK/CANCEL. Single slots are still cleared in Assign mode (hold CANCEL at >). ❓ Should RESTORE mean the defaults, or the bank as last saved with the song? | ✅ / 💡 |
 | **Drum & FM pages: SEQUENCE mode** | Entered from the **control encoder (CENC)**: turn to **SEQUENCE**, press. Outside SEQUENCE mode the page is in its normal sound state (P1–P8 = presets). | ✅ |
 | Normal (sound) state | Audition presets on P1–P8, tune, and assign to triggers with Assign mode (hold OK) | ✅ |
 | SEQUENCE mode | Play hits/notes in time to record a sequence, then store it in a persistent trigger (TRIG1–TRIG4). **FM:** P1–P8 play 8 notes of the song scale (root to octave), with an Octave target on CENC. **Drum:** P1–P8 play 8 drum sounds from the current preset bank. | ✅ |
@@ -831,6 +831,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.79:** Any TRIG bank can be cleared or restored (replaces the drum-page "reset triggers" idea).
 
 **v0.78:** Reconciled with the rig map: 2.42" yellow OLED; SYSTEM gets safety limiter (on) and mono/stereo output; stale SONG questions removed.
 
