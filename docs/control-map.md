@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.86 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.87 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -246,7 +246,8 @@ Because one slider controls many settings, an absolute slider would make values 
 ### 💡 OLED layout
 The Elegoo screen has a yellow top band and a blue lower area.
 - **Screen layout (v0.84, "A + D hybrid")** ✅ — five rows, top to bottom, 57 px of content plus 7 px of gaps = 64 (v0.85 heights; confirm on the actual screen):
-  1. **Page line** (10 px tall font, 6 px wide): **transport icon** first (8 px: ● record · ▶ play · ■ stop) plus 2 px gap, leaving 19 characters for page name, switching to the chosen sub-item (e.g. DELAY/PING) · bank · markers (armed ?, >, unsaved *) ✅. 💡 Fixed fields so nothing jumps around: page/sub-item 12 characters (longer names cut off) · space · bank 3 · space · markers 2.
+  1. **Page line** (10 px tall font, 6 px wide): **transport icon** first (8 px: ● filled = recording · ○ outlined = overdubbing · ▶ play · ■ stop; **blinks while queued** — e.g. a record queued while the previous loop is still playing blinks ● until it starts) ✅ plus 2 px gap, leaving 19 characters for page name, switching to the chosen sub-item (e.g. DELAY/PING) · bank · markers (armed ?, >, unsaved *) ✅. ✅ Fixed fields so nothing jumps around: page/sub-item 12 characters (longer names cut off) · space · bank 3 · space · markers 2.
+     - **Short screen names** so page + sub-item fit 12 characters: HARPEGGIO shows as **HARP** ✅. 💡 Others: SONG · DRUM · FM · SMPL · DELAY · VERB · HARP · FLTR · LIGHT · RSLM · MIDI · SYS (page names stay as they are everywhere else).
   2. **Loop strip** (10 px, the same thickness as the slider bar) ✅: spaced into **measures from the SONG page's beats-per-bar and bars-per-loop settings**, with a small gap between beats and a wider gap between bars. Played beats are filled and the rest are outlined. 💡 Above about 32 beats (e.g. more than 8 bars of 4/4) the beats get too thin, so the strip switches to one block per bar that fills smoothly.
   3. **Slider name and value** (10 px tall font, the same as the page line): name left, value right ✅
   4. **Slider bar** (10 px, 30% thinner than plan D's) ✅
@@ -837,6 +838,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.87:** Overdub icon, blinking queued icon, fixed page-line fields, short screen names (HARP).
 
 **v0.86:** Transport icon (record / play / stop) at the left of the page line.
 
