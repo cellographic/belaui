@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.83 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.84 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -245,10 +245,13 @@ Because one slider controls many settings, an absolute slider would make values 
 
 ### 💡 OLED layout
 The Elegoo screen has a yellow top band and a blue lower area.
-- **Top line:** page name · bank · markers (armed ?, >, unsaved)
-- **Loop position** ✅ (requested v0.82): a visual indicator of where you are in the active loop. 💡 A thin strip under the top line with one segment per beat, bar dividers, and the current beat filled; a REC dot while recording.
-- 💡 Screen budget (estimate for a 128 × 64 display): about 5 zones — small top line · loop strip · one large middle line (preset name, previews, prompts) · slider name and value · level bar. With the smallest readable font it could hold up to 8 lines of about 21 characters, but larger text reads better on stage.
-- **Bottom of the screen (always):** the slider's current target **name** and a **level bar** showing its value ✅
+- **Screen layout (v0.84, "A + D hybrid")** ✅ — five rows, top to bottom (heights in real pixels are estimates, to be confirmed on the actual screen):
+  1. **Page line** (small font, about 8 px): page name, switching to the chosen sub-item (e.g. DELAY/PING) · bank · markers (armed ?, >, unsaved *) ✅
+  2. **Loop strip** (about 10 px, the same thickness as the slider bar) ✅: spaced into **measures from the SONG page's beats-per-bar and bars-per-loop settings**, with a small gap between beats and a wider gap between bars. Played beats are filled and the rest are outlined. 💡 Above about 32 beats (e.g. more than 8 bars of 4/4) the beats get too thin, so the strip switches to one block per bar that fills smoothly.
+  3. **Slider name and value** (medium font): name left, value right ✅
+  4. **Slider bar** (about 10 px, 30% thinner than plan D's) ✅
+  5. **Pad dots** mirroring the physical layout: P1–P8 · TRIG1–4 on one row, OK/CANCEL below; filled = being touched ✅
+- ❓ Where the REC indicator goes (plan D has no REC dot) and where temporary text such as preset names, previews and confirmation prompts appears.
 
 ---
 
@@ -834,6 +837,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.84:** OLED layout chosen: A + D hybrid (page line, time-signature loop strip, slider name/value, thinner slider bar, pad dots).
 
 **v0.83:** NEW SONG is the far-left entry of the song list.
 
