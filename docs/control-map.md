@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.80 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.81 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -84,11 +84,11 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | CANCEL during CENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
 | **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
 | **Control encoder (CENC) list, left to right:** **PAGE OPTIONS** · **SEQUENCE** · (SONG only: **COMPOSE** 💡) · **BANK** · **EXPRESSION** · **SLDR**. CENC stops at both ends. There is **no separate list of slider targets**: each page's default and alternatives live inside **SLDR**. Positions of SEQUENCE, COMPOSE and BANK are 💡 proposals. | ✅ / 💡 |
-| **BANK** (on every page's CENC) | Press → turn through TRIG banks 1–8 (each **blinking**) → press to select. Switch banks from any page mid-performance. 💡 Position: start of the global group, so the right end reads … BANK · MIDI · FLTR · EXPRESSION · SLDR | ✅ (💡 position) |
+| **BANK** (on every page's CENC) | Press → turn through TRIG banks 1–8 (each **blinking**) → press to select. Switch banks from any page mid-performance. Position: between the modes and EXPRESSION (see the Control Encoder list) | ✅ (💡 position) |
 | **Global slider-encoder options** (on every page): **BANK**, **EXPRESSION**, **SLDR** (FLTR and MIDI are now inside SLDR). **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
 | ~~CTRL~~ | Scrapped (v0.38). | ✅ |
 | **SLDR** (far right of CENC) | Holds the slider's assignment. **Unset = the current page's default.** Set it (SLDR flow) to put the slider on any setting from that page's SLDR list; it then stays there **on every page** until **cleared** (press-and-hold CENC), which returns the slider to each page's default. | ✅ |
-| SLDR tap settings | For tap settings such as tap tempo, **tap the slider** in rhythm to set the new value. ❓ On Delay, does this set the delay's time only (💡), not the song tempo (which comes from the first loop)? | ✅ ❓ |
+| SLDR tap settings | For tap settings such as tap tempo, **tap the slider** in rhythm to set the new value. On Delay this sets the **delay time** only, never the song tempo (which comes from the first loop). | ✅ |
 | SLDR flow | Turn CENC to **SLDR**, press → the **current SLDR selection flashes** (if unset, the current page's **default** flashes). Turn to browse that page's SLDR list. Press: if the item has **no further options**, it activates on the slider; if it **needs more definition**, you drop into the **next layer** with its first option flashing — turn to browse, press to activate. The slider then holds it on every page until cleared (press-and-hold CENC). | ✅ |
 | **FLTR in SLDR** (every page) | Sub-layer: **AutoWah** (slider = wah range) · **Hi Pass** · **Lo Pass** · **Band Pass** · **Notch** (slider = sweep). Selecting one switches the filter to that mode and puts it on the slider. | ✅ |
 | **MIDI in SLDR** (every page) | Slider sends a MIDI control value to the external device. Sub-layer: which control (CC) / channel, from the MIDI page's setup | ✅ |
@@ -113,7 +113,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | **Drum & FM pages: SEQUENCE mode** | Entered from the **control encoder (CENC)**: turn to **SEQUENCE**, press. Outside SEQUENCE mode the page is in its normal sound state (P1–P8 = presets). | ✅ |
 | Normal (sound) state | Audition presets on P1–P8, tune, and assign to triggers with Assign mode (hold OK) | ✅ |
 | SEQUENCE mode | Play hits/notes in time to record a sequence, then store it in a persistent trigger (TRIG1–TRIG4). **FM:** P1–P8 play 8 notes of the song scale (root to octave), with an Octave target on CENC. **Drum:** P1–P8 play 8 drum sounds from the current preset bank. | ✅ |
-| 💡 CENC position | Modes sit just inside the left end (SEQUENCE, and COMPOSE on SONG); global items sit at the right end (BANK · MIDI · FLTR · EXPRESSION · SLDR) | 💡 |
+| CENC order | See the Control Encoder list above (PAGE OPTIONS · SEQUENCE · COMPOSE · BANK · EXPRESSION · SLDR) | — |
 | CANCEL in modes | Cancels arming; hold CANCEL erases (with the usual confirm) | ✅ |
 | Prompt priority | When an "are you sure?" prompt is showing, OK/CANCEL answer it and never step modes | ✅ |
 | (also) | "Only a deliberate action counts as choosing a source" (pad hit, note played, or encoder press on a list) | ✅ |
@@ -122,7 +122,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | (rule) | Pad assignments are unique per page; manual triggering only on the current page | ✅ |
 | (rule) | Settings and running sequences (sample sequences, drum patterns) keep going when you change pages | ✅ |
 
-### ❓ Tap timing — fire on press or on release
+### ✅ Tap timing — resolved (playable pads fire on press; OK/CANCEL on release)
 ✅ Resolved by Assign mode (v0.7): **playable pads fire on press** (immediate). Only **OK / CANCEL** fire on release, because they distinguish tap from hold. Table below kept for the record.
 Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by accident.
 ⚠️ Trade-off: on *playable* pads (TRIG1/TRIG2, drum pads, note pads) a release-trigger delays every hit by however long your finger is down (often around 0.1 s; estimate, not measured). That will feel late for drums.
@@ -145,9 +145,9 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | Which pads toggle | P1–P8 = 8 toggle slots per page. TRIG1–TRIG4 stay live so you can keep playing. | ✅ |
 | Unsaved changes on CANCEL | Stay active until the song changes, but are not saved — loading the song again restores its stored settings | ✅ |
 | Unsaved marker | A small mark on the OLED while a page has unsaved option changes | ✅ |
-| "Song" | ❓ New concept — how is a song chosen and loaded (pedal retrieve? a Songs page?) | ❓ |
+| "Song" | Songs are chosen with the pedal (FS3/FS4, FS1 loads) or by hand (hold the page encoder on SONG) | ✅ |
 
-**💡 Toggle candidates per page (from displaced items):**
+**Earlier toggle candidates (superseded — each page's Page Options are now defined on the page itself):**
 - Delay, Reverb, Harmonizer, Freeze, Filter: **Recorder pre/post** ✅ feature
 - Delay: sync to loop clock · Reverb: ducking · Harmonizer: octave-down voice, scale snap · Freeze: fade in/out · Filter: sweep on/off ✅ feature, envelope follower on/off
 - I/O: meter view input/output · tuner · EQ on/off
@@ -166,11 +166,11 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | Default target | Expression pedal = **master output volume** | ✅ |
 | Other targets | Chosen here — anything the slider can control (the same "variable output" list) | ✅ |
 | 💡 Scope | Expression assignment is global (works on every page) and saved with the song, so master volume never depends on which page you're on | 💡 ❓ |
-| Hardware | An expression pedal plugged into one of the Ampero Control's 2 TRS jacks (max 10 kΩ pot); it reaches the Bela as MIDI | 💡 |
-| 💡 Second jack | Room for a second expression pedal or extra footswitches later | 💡 |
+| Hardware | An expression pedal in one of the Ampero Control's 2 TRS jacks (max 10 kΩ pot); it reaches the Bela as MIDI | ✅ |
+| Second jack | Used by the **freeze footswitch**, so both TRS jacks are taken (expression + freeze) | ✅ |
 
 ### Foot pedal — Hotone Ampero Control (v0.13)
-**Paradigm:** the **song** is the stored unit. A song holds its loop recordings, loop length, drum/synth sequences and page options (💡 and TRIG assignments + effect settings ❓). The pedal covers navigate, retrieve, store, create and delete for songs, plus record control, from any page.
+**Paradigm:** the **song** is the stored unit. A song holds its loop recordings, loop length, drum/synth sequences, page options, TRIG assignments and effect settings ✅. The pedal covers navigate, retrieve, store, create and delete for songs, plus record control, from any page.
 
 | Switch | Tap | Hold | Source |
 |---|---|---|---|
@@ -212,7 +212,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | **Samples** are free recordings, triggered with or without quantization. **Default: FREE**; quantize options in SONG page options. | ✅ |
 | **Bars per loop** and **beats per bar** are SONG page options, allowing custom time signatures (default 4 bars × 4 beats = 16) | ✅ |
 | The **arrangement** is built by playing: loops are assigned to TRIG pads, then you play the pads in time and that sequence is recorded as the song's structure | ✅ |
-| 💡 A song saves everything: loops, sequences, arrangement, TRIG assignments, page options and effect settings | 💡 ❓ |
+| A song saves everything: loops, sequences, arrangement, TRIG assignments, page options and effect settings (hold FS3 saves it all) | ✅ |
 | **TRIG banks.** On the SONG page, **P1–P8 choose the active bank** (1–8). The current bank number shows on the OLED (💡 on the top line, e.g. "BK3"). | ✅ |
 | **8 banks × 4 TRIG pads = 32 trigger slots** | ✅ |
 | **Bank 8 defaults to loop tricks:** TRIG1 = reverse, TRIG2 = half speed, TRIG3 = stutter; TRIG4 reserved for another loop effect. Each trick is **tap on / tap off**. They can be overwritten if the slots are needed. As triggers they work from any page and can be recorded as sequences. | ✅ |
@@ -228,7 +228,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 - Sampler "assign last recording" — now covered by Assign mode ✅
 
 ### Parked ideas (removed from KICK/SNARE in v0.5 — could move to T pads if wanted)
-Delay dub throw · delay clear · reverb throw · kill reverb tail · momentary freeze · release freeze · one-shot filter sweep · FM sequence record arm / clear (❓ needs a new home) · lighting flash / blackout · Resolume next column / flash.
+Delay dub throw · delay clear · reverb throw · kill reverb tail · momentary freeze · release freeze · one-shot filter sweep · FM sequence record arm / clear (✅ now SEQUENCE mode on the Control Encoder) · lighting flash / blackout · Resolume next column / flash.
 
 ### ✅ How the slider switches targets — Option B chosen
 | | A: OK / CANCEL step through targets | B: Second pressable encoder for the slider |
@@ -271,7 +271,7 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 | In a sequence | Placed on the loop/bar grid | Placed with or without quantize (default FREE) |
 | **New loop** | **Hold OK** arms a new loop → **FS1** records it, in sync with the existing loop → on completion it saves to the next free P slot | ✅ |
 | Loops on triggers | Not needed — loops live on SONG's P1–P8. With 32 trigger slots there's no need to put loops on triggers. Hold OK on SONG simply arms a new loop. | ✅ |
-| SEQUENCE mode | Record the song **arrangement** by playing TRIG pads in time | ✅ arrangement-by-playing · 💡 placement here |
+| SEQUENCE mode | Record the song **arrangement** by playing TRIG pads in time | ✅ |
 | Samples | Moved to their own **SAMPLE** page (page 4) | ✅ |
 
 **SLDR list (default first)** — the slider follows the first item unless SLDR is set to another
@@ -303,7 +303,7 @@ The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. There is no 
 | P7 | Song key | C · C♯ · D … B (12 choices — set with the slider) | ✅ |
 | P8 | Song scale | **Major** · **Minor** · **Harmonic Minor** · **Blues** · Chromatic (tap to step through). 💡 Other modes (Dorian, Phrygian, Lydian, Mixolydian, Locrian) can be added later if wanted | ✅ |
 | ✅ | Tapping a pad with fixed choices steps through them. **In Page Options the slider automatically supplies values**, so numerical options (P5–P7) take their value from it; it returns to normal on leaving. | ✅ |
-| 💡 | Recorder pre/post **global default** moves to SYSTEM (it's a rig-wide setting), freeing a slot here | 💡 |
+| ✅ | Recorder pre/post **global default** lives in SYSTEM (Page Option P2) | ✅ |
 
 ### Drum & FM pages — shared sound rules (v0.34) ✅
 | Rule | Source |
@@ -312,7 +312,7 @@ The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. There is no 
 | Assigning uses **Assign mode** (hold OK → touch a TRIG → tap the preset), not hold-the-trigger | ✅ |
 | Triggers store a **copy** of the sound — tuning one trigger never changes the preset or other triggers | ✅ |
 | **Last touched sound is the one edited** — a preset on P1–P8 or a TRIG pad; works tune-then-assign or assign-then-tune | ✅ |
-| 💡 Tuning uses the page's **SLDR list** (pitch, decay, tone…), shared in the same order on Drum and FM where they overlap | 💡 |
+| Tuning uses the page's **SLDR list** (pitch, decay, tone…), shared in the same order on Drum and FM where they overlap | ✅ |
 | **More presets:** press-and-hold the page encoder opens the preset library (banks of 8, blinking); press loads a bank onto P1–P8. General rule: *hold the page encoder = open this page's library*. | ✅ |
 | **Save a tuned sound as a preset:** in the preset library, browse to an empty slot or NEW and press OK; overwriting asks for confirmation | ✅ |
 
@@ -388,7 +388,7 @@ Drum patterns keep running on other pages ✅ and stay in sync with the loops �
 **SLDR list (default first)** — shared order with DRUM, then FM-specific
 | # | Setting | Source |
 |---|---|---|
-| 1 (default) | Level | 💡 (matches DRUM) |
+| 1 (default) | Level | ✅ |
 | 2 | Pitch (fine tune) | ✅ |
 | 3 | Decay | ✅ |
 | 4 | Tone (brightness — the FM "index") | ✅ |
@@ -646,7 +646,7 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 | 3 | Saturation (white ↔ full colour) |
 | 4 | Speed |
 | 5 | Audio reactivity (how much the music drives the light) |
-| 6 | **Zones** → sub-layer: ALL · TOP + BOTTOM · TOP · BOTTOM ❓ (depends on how the LEDs are wired) |
+| 6 | **Zones** → sub-layer: ALL · TOP + BOTTOM · TOP · BOTTOM (the NeoPixel strip is addressable, so zones are set in software) ✅ |
 | 7 | Pattern → sub-layer of patterns |
 | then | FLTR · MIDI ✅ |
 
@@ -721,7 +721,7 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 | P7 | Which **slice effect** P7 engages | P7 list (slider) ✅ |
 | P8 | Which **video effect** P8 engages | P8 list (slider) ✅ |
 
-**Effect lists** 💡 — because the Bela talks to Resolume over MIDI, it doesn't know Resolume's effects itself. Each list is a short set of **named slots** (up to 8), each mapped once in Resolume's MIDI map to an effect you pick. Layer FX are applied to a layer; Output FX at Composition level (the final mix). 
+**Effect lists** ✅ — because the Bela talks to Resolume over MIDI, it doesn't know Resolume's effects itself. Each list is a short set of **named slots** (up to 8), each mapped once in Resolume's MIDI map to an effect you pick. Layer FX are applied to a layer; Output FX at Composition level (the final mix). 
 | P6 — Blend modes ✅ | P7 — Slice effects ✅ | P8 — Video effects ✅ |
 |---|---|---|
 | LumaKey | Fill (repeats and scales content to fill each slice) | Screen Shake (BPM-syncable output distortion) |
@@ -831,6 +831,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.81:** Housekeeping: items already decided in later rounds marked ✅ (song browsing, tap tempo, song saves everything, zones, both TRS jacks used, FM default, etc.).
 
 **v0.80:** Bank actions: CLEAR · RESTORE (defaults) · REVERT (last saved).
 
