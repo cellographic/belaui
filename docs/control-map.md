@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.82 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.83 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -94,7 +94,7 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | **MIDI in SLDR** (every page) | Slider sends a MIDI control value to the external device. Sub-layer: which control (CC) / channel, from the MIDI page's setup | ✅ |
 | Backing out of a sub-layer | CANCEL goes up one layer (when CANCEL isn't already in use); at the top layer it leaves SLDR unchanged. To clear SLDR entirely: press-and-hold CENC. | ✅ |
 | With two filters on | When a second filter is turned on (FLTR/FRZ page), FLTR's sub-layer first offers **FILTER 1 / FILTER 2**, then that filter's modes | ✅ |
-| Second filter + expression pedal | When the second filter is turned on, **Filter 2 is controlled by the expression pedal by default** ✅. ❓ 💡 While Filter 2 is on, the pedal leaves master volume; turning Filter 2 off returns the pedal to its previous assignment. |
+| Second filter + expression pedal | When the second filter is turned on, **Filter 2 is controlled by the expression pedal by default** ✅. 💡 While Filter 2 is on, the pedal leaves master volume; turning Filter 2 off returns the pedal to its previous assignment. |
 | Filter mode is shared | Choosing a mode in SLDR sets the filter itself, so FLTR/FRZ always shows the same mode | ✅ |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
 | CENC long-press | **Clears SLDR** → the slider returns to the current page's default (💡 hold time about 0.6 s, tunable) | ✅ |
@@ -192,7 +192,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 
 **💡 Proposals:**
 - ✅ **Confirm destructive pedal holds.** Store-over-existing (hold FS3) and delete (hold FS4) show "Store over SONG 4?" / "Delete SONG 4?" on the OLED; **FS1 = confirm, FS2 = cancel**.
-- ❓ **Creating a new song without a double-tap** (v0.82): 💡 the song list (pedal FS3/FS4, or hold the page encoder on SONG) includes a **NEW SONG** entry at the end; browse to it and accept (FS1, or press the page encoder) to start a new empty song. Where it goes still follows the SONG page placement option (after current / next free).
+- ✅ **Creating a new song (v0.83):** the song list's **far-left entry is NEW SONG**. Browse to it (FS3 on the pedal, or the page encoder after holding it on SONG) and accept (FS1 or press) to start a new empty song. Placement still follows the SONG page option (after current / next free).
 - ~~Double-tap timing~~ — no longer needed (no double-tap).
 - **What hold FS3 stores:** the current state into the *selected* slot. If you've cued a different song first, that's a "save as" — the confirm prompt names the target so you can't overwrite by accident.
 - **Step-back depth:** keep every layer separately so FS1 can step back through all of them. 💡 Memory estimate (not measured): ~11.5 MB per 30 s stereo layer, so roughly 20+ layers fits comfortably in the Bela Mini's RAM.
@@ -834,6 +834,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.83:** NEW SONG is the far-left entry of the song list.
 
 **v0.82:** Double-tap FS3 removed (new-song creation under review). Filter 2 defaults to the expression pedal. Screen gets a loop-position indicator.
 
