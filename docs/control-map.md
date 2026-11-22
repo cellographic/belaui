@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.91 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.92 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -592,7 +592,7 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | **FLTR** is a global slider-encoder option, so filter sweeps can be played from any page | ✅ |
 | **One freeze.** **Filters: 1 by default; a second filter can be assigned** (Page Options), each with its own source | ✅ |
 | ✅ With two filters: FLTR on the slider encoder controls Filter 1 by default (option: Filter 2 or both); each filter processes its own source side by side (parallel) | ✅ |
-| ❓ Extras not yet on the page — Scott picks 2–3 for version 1: freeze drift · freeze width · freeze tone · freeze decay · auto-freeze on new note · tempo-synced filter sweep · step filter · formant/vowel filter · comb filter · drive · sweep range. (Grain size, density, spread, pitch, fade, latch/hold, stack/replace, envelope settings and LFO rate are already on the page.) | ❓ |
+| **Extras (v0.92):** **tempo-synced sweep** and **sweep range** added for version 1 ✅. **Maybe:** step filter or formant/vowel filter as an extra filter mode — decide after the processor headroom test (formant costs more). Not planned: freeze drift, width, tone, decay, auto-freeze; comb; drive. | ✅ / ❓ |
 
 **Normal use** — rule 9 split between the two effects (option A) ✅
 | Control | Does |
@@ -615,13 +615,14 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | 5 | Filter mode → sub-layer: AutoWah · Hi Pass · Lo Pass · Band Pass · Notch |
 | 6 | Envelope sensitivity (AutoWah) |
 | 7 | Envelope speed (attack / release) |
-| 8 | LFO sweep rate |
-| 9 | Freeze level |
-| 10 | Grain size |
-| 11 | Density |
-| 12 | Spread |
-| 13 | Freeze pitch — set SLDR here for a "whammy bar" bend of a frozen sound |
-| 14 | Freeze fade in / out |
+| 8 | LFO sweep rate → sub-layer: **FREE** (any rate) · **SYNCED** to song tempo (¼ · ½ · 1 bar · 2 bars · 4 bars) ✅ v0.92 |
+| 9 | **Sweep range** → sub-layer: LOW · HIGH — sets the lowest and highest cutoff the filter sweep covers, so the whole slider travel stays in the musical zone ✅ v0.92 |
+| 10 | Freeze level |
+| 11 | Grain size |
+| 12 | Density |
+| 13 | Spread |
+| 14 | Freeze pitch — set SLDR here for a "whammy bar" bend of a frozen sound |
+| 15 | Freeze fade in / out |
 | then | FLTR · MIDI ✅ |
 
 **Page Options (8 slots)** — approved
@@ -842,6 +843,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.92:** FLTR/FRZ: tempo-synced filter sweep and sweep range added; step or formant filter maybe later.
 
 **v0.91:** Scott confirmed open suggestions 1–22 (output B routing, CENC details, expression scope, song/pedal details, bank switching, loop strip, Page Options dots, sample library, LED limit, Resolume P6, empty option slots). Freeze/filter extras: picking 2–3 for version 1.
 
