@@ -592,7 +592,7 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | **FLTR** is a global slider-encoder option, so filter sweeps can be played from any page | ✅ |
 | **One freeze.** **Filters: 1 by default; a second filter can be assigned** (Page Options), each with its own source | ✅ |
 | ✅ With two filters: FLTR on the slider encoder controls Filter 1 by default (option: Filter 2 or both); each filter processes its own source side by side (parallel) | ✅ |
-| ❓ Extra options from chat to choose from: freeze grain size, density, spread, pitch/octave, drift, width, tone, latch vs hold, fade in/out, stack vs replace, decay, auto-freeze on new note; filter LFO sweep synced to tempo, step filter, formant/vowel, comb, drive, envelope sensitivity/attack/release, sweep range | 💡 |
+| ❓ Extras not yet on the page — Scott picks 2–3 for version 1: freeze drift · freeze width · freeze tone · freeze decay · auto-freeze on new note · tempo-synced filter sweep · step filter · formant/vowel filter · comb filter · drive · sweep range. (Grain size, density, spread, pitch, fade, latch/hold, stack/replace, envelope settings and LFO rate are already on the page.) | ❓ |
 
 **Normal use** — rule 9 split between the two effects (option A) ✅
 | Control | Does |
