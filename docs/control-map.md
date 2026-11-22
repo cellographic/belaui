@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.87 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.88 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -252,7 +252,11 @@ The Elegoo screen has a yellow top band and a blue lower area.
   3. **Slider name and value** (10 px tall font, the same as the page line): name left, value right ✅
   4. **Slider bar** (10 px, 30% thinner than plan D's) ✅
   5. **Pad dots** (17 px: two rows of dots about 8 px across) mirroring the physical layout: P1–P8 · TRIG1–4 on one row, OK/CANCEL below; filled = being touched ✅
-- ❓ Where temporary text such as preset names, previews and confirmation prompts appears.
+- **Temporary text — tiered** ✅ (page line and pad dots always stay; full-screen views are separate):
+  - **Tier 1 — quick messages and unfinished assignments: auto-cancel.** Shown small in the **slider-name row**; the slider bar stays. Results ("TRIG1 = SMPL 3", "no assign here", "REC SMPL") clear after 💡 about 2 seconds; "saving…" stays until done. **An unfinished trigger assignment (? or > waiting) cancels itself after 5 seconds** with nothing changed.
+  - **Tier 2 — anything that creates, saves, overwrites, clears or deletes: waits until answered.** Shown large across the **slider-name and slider-bar rows**, blinking until answered, e.g. "OVERWRITE? Y/N", "CLEAR BK3?", "NEW SONG?", "DELETE SONG?", store / save-as, bank CLEAR / RESTORE / REVERT, SYSTEM saves. **OK = yes, CANCEL = no**; no timeout. Browsing lists (song cue, presets, MIDI setups) use the same large rows and also wait (song cue: FS1 loads, FS2 cancels).
+  - **Full-screen views** (input/output meters, tuner) use rows 2–5; the page line stays on top.
+  - **Page Options:** pad dots show each option's on/off state (filled = on); the slider-name row names the option last touched. 💡
 
 ---
 
@@ -838,6 +842,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.88:** Temporary screen text tiered: tier 1 auto-cancels (unfinished trigger assignment after 5 s); tier 2 (new, save, overwrite, clear, delete) waits for OK/CANCEL.
 
 **v0.87:** Overdub icon, blinking queued icon, fixed page-line fields, short screen names (HARP).
 
