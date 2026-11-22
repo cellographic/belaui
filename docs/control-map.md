@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.92 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.93 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -259,6 +259,15 @@ The Elegoo screen has a yellow top band and a blue lower area.
   - **Page Options:** pad dots show each option's on/off state (filled = on); the slider-name row names the option last touched. ✅
 
 ---
+
+### 💡 Signal flow (draft v0.93 — awaiting Scott's answers)
+- **Sources:** cello (input gain, EQ) · voice/mic · drums · FM synth · samples · loop playback.
+- **Effects pick their source** (each effect page's Source option). Proposed: each effect works as an **insert** on its source, and its Mix setting blends dry and processed. If several effects pick the same source, they run in a **fixed order: Filter → HARPEGGIO → Delay**. Freeze runs alongside and adds a layer.
+- **One shared reverb** takes its direct source plus every effect's and source's reverb send, and returns to the mix bus.
+- Sources no effect picks go **straight to the mix bus**.
+- **Mix bus → master volume (expression pedal) → safety limiter → Out A** (mono default) / **Out B** (any part of the mix, routed per source).
+- **Looper / recorder** taps the chosen record source pre or post effects and plays back as a source.
+- Open decisions: insert vs send · fixed effect order · LOOPS as an effect source · exact record point · ducking trigger · Out B and the reverb · master volume and limiter on B · tuner while muted · what lighting "Pulse" listens to.
 
 ## 3. The pages
 
@@ -843,6 +852,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.93:** Draft signal flow added (awaiting decisions).
 
 **v0.92:** FLTR/FRZ: tempo-synced filter sweep and sweep range added; step or formant filter maybe later.
 
