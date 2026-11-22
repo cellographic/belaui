@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.90 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.91 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -48,7 +48,7 @@ Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on 
    - The LOOP/SONG length choice is **removed**; long-form recording is the **Composition** (below).
    - Sequence data is **not permanent until saved**.
    - ✅ **SLDR moves are recorded too:** while SEQUENCE is on, slider moves through SLDR (e.g. FLTR) are recorded into the current page's sequence, even if the setting belongs to another page. SLDR stays held when you enter SEQUENCE (only press-and-hold CENC clears it).
-   - **Sequence overdubs are additive by default** (no overwrite); overwrite can be set as an option (💡 in each page's Page Options, since sequences belong to pages). · **Clear a page's sequence:** hold CANCEL in SEQUENCE mode, with confirm ✅
+   - **Sequence overdubs are additive by default** (no overwrite); overwrite can be set as an option (✅ in each page's Page Options, since sequences belong to pages). · **Clear a page's sequence:** hold CANCEL in SEQUENCE mode, with confirm ✅
 7. **Composition = the longest form in a song.** One per song. Everything performed from the start of the song: which loops play when, which sequences run, and all other events.
    - **Record:** on the SONG page, turn CENC to **COMPOSE** and press to arm (arm before the song starts if needed). Recording starts at the top of the song and stops when you **CANCEL** it or the **song stops**.
    - **Playback:** you can **play live over** a composition.
@@ -81,10 +81,10 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | **SLIDER** | **Has a default target on every page**, plus a list of alternate targets per page. | ✅ |
 | CENC turn | Move through the Control Encoder list (PAGE OPTIONS · SEQUENCE · … · SLDR); the item under the knob **blinks** | ✅ |
 | CENC press | Enter / confirm the blinking item | ✅ |
-| CANCEL during CENC preview | Abandon the preview, keep the current target (same as the page encoder) | 💡 |
+| CANCEL during CENC preview | Abandon the preview, keep the current target (same as the page encoder) | ✅ |
 | **Page encoder wraps around** (no end stops). Power-up and loading a song land on **SONG** (page 1); **SYSTEM** (last page) is one click to the left. Turning right is the normal performance direction. | ✅ |
-| **Control encoder (CENC) list, left to right:** **PAGE OPTIONS** · **SEQUENCE** · (SONG only: **COMPOSE** 💡) · **BANK** · **EXPRESSION** · **SLDR**. CENC stops at both ends. There is **no separate list of slider targets**: each page's default and alternatives live inside **SLDR**. Positions of SEQUENCE, COMPOSE and BANK are 💡 proposals. | ✅ / 💡 |
-| **BANK** (on every page's CENC) | Press → turn through TRIG banks 1–8 (each **blinking**) → press to select. Switch banks from any page mid-performance. Position: between the modes and EXPRESSION (see the Control Encoder list) | ✅ (💡 position) |
+| **Control encoder (CENC) list, left to right:** **PAGE OPTIONS** · **SEQUENCE** · (SONG only: **COMPOSE** ✅) · **BANK** · **EXPRESSION** · **SLDR**. CENC stops at both ends. There is **no separate list of slider targets**: each page's default and alternatives live inside **SLDR**. Positions of SEQUENCE, COMPOSE and BANK are 💡 proposals. | ✅ / 💡 |
+| **BANK** (on every page's CENC) | Press → turn through TRIG banks 1–8 (each **blinking**) → press to select. Switch banks from any page mid-performance. Position: between the modes and EXPRESSION (see the Control Encoder list) | ✅ |
 | **Global slider-encoder options** (on every page): **BANK**, **EXPRESSION**, **SLDR** (FLTR and MIDI are now inside SLDR). **MIDI** = the slider sends a MIDI control value to the external device from any page. | ✅ |
 | ~~CTRL~~ | Scrapped (v0.38). | ✅ |
 | **SLDR** (far right of CENC) | Holds the slider's assignment. **Unset = the current page's default.** Set it (SLDR flow) to put the slider on any setting from that page's SLDR list; it then stays there **on every page** until **cleared** (press-and-hold CENC), which returns the slider to each page's default. | ✅ |
@@ -94,10 +94,10 @@ Having one consistent "grammar" means your hands learn the instrument once, and 
 | **MIDI in SLDR** (every page) | Slider sends a MIDI control value to the external device. Sub-layer: which control (CC) / channel, from the MIDI page's setup | ✅ |
 | Backing out of a sub-layer | CANCEL goes up one layer (when CANCEL isn't already in use); at the top layer it leaves SLDR unchanged. To clear SLDR entirely: press-and-hold CENC. | ✅ |
 | With two filters on | When a second filter is turned on (FLTR/FRZ page), FLTR's sub-layer first offers **FILTER 1 / FILTER 2**, then that filter's modes | ✅ |
-| Second filter + expression pedal | When the second filter is turned on, **Filter 2 is controlled by the expression pedal by default** ✅. 💡 While Filter 2 is on, the pedal leaves master volume; turning Filter 2 off returns the pedal to its previous assignment. |
+| Second filter + expression pedal | When the second filter is turned on, **Filter 2 is controlled by the expression pedal by default** ✅. ✅ While Filter 2 is on, the pedal leaves master volume; turning Filter 2 off returns the pedal to its previous assignment. |
 | Filter mode is shared | Choosing a mode in SLDR sets the filter itself, so FLTR/FRZ always shows the same mode | ✅ |
 | **FLTR** | The slider plays the filter sweep set up on the FLTR/FRZ page, from any page | ✅ |
-| CENC long-press | **Clears SLDR** → the slider returns to the current page's default (💡 hold time about 0.6 s, tunable) | ✅ |
+| CENC long-press | **Clears SLDR** → the slider returns to the current page's default (hold time about 0.6 s ✅, fine-tuned on the hardware) | ✅ |
 | OK / CANCEL | Reserved for confirmations (store, clear) and CANCEL-during-preview — never used for slider targets | ✅ |
 | P6–P8 | Page-specific switches and actions (on/off, tap, latch, trigger) | ✅ |
 | TRIG1–TRIG4 | **Persistent triggers** — work on every page. Default: TRIG1 = kick, TRIG2 = snare, TRIG3 = hi-hat, TRIG4 = open hat. Each can hold a sample, a synth note, or a **stored sequence**, and works on every page. | ✅ |
@@ -162,11 +162,11 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | Enter | Press CENC → the arming marker appears on the OLED | ✅ |
 | Choose | Turn CENC left; each notch blinks the next control the pedal could take over | ✅ |
 | Assign | Press CENC → that control is assigned to the expression pedal and goes solid | ✅ |
-| Leave without changing | 💡 CANCEL | 💡 |
-| Save to the song | 💡 Same as Page Options: unsaved marker until OK stores it | 💡 |
+| Leave without changing | CANCEL | ✅ |
+| Save to the song | Same as Page Options: unsaved marker until OK stores it | ✅ |
 | Default target | Expression pedal = **master output volume** | ✅ |
 | Other targets | Chosen here — anything the slider can control (the same "variable output" list) | ✅ |
-| 💡 Scope | Expression assignment is global (works on every page) and saved with the song, so master volume never depends on which page you're on | 💡 ❓ |
+| Scope | Expression assignment is global (works on every page) and saved with the song, so master volume never depends on which page you're on | ✅ |
 | Hardware | An expression pedal in one of the Ampero Control's 2 TRS jacks (max 10 kΩ pot); it reaches the Bela as MIDI | ✅ |
 | Second jack | Used by the **freeze footswitch**, so both TRS jacks are taken (expression + freeze) | ✅ |
 
@@ -188,14 +188,14 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | Starting a take (not currently recording) | Nothing new is recorded, and the previous layer is erased (step back). If this was the first recording, loop recording is cancelled. Repeat to step back further. | ✅ |
 | Ending a take (currently recording) | The take you just made is erased; earlier layers stay | ✅ |
 
-**Song switching:** default = at the end of the loop ✅. Alternatives "end of bar" and "immediate" are a Page Option on the SONG page ✅. 💡 If nothing is playing, the song loads immediately.
+**Song switching:** default = at the end of the loop ✅. Alternatives "end of bar" and "immediate" are a Page Option on the SONG page ✅. ✅ If nothing is playing, the song loads immediately.
 
-**💡 Proposals:**
+**Pedal song-management details:**
 - ✅ **Confirm destructive pedal holds.** Store-over-existing (hold FS3) and delete (hold FS4) show "Store over SONG 4?" / "Delete SONG 4?" on the OLED; **FS1 = confirm, FS2 = cancel**.
 - ✅ **Creating a new song (v0.83):** the song list's **far-left entry is NEW SONG**. Browse to it (FS3 on the pedal, or the page encoder after holding it on SONG) and accept (FS1 or press) to start a new empty song. Placement still follows the SONG page option (after current / next free).
 - ~~Double-tap timing~~ — no longer needed (no double-tap).
-- **What hold FS3 stores:** the current state into the *selected* slot. If you've cued a different song first, that's a "save as" — the confirm prompt names the target so you can't overwrite by accident.
-- **Step-back depth:** keep every layer separately so FS1 can step back through all of them. 💡 Memory estimate (not measured): ~11.5 MB per 30 s stereo layer, so roughly 20+ layers fits comfortably in the Bela Mini's RAM.
+- ✅ **What hold FS3 stores:** the current state into the *selected* slot. If you've cued a different song first, that's a "save as" — the confirm prompt names the target so you can't overwrite by accident.
+- ✅ **Step-back depth:** keep every layer separately so FS1 can step back through all of them. 💡 Memory estimate (not measured): ~11.5 MB per 30 s stereo layer, so roughly 20+ layers fits comfortably in the Bela Mini's RAM.
 - **Saving audio during a show:** writing recordings to the SD card happens in the background so audio never glitches; the OLED shows "saving…" until done.
 - **Pedal setup:** switches in *momentary* mode (sends press + release); Bela times holds itself.
 - **Connection:** USB to start (most reliable); Bluetooth adapter optional later.
@@ -217,7 +217,7 @@ Earlier (v0.6): taps fire on **release**, so a press-and-hold never triggers by 
 | **TRIG banks.** On the SONG page, **P1–P8 choose the active bank** (1–8). The current bank number shows on the OLED (💡 on the top line, e.g. "BK3"). | ✅ |
 | **8 banks × 4 TRIG pads = 32 trigger slots** | ✅ |
 | **Bank 8 defaults to loop tricks:** TRIG1 = reverse, TRIG2 = half speed, TRIG3 = stutter; TRIG4 reserved for another loop effect. Each trick is **tap on / tap off**. They can be overwritten if the slots are needed. As triggers they work from any page and can be recorded as sequences. | ✅ |
-| 💡 Switching banks changes what the pads trigger **next**; anything already playing keeps playing until stopped | 💡 |
+| ✅ Switching banks changes what the pads trigger **next**; anything already playing keeps playing until stopped | ✅ |
 | **Bank 1 defaults to drums** (kick, snare, hat, open hat). 💡 Banks 2–7 start empty. | ✅ |
 
 ### Displaced by T4/T5 → TRIG3/TRIG4 (v0.9) — need new homes or can be dropped
@@ -248,15 +248,15 @@ The Elegoo screen has a yellow top band and a blue lower area.
 - **Screen layout (v0.84, "A + D hybrid")** ✅ — five rows, top to bottom, 57 px of content plus 7 px of gaps = 64 (v0.85 heights; confirm on the actual screen):
   1. **Page line** (10 px tall font, 6 px wide): **transport icon** first (8 px: ● filled = recording · ○ outlined = overdubbing · ▶ play · ■ stop; **blinks while queued** — e.g. a record queued while the previous loop is still playing blinks ● until it starts) ✅ plus 2 px gap, leaving 19 characters for page name, switching to the chosen sub-item (e.g. DELAY/PING) · bank · markers (armed ?, >, unsaved *) ✅. ✅ Fixed fields so nothing jumps around: page/sub-item 12 characters (longer names cut off) · space · bank 3 · space · markers 2.
      - **Short screen names** so page + sub-item fit 12 characters: HARPEGGIO shows as **HARP** ✅. ✅ Full set: SONG · DRUM · FM · SMPL · DELAY · VERB · HARP · FLTR · LIGHT · RSLM · MIDI · SYS (full page names stay as they are everywhere else).
-  2. **Loop strip** (10 px, the same thickness as the slider bar) ✅: spaced into **measures from the SONG page's beats-per-bar and bars-per-loop settings**, with a small gap between beats and a wider gap between bars. Played beats are filled and the rest are outlined. 💡 Above about 32 beats (e.g. more than 8 bars of 4/4) the beats get too thin, so the strip switches to one block per bar that fills smoothly.
+  2. **Loop strip** (10 px, the same thickness as the slider bar) ✅: spaced into **measures from the SONG page's beats-per-bar and bars-per-loop settings**, with a small gap between beats and a wider gap between bars. Played beats are filled and the rest are outlined. ✅ Above about 32 beats (e.g. more than 8 bars of 4/4) the beats get too thin, so the strip switches to one block per bar that fills smoothly.
   3. **Slider name and value** (10 px tall font, the same as the page line): name left, value right ✅
   4. **Slider bar** (10 px, 30% thinner than plan D's) ✅
   5. **Pad dots** (17 px: two rows of dots about 8 px across) mirroring the physical layout: P1–P8 · TRIG1–4 on one row, OK/CANCEL below; filled = being touched ✅
 - **Temporary text — tiered** ✅ (page line and pad dots always stay; full-screen views are separate):
   - **Tier 1 — quick messages and unfinished assignments: auto-cancel.** Shown small in the **slider-name row**; the slider bar stays. Results ("TRIG1 = SMPL 3", "no assign here", "REC SMPL") clear after **2.5 seconds** ✅; "saving…" stays until done. **An unfinished trigger assignment (? or > waiting) cancels itself after 5 seconds** with nothing changed.
-  - **Tier 2 — anything that creates, saves, overwrites, clears or deletes: waits until answered.** Shown large across the **slider-name and slider-bar rows**, blinking until answered, e.g. "OVERWRITE? Y/N", "CLEAR BK3?", "NEW SONG?", "DELETE SONG?", store / save-as, bank CLEAR / RESTORE / REVERT, SYSTEM saves. **OK = yes, CANCEL = no**; no timeout. Browsing lists (song cue, presets, MIDI setups) use the same large rows and also wait (song cue: FS1 loads, FS2 cancels).
+  - **Tier 2 — anything that creates, saves, overwrites, clears or deletes: waits until answered.** Shown large across the **slider-name and slider-bar rows**, blinking until answered, e.g. "OVERWRITE? Y/N", "CLEAR BK3?", "NEW SONG?", "DELETE SONG?", store / save-as, bank CLEAR / RESTORE / REVERT, SYSTEM saves. **OK or FS1 = yes, CANCEL or FS2 = no** (whichever is nearer); no timeout. Browsing lists (song cue, presets, MIDI setups) use the same large rows and also wait (song cue: FS1 loads, FS2 cancels).
   - **Full-screen views** (input/output meters, tuner) use rows 2–5; the page line stays on top.
-  - **Page Options:** pad dots show each option's on/off state (filled = on); the slider-name row names the option last touched. 💡
+  - **Page Options:** pad dots show each option's on/off state (filled = on); the slider-name row names the option last touched. ✅
 
 ---
 
@@ -299,7 +299,7 @@ The pedal handles record / stop / song navigate / store / create / delete from e
 | 1 | On the **SONG** page (or while previewing it), **press and hold** the page encoder | The song list appears, **blinking** |
 | 2 | Turn the page encoder to browse | Each song name blinks |
 | 3 | Press the page encoder again | Name stops blinking (loaded/cued); the new song begins when the current song's loop completes (per the song-switch timing option) |
-| Back out | 💡 CANCEL | Current song keeps playing |
+| Back out | CANCEL ✅ | Current song keeps playing |
 The pedal (FS3/FS4 browse, FS1 load, FS2 cancel) uses the same cue. There is no separate SONGS page — song browsing is part of SONG. A short press on SONG works as normal (locks in the page); press-and-hold opens the song list. Page ring unchanged: SYSTEM sits immediately left of SONG.
 
 **Page Options (8 slots)**
@@ -468,7 +468,7 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 | P7 | Record source | **CELLO** (default) · VOICE · BOTH · FULL MIX |
 | P8 | Record before / after effects | PRE · **POST** (default ✅ — recorder captures post-effects by default) |
 💡 Length: my estimate is about 11.5 MB of memory per minute of mono sample (not measured); long samples are fine but are written to the SD card in the background.
-**Sample library on the SD card** ✅: the card carries a sample library, including at least **one full default set** that preloads into new songs. 💡 Details: the default set is chosen in SYSTEM; songs **reference** library files (trim/pitch etc. saved as settings) and only newly recorded samples are saved as new audio; library files should match Bela's audio format (my understanding: 44.1 kHz WAV — to verify); large sets load in the background.
+**Sample library on the SD card** ✅: the card carries a sample library, including at least **one full default set** that preloads into new songs. ✅ Details: the default set is chosen in SYSTEM; songs **reference** library files (trim/pitch etc. saved as settings) and only newly recorded samples are saved as new audio; library files should match Bela's audio format (my understanding: 44.1 kHz WAV — to verify); large sets load in the background.
 
 ### Page 5 — DELAY ✅ (approved v0.56)
 **Normal use** (layout per standing rule 9)
@@ -591,8 +591,8 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | Filter modes: auto-wah (envelope follower) or sweeps (low-pass, high-pass, band-pass, notch, others) — set up here | ✅ |
 | **FLTR** is a global slider-encoder option, so filter sweeps can be played from any page | ✅ |
 | **One freeze.** **Filters: 1 by default; a second filter can be assigned** (Page Options), each with its own source | ✅ |
-| 💡 With two filters: FLTR on the slider encoder controls Filter 1 by default (option: Filter 2 or both); each filter processes its own source side by side (parallel) | 💡 |
-| 💡 Extra options from chat to choose from: freeze grain size, density, spread, pitch/octave, drift, width, tone, latch vs hold, fade in/out, stack vs replace, decay, auto-freeze on new note; filter LFO sweep synced to tempo, step filter, formant/vowel, comb, drive, envelope sensitivity/attack/release, sweep range | 💡 |
+| ✅ With two filters: FLTR on the slider encoder controls Filter 1 by default (option: Filter 2 or both); each filter processes its own source side by side (parallel) | ✅ |
+| ❓ Extra options from chat to choose from: freeze grain size, density, spread, pitch/octave, drift, width, tone, latch vs hold, fade in/out, stack vs replace, decay, auto-freeze on new note; filter LFO sweep synced to tempo, step filter, formant/vowel, comb, drive, envelope sensitivity/attack/release, sweep range | 💡 |
 
 **Normal use** — rule 9 split between the two effects (option A) ✅
 | Control | Does |
@@ -679,7 +679,7 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 | Length used | ~3 m (10 ft) cut from the reel; the rest is spare | ✅ |
 | Replaces | The current single-circuit interior strip (can't do zones) | ✅ |
 | Zones | Set in software along the one strip (top / bottom / all) | ✅ |
-| Power | **Its own Voltaic V50** (POWER B) ✅. 💡 Strip on the V50's USB-C port (rated 5 V / 3.6 A); the **Brightness limit** (Lighting Page Option P4) defaults to keep the strip under that. Full white at 3 m could otherwise reach ~4–5 A (estimate). Never above 6 V. | ✅ / 💡 |
+| Power | **Its own Voltaic V50** (POWER B) ✅. 💡 Strip on the V50's USB-C port (rated 5 V / 3.6 A); the **Brightness limit** (Lighting Page Option P4) defaults to keep the strip under that ✅ (port current still to verify). Full white at 3 m could otherwise reach ~4–5 A (estimate). Never above 6 V. | ✅ / 💡 |
 | Grounds | 💡 The two packs' grounds must be joined so the LED data signal has a common reference (verify when wiring) | 💡 |
 | Runtime (estimate) | 💡 LED pack ~4 h at typical colourful use; Bela pack much longer. Not measured. | 💡 |
 | Control | 💡 WS2812 needs precise timing, so a **small microcontroller** between the Bela and the strip (Bela sends it scene/colour commands) ❓ which board | 💡 ❓ |
@@ -744,7 +744,7 @@ Controls Resolume (7.26) on the video computer: clips, columns, effects and temp
 | Difference | Bypass (cuts out slices) | Reducto (lo-fi / colour reduction) |
 | Exclusion | Solo (isolates slices) | Total Visual Annihilation (glitch / scanlines) |
 ❓ To verify in Resolume: whether the slice settings (P7) and any third-party plugins in P8 can be mapped to MIDI.
-💡 P6 "off" returns the layer to its normal blend (Alpha).
+✅ P6 "off" returns the layer to its normal blend (Alpha).
 
 ### Page 11 — MIDI (song-specific) ✅ (approved v0.75)
 For controlling **external devices** thoroughly and intentionally; saved **per song** ✅. Channels 1–10 ✅. Device/port setup lives in SYSTEM ✅. Sends through the **WIDI Core** wireless hub ✅.
@@ -818,7 +818,7 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 | P4 | CPU meter on screen | **OFF** (default) · ON |
 | P5 | Unsaved-changes reminder when loading another song | **ON** (default) · OFF |
 | P6 | Safety limiter on the main output | **ON** (default) · OFF ✅ (from the rig map) |
-| P7 | Main output | **Two audio outputs, A and B.** Default: **mono from output A** ✅ (stereo is an option). Any part of the mix can be routed to **output B**, e.g. samples, drums and synths on B while loops and live cello stay on A ✅. ❓ Where the B routing is set and whether it's saved per song or rig-wide |
+| P7 | Main output | **Two audio outputs, A and B.** Default: **mono from output A** ✅ (stereo is an option). Any part of the mix can be routed to **output B**, e.g. samples, drums and synths on B while loops and live cello stay on A ✅. The B routing default is set in SYSTEM; each song can override it ✅ |
 | P8 | free | — |
 
 ---
@@ -834,7 +834,7 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 7. Touch velocity from pad touch size — feel test.
 
 **Still to decide**
-8. Free Page Option slots on several pages — fill later or leave empty.
+8. Free Page Option slots on several pages — **leave empty for version 1** ✅.
 
 ---
 
@@ -842,6 +842,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.91:** Scott confirmed open suggestions 1–22 (output B routing, CENC details, expression scope, song/pedal details, bank switching, loop strip, Page Options dots, sample library, LED limit, Resolume P6, empty option slots). Freeze/filter extras: picking 2–3 for version 1.
 
 **v0.90:** Output default is mono from output A; any part of the mix can be routed to output B.
 
