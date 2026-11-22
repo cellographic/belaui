@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.89 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.90 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -818,7 +818,7 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 | P4 | CPU meter on screen | **OFF** (default) · ON |
 | P5 | Unsaved-changes reminder when loading another song | **ON** (default) · OFF |
 | P6 | Safety limiter on the main output | **ON** (default) · OFF ✅ (from the rig map) |
-| P7 | Main output | MONO · STEREO ✅ (from the rig map; default ❓) |
+| P7 | Main output | **Two audio outputs, A and B.** Default: **mono from output A** ✅ (stereo is an option). Any part of the mix can be routed to **output B**, e.g. samples, drums and synths on B while loops and live cello stay on A ✅. ❓ Where the B routing is set and whether it's saved per song or rig-wide |
 | P8 | free | — |
 
 ---
@@ -842,6 +842,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.90:** Output default is mono from output A; any part of the mix can be routed to output B.
 
 **v0.89:** Tier 1 results clear after 2.5 seconds.
 
