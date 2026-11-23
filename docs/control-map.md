@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.93 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.94 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -260,14 +260,18 @@ The Elegoo screen has a yellow top band and a blue lower area.
 
 ---
 
-### 💡 Signal flow (draft v0.93 — awaiting Scott's answers)
+### ✅ Signal flow (v0.94)
 - **Sources:** cello (input gain, EQ) · voice/mic · drums · FM synth · samples · loop playback.
-- **Effects pick their source** (each effect page's Source option). Proposed: each effect works as an **insert** on its source, and its Mix setting blends dry and processed. If several effects pick the same source, they run in a **fixed order: Filter → HARPEGGIO → Delay**. Freeze runs alongside and adds a layer.
-- **One shared reverb** takes its direct source plus every effect's and source's reverb send, and returns to the mix bus.
+- **Effects are inserts on the source they pick** ✅: each effect page's Source option chooses what it processes, and its **Mix blends dry and processed** (an auto-wah at 100% replaces the dry cello). Source lists gain **LOOPS** as a choice ✅.
+- **Fixed order when effects share a source** ✅: **Filter → HARPEGGIO → Delay**. Freeze runs alongside and adds a layer.
+- **One shared reverb** takes its direct source plus every reverb send, and returns to the mix bus. With some sources on Out B, the reverb plays from **Out A by default**, with an option to follow its sources ✅.
 - Sources no effect picks go **straight to the mix bus**.
-- **Mix bus → master volume (expression pedal) → safety limiter → Out A** (mono default) / **Out B** (any part of the mix, routed per source).
-- **Looper / recorder** taps the chosen record source pre or post effects and plays back as a source.
-- Open decisions: insert vs send · fixed effect order · LOOPS as an effect source · exact record point · ducking trigger · Out B and the reverb · master volume and limiter on B · tuner while muted · what lighting "Pulse" listens to.
+- **Mix bus → master volume (expression pedal) → safety limiter → outputs.** Master volume covers **both outputs**, and **each output has its own safety limiter** ✅.
+- **Outputs** ✅: **MONO** (default): everything on **Out A**, and any part of the mix (e.g. samples, drums, synths) can be routed to **Out B**; stereo sounds are folded to mono. **STEREO** mode (option) for stereo effects: Out A = left, Out B = right. 💡 The Bela Mini has two audio outputs, so in stereo mode both carry the stereo mix and per-source Out B routing is unavailable.
+- **Recorder "POST"** records **after effects and reverb, before master volume and the limiter**, so the volume pedal is never baked into a loop ✅. "PRE" records the raw input.
+- **Ducking** listens to the **live cello and voice inputs** ✅.
+- **Mute cello** mutes the cello's **output only**. The tuner still hears the input, so you can tune silently ✅.
+- Lighting does **not** follow the audio (see LIGHTING: Pulse is pad-triggered) ✅.
 
 ## 3. The pages
 
@@ -509,7 +513,7 @@ Samples are a **custom instrument** for recording and triggering sounds on the f
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
 | P2 | Time follows song tempo | **SYNC** (default) · FREE |
 | P3 | Sync division | 1/4 · **1/8** · dotted 1/8 · 1/8 triplet · 1/16 … (slider) |
-| P4 | Source (what feeds the delay) | **CELLO** (default) · VOICE · SAMPLES · DRUMS · FM · MIX |
+| P4 | Source (what feeds the delay) | **CELLO** (default) · VOICE · SAMPLES · LOOPS · DRUMS · FM · MIX |
 | P5 | Recorder takes this pre/post delay | PRE · **POST** (default) ✅ (decided per page) |
 | P6 | Repeats when turned off | **SPILL OVER** (default — tails ring out) · CUT |
 | P7 | free | — |
@@ -543,7 +547,7 @@ The **one shared reverb**: every effect can send into it ✅. 💡 Processor not
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
-| P2 | Direct source (what feeds the reverb besides effect sends) | **CELLO** (default) · VOICE · SAMPLES · DRUMS · FM · MIX · NONE |
+| P2 | Direct source (what feeds the reverb besides effect sends) | **CELLO** (default) · VOICE · SAMPLES · LOOPS · DRUMS · FM · MIX · NONE |
 | P3 | Tails when turned off | **RING OUT** (default) · CUT |
 | P4 | Pre-delay follows song tempo | **OFF** (default) · ON |
 | P5 | Recorder takes this pre/post reverb | PRE · **POST** (default) ✅ |
@@ -587,7 +591,7 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | P4 | Tuning | **JUST** (default — rational ratios) · EQUAL (piano tuning) ✅ |
 | P5 | Recorder takes this pre/post harpeggio | PRE · **POST** (default) ✅ |
 | P6 | Number of harmony voices | 1 · **2** (default) · 3 |
-| P7 | Source | **CELLO** (default) · VOICE · SAMPLES · FM · MIX |
+| P7 | Source | **CELLO** (default) · VOICE · SAMPLES · LOOPS · FM · MIX |
 | P8 | **Ducking** | **OFF** (default) · ON ✅ |
 💡 Expectation (not tested): delay-based shifting gets more "warbly" toward ±1 octave — worth hearing early.
 
@@ -638,8 +642,8 @@ Root note (the cello) plus **up to 3 harmony notes**, each from 1 octave below t
 | Pad | Option | Choices |
 |---|---|---|
 | P1 | Sequence overdub | **ADD** (default) · OVERWRITE ✅ |
-| P2 | Filter source | **CELLO** (default) · VOICE · SAMPLES · DRUMS · FM · MIX ✅ (selectable) |
-| P3 | Freeze source | **CELLO** (default) · VOICE · SAMPLES · MIX ✅ (selectable) |
+| P2 | Filter source | **CELLO** (default) · VOICE · SAMPLES · LOOPS · DRUMS · FM · MIX ✅ (selectable) |
+| P3 | Freeze source | **CELLO** (default) · VOICE · SAMPLES · LOOPS · MIX ✅ (selectable) |
 | P4 | Second filter | **OFF** (default) · ON ✅ |
 | P5 | Freeze footswitch | **HOLD** (default) ✅ · LATCH (tap on / tap off) |
 | P6 | New freeze | **REPLACE** (default) · STACK |
@@ -654,7 +658,7 @@ Internal cello LEDs are the priority ✅; stage DMX maybe later ✅.
 | Control | Does |
 |---|---|
 | P1 | Lights **on / off** (blackout) |
-| P2–P5 | **Scene presets:** **Show glow** (whole cello, for before/after shows) · **Projection fill** (top and bottom only, dim, for during shows) · **Pulse** (reacts to the music) · **Percussive** (flashes on hits) |
+| P2–P5 | **Scene presets:** **Show glow** (whole cello, for before/after shows) · **Projection fill** (top and bottom only, dim, for during shows) · **Pulse** (a light pulse fired from a pad, so it can be played live or recorded into a sequence; not audio-reactive ✅) · **Percussive** (flashes on hits) |
 | P6 | **Flash** while held |
 | P7 | **Strobe** while held |
 | P8 | **Colour jump** — steps to the next colour of the scene |
@@ -798,7 +802,7 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 **Normal use**
 | Control | Does |
 |---|---|
-| P1 | Mute cello input |
+| P1 | Mute cello (**output only**; the tuner still hears the input, for silent tuning) ✅ |
 | P2 | Mute voice input |
 | P3 | **Tuner** on / off (shown on the OLED) |
 | P4 | Screen shows input meters on / off |
@@ -828,7 +832,7 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 | P4 | CPU meter on screen | **OFF** (default) · ON |
 | P5 | Unsaved-changes reminder when loading another song | **ON** (default) · OFF |
 | P6 | Safety limiter on the main output | **ON** (default) · OFF ✅ (from the rig map) |
-| P7 | Main output | **Two audio outputs, A and B.** Default: **mono from output A** ✅ (stereo is an option). Any part of the mix can be routed to **output B**, e.g. samples, drums and synths on B while loops and live cello stay on A ✅. The B routing default is set in SYSTEM; each song can override it ✅ |
+| P7 | Main output | **Two audio outputs, A and B.** Default: **mono from output A** ✅; **STEREO** mode (A = left, B = right) is an option for stereo effects ✅. Any part of the mix can be routed to **output B**, e.g. samples, drums and synths on B while loops and live cello stay on A ✅. The B routing default is set in SYSTEM; each song can override it ✅ |
 | P8 | free | — |
 
 ---
@@ -852,6 +856,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.94:** Signal flow decided: effects are inserts, fixed order Filter → HARPEGGIO → Delay, LOOPS added as an effect source, POST records before master volume, ducking from live inputs, limiter per output, stereo mode uses A/B as left/right, mute cello is output-only, lighting Pulse is pad-triggered.
 
 **v0.93:** Draft signal flow added (awaiting decisions).
 
