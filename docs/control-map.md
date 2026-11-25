@@ -261,6 +261,7 @@ The Elegoo screen has a yellow top band and a blue lower area.
 ---
 
 ### ✅ Signal flow (v0.94)
+Diagram: [signal flow whiteboard](https://claude.ai/artifact/XfevBPWkEqizjiRHUdgPbF)
 - **Sources:** cello (input gain, EQ) · voice/mic · drums · FM synth · samples · loop playback.
 - **Effects are inserts on the source they pick** ✅: each effect page's Source option chooses what it processes, and its **Mix blends dry and processed** (an auto-wah at 100% replaces the dry cello). Source lists gain **LOOPS** as a choice ✅.
 - **Fixed order when effects share a source** ✅: **Filter → HARPEGGIO → Delay**. Freeze runs alongside and adds a layer.
