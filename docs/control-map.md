@@ -1,4 +1,4 @@
-# Cellographic Bela UI — Control Map (v0.94 — all pages defined)
+# Cellographic Bela UI — Control Map (v0.95 — all pages defined)
 
 **Status:** all 12 pages approved by Scott (v0.77). Items marked ❓ under "Open items" are to verify while building.
 
@@ -33,6 +33,8 @@
 Total capacitive pads: 14 (P1–P5, P6–P8, TRIG1–TRIG4, OK, CANCEL), all on one Trill Craft (30 channels available). Slider is the Trill Flex.
 
 ---
+
+**Pad order** ✅ (v0.95): on the left rib **P5 is nearest the neck**, then P4, P3, P2, with **P1 furthest** from the neck. On the corner piece **P6 is nearest the back edge** (toward the player), P7 in the middle, **P8 nearest the face**. Etched symbols: see the UI etching package.
 
 ## 2. The grammar (the same on every page)
 
@@ -857,6 +859,8 @@ Set-and-forget settings for the instrument itself, saved with the hand **OK / CA
 History notes describe what changed at the time; later versions can override them (e.g. CTRL, added in v0.24, was scrapped in v0.38).
 
 **v0.59:** Version notes moved here from the top of the document; title updated; a leftover v0.24.1 note about CTRL removed (CTRL was scrapped in v0.38).
+
+**v0.95:** Pad order recorded: P5 nearest the neck, P1 furthest; P6 at the back edge, P8 at the face.
 
 **v0.94:** Signal flow decided: effects are inserts, fixed order Filter → HARPEGGIO → Delay, LOOPS added as an effect source, POST records before master volume, ducking from live inputs, limiter per output, stereo mode uses A/B as left/right, mute cello is output-only, lighting Pulse is pad-triggered.
 
